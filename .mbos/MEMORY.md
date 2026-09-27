@@ -69,3 +69,13 @@
   - Las microcopias, etiquetas, chips y datos secundarios se elevaron a 12-14px (`text-xs sm:text-sm font-semibold` o `font-bold`).
   - Los campos de entrada (`<input>`, `<select>`) se fijaron en 16px (`text-base`) para evitar el molesto auto-zoom de iOS Safari en iPhones al tocar los formularios.
   - Los títulos de tarjetas, acordeón FAQ y botones de acción se ampliaron para cumplir los estándares de áreas de toque ergonómicas (mínimo 48px).
+
+## [2026-09-27] - Corrección de Percepción Visual Móvil: Eliminación de Padding Anidado y Despeje de Viewport
+- **Diagnóstico del Efecto "Muñeca Rusa" (Russian Doll):**
+  - Aunque los textos ya estaban en 14-16px, la percepción en móvil seguía viéndose diminuta. La causa raíz fue la acumulación de 4 capas de paddings anidados (`px-4` + `p-6` + `p-6` + `p-5`), reduciendo el ancho utilizable a escasos 220px y forzando saltos de línea cada 2 palabras (apariencia de maqueta en miniatura).
+- **Acciones Correctivas de Grado Industria:**
+  - Reducción de paddings envolventes en móvil a `p-3.5 sm:p-8`, recuperando más de 50px de espacio útil en la pantalla del teléfono.
+  - Eliminación de la colisión entre el Toast de notificaciones y el botón flotante de WhatsApp mediante `hidden sm:flex`, liberando el tercio inferior del teléfono para navegación táctil sin obstáculos.
+  - Simplificación del ticker superior en móvil a una sola línea limpia y centrada, eliminando ruido visual antes del encabezado.
+  - Pestañas de Showcase rediseñadas con botones táctiles simétricos (`grid grid-cols-2`) para fácil accionamiento con el pulgar.
+  - Escalado de títulos y textos en el simulador a `text-xl sm:text-2xl font-black` y `text-base` para una lectura amplia y contundente sin efecto de reducción.
