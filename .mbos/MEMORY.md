@@ -22,3 +22,12 @@
 ### 3. Activos Vinculados
 - Logotipo oficial 3D ubicado en `assets/logo.png`.
 - Repositorio conectado a la organización matriz `isapromord-eng`.
+
+## [2026-09-27] - Despliegue de Arquitectura Base e Inicialización de Control de Versiones
+- **Archivos Nucleares Generados:**
+  - `index.html`: Estructura semántica completa con microdatos Schema.org, Geo-metatags dominicanos, simulador interactivo de visibilidad en Google Maps, cuadrícula de servicios, acordeón FAQ y botón flotante de WhatsApp.
+  - `robots.txt`: Directivas específicas para Googlebot y Bingbot con referencia a `sitemap.xml`.
+  - `sitemap.xml`: Mapa del sitio XML canónico con metadatos de imagen para indexación prioritaria.
+  - `.mbos/HANDOFF.md`: Hoja de ruta para conexión DNS y Google Search Console.
+- **Control de Versiones:** Repositorio Git local inicializado con commit raíz `87ef012`.
+
