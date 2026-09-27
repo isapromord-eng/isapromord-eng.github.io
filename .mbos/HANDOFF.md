@@ -2,49 +2,58 @@
 
 > **Nodo MBOS:** `isapromord.com`  
 > **Última Actualización:** 2026-09-27  
-> **Estado del Sistema:** Arquitectura y Assets reconstruidos. Listo para despliegue y configuración de Google Search Console.
+> **Repositorio Oficial:** [https://github.com/isapromord-eng/isapromord.com](https://github.com/isapromord-eng/isapromord.com)  
+> **Estado del Sistema:** Repositorio en GitHub creado, GitHub Pages activo con CNAME configurado. Listo para apuntar DNS y verificar en Google Search Console.
 
 ---
 
 ## 1. RESUMEN EJECUTIVO
 - **Dominio:** `isapromord.com`
-- **Diagnóstico Previo:** Anteriormente hosteado en Netlify; el servicio expiró y fue removido. El proyecto está siendo re-diseñado y construido desde cero con un stack moderno, ultrarrápido y enfocado al 100% en dominancia de **SEO Local**, Google Business Profile, Schema.org estructurado y alta conversión móvil en República Dominicana.
-- **Identidad Visual:** Logo 3D monitor + megáfono (`assets/logo.png`), paleta Indigo/Electric Blue (`#2563EB`) y Amber (`#F59E0B`), tipografía sans-serif de alta legibilidad, estética limpia tipo Stripe/Linear con fondo claro off-white.
+- **Organización GitHub:** `isapromord-eng/isapromord.com` (Público)
+- **Branch Principal:** `main`
+- **Hosting Activo:** GitHub Pages con CDN global y soporte para dominio personalizado `isapromord.com`.
+- **Estatus SEO:** Microdatos Schema.org integrados, geolocalización DO-01, `robots.txt` y `sitemap.xml` sincronizados.
 
 ---
 
-## 2. ARQUITECTURA DE ARCHIVOS
-- `assets/logo.png`: Logotipo oficial optimizado para web.
-- `.mbos/BRAIN.md`: Filosofía, reglas inmutables de SEO Local y pilares de diseño.
-- `.mbos/MEMORY.md`: Bitácora acumulativa append-only de decisiones técnicas.
-- `.mbos/HANDOFF.md`: Este documento de entrega y estado de operaciones.
-- `robots.txt`: Directivas de rastreo para Googlebot, Bingbot y validadores SEO.
-- `sitemap.xml`: Mapa del sitio XML canónico con prioridad 1.0 para indexación inmediata.
-- `index.html`: Landing page integral con Schema JSON-LD, Geo-Tags dominicanos, widget interactivo de auditoría SEO local, casos de éxito, acordeón FAQ y botón de WhatsApp dinámico.
+## 2. CONFIGURACIÓN DE DNS PARA ACTIVAR `isapromord.com`
+
+En tu registrador de dominio (Namecheap, GoDaddy, Cloudflare, etc.), agrega estos registros DNS:
+
+### A. Registros A (Para el dominio raíz `isapromord.com`):
+| Tipo | Nombre / Host | Valor / Dirección IP | TTL |
+| :--- | :--- | :--- | :--- |
+| **A** | `@` (o en blanco) | `185.199.108.153` | Automático / 3600 |
+| **A** | `@` (o en blanco) | `185.199.109.153` | Automático / 3600 |
+| **A** | `@` (o en blanco) | `185.199.110.153` | Automático / 3600 |
+| **A** | `@` (o en blanco) | `185.199.111.153` | Automático / 3600 |
+
+### B. Registro CNAME (Para el subdominio `www`):
+| Tipo | Nombre / Host | Valor / Destino | TTL |
+| :--- | :--- | :--- | :--- |
+| **CNAME** | `www` | `isapromord-eng.github.io` | Automático / 3600 |
+
+*Nota: Una vez guardados los registros DNS, GitHub Pages activará automáticamente el certificado SSL (HTTPS) gratuito en unos minutos.*
 
 ---
 
-## 3. CHECKLIST PARA GOOGLE SEARCH CONSOLE Y GOOGLE BUSINESS PROFILE
-1. **DNS & Hosting:**
-   - Apuntar el dominio `isapromord.com` a Cloudflare / Vercel / Netlify / Firebase.
-2. **Google Search Console (GSC):**
-   - Subir el registro TXT de verificación en el panel DNS del dominio, o activar mediante la meta etiqueta `<meta name="google-site-verification" content="..." />` provista en el `index.html`.
-   - Enviar `https://isapromord.com/sitemap.xml` a Google Search Console.
-3. **Google Business Profile (GBP):**
-   - Verificar la ficha de Google Business con la misma información NAP:
-     - **Nombre:** IsaPromo RD
-     - **Categoría:** Agencia de marketing en internet / Consultor de SEO
-     - **Dirección:** Santo Domingo, República Dominicana
-     - **Teléfono:** Vinculado al canal oficial de WhatsApp
-     - **Website:** `https://isapromord.com`
-4. **Backlinks & Citaciones Locales en RD:**
-   - Registrar la empresa en directorios locales dominicanos (Páginas Amarillas RD, Degusta, FindGlocal, Cámara de Comercio de Santo Domingo).
+## 3. CHECKLIST PARA GOOGLE SEARCH CONSOLE (GSC)
+
+1. Ingresa a [Google Search Console](https://search.google.com/search-console/).
+2. Haz clic en **Añadir Propiedad**:
+   - **Opción Recomendada (Dominio):** Ingresa `isapromord.com`. Google te entregará un registro `TXT` (ej. `google-site-verification=...`). Agrégalo en tu panel de DNS con Host `@`.
+   - **Opción Alternativa (Prefijo de URL):** Ingresa `https://isapromord.com`. Copia la etiqueta HTML `<meta name="google-site-verification" content="..." />` y reemplaza el token en `index.html`.
+3. **Enviar Sitemap:**
+   - Ve a la sección **Sitemaps** en el menú izquierdo de GSC.
+   - Escribe `sitemap.xml` y haz clic en **Enviar**.
+   - Google confirmará el rastreo inmediato del sitio.
 
 ---
 
-## 4. PRÓXIMOS PASOS
-- [x] Crear estructura `.mbos/` y guardar branding.
-- [x] Crear `robots.txt` y `sitemap.xml`.
-- [x] Desarrollar `index.html` con microdatos Schema.org y componentes de alta conversión.
-- [ ] Conectar dominio DNS y activar SSL.
-- [ ] Verificar en Google Search Console y solicitar indexación prioritaria.
+## 4. CHECKLIST PARA GOOGLE BUSINESS PROFILE (GBP)
+
+- Ficha oficial: **IsaPromo RD**
+- Categoría: **Agencia de marketing en Internet** / **Consultor de SEO**
+- Dirección: **Santo Domingo, Distrito Nacional, República Dominicana**
+- Sitio Web: `https://isapromord.com`
+- WhatsApp/Teléfono: `+1 (829) 555-0199`
