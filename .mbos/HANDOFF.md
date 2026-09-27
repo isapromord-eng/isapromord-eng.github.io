@@ -3,15 +3,20 @@
 > **Nodo MBOS:** `isapromord.com`  
 > **Última Actualización:** 2026-09-27  
 > **Repositorio Oficial:** [https://github.com/isapromord-eng/isapromord.com](https://github.com/isapromord-eng/isapromord.com)  
-> **Estado del Sistema:** Repositorio en GitHub creado, GitHub Pages activo con CNAME configurado. Listo para apuntar DNS y verificar en Google Search Console.
+> **Repositorio Root Pages:** [https://github.com/isapromord-eng/isapromord-eng.github.io](https://github.com/isapromord-eng/isapromord-eng.github.io)  
+> **URLs EN VIVO Y FUNCIONALES ($0 Costo):**  
+> - 🌐 **Root Principal:** [https://isapromord-eng.github.io/](https://isapromord-eng.github.io/)  
+> - 🌐 **Subpath:** [https://isapromord-eng.github.io/isapromord.com/](https://isapromord-eng.github.io/isapromord.com/)  
+> **Estado del Sistema:** En línea, HTTPS activo, 100% operativo sin costo mensual. Listo para recibir el dominio personalizado cuando se registre.
 
 ---
 
 ## 1. RESUMEN EJECUTIVO
-- **Dominio:** `isapromord.com`
-- **Organización GitHub:** `isapromord-eng/isapromord.com` (Público)
+- **Dominio Futuro:** `isapromord.com`
+- **Dominio Actual en Vivo:** `https://isapromord-eng.github.io/`
+- **Organización GitHub:** `isapromord-eng`
 - **Branch Principal:** `main`
-- **Hosting Activo:** GitHub Pages con CDN global y soporte para dominio personalizado `isapromord.com`.
+- **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.
 - **Estatus SEO:** Microdatos Schema.org integrados, geolocalización DO-01, `robots.txt` y `sitemap.xml` sincronizados.
 
 ---
