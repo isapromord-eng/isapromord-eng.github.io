@@ -60,7 +60,12 @@
   - `RD`: En azul eléctrico de marca / brand-600 (anclaje geográfico de República Dominicana).
 - **Sincronización:** Se actualizó en `index.html`, metadatos, Schema.org JSON-LD, `BRAIN.md` y enlaces de llamada a la acción de WhatsApp.
 
-
-
-
-
+## [2026-09-27] - Remoción de 'Digital Lab' y Estandarización de Tipografía Móvil (Google & Apple HIG)
+- **Eliminación de Badge:** Se retiró la etiqueta genérica `DIGITAL LAB` de la barra de navegación para una apariencia más limpia, corporativa y despejada.
+- **Auditoría de Tamaños de Fuente Móviles:**
+  - El sitio contenía clases microscópicas heredadas (`text-[10px]`, `text-[11px]`) que afectaban la legibilidad en pantallas móviles y violaban las directrices de usabilidad de Google (*"Text too small to read"*).
+  - Se eliminaron por completo todas las instancias de fuentes inferiores a 12px.
+  - Se estandarizó el cuerpo de texto a 15-16px (`text-base` y `text-sm sm:text-base`).
+  - Las microcopias, etiquetas, chips y datos secundarios se elevaron a 12-14px (`text-xs sm:text-sm font-semibold` o `font-bold`).
+  - Los campos de entrada (`<input>`, `<select>`) se fijaron en 16px (`text-base`) para evitar el molesto auto-zoom de iOS Safari en iPhones al tocar los formularios.
+  - Los títulos de tarjetas, acordeón FAQ y botones de acción se ampliaron para cumplir los estándares de áreas de toque ergonómicas (mínimo 48px).
