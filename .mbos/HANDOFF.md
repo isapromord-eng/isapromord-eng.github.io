@@ -57,8 +57,14 @@ En tu registrador de dominio (Namecheap, GoDaddy, Cloudflare, etc.), agrega esto
 
 ## 4. CHECKLIST PARA GOOGLE BUSINESS PROFILE (GBP)
 
-- Ficha oficial: **IsaPromo RD**
-- Categoría: **Agencia de marketing en Internet** / **Consultor de SEO**
+- Ficha oficial: **ISAPromoRD**
+- Categoría Principal (Primary Category):
+  - En inglés: **`Internet marketing service`** (Exacta)
+  - En español: **`Agencia de marketing en Internet`**
+- Categorías Secundarias (Additional Categories):
+  - **`Website designer`** / *Diseñador de páginas web*
+  - **`Marketing agency`** / *Agencia de marketing*
+  - **`Marketing consultant`** / *Consultor de marketing*
 - Dirección: **Santo Domingo, Distrito Nacional, República Dominicana**
-- Sitio Web: `https://isapromord.com`
+- Sitio Web: `https://isapromord.com` (o mientras tanto `https://isapromord-eng.github.io/`)
 - WhatsApp/Teléfono: `+1 (829) 555-0199`
