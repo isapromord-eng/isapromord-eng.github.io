@@ -67,4 +67,4 @@ En tu registrador de dominio (Namecheap, GoDaddy, Cloudflare, etc.), agrega esto
   - **`Marketing consultant`** / *Consultor de marketing*
 - Dirección: **Santo Domingo, Distrito Nacional, República Dominicana**
 - Sitio Web: `https://isapromord.com` (o mientras tanto `https://isapromord-eng.github.io/`)
-- WhatsApp/Teléfono: `+1 (829) 555-0199`
+- WhatsApp/Teléfono: `+1 (829) 455-4783`

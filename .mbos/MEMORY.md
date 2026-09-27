@@ -101,3 +101,17 @@
   - Se amplió el tiempo de lectura en pantalla a **5 segundos**.
   - Se extendió el intervalo de silencio entre apariciones a **22 segundos** (reducción del 65% en frecuencia, apareciendo solo 1 o 2 veces por visita normal).
   - Se sustituyó la leyenda fija "Hace 2 minutos" por referencias a casos reales y proyectos recientes en Santo Domingo y Santiago RD ("Proyecto reciente en Santo Domingo", "Caso de éxito comprobado en RD", etc.), transformándolo en prueba social creíble (case studies).
+
+## [2026-09-27] - Sincronización Total de NAP: Integración del Número Oficial (829) 455-4783 y Auditoría GBP
+- **Corrección Crítica de Coherencia NAP (Name, Address, Phone):**
+  - Se sustituyó el número de prueba `+1 (829) 555-0199` por el número real y verificado de la empresa: `+1 (829) 455-4783` en:
+    - Microdatos Schema.org JSON-LD (`telephone`).
+    - Enlace de contacto en la cabecera (Navbar).
+    - Botón de llamado a la acción del Hero (`Cotizar Mi Página Web & SEO`).
+    - Botón de pre-footer CTA (`Cotizar Ahora por WhatsApp`).
+    - Bloque oficial de datos NAP en el Footer (`<a href="tel:+18294554783">`).
+    - Botón flotante omnipresente de WhatsApp.
+    - Generador de enlaces dinámicos del simulador de auditoría.
+- **Diagnóstico de Imágenes en Google Business Profile:**
+  - Se identificó que las fotos subidas aparecen con la etiqueta `PENDING` debido a la cola de moderación automatizada de Google para perfiles nuevos (tiempo habitual de liberación: 24 a 48 horas).
+  - Se instruyó al usuario sobre la asignación de la categoría secundaria `Diseñador de páginas web` (`Website designer`) en el panel de GBP para solventar la alerta de extensión `GBP Category not found`.
