@@ -45,5 +45,13 @@
 - **Acción Técnica:** Se reemplazó `assets/logo.png` con la nueva versión renderizada y se respaldó la anterior en `assets/logo_legacy.png`.
 - **Despliegue:** Sincronizado a través de Git y publicado automáticamente en GitHub Pages.
 
+## [2026-09-27] - Integración de Estrategia de Doble Pilar (Páginas Web + SEO Local)
+- **Alineación Comercial:** Se equilibró la propuesta de valor para no encasillar a IsaPromo RD únicamente en SEO Local. Ahora se posiciona con igual fuerza como estudio de **Diseño y Desarrollo de Páginas Web de Alta Conversión (<1s de carga)** y **Posicionamiento en Google Maps**, facilitando el bucle de ventas cruzadas (upsell).
+- **Componentes Visuales Nuevos:**
+  - Selector interactivo de dos pestañas en el Hero: `⚡ 1. Páginas Web (<1s)` vs `📍 2. Google Maps (#1)`.
+  - Módulo de comparativa visual: "Web Tradicional en RD (5.8s, 0 ventas)" vs "Ingeniería IsaPromo RD (100 Core Web Vitals, WhatsApp directo)".
+  - Actualización del grafo Schema.org JSON-LD para registrar ambos servicios formalmente ante Google.
+
+
 
 
