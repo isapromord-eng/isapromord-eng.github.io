@@ -79,3 +79,15 @@
   - Simplificación del ticker superior en móvil a una sola línea limpia y centrada, eliminando ruido visual antes del encabezado.
   - Pestañas de Showcase rediseñadas con botones táctiles simétricos (`grid grid-cols-2`) para fácil accionamiento con el pulgar.
   - Escalado de títulos y textos en el simulador a `text-xl sm:text-2xl font-black` y `text-base` para una lectura amplia y contundente sin efecto de reducción.
+
+## [2026-09-27] - Restauración de Fidelidad de Imagen 1 (Google Maps Showcase) y Entorno Real de WhatsApp (Bento 3)
+- **Causa Raíz de Imagen 1 Ausente:**
+  - Al habilitar la arquitectura de doble pilar, el showcase de Google Maps fue desplazado a la Pestaña 2 y oculto con `class="hidden"` por defecto. El usuario percibió que el diseño previo se había eliminado.
+  - Solución: Se restableció la Pestaña de Google Maps (`tabSeoContent`) como la vista activa predeterminada en el primer render, restaurando fielmente la barra macOS con la URL de búsqueda, los pines dinámicos (`#1 Piantini +180 llamadas`, `#1 Naco & Bella Vista +240 llamadas`, `#1 Santiago RD +160 llamadas`), el radio de 15 km, la tasa de CTR de 68.4% y las tarjetas de clasificación con microdatos y badges.
+- **Autenticidad de Entorno WhatsApp en Bento Card 3:**
+  - Se transformó la tarjeta de click-to-chat en una réplica de WhatsApp oficial:
+    - Fondo con patrón de doodles característico de WhatsApp sobre `#efeae2`.
+    - Cabecera oficial color `#008069` con avatar de ISAPromoRD, indicador verificado y estado 'en línea'.
+    - Píldora de fecha 'HOY' centrada.
+    - Burbujas de mensaje con estilos nativos (cliente entrante en blanco `#ffffff`, respuesta de ISAPromoRD en verde suave `#D9FDD3` con doble check azul `#53bdeb`).
+    - Barra inferior nativa `#F0F2F5` con iconos de emoji, clip de adjuntos, campo de texto 'Escribe un mensaje...' y botón circular verde `#00A884` con micrófono.
