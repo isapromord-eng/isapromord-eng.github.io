@@ -3,28 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IsaPromo RD | Agencia Líder en SEO Local, Páginas Web y Google Maps en República Dominicana</title>
+  <title>IsaPromo RD | Agencia Líder en SEO Local, Google Maps y Páginas Web en República Dominicana</title>
   
-  <!-- SEO Meta Tags Primarios -->
-  <meta name="description" content="Posiciona tu negocio en el #1 de Google y Google Maps en Santo Domingo y toda República Dominicana. Agencia digital especializada en SEO Local, diseño de landing pages ultrarrápidas y pauta digital de alto retorno." />
-  <meta name="keywords" content="seo local republica dominicana, posicionamiento web santo domingo, aparecer en google maps rd, diseño paginas web santo domingo, agencia de marketing digital dominicana, landing pages republica dominicana, google business profile rd" />
+  <!-- ==========================================
+       BUILT-IN SEO KEYWORDS & META REGISTRATION
+       ========================================== -->
+  <meta name="description" content="Posiciona tu empresa en el #1 de Google y Google Maps en República Dominicana. IsaPromo RD es la agencia de ingeniería digital especializada en SEO Local, diseño de landing pages ultrarrápidas (100 Core Web Vitals) y conversión telefónica/WhatsApp para negocios en Santo Domingo, Santiago y todo el país." />
+  <meta name="keywords" content="seo local republica dominicana, posicionamiento web santo domingo, aparecer en google maps rd, diseño paginas web santo domingo, agencia seo rd, google business profile republica dominicana, optimizar ficha google maps, landing pages republica dominicana, posicionamiento organico google dominicana, agencia marketing digital santo domingo" />
   <meta name="author" content="IsaPromo RD" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://isapromord.com/" />
   
-  <!-- Verificación de Google Search Console (Reemplazar con código GSC al conectar dominio) -->
+  <!-- Verificación Google Search Console -->
   <meta name="google-site-verification" content="GSC_ISAPROMORD_VERIFICATION_TOKEN" />
 
-  <!-- Metatags Geográficos de República Dominicana (SEO Local Dominance) -->
+  <!-- Metatags Geográficos Exactos para SEO Local en República Dominicana -->
   <meta name="geo.region" content="DO-01" />
   <meta name="geo.placename" content="Santo Domingo, República Dominicana" />
   <meta name="geo.position" content="18.4861;-69.9312" />
   <meta name="ICBM" content="18.4861, -69.9312" />
 
-  <!-- Open Graph / Facebook / WhatsApp -->
+  <!-- Open Graph & Social Cards -->
   <meta property="og:type" content="business.business" />
   <meta property="og:title" content="IsaPromo RD | Domina Google y Google Maps en República Dominicana" />
-  <meta property="og:description" content="Ayudamos a empresas dominicanas a captar más clientes posicionándolas en el Top 3 de Google Search y Google Maps. Páginas web rápidas y conversiones reales." />
+  <meta property="og:description" content="Estrategias de SEO Local de alto impacto. Llevamos a empresas dominicanas al Top 3 de Google Maps para multiplicar llamadas y ventas." />
   <meta property="og:url" content="https://isapromord.com/" />
   <meta property="og:site_name" content="IsaPromo RD" />
   <meta property="og:image" content="https://isapromord.com/assets/logo.png" />
@@ -32,20 +34,18 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="es_DO" />
 
-  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="IsaPromo RD | Agencia de SEO Local y Desarrollo Web en RD" />
-  <meta name="twitter:description" content="Haz que tus clientes locales te encuentren primero en Google. Estrategias de posicionamiento web comprobadas en República Dominicana." />
+  <meta name="twitter:description" content="Llevamos tu negocio a la cima de Google en República Dominicana. Más llamadas, más clientes, más ventas." />
   <meta name="twitter:image" content="https://isapromord.com/assets/logo.png" />
 
-  <!-- Favicon e Identidad de Marca -->
   <link rel="icon" type="image/png" href="assets/logo.png" />
   <link rel="apple-touch-icon" href="assets/logo.png" />
 
-  <!-- Tipografía Premium Inter & Plus Jakarta Sans -->
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono for High-Tech Polish -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -54,22 +54,43 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '"Inter"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
             brand: {
-              50: '#eff6ff',
-              100: '#dbeafe',
+              50: '#eef2ff',
+              100: '#e0e7ff',
               500: '#3b82f6',
               600: '#2563eb',
               700: '#1d4ed8',
               800: '#1e40af',
-              900: '#1e3a8a',
+              900: '#0f172a',
             },
             accent: {
               400: '#fbbf24',
               500: '#f59e0b',
               600: '#d97706',
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 4s ease-in-out infinite',
+            'marquee': 'marquee 25s linear infinite',
+            'glow-pulse': 'glow 2s alternate infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' },
+            },
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            glow: {
+              '0%': { opacity: '0.4' },
+              '100%': { opacity: '0.9' },
             }
           }
         }
@@ -77,7 +98,9 @@
     }
   </script>
 
-  <!-- SCHEMA.ORG DATOS ESTRUCTURADOS (JSON-LD) PARA GOOGLE RICH SNIPPETS & LOCAL PACK -->
+  <!-- ==========================================
+       SCHEMA.ORG COMPREHENSIVE JSON-LD GRAPH
+       ========================================== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -86,13 +109,15 @@
         "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": "https://isapromord.com/#organization",
         "name": "IsaPromo RD",
-        "legalName": "IsaPromo RD - Soluciones Digitales",
+        "legalName": "IsaPromo RD Soluciones Digitales",
+        "alternateName": ["IsaPromo", "Isa Promo RD", "Agencia IsaPromo"],
         "url": "https://isapromord.com",
         "logo": "https://isapromord.com/assets/logo.png",
         "image": "https://isapromord.com/assets/logo.png",
-        "description": "Agencia líder en SEO Local, posicionamiento en Google Maps, creación de landing pages de alta velocidad y publicidad digital para empresas en República Dominicana.",
+        "description": "Agencia líder de ingeniería digital especializada en SEO Local, posicionamiento en Google Maps, creación de landing pages ultrarrápidas y pauta publicitaria en República Dominicana.",
         "telephone": "+1-829-555-0199",
         "email": "contacto@isapromord.com",
+        "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Distrito Nacional",
@@ -107,28 +132,12 @@
           "longitude": -69.9312
         },
         "areaServed": [
-          {
-            "@type": "AdministrativeArea",
-            "name": "Santo Domingo"
-          },
-          {
-            "@type": "AdministrativeArea",
-            "name": "Santiago de los Caballeros"
-          },
-          {
-            "@type": "AdministrativeArea",
-            "name": "Punta Cana"
-          },
-          {
-            "@type": "AdministrativeArea",
-            "name": "La Vega"
-          },
-          {
-            "@type": "Country",
-            "name": "República Dominicana"
-          }
+          { "@type": "AdministrativeArea", "name": "Santo Domingo (Distrito Nacional)" },
+          { "@type": "AdministrativeArea", "name": "Santiago de los Caballeros" },
+          { "@type": "AdministrativeArea", "name": "Punta Cana / Bávaro" },
+          { "@type": "AdministrativeArea", "name": "La Vega" },
+          { "@type": "Country", "name": "República Dominicana" }
         ],
-        "priceRange": "$$",
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
@@ -161,10 +170,8 @@
         "@id": "https://isapromord.com/#website",
         "url": "https://isapromord.com",
         "name": "IsaPromo RD",
-        "publisher": {
-          "@id": "https://isapromord.com/#organization"
-        },
-        "inLanguage": "es-DO"
+        "inLanguage": "es-DO",
+        "publisher": { "@id": "https://isapromord.com/#organization" }
       },
       {
         "@type": "FAQPage",
@@ -172,329 +179,325 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "¿Por qué es crucial el SEO Local para un negocio en República Dominicana?",
+            "name": "¿Cuáles palabras clave garantizan que mi negocio aparezca de primero en Google?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "El SEO Local permite que tu negocio aparezca en el mapa de Google (Google Maps / Local Pack) cuando personas en Santo Domingo, Santiago o cualquier provincia buscan tus servicios con intención inmediata de compra. Más del 78% de las búsquedas locales en móviles generan una visita o compra dentro de las 24 horas."
+              "text": "Las palabras clave con alta intención transaccional geolocalizada ('near me' o 'en Santo Domingo / RD'). Por ejemplo: 'clínica dental cerca de mí', 'agencia inmobiliaria en Piantini', 'taller mecánico Santo Domingo'. Nosotros configuramos tu Google Business Profile y estructuramos tu web para capturar estas búsquedas exactas con intención inmediata de llamada."
             }
           },
           {
             "@type": "Question",
-            "name": "¿Cuánto tiempo toma posicionar mi empresa en el Top 3 de Google Maps?",
+            "name": "¿Por qué es crucial el SEO Local en República Dominicana?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Los primeros resultados de visibilidad y llamadas a través de Google Business Profile suelen verse entre las 3 y 6 semanas tras optimizar la ficha, sincronizar los datos NAP, generar citaciones dominicanas y publicar contenido geolocalizado."
+              "text": "El 86% de las personas en República Dominicana buscan en Google Maps antes de visitar un negocio o hacer una llamada. Si no estás en el Top 3 (Local 3-Pack), tu competencia se queda con el 92% de los clientes potenciales de tu zona."
             }
           },
           {
             "@type": "Question",
-            "name": "¿Qué incluye la auditoría inicial de IsaPromo RD?",
+            "name": "¿Cuánto tiempo tarda en subir mi ficha de Google Maps al Top 3?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Evaluamos tu presencia actual en Google Maps, velocidad web en móviles (Core Web Vitals), estructura de palabras clave locales, perfil de enlaces (backlinks) y un plan paso a paso con las acciones prioritarias para superar a tu competencia directa."
+              "text": "Con nuestro protocolo de optimización técnica NAP, citaciones locales dominicanas, inyección de Schema.org y activación de reseñas, los negocios empiezan a registrar un incremento sustancial de llamadas y visibilidad entre 21 y 45 días."
             }
           },
           {
             "@type": "Question",
-            "name": "¿Hacen páginas web rápidas y adaptadas a teléfonos móviles?",
+            "name": "¿Por qué las páginas web de IsaPromo RD cargan en menos de 1 segundo?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sí. Todas nuestras landing pages y sitios web obtienen calificaciones de 90-100 en Google PageSpeed Insights, cargan en menos de 1 segundo en redes 4G dominicanas y están optimizadas para convertir visitas en chats de WhatsApp y llamadas telefónicas."
+              "text": "Construimos con arquitectura ultraligera en HTML5 semántico sin plantillas pesadas de WordPress ni scripts bloqueantes, logrando calificaciones perfectas de 95-100 en Google Core Web Vitals, lo cual premia directamente el ranking en Google."
             }
           }
         ]
-      },
-      {
-        "@type": "Service",
-        "name": "Posicionamiento en Google Maps & SEO Local en República Dominicana",
-        "provider": {
-          "@id": "https://isapromord.com/#organization"
-        },
-        "serviceType": "Local Search Optimization",
-        "description": "Optimización exhaustiva del Perfil de Negocio en Google, generación de reseñas legítimas, citaciones locales dominicanas y dominancia del mapa de Google."
       }
     ]
   }
   </script>
 
   <style>
-    /* Estilos de soporte para animación sutil y rendimiento */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(226, 232, 240, 0.8);
+    /* Efectos de Iluminación y Micro-Interacciones de Grado Agencia */
+    .radial-spotlight {
+      background: radial-gradient(1000px circle at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(37, 99, 235, 0.08), transparent 40%);
     }
-    .hero-glow {
-      background: radial-gradient(circle at 50% 30%, rgba(37, 99, 235, 0.08) 0%, rgba(248, 250, 252, 0) 70%);
+    .bento-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .badge-pulsing::before {
-      content: '';
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: #10b981;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-      animation: pulse-ring 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    .bento-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(37, 99, 235, 0.4);
+      box-shadow: 0 20px 35px -10px rgba(37, 99, 235, 0.08), 0 1px 3px rgba(0,0,0,0.05);
     }
-    @keyframes pulse-ring {
-      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-      70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    .grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(226, 232, 240, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.4) 1px, transparent 1px);
+    }
+    .interactive-pin {
+      transition: all 0.25s ease;
+    }
+    .interactive-pin:hover {
+      transform: scale(1.25) translateY(-4px);
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased font-sans selection:bg-brand-500 selection:text-white">
+<body class="bg-[#F8FAFC] text-slate-900 antialiased font-sans selection:bg-brand-600 selection:text-white relative overflow-x-hidden" id="pageBody">
 
-  <!-- Top Announcement Bar -->
-  <aside aria-label="Aviso de promoción" class="bg-slate-900 text-slate-300 text-xs py-2 px-4 text-center border-b border-slate-800">
-    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
-      <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-brand-600 text-white">Dominicana 2026</span>
-      <span>¿Quieres que tu empresa aparezca de primera en Google Maps?</span>
-      <a href="#auditoria" class="text-accent-400 hover:text-accent-300 font-bold underline ml-1">Simula tu Auditoría Local Gratis →</a>
+  <!-- NOTIFICACIÓN EN TIEMPO REAL (LIVE TOAST DISPATCHER) -->
+  <div id="liveActivityToast" class="fixed bottom-6 left-6 z-50 bg-slate-900/95 backdrop-blur-md text-white border border-slate-700/80 rounded-2xl p-4 shadow-2xl flex items-center gap-3 transition-all duration-500 transform translate-y-32 opacity-0 max-w-sm pointer-events-none">
+    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg flex-shrink-0 border border-emerald-500/30">
+      ⚡
+    </div>
+    <div class="text-xs">
+      <div class="font-bold text-slate-100 flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span id="toastBiz">Clínica en Piantini, DN</span>
+      </div>
+      <div class="text-slate-400 mt-0.5" id="toastAction">Alcanzó Puesto #1 en Google Maps (+340 llamadas)</div>
+      <div class="text-[10px] text-slate-500 mt-1 font-mono">Hace 2 minutos en República Dominicana</div>
+    </div>
+  </div>
+
+  <!-- TOP HIGH-TECH TICKER -->
+  <aside aria-label="Aviso de motor de indexación" class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2 text-[11px] font-mono">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
+          GOOGLEBOT & GEO-CRAWLER: CONECTADO
+        </span>
+        <span class="hidden sm:inline text-slate-500">|</span>
+        <span class="hidden sm:inline text-slate-400">Servidores Locales DO-01 (Santo Domingo)</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-amber-400 font-semibold">⚡ Algoritmo Google Local Pack 2026</span>
+        <a href="#simulador" class="text-white hover:text-brand-400 font-bold underline transition-colors">Probar Escáner en Vivo →</a>
+      </div>
     </div>
   </aside>
 
-  <!-- Encabezado / Barra de Navegación Principal -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300">
+  <!-- NAVBAR CON ESTILO STRIPE / LINEAR -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-slate-200/80 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Logotipo Oficial con Microdata de Imagen -->
-      <a href="/" class="flex items-center gap-3 group" title="IsaPromo RD - Inicio">
-        <img src="assets/logo.png" alt="Logotipo IsaPromo RD - Agencia de SEO y Páginas Web" width="48" height="48" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+      <!-- LOGO CON EFECTO DE PROFUNDIDAD -->
+      <a href="/" class="flex items-center gap-3.5 group">
+        <div class="relative w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 shadow-sm group-hover:scale-105 transition-transform duration-300">
+          <img src="assets/logo.png" alt="IsaPromo RD - Posicionamiento Web y SEO Local" width="44" height="44" class="h-10 w-auto object-contain drop-shadow" />
+          <div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-white"></div>
+        </div>
         <div class="flex flex-col">
-          <span class="text-xl font-extrabold tracking-tight text-slate-900 leading-tight">
+          <span class="text-xl font-black tracking-tight text-slate-950 flex items-center">
             IsaPromo<span class="text-brand-600">RD</span>
+            <span class="ml-2 text-[10px] font-mono px-1.5 py-0.5 bg-brand-50 text-brand-700 rounded border border-brand-200 font-bold">SEO LAB</span>
           </span>
-          <span class="text-[11px] font-semibold tracking-wider text-slate-500 uppercase">SEO & Agencia Digital</span>
+          <span class="text-[11px] font-medium text-slate-500">Ingeniería en Google Search & Maps</span>
         </div>
       </a>
 
-      <!-- Menú de Navegación de Escritorio -->
-      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600" aria-label="Navegación principal">
-        <a href="#servicios" class="hover:text-brand-600 transition-colors">Servicios Especializados</a>
-        <a href="#casos" class="hover:text-brand-600 transition-colors">Casos de Éxito en RD</a>
-        <a href="#auditoria" class="hover:text-brand-600 transition-colors">Auditoría SEO Local</a>
+      <!-- ENLACES DE NAVEGACIÓN -->
+      <nav class="hidden md:flex items-center space-x-7 text-sm font-semibold text-slate-600" aria-label="Navegación principal">
+        <a href="#bento" class="hover:text-brand-600 transition-colors">Tecnología de Ranking</a>
+        <a href="#simulador" class="hover:text-brand-600 transition-colors">Simulador SERP</a>
+        <a href="#servicios" class="hover:text-brand-600 transition-colors">Soluciones</a>
         <a href="#faq" class="hover:text-brand-600 transition-colors">Preguntas Frecuentes</a>
       </nav>
 
-      <!-- Botón de Contacto / CTA Principal -->
+      <!-- BOTONES DE CONTACTO -->
       <div class="flex items-center gap-3">
         <a href="https://wa.me/18295550199?text=Hola%20IsaPromo%20RD,%20deseo%20una%20auditor%C3%ADa%20gratuita%20para%20posicionar%20mi%20negocio%20en%20Google" 
            target="_blank" 
            rel="noopener noreferrer" 
-           class="inline-flex items-center justify-center px-4 py-2.5 text-sm font-bold text-white bg-brand-600 rounded-xl hover:bg-brand-700 shadow-sm hover:shadow-brand-500/20 transition-all duration-200">
-          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-          </svg>
-          Auditoría Gratis
+           class="relative group inline-flex items-center justify-center px-5 py-2.5 text-xs font-black uppercase tracking-wider text-white bg-slate-950 rounded-xl overflow-hidden shadow-lg hover:shadow-brand-500/25 transition-all">
+          <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+          <span class="relative flex items-center gap-2">
+            <svg class="w-3.5 h-3.5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            Auditoría Gratis RD
+          </span>
         </a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION: Alta Autoridad y Enfoque Local -->
-    <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden hero-glow">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-4xl mx-auto">
+    <!-- HERO SECTION 2.0: BREATHTAKING VISUAL SHOWCASE -->
+    <section class="relative pt-12 pb-24 md:pt-20 md:pb-32 grid-pattern overflow-hidden">
+      <!-- Glow Dinámico de Fondo -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-brand-500/10 blur-[130px] rounded-full pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- Header Text -->
+        <div class="max-w-4xl mx-auto text-center mb-12">
           
-          <!-- Badge de Geolocalización Activa -->
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-brand-700 text-xs font-semibold mb-6">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            Especialistas en Google Business Profile & SEO Local para República Dominicana
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-bold text-slate-800 mb-6">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span class="text-brand-600">Dominio de Búsquedas Locales:</span> Santo Domingo • Santiago • Punta Cana
           </div>
 
-          <!-- Encabezado H1 Semántico Único -->
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-6">
-            Haz que tus clientes te encuentren <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-600">primero en Google</span> y multipliquen sus llamadas.
+          <h1 class="text-4xl sm:text-6xl md:text-7xl font-black text-slate-950 tracking-tight leading-[1.08] mb-6">
+            Cuando te buscan en Google,<br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-600 to-blue-500">
+              tu negocio debe salir #1.
+            </span>
           </h1>
 
-          <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-            No pierdas más ventas frente a tu competencia. Posicionamos tu negocio en el <strong class="text-slate-900 font-semibold">Top 3 de Google Maps</strong> y creamos páginas web de carga ultrarrápida que convierten visitas locales en clientes fieles.
+          <p class="text-lg sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal mb-8">
+            El 92% de los clientes en República Dominicana llaman a los negocios que aparecen en el <strong class="text-slate-950 font-bold">Top 3 del mapa de Google</strong>. Nosotros te posicionamos ahí mediante ingeniería técnica de SEO Local y landing pages ultrarrápidas.
           </p>
 
-          <!-- Botones de Acción Inmediata (Dual Action) -->
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
-            <a href="#auditoria" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-brand-600 rounded-xl hover:bg-brand-700 shadow-lg shadow-brand-600/25 transition-all duration-200 hover:-translate-y-0.5">
-              <span>Probar Simulador de Auditoría</span>
-              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-              </svg>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#simulador" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-white bg-brand-600 hover:bg-brand-700 rounded-2xl shadow-xl shadow-brand-600/30 transition-all transform hover:-translate-y-0.5">
+              <span>Probar Simulador de Posicionamiento</span>
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
-            <a href="https://wa.me/18295550199?text=Hola,%20quisiera%20conversar%20con%20un%20asesor%20de%20IsaPromo%20RD%20para%20mejorar%20mi%20posicionamiento%20en%20Google" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-700 bg-white border border-slate-300 rounded-xl hover:bg-slate-100 shadow-sm transition-all duration-200">
-              <svg class="w-5 h-5 mr-2 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-              </svg>
-              Hablar por WhatsApp
+            <a href="https://wa.me/18295550199?text=Hola%20IsaPromo%20RD,%20deseo%20saber%20mi%20posici%C3%B3n%20actual%20en%20Google%20Maps" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-800 bg-white border border-slate-200 hover:border-slate-300 rounded-2xl shadow-sm transition-all">
+              <svg class="w-5 h-5 mr-2 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+              Hablar con un Especialista
             </a>
           </div>
 
-          <!-- Métricas de Confianza (Trust Badges) -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-10 border-t border-slate-200/80 text-left">
-            <div class="p-4 rounded-xl bg-white border border-slate-200/60 shadow-sm">
-              <div class="text-2xl sm:text-3xl font-black text-brand-600 tracking-tight">+120</div>
-              <div class="text-xs font-semibold text-slate-500 uppercase mt-1">Negocios en RD</div>
-            </div>
-            <div class="p-4 rounded-xl bg-white border border-slate-200/60 shadow-sm">
-              <div class="text-2xl sm:text-3xl font-black text-amber-500 tracking-tight">Top 3</div>
-              <div class="text-xs font-semibold text-slate-500 uppercase mt-1">En Google Maps</div>
-            </div>
-            <div class="p-4 rounded-xl bg-white border border-slate-200/60 shadow-sm">
-              <div class="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight">&lt; 1s</div>
-              <div class="text-xs font-semibold text-slate-500 uppercase mt-1">Carga Web Móvil</div>
-            </div>
-            <div class="p-4 rounded-xl bg-white border border-slate-200/60 shadow-sm">
-              <div class="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight">4.9 ★</div>
-              <div class="text-xs font-semibold text-slate-500 uppercase mt-1">48 Evaluaciones</div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- CLIENTES Y PROYECTOS DESTACADOS EN RD -->
-    <section id="casos" class="py-12 bg-white border-y border-slate-200/70">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-center text-xs font-bold uppercase tracking-wider text-slate-400 mb-8">
-          Tecnología y Estrategia Probada en Marcas y Negocios en República Dominicana
-        </p>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center text-center">
-          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70 font-bold text-slate-700 hover:text-brand-600 transition-colors">
-            🐾 Vet Metropolitana
-            <span class="block text-[11px] font-normal text-slate-500 mt-0.5">Clínica & Cirugía RD</span>
-          </div>
-          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70 font-bold text-slate-700 hover:text-brand-600 transition-colors">
-            🌾 Pasión Pecuaria RD
-            <span class="block text-[11px] font-normal text-slate-500 mt-0.5">Agroindustria & Genética</span>
-          </div>
-          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70 font-bold text-slate-700 hover:text-brand-600 transition-colors">
-            🏢 Torres Apex La Esperilla
-            <span class="block text-[11px] font-normal text-slate-500 mt-0.5">Desarrollo Inmobiliario</span>
-          </div>
-          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70 font-bold text-slate-700 hover:text-brand-600 transition-colors">
-            📊 GranjaTracker SaaS
-            <span class="block text-[11px] font-normal text-slate-500 mt-0.5">Software Avícola & Porcino</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WIDGET INTERACTIVO DE AUDITORÍA SEO LOCAL (Lead Magnet de Alta Conversión) -->
-    <section id="auditoria" class="py-20 bg-gradient-to-b from-slate-50 to-blue-50/40">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center mb-10">
-          <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
-            Herramienta Gratuita
-          </span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4 tracking-tight">
-            Simulador de Visibilidad en Google Maps
-          </h2>
-          <p class="text-slate-600 text-base max-w-xl mx-auto mt-2">
-            Ingresa los datos de tu empresa en República Dominicana y descubre si tu ficha está configurada para ganar clientes frente a tus competidores.
-          </p>
         </div>
 
-        <div class="glass-card rounded-2xl p-6 sm:p-10 shadow-xl shadow-slate-200/50">
-          <form id="seoAuditForm" class="space-y-6" onsubmit="event.preventDefault(); runLocalAudit();">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- INTERACTIVE LIVE GOOGLE SERP & MAPS SIMULATOR SHOWCASE (Award-Winning UI Module) -->
+        <div class="max-w-5xl mx-auto rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl overflow-hidden text-slate-100 transition-all duration-300">
+          
+          <!-- Mock Browser Chrome Bar -->
+          <div class="px-5 py-3.5 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+              <span class="ml-3 text-xs text-slate-400 font-mono hidden sm:inline">google.com.do/search?q=mejores+servicios+en+santo+domingo</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-mono">
+              <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold">100/100 Core Web Vitals</span>
+            </div>
+          </div>
+
+          <!-- Interactive Search Input Demonstration -->
+          <div class="p-6 sm:p-8 bg-slate-900/90">
+            
+            <div class="relative max-w-2xl mx-auto mb-8">
+              <div class="w-full flex items-center px-4 py-3 rounded-full bg-slate-800/90 border border-slate-700 shadow-inner">
+                <svg class="w-5 h-5 text-slate-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <span class="text-sm font-medium text-slate-200 font-mono" id="typingSimulation">agencia seo local republica dominicana</span>
+                <span class="w-1.5 h-4 bg-brand-500 ml-1 animate-pulse"></span>
+              </div>
+            </div>
+
+            <!-- Dynamic Google 3-Pack Maps Simulation -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
               
-              <div>
-                <label for="bizName" class="block text-sm font-semibold text-slate-700 mb-2">Nombre de tu Negocio / Empresa</label>
-                <input type="text" id="bizName" required placeholder="Ej: Clínica Dental Las Praderas" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-white text-slate-800 placeholder-slate-400 text-sm font-medium transition" />
+              <!-- Map Visual with Glowing Rank Pins -->
+              <div class="lg:col-span-6 rounded-2xl bg-slate-950 border border-slate-800 p-5 relative overflow-hidden flex flex-col justify-between min-h-[300px]">
+                <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                
+                <div class="relative z-10 flex items-center justify-between">
+                  <span class="text-xs font-bold font-mono text-slate-400 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    GOOGLE MAPS LOCAL PACK (SANTO DOMINGO)
+                  </span>
+                  <span class="text-[11px] font-mono text-emerald-400 font-bold">ZONA DOMINADA</span>
+                </div>
+
+                <!-- Pins on Map -->
+                <div class="relative z-10 my-6 grid grid-cols-3 gap-3 text-center">
+                  <div class="interactive-pin p-3 rounded-xl bg-slate-900/90 border border-emerald-500/40 shadow-lg cursor-pointer">
+                    <div class="w-7 h-7 mx-auto rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center mb-1">#1</div>
+                    <div class="text-[11px] font-bold text-white truncate">Piantini</div>
+                    <div class="text-[10px] text-emerald-400 font-mono">+180 llamadas</div>
+                  </div>
+                  <div class="interactive-pin p-3 rounded-xl bg-slate-900/90 border border-emerald-500/40 shadow-lg cursor-pointer">
+                    <div class="w-7 h-7 mx-auto rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center mb-1">#1</div>
+                    <div class="text-[11px] font-bold text-white truncate">Naco & Bella Vista</div>
+                    <div class="text-[10px] text-emerald-400 font-mono">+240 llamadas</div>
+                  </div>
+                  <div class="interactive-pin p-3 rounded-xl bg-slate-900/90 border border-emerald-500/40 shadow-lg cursor-pointer">
+                    <div class="w-7 h-7 mx-auto rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center mb-1">#1</div>
+                    <div class="text-[11px] font-bold text-white truncate">Santiago RD</div>
+                    <div class="text-[10px] text-emerald-400 font-mono">+160 llamadas</div>
+                  </div>
+                </div>
+
+                <div class="relative z-10 flex items-center justify-between text-[11px] font-mono text-slate-400 pt-3 border-t border-slate-800">
+                  <span>Radio de Búsqueda: 15 km</span>
+                  <span class="text-amber-400 font-semibold">Tasa de Clics (CTR): 68.4%</span>
+                </div>
               </div>
 
-              <div>
-                <label for="bizCity" class="block text-sm font-semibold text-slate-700 mb-2">Ciudad / Sector en RD</label>
-                <select id="bizCity" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-white text-slate-800 text-sm font-medium transition">
-                  <option value="Santo Domingo (Distrito Nacional)">Santo Domingo (Distrito Nacional)</option>
-                  <option value="Santo Domingo Este">Santo Domingo Este</option>
-                  <option value="Santo Domingo Norte / Oeste">Santo Domingo Norte / Oeste</option>
-                  <option value="Santiago de los Caballeros">Santiago de los Caballeros</option>
-                  <option value="Punta Cana / Bávaro">Punta Cana / Bávaro</option>
-                  <option value="La Vega / San Francisco">La Vega / San Francisco</option>
-                  <option value="Puerto Plata">Puerto Plata</option>
-                  <option value="Otra Ciudad de RD">Otra Ciudad de RD</option>
-                </select>
-              </div>
+              <!-- Live SERP Rank Card: Tu Empresa con IsaPromo RD -->
+              <div class="lg:col-span-6 space-y-3">
+                
+                <!-- PUESTO #1: TU NEGOCIO (CON ISAPROMO RD) -->
+                <div class="p-4 rounded-2xl bg-gradient-to-r from-brand-900/40 to-slate-900 border-2 border-brand-500 shadow-xl relative overflow-hidden">
+                  <div class="absolute top-0 right-0 bg-brand-600 text-white text-[10px] font-black uppercase px-3 py-0.5 rounded-bl-lg font-mono">
+                    ★ Puesto #1 en Google Maps
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-brand-600 text-white font-black flex items-center justify-center text-sm flex-shrink-0 shadow-md">
+                      #1
+                    </div>
+                    <div>
+                      <h2 class="text-base font-extrabold text-white flex items-center gap-2">
+                        Tu Empresa en República Dominicana
+                        <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      </h2>
+                      <div class="flex items-center gap-2 text-xs text-amber-400 font-semibold my-1">
+                        <span>5.0 ★★★★★ (184 reseñas verificadas)</span>
+                        <span class="text-slate-500">•</span>
+                        <span class="text-slate-300">Abierto ahora</span>
+                      </div>
+                      <p class="text-xs text-slate-300">
+                        📍 Av. Winston Churchill, Santo Domingo • <span class="text-emerald-400 font-bold">Llega en 8 min</span>
+                      </p>
+                      <div class="flex items-center gap-2 mt-3">
+                        <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30 flex items-center gap-1">
+                          📞 +38 Llamadas Hoy
+                        </span>
+                        <span class="px-2.5 py-1 rounded-lg bg-brand-500/20 text-brand-300 text-xs font-bold border border-brand-500/30">
+                          🗺️ Cómo Llegar
+                        </span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-bold">
+                          🌐 Sitio Web Rápido
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-              <div>
-                <label for="bizCategory" class="block text-sm font-semibold text-slate-700 mb-2">Tipo de Negocio / Industria</label>
-                <select id="bizCategory" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-white text-slate-800 text-sm font-medium transition">
-                  <option value="Salud, Clínicas y Veterinarias">Salud, Clínicas y Veterinarias</option>
-                  <option value="Inmobiliaria y Bienes Raíces">Inmobiliaria y Bienes Raíces</option>
-                  <option value="Servicios Profesionales (Legal, Contable)">Servicios Profesionales (Legal, Contable)</option>
-                  <option value="Construcción, Talleres y Hogar">Construcción, Talleres y Hogar</option>
-                  <option value="Restaurantes y Gastronomía">Restaurantes y Gastronomía</option>
-                  <option value="Tienda / Comercio Local">Tienda / Comercio Local</option>
-                  <option value="Turismo y Hospedaje">Turismo y Hospedaje</option>
-                </select>
-              </div>
+                <!-- PUESTO #2: COMPETIDOR PERDIENDO TERRENO -->
+                <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 opacity-60">
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center text-xs">#2</div>
+                    <div>
+                      <div class="text-sm font-semibold text-slate-300">Competidor Tradicional RD</div>
+                      <div class="text-[11px] text-slate-500">4.1 ★ (14 reseñas) • Sin Schema • Web lenta</div>
+                    </div>
+                  </div>
+                </div>
 
-              <div>
-                <label for="bizWebsite" class="block text-sm font-semibold text-slate-700 mb-2">Sitio Web actual o Instagram (Opcional)</label>
-                <input type="text" id="bizWebsite" placeholder="https://tunegocio.com o @instagram" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-white text-slate-800 placeholder-slate-400 text-sm font-medium transition" />
+                <!-- PUESTO #3: COMPETIDOR SIN OPTIMIZACIÓN -->
+                <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 opacity-40">
+                  <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 font-bold flex items-center justify-center text-xs">#3</div>
+                    <div>
+                      <div class="text-sm font-semibold text-slate-400">Negocio No Optimizado</div>
+                      <div class="text-[11px] text-slate-500">Ficha incompleta • Horarios desactualizados</div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
             </div>
 
-            <button type="submit" id="btnSubmitAudit" class="w-full py-4 px-6 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-md hover:shadow-brand-600/25 transition-all flex items-center justify-center gap-2">
-              <svg class="w-5 h-5 animate-spin hidden" id="auditSpinner" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-              <span>Generar Diagnóstico de Visibilidad en Google</span>
-              <svg class="w-5 h-5" id="auditArrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-              </svg>
-            </button>
-          </form>
-
-          <!-- Resultado Dinámico del Diagnóstico -->
-          <div id="auditResult" class="hidden mt-8 pt-8 border-t border-slate-200">
-            <div class="bg-blue-50/70 border border-blue-200/80 rounded-xl p-6">
-              <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
-                <span class="font-bold text-slate-800 text-base" id="resTitle">Diagnóstico para Negocio</span>
-                <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800" id="resScore">Puntuación Estimada: 58/100</span>
-              </div>
-              
-              <div class="space-y-3 text-sm text-slate-700 mb-6">
-                <div class="flex items-start gap-2">
-                  <span class="text-amber-500 font-bold">⚠️</span>
-                  <span><strong>Presencia en Google Maps:</strong> Oportunidad alta de captar búsquedas de radio geográfico no reclamadas por competidores.</span>
-                </div>
-                <div class="flex items-start gap-2">
-                  <span class="text-amber-500 font-bold">⚠️</span>
-                  <span><strong>Estructura Schema.org Local:</strong> Se recomienda inyectar microdatos de geolocalización y servicios para activar Rich Snippets.</span>
-                </div>
-                <div class="flex items-start gap-2">
-                  <span class="text-emerald-600 font-bold">✓</span>
-                  <span><strong>Potencial de Crecimiento:</strong> El nicho en República Dominicana tiene alta intención de llamada telefónica y WhatsApp directo.</span>
-                </div>
-              </div>
-
-              <div class="p-4 bg-white rounded-lg border border-slate-200 text-center">
-                <p class="text-xs text-slate-600 mb-3">
-                  ¿Deseas que auditemos tu ficha a fondo y te enviemos la estrategia exacta para alcanzar el <strong>Top 3 en Google Maps</strong>?
-                </p>
-                <a id="waAuditLink" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow transition">
-                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-                  </svg>
-                  Reclamar Mi Plan de Acción Gratuito por WhatsApp
-                </a>
-              </div>
-
-            </div>
           </div>
 
         </div>
@@ -502,168 +505,318 @@
       </div>
     </section>
 
-    <!-- SERVICIOS ESPECIALIZADOS DE ISAPROMO RD -->
-    <section id="servicios" class="py-20 bg-white">
+    <!-- MARQUEE INFINITO: MARCAS Y CLIENTES QUE CONFÍAN EN LA INFRAESTRUCTURA -->
+    <section class="py-8 bg-white border-y border-slate-200/80 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 mb-3 text-center">
+        <span class="text-[11px] font-mono uppercase tracking-widest text-slate-400 font-bold">
+          Ecosistema Tecnológico & Clientes en República Dominicana
+        </span>
+      </div>
+      <div class="flex overflow-x-hidden relative">
+        <div class="flex animate-marquee whitespace-nowrap gap-10 py-3 text-sm font-extrabold text-slate-700 items-center">
+          <span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200">🐾 Vet Metropolitana RD</span>
+          <span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200">🌾 Pasión Pecuaria Dominicana</span>
+          <span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200">🏢 Torres Apex La Esperilla</span>
+          <span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200">📊 GranjaTracker SaaS RD</span>
+          <span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200">⚕️ Red Médica Piantini</span>
+          <span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200">⚖️ Bufete Jurídico Capital</span>
+          <!-- Repetición para Loop Infinito -->
+          <span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200">🐾 Vet Metropolitana RD</span>
+          <span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200">🌾 Pasión Pecuaria Dominicana</span>
+          <span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200">🏢 Torres Apex La Esperilla</span>
+          <span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200">📊 GranjaTracker SaaS RD</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENTO GRID TECNOLÓGICO (The Modern Agency Standard) -->
+    <section id="bento" class="py-24 bg-[#F8FAFC]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-16">
-          <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
-            Nuestros Pilares
+          <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-200 font-mono">
+            Arquitectura de Alto Rendimiento
           </span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4 tracking-tight">
-            Todo lo que tu empresa necesita para dominar el mercado digital dominicano
+          <h2 class="text-3xl sm:text-5xl font-black text-slate-950 mt-4 tracking-tight">
+            Por qué nuestras soluciones no parecen un "template genérico"
           </h2>
-          <p class="text-slate-600 text-base mt-3">
-            Sin métricas de vanidad. Estrategias técnicas de ingeniería orientadas a clientes llamando y comprando.
+          <p class="text-slate-600 text-base sm:text-lg mt-3">
+            Cada elemento está diseñado con precisión milimétrica para satisfacer a los dos jueces más exigentes: <strong class="text-slate-900">el algoritmo de Google</strong> y <strong class="text-slate-900">tus clientes locales</strong>.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
           
-          <!-- Servicio 1: SEO Local & Google Maps -->
-          <article class="p-8 rounded-2xl bg-slate-50/80 border border-slate-200 hover:border-brand-500/50 hover:bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <!-- Bento 1: Mapa Geográfico & Calor de Ranking (Col 7) -->
+          <div class="md:col-span-7 bento-card rounded-3xl p-8 flex flex-col justify-between">
             <div>
-              <div class="w-14 h-14 rounded-xl bg-blue-100 text-brand-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                📍
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-blue-100 text-brand-600 flex items-center justify-center text-xl font-bold">📍</span>
+                <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold">GEO-GRID 360° ACTIVO</span>
               </div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3">SEO Local & Google Maps</h3>
-              <p class="text-sm text-slate-600 leading-relaxed mb-4">
-                Configuración y auditoría de tu Perfil de Negocio en Google (Google Business Profile), sincronización de datos NAP y posicionamiento en el Top 3 del mapa geográfico.
+              <h3 class="text-2xl font-black text-slate-900 mb-2">Dominancia Geográfica en Google Maps</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                No basta con tener una ficha. Optimizamos tu radio de influencia en Santo Domingo y provincias para que quien busque en Piantini, Naco, Bella Vista o Santiago vea tu negocio en el #1, no el de tu rival.
               </p>
-              <ul class="text-xs text-slate-500 space-y-2 mb-6">
-                <li class="flex items-center">✓ Auditoría de citaciones locales</li>
-                <li class="flex items-center">✓ Estrategia para reseñas 5 estrellas</li>
-                <li class="flex items-center">✓ Dominio en búsquedas "cerca de mí"</li>
-              </ul>
             </div>
-            <a href="https://wa.me/18295550199?text=Hola,%20me%20interesa%20el%20servicio%20de%20SEO%20Local%20y%20Google%20Maps" class="text-sm font-bold text-brand-600 hover:text-brand-700 flex items-center">
-              Consultar SEO Local →
-            </a>
-          </article>
 
-          <!-- Servicio 2: Páginas Web & Landing Pages -->
-          <article class="p-8 rounded-2xl bg-slate-50/80 border border-slate-200 hover:border-brand-500/50 hover:bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-            <div>
-              <div class="w-14 h-14 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                ⚡
+            <!-- Visual Geo-Grid Heatmap -->
+            <div class="bg-slate-950 rounded-2xl p-5 border border-slate-800 text-white font-mono text-xs">
+              <div class="flex items-center justify-between text-slate-400 mb-4 pb-2 border-b border-slate-800">
+                <span>SECTOR / POLÍGONO RD</span>
+                <span class="text-emerald-400 font-bold">POSICIÓN EN GOOGLE</span>
               </div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3">Landing Pages Ultrarrápidas</h3>
-              <p class="text-sm text-slate-600 leading-relaxed mb-4">
-                Diseñamos sitios web limpios, intuitivos y con tiempos de carga menores a 1 segundo. 100% optimizados para teléfonos móviles y Google PageSpeed.
-              </p>
-              <ul class="text-xs text-slate-500 space-y-2 mb-6">
-                <li class="flex items-center">✓ Calificación 100 Core Web Vitals</li>
-                <li class="flex items-center">✓ Botones directos a WhatsApp</li>
-                <li class="flex items-center">✓ Arquitectura semántica HTML5</li>
-              </ul>
+              <div class="space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Piantini & Naco</span>
+                  <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">#1 (Top Rank)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Bella Vista & Mirador</span>
+                  <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">#1 (Top Rank)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Gazcue & Zona Universitaria</span>
+                  <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">#2 (En Escalada)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Santiago de los Caballeros</span>
+                  <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">#1 (Top Rank)</span>
+                </div>
+              </div>
             </div>
-            <a href="https://wa.me/18295550199?text=Hola,%20deseo%20crear%20una%20landing%20page%20o%20p%C3%A1gina%20web%20r%C3%A1pida" class="text-sm font-bold text-brand-600 hover:text-brand-700 flex items-center">
-              Cotizar Landing Page →
-            </a>
-          </article>
+          </div>
 
-          <!-- Servicio 3: Campañas Digitales (Ads) -->
-          <article class="p-8 rounded-2xl bg-slate-50/80 border border-slate-200 hover:border-brand-500/50 hover:bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+          <!-- Bento 2: Speedometer & Core Web Vitals 100/100 (Col 5) -->
+          <div class="md:col-span-5 bento-card rounded-3xl p-8 flex flex-col justify-between">
             <div>
-              <div class="w-14 h-14 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                🎯
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl font-bold">⚡</span>
+                <span class="text-xs font-mono px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200 font-bold">SPEED SCORE</span>
               </div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3">Google & Meta Ads</h3>
-              <p class="text-sm text-slate-600 leading-relaxed mb-4">
-                Campañas de pauta publicitaria ultra segmentadas en República Dominicana. Atraemos prospectos calificados con alta intención de compra desde el primer día.
+              <h3 class="text-2xl font-black text-slate-900 mb-2">Velocidad Menor a 1 Segundo</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                El 53% de los usuarios móviles abandonan un sitio si tarda más de 3 segundos. Nuestras webs cargan al instante en redes 4G dominicanas.
               </p>
-              <ul class="text-xs text-slate-500 space-y-2 mb-6">
-                <li class="flex items-center">✓ Segmentación geográfica exacta</li>
-                <li class="flex items-center">✓ Búsquedas comerciales en Google</li>
-                <li class="flex items-center">✓ Optimización de Costo por Lead</li>
-              </ul>
             </div>
-            <a href="https://wa.me/18295550199?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20publicidad%20en%20Google%20Ads%20y%20Meta" class="text-sm font-bold text-brand-600 hover:text-brand-700 flex items-center">
-              Plan de Pauta Digital →
-            </a>
-          </article>
 
-          <!-- Servicio 4: Automatización con IA & WhatsApp -->
-          <article class="p-8 rounded-2xl bg-slate-50/80 border border-slate-200 hover:border-brand-500/50 hover:bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-            <div>
-              <div class="w-14 h-14 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                🤖
+            <!-- Dynamic Gauge Visual -->
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 text-center">
+              <div class="relative inline-flex items-center justify-center mb-3">
+                <div class="text-5xl font-black text-emerald-600 font-mono tracking-tight">100</div>
+                <span class="text-xs font-bold text-slate-500 ml-1">/100</span>
               </div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3">Automatización e IA</h3>
-              <p class="text-sm text-slate-600 leading-relaxed mb-4">
-                Conecta tus leads directamente a flujos inteligentes en WhatsApp y CRM (n8n, Make). Responde cotizaciones en segundos y no pierdas ni un solo cliente.
-              </p>
-              <ul class="text-xs text-slate-500 space-y-2 mb-6">
-                <li class="flex items-center">✓ Chatbots de atención 24/7</li>
-                <li class="flex items-center">✓ Integración directa con CRM</li>
-                <li class="flex items-center">✓ Calificación automática de leads</li>
-              </ul>
+              <div class="text-xs font-bold text-slate-800 uppercase tracking-wide">Google PageSpeed Insights</div>
+              
+              <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-200 text-[11px] font-mono">
+                <div>
+                  <div class="text-slate-400">LCP</div>
+                  <div class="font-bold text-emerald-600">0.5s</div>
+                </div>
+                <div>
+                  <div class="text-slate-400">FID</div>
+                  <div class="font-bold text-emerald-600">1ms</div>
+                </div>
+                <div>
+                  <div class="text-slate-400">CLS</div>
+                  <div class="font-bold text-emerald-600">0.00</div>
+                </div>
+              </div>
             </div>
-            <a href="https://wa.me/18295550199?text=Hola,%20deseo%20automatizar%20la%20atenci%C3%B3n%20de%20WhatsApp%20con%20IA" class="text-sm font-bold text-brand-600 hover:text-brand-700 flex items-center">
-              Ver Automatizaciones →
-            </a>
-          </article>
+          </div>
+
+          <!-- Bento 3: Conversión por WhatsApp & CRM Automático (Col 5) -->
+          <div class="md:col-span-5 bento-card rounded-3xl p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold">💬</span>
+                <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold">CONVERSIÓN 24/7</span>
+              </div>
+              <h3 class="text-2xl font-black text-slate-900 mb-2">WhatsApp Click-to-Chat Directo</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                En República Dominicana el negocio se cierra en WhatsApp. Cada página incluye gatillos psicológicos y mensajes pre-estructurados.
+              </p>
+            </div>
+
+            <!-- WhatsApp Chat Preview Simulation -->
+            <div class="bg-emerald-950/20 border border-emerald-600/30 rounded-2xl p-4 text-xs space-y-2.5">
+              <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-slate-800">
+                <span class="text-[10px] text-slate-400 block font-semibold mb-0.5">Cliente en Santo Domingo:</span>
+                "Hola, los vi de primeros en Google Maps. ¿Tienen disponibilidad hoy?"
+              </div>
+              <div class="bg-emerald-600 text-white p-3 rounded-2xl rounded-tr-none shadow-sm max-w-[85%] ml-auto">
+                <span class="text-[10px] text-emerald-200 block font-semibold mb-0.5">IsaPromo Bot / Asesor:</span>
+                "¡Hola! Claro que sí, te confirmamos turno en 1 minuto..."
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento 4: Datos Estructurados Schema.org JSON-LD Inyectados (Col 7) -->
+          <div class="md:col-span-7 bento-card rounded-3xl p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl font-bold">🏷️</span>
+                <span class="text-xs font-mono px-3 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200 font-bold">RICH SNIPPETS READY</span>
+              </div>
+              <h3 class="text-2xl font-black text-slate-900 mb-2">Microdatos Schema.org Nativos</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                Le hablamos a los robots de Google en su idioma nativo. Tu web incluye el código exacto que le dice a Google tu dirección NAP, tus estrellas y tus preguntas frecuentes.
+              </p>
+            </div>
+
+            <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 font-mono text-[11px] text-slate-300 overflow-x-auto">
+              <div class="text-slate-500 mb-1">// Inyección Schema.org JSON-LD activa en isapromord.com</div>
+              <span class="text-purple-400">"@type"</span>: [<span class="text-emerald-400">"LocalBusiness"</span>, <span class="text-emerald-400">"ProfessionalService"</span>],<br/>
+              <span class="text-purple-400">"geo"</span>: { <span class="text-amber-400">"latitude"</span>: 18.4861, <span class="text-amber-400">"longitude"</span>: -69.9312 },<br/>
+              <span class="text-purple-400">"areaServed"</span>: <span class="text-emerald-400">"República Dominicana (Santo Domingo, Santiago)"</span>,<br/>
+              <span class="text-purple-400">"aggregateRating"</span>: { <span class="text-amber-400">"ratingValue"</span>: <span class="text-blue-400">"4.9"</span>, <span class="text-amber-400">"reviewCount"</span>: <span class="text-blue-400">48</span> }
+            </div>
+          </div>
 
         </div>
 
       </div>
     </section>
 
-    <!-- PREGUNTAS FRECUENTES (FAQ) - EMPAREJADO CON SCHEMA FAQPAGE -->
-    <section id="faq" class="py-20 bg-slate-50 border-t border-slate-200">
+    <!-- SIMULADOR INTERACTIVO DE AUDITORÍA SEO LOCAL (Lead Magnet) -->
+    <section id="simulador" class="py-24 bg-white border-t border-slate-200">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center mb-14">
-          <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
-            Claridad Total
+        <div class="text-center mb-12">
+          <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-200 font-mono">
+            Diagnóstico Sin Costo
           </span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4 tracking-tight">
-            Preguntas Frecuentes sobre SEO y Presencia Digital en RD
+          <h2 class="text-3xl sm:text-5xl font-black text-slate-950 mt-4 tracking-tight">
+            Escanea tu Ficha de Google en Vivo
           </h2>
-          <p class="text-slate-600 text-base mt-2">
-            Respuestas directas a las dudas más comunes de empresarios y profesionales dominicanos.
+          <p class="text-slate-600 text-base max-w-xl mx-auto mt-3">
+            Descubre cuántos clientes estás perdiendo en tu zona y qué necesitas para tomar el Puesto #1.
           </p>
+        </div>
+
+        <div class="rounded-3xl border border-slate-200 bg-slate-50/70 p-6 sm:p-12 shadow-xl">
+          <form id="auditEngineForm" onsubmit="event.preventDefault(); triggerAuditScan();" class="space-y-6">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="auditBiz" class="block text-xs font-mono font-bold uppercase text-slate-700 mb-2">Nombre de la Empresa</label>
+                <input type="text" id="auditBiz" required placeholder="Ej: Veterinaria Arroyo Hondo" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-semibold text-sm focus:ring-2 focus:ring-brand-600 transition" />
+              </div>
+
+              <div>
+                <label for="auditZone" class="block text-xs font-mono font-bold uppercase text-slate-700 mb-2">Zona / Sector en RD</label>
+                <select id="auditZone" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white text-slate-900 font-semibold text-sm focus:ring-2 focus:ring-brand-600 transition">
+                  <option value="Santo Domingo (Piantini / Naco / Bella Vista)">Santo Domingo (Piantini / Naco / Bella Vista)</option>
+                  <option value="Santo Domingo Este (Alma Rosa / San Isidro)">Santo Domingo Este (Alma Rosa / San Isidro)</option>
+                  <option value="Santo Domingo Norte & Oeste">Santo Domingo Norte & Oeste</option>
+                  <option value="Santiago de los Caballeros">Santiago de los Caballeros</option>
+                  <option value="Punta Cana / Bávaro">Punta Cana / Bávaro</option>
+                  <option value="La Vega / San Francisco">La Vega / San Francisco</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" id="btnRunAudit" class="w-full py-4 px-6 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-base shadow-lg shadow-brand-600/25 transition-all flex items-center justify-center gap-2">
+              <span id="auditBtnText">Iniciar Escaneo de Visibilidad Local</span>
+              <svg class="w-5 h-5" id="auditBtnIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </button>
+          </form>
+
+          <!-- Barra de Progreso Simulada -->
+          <div id="scanProgressBar" class="hidden mt-6 pt-6 border-t border-slate-200">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-600 mb-2">
+              <span id="scanStatusText">Conectando con Google Local API...</span>
+              <span id="scanPercent" class="font-bold text-brand-600">32%</span>
+            </div>
+            <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+              <div id="scanBarInner" class="h-full bg-brand-600 transition-all duration-300" style="width: 32%"></div>
+            </div>
+          </div>
+
+          <!-- Reporte de Resultados -->
+          <div id="scanReport" class="hidden mt-8 pt-8 border-t border-slate-200">
+            <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-md">
+              <div class="flex items-center justify-between flex-wrap gap-3 mb-6">
+                <div>
+                  <h3 class="text-lg font-black text-slate-900" id="repName">Empresa Auditada</h3>
+                  <div class="text-xs text-slate-500 font-mono" id="repZone">Sector seleccionado</div>
+                </div>
+                <div class="px-4 py-1.5 rounded-full bg-amber-100 text-amber-800 font-mono font-bold text-xs">
+                  Puntaje Actual: 54/100 (Crítico)
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-center">
+                  <div class="text-xs text-slate-500 font-mono">Presencia Maps</div>
+                  <div class="text-lg font-black text-amber-600 mt-1">Página 2-3</div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-center">
+                  <div class="text-xs text-slate-500 font-mono">Microdatos Schema</div>
+                  <div class="text-lg font-black text-red-600 mt-1">Ausentes</div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-center">
+                  <div class="text-xs text-slate-500 font-mono">Llamadas Perdidas</div>
+                  <div class="text-lg font-black text-brand-600 mt-1">~120/mes</div>
+                </div>
+              </div>
+
+              <div class="text-center pt-2">
+                <a id="repWaBtn" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm shadow-md transition-all">
+                  <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                  Recibir Plan para Subir al #1 por WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES (FAQ) DE ALTO VALOR -->
+    <section id="faq" class="py-24 bg-slate-50 border-t border-slate-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-16">
+          <span class="text-brand-600 font-extrabold text-xs uppercase tracking-widest bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-200 font-mono">
+            Transparencia Total
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-black text-slate-950 mt-4 tracking-tight">
+            Todo lo que necesitas saber antes de contratar
+          </h2>
         </div>
 
         <div class="space-y-4">
           
-          <details class="group bg-white rounded-xl border border-slate-200/80 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
-            <summary class="flex items-center justify-between font-bold text-slate-900 text-base sm:text-lg">
-              <span>¿Por qué es crucial el SEO Local para un negocio en República Dominicana?</span>
+          <details class="group bg-white rounded-2xl border border-slate-200 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
+            <summary class="flex items-center justify-between font-bold text-slate-900 text-lg">
+              <span>¿Cuáles palabras clave exactas harán que mi empresa aparezca en Google?</span>
               <span class="ml-4 transition group-open:rotate-180 text-brand-600 font-black">▼</span>
             </summary>
-            <div class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
-              El SEO Local permite que tu negocio aparezca en el mapa de Google (Google Maps / Local Pack) cuando personas en Santo Domingo, Santiago o cualquier provincia buscan tus servicios con intención inmediata de compra. Más del 78% de las búsquedas locales en móviles generan una visita o compra dentro de las 24 horas.
+            <div class="mt-4 text-slate-600 text-sm leading-relaxed pt-3 border-t border-slate-100">
+              Las búsquedas con alta intención de compra en República Dominicana combinan el servicio con la geografía o la cercanía. Por ejemplo: <em>"abogado corporativo en Santo Domingo"</em>, <em>"veterinaria 24 horas cerca de mí"</em>, <em>"agencia inmobiliaria en Piantini"</em>. Nosotros inyectamos estas palabras clave en tus títulos, microdatos JSON-LD y descripción de servicios para que Google te priorice.
             </div>
           </details>
 
-          <details class="group bg-white rounded-xl border border-slate-200/80 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
-            <summary class="flex items-center justify-between font-bold text-slate-900 text-base sm:text-lg">
-              <span>¿Cuánto tiempo toma posicionar mi empresa en el Top 3 de Google Maps?</span>
+          <details class="group bg-white rounded-2xl border border-slate-200 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
+            <summary class="flex items-center justify-between font-bold text-slate-900 text-lg">
+              <span>¿Cuánto tiempo toma subir al Top 3 de Google Maps?</span>
               <span class="ml-4 transition group-open:rotate-180 text-brand-600 font-black">▼</span>
             </summary>
-            <div class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
-              Los primeros resultados de visibilidad y llamadas a través de Google Business Profile suelen verse entre las 3 y 6 semanas tras optimizar la ficha, sincronizar los datos NAP, generar citaciones dominicanas y publicar contenido geolocalizado.
+            <div class="mt-4 text-slate-600 text-sm leading-relaxed pt-3 border-t border-slate-100">
+              Entre 3 y 6 semanas tras culminar la auditoría, la corrección de datos NAP (Nombre, Dirección, Teléfono), la sincronización con directorios dominicanos y la publicación de contenido geoetiquetado. A partir de ese momento, el volumen de llamadas suele crecer entre un 60% y un 250%.
             </div>
           </details>
 
-          <details class="group bg-white rounded-xl border border-slate-200/80 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
-            <summary class="flex items-center justify-between font-bold text-slate-900 text-base sm:text-lg">
-              <span>¿Qué incluye la auditoría inicial de IsaPromo RD?</span>
+          <details class="group bg-white rounded-2xl border border-slate-200 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
+            <summary class="flex items-center justify-between font-bold text-slate-900 text-lg">
+              <span>¿Por qué las páginas web lentas destruyen las ventas?</span>
               <span class="ml-4 transition group-open:rotate-180 text-brand-600 font-black">▼</span>
             </summary>
-            <div class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
-              Evaluamos tu presencia actual en Google Maps, velocidad web en móviles (Core Web Vitals), estructura de palabras clave locales, perfil de enlaces (backlinks) y un plan paso a paso con las acciones prioritarias para superar a tu competencia directa.
-            </div>
-          </details>
-
-          <details class="group bg-white rounded-xl border border-slate-200/80 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm">
-            <summary class="flex items-center justify-between font-bold text-slate-900 text-base sm:text-lg">
-              <span>¿Hacen páginas web rápidas y adaptadas a teléfonos móviles?</span>
-              <span class="ml-4 transition group-open:rotate-180 text-brand-600 font-black">▼</span>
-            </summary>
-            <div class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
-              Sí. Todas nuestras landing pages y sitios web obtienen calificaciones de 90-100 en Google PageSpeed Insights, cargan en menos de 1 segundo en redes 4G dominicanas y están optimizadas para convertir visitas en chats de WhatsApp y llamadas telefónicas.
+            <div class="mt-4 text-slate-600 text-sm leading-relaxed pt-3 border-t border-slate-100">
+              El algoritmo de Google castiga severamente a las webs que tardan más de 2.5 segundos en cargar en teléfonos móviles, hundiéndolas en los resultados de búsqueda. Nuestras landing pages cargan en menos de 1 segundo (calificación 100 en Core Web Vitals), garantizando la máxima retención de prospectos.
             </div>
           </details>
 
@@ -672,167 +825,179 @@
       </div>
     </section>
 
-    <!-- BANNER DE CONVERSIÓN FINAL -->
-    <section class="py-16 bg-slate-900 text-white relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
-          ¿Listo para que tu primer cliente en Google te llame hoy?
+    <!-- BANNER FINAL DE CONVERSIÓN -->
+    <section class="py-20 bg-slate-950 text-white relative overflow-hidden">
+      <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+        <h2 class="text-3xl sm:text-5xl font-black tracking-tight mb-4">
+          Deja de regalarle clientes a tu competencia en Google.
         </h2>
-        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8">
-          Contáctanos por WhatsApp y recibe asesoría directa y personalizada de un especialista en SEO Local en República Dominicana.
+        <p class="text-slate-400 text-base sm:text-xl max-w-2xl mx-auto mb-10">
+          Chatea directamente con nuestro equipo de ingeniería SEO en Santo Domingo y recibe una propuesta adaptada a tu presupuesto.
         </p>
-        <a href="https://wa.me/18295550199?text=Hola%20IsaPromo%20RD,%20quiero%20comenzar%20a%20posicionar%20mi%20negocio%20en%20Google" 
+        <a href="https://wa.me/18295550199?text=Hola%20IsaPromo%20RD,%20quiero%20empezar%20a%20posicionar%20mi%20negocio%20en%20el%20Top%203%20de%20Google" 
            target="_blank" 
            rel="noopener noreferrer" 
-           class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-950 bg-accent-400 rounded-xl hover:bg-accent-500 shadow-lg shadow-accent-400/20 transition-all hover:scale-105">
-          <svg class="w-5 h-5 mr-2 text-slate-950" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-          </svg>
-          Comenzar Ahora por WhatsApp
+           class="inline-flex items-center justify-center px-10 py-5 text-base font-black text-slate-950 bg-accent-400 hover:bg-accent-500 rounded-2xl shadow-xl shadow-accent-400/20 transition-all transform hover:scale-105">
+          <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          Comenzar Auditoría Inmediata por WhatsApp
         </a>
       </div>
     </section>
   </main>
 
-  <!-- PIE DE PÁGINA (LOCAL SEO FOOTER CON DATOS NAP COMPLETOS) -->
-  <footer class="bg-slate-950 text-slate-400 text-sm border-t border-slate-800 pt-16 pb-12">
+  <!-- FOOTER LOCAL CON DATOS NAP -->
+  <footer class="bg-slate-950 text-slate-400 text-xs border-t border-slate-800 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
-        
-        <!-- Columna 1: Marca y Propósito -->
-        <div class="space-y-4">
-          <div class="flex items-center gap-3">
-            <img src="assets/logo.png" alt="IsaPromo RD" class="h-10 w-auto" />
-            <span class="text-xl font-bold text-white tracking-tight">IsaPromo<span class="text-brand-500">RD</span></span>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-slate-800">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <img src="assets/logo.png" alt="IsaPromo RD" class="h-8 w-auto" />
+            <span class="text-base font-extrabold text-white">IsaPromo<span class="text-brand-500">RD</span></span>
           </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Agencia líder en SEO Local, optimización de Google Maps y desarrollo web de alta velocidad para empresas en República Dominicana.
+          <p class="text-slate-400 leading-relaxed">
+            Ingeniería de SEO Local, páginas web ultrarrápidas y optimización en Google Maps para empresas en República Dominicana.
           </p>
-          <div class="text-xs text-slate-500">
-            📍 Coordenadas: 18.4861° N, 69.9312° W (Santo Domingo, DO)
+        </div>
+        <div>
+          <div class="font-bold text-white uppercase font-mono mb-3">Datos NAP Oficiales</div>
+          <div class="space-y-1">
+            <p><strong>Empresa:</strong> IsaPromo RD</p>
+            <p><strong>Ubicación:</strong> Santo Domingo, Distrito Nacional, DO</p>
+            <p><strong>Teléfono:</strong> <a href="tel:+18295550199" class="hover:text-white">+1 (829) 555-0199</a></p>
           </div>
         </div>
-
-        <!-- Columna 2: Servicios Principales -->
         <div>
-          <h4 class="text-white font-bold text-sm mb-4 tracking-wide uppercase">Servicios</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="#servicios" class="hover:text-white transition">Posicionamiento en Google Maps</a></li>
-            <li><a href="#servicios" class="hover:text-white transition">SEO Local en Santo Domingo y Santiago</a></li>
-            <li><a href="#servicios" class="hover:text-white transition">Diseño de Landing Pages Ultrarrápidas</a></li>
-            <li><a href="#servicios" class="hover:text-white transition">Campañas de Google Ads & Meta Ads</a></li>
-            <li><a href="#servicios" class="hover:text-white transition">Automatizaciones para WhatsApp</a></li>
+          <div class="font-bold text-white uppercase font-mono mb-3">Geolocalización RD</div>
+          <p class="text-slate-400">Coordenadas GPS: 18.4861° N, 69.9312° W</p>
+          <p class="text-slate-400 mt-1">Cobertura: Santo Domingo, Santiago, Punta Cana, La Vega, Puerto Plata.</p>
+        </div>
+        <div>
+          <div class="font-bold text-white uppercase font-mono mb-3">Archivos Técnicos</div>
+          <ul class="space-y-1">
+            <li><a href="sitemap.xml" class="hover:text-white font-mono">sitemap.xml (Canónico)</a></li>
+            <li><a href="robots.txt" class="hover:text-white font-mono">robots.txt (Crawler Ready)</a></li>
           </ul>
         </div>
-
-        <!-- Columna 3: Información NAP Oficial (SEO Local Consistency) -->
-        <div>
-          <h4 class="text-white font-bold text-sm mb-4 tracking-wide uppercase">Datos de Contacto (NAP)</h4>
-          <ul class="space-y-2 text-xs">
-            <li class="flex items-start gap-2">
-              <span class="text-brand-500">🏢</span>
-              <span><strong>Nombre:</strong> IsaPromo RD</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-brand-500">📍</span>
-              <span><strong>Ubicación:</strong> Distrito Nacional, Santo Domingo, República Dominicana</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-brand-500">📞</span>
-              <span><strong>Teléfono:</strong> <a href="tel:+18295550199" class="hover:text-white">+1 (829) 555-0199</a></span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-brand-500">✉️</span>
-              <span><strong>Email:</strong> contacto@isapromord.com</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Columna 4: Ciudades que Servimos -->
-        <div>
-          <h4 class="text-white font-bold text-sm mb-4 tracking-wide uppercase">Cobertura en RD</h4>
-          <p class="text-xs text-slate-400 mb-3">
-            Atendemos empresas en todo el territorio nacional:
-          </p>
-          <div class="flex flex-wrap gap-1.5 text-[11px]">
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Santo Domingo</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Santiago</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Punta Cana</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">La Vega</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Puerto Plata</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">San Cristóbal</span>
-          </div>
-        </div>
-
       </div>
-
-      <!-- Copyright y Enlaces Legales -->
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-        <div>
-          © 2026 IsaPromo RD (isapromord.com). Todos los derechos reservados.
-        </div>
-        <div class="flex items-center space-x-6">
-          <a href="#" class="hover:text-slate-400">Términos de Servicio</a>
-          <a href="#" class="hover:text-slate-400">Política de Privacidad</a>
-          <a href="sitemap.xml" class="hover:text-slate-400">Mapa del Sitio (XML)</a>
-        </div>
+      <div class="flex flex-col sm:flex-row items-center justify-between text-slate-500">
+        <span>© 2026 IsaPromo RD (isapromord.com). Todos los derechos reservados.</span>
+        <span>Hecho para dominar Google en República Dominicana 🇩🇴</span>
       </div>
-
     </div>
   </footer>
 
-  <!-- BOTÓN FLOTANTE DE WHATSAPP CON NOTIFICACIÓN -->
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
   <aside class="fixed bottom-6 right-6 z-50 flex items-center group">
-    <div class="hidden sm:block mr-3 bg-white text-slate-800 text-xs font-semibold py-2 px-3 rounded-xl shadow-lg border border-slate-200 transition-all duration-300 opacity-90 group-hover:opacity-100">
-      ¿Quieres más clientes en Google? Chatea aquí 👋
-    </div>
     <a href="https://wa.me/18295550199?text=Hola%20IsaPromo%20RD,%20deseo%20saber%20c%C3%B3mo%20posicionar%20mi%20negocio%20en%20Google" 
        target="_blank" 
        rel="noopener noreferrer" 
        aria-label="Contactar a IsaPromo RD por WhatsApp"
-       class="relative w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center shadow-xl hover:bg-emerald-600 hover:scale-110 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-emerald-400/50">
+       class="relative w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-emerald-600 hover:scale-110 transition-all duration-200">
       <span class="absolute -top-1 -right-1 flex h-4 w-4">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
         <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-600 border-2 border-white"></span>
       </span>
-      <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-      </svg>
+      <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
     </a>
   </aside>
 
-  <!-- LÓGICA INTERACTIVA DEL SIMULADOR DE AUDITORÍA -->
+  <!-- SCRIPTS INTERACTIVOS (SIMULADOR, TYPING EFFECT, LIVE TOAST) -->
   <script>
-    function runLocalAudit() {
-      const name = document.getElementById('bizName').value.trim() || 'Tu Empresa';
-      const city = document.getElementById('bizCity').value;
-      const category = document.getElementById('bizCategory').value;
-      const website = document.getElementById('bizWebsite').value.trim();
+    // Typing Simulation Effect
+    const queries = [
+      "agencia seo local republica dominicana",
+      "posicionamiento web santo domingo",
+      "aparecer en google maps republica dominicana",
+      "diseño paginas web santo domingo",
+      "landing pages de alta velocidad rd"
+    ];
+    let queryIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    const typingElem = document.getElementById("typingSimulation");
 
-      const spinner = document.getElementById('auditSpinner');
-      const arrow = document.getElementById('auditArrow');
-      const btn = document.getElementById('btnSubmitAudit');
-      const resultBox = document.getElementById('auditResult');
+    function typeLoop() {
+      const currentQuery = queries[queryIdx];
+      if (isDeleting) {
+        typingElem.textContent = currentQuery.substring(0, charIdx - 1);
+        charIdx--;
+      } else {
+        typingElem.textContent = currentQuery.substring(0, charIdx + 1);
+        charIdx++;
+      }
 
-      spinner.classList.remove('hidden');
-      arrow.classList.add('hidden');
-      btn.disabled = true;
+      if (!isDeleting && charIdx === currentQuery.length) {
+        isDeleting = true;
+        setTimeout(typeLoop, 2000);
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        queryIdx = (queryIdx + 1) % queries.length;
+        setTimeout(typeLoop, 400);
+      } else {
+        setTimeout(typeLoop, isDeleting ? 30 : 60);
+      }
+    }
+    typeLoop();
+
+    // Live Activity Toast Dispatcher
+    const liveToasts = [
+      { biz: "Clínica Dental en Piantini, DN", action: "Alcanzó Puesto #1 en Google Maps (+340 llamadas)" },
+      { biz: "Inmobiliaria en Naco, DN", action: "Optimizó Ficha y Subió 8 Posiciones en 14 días" },
+      { biz: "Centro Veterinario en Bella Vista", action: "Recibió 48 Reseñas de 5 Estrellas con Schema" },
+      { biz: "Empresa de Logística en Santiago RD", action: "Logró Calificación 100 en Core Web Vitals" }
+    ];
+    let toastIndex = 0;
+    function showNextToast() {
+      const toast = document.getElementById("liveActivityToast");
+      const item = liveToasts[toastIndex];
+      document.getElementById("toastBiz").textContent = item.biz;
+      document.getElementById("toastAction").textContent = item.action;
+      
+      toast.classList.remove("translate-y-32", "opacity-0");
+      toast.classList.add("translate-y-0", "opacity-100");
 
       setTimeout(() => {
-        spinner.classList.add('hidden');
-        arrow.classList.remove('hidden');
-        btn.disabled = false;
+        toast.classList.remove("translate-y-0", "opacity-100");
+        toast.classList.add("translate-y-32", "opacity-0");
+        toastIndex = (toastIndex + 1) % liveToasts.length;
+        setTimeout(showNextToast, 5000);
+      }, 4500);
+    }
+    setTimeout(showNextToast, 3000);
 
-        document.getElementById('resTitle').textContent = `Diagnóstico de Visibilidad: ${name} (${city})`;
-        resultBox.classList.remove('hidden');
+    // Interactive Audit Scanner Simulation
+    function triggerAuditScan() {
+      const biz = document.getElementById("auditBiz").value.trim() || "Tu Empresa";
+      const zone = document.getElementById("auditZone").value;
+      const progressBox = document.getElementById("scanProgressBar");
+      const barInner = document.getElementById("scanBarInner");
+      const statusText = document.getElementById("scanStatusText");
+      const percentText = document.getElementById("scanPercent");
+      const reportBox = document.getElementById("scanReport");
 
-        // Generar enlace dinámico de WhatsApp pre-rellenado con los datos del usuario
-        const msg = encodeURIComponent(`Hola IsaPromo RD, completé el simulador para "${name}" en ${city} (${category}). Deseo mi plan de acción para posicionarme en el Top 3 de Google Maps.`);
-        document.getElementById('waAuditLink').href = `https://wa.me/18295550199?text=${msg}`;
+      progressBox.classList.remove("hidden");
+      reportBox.classList.add("hidden");
 
-        // Scroll suave al resultado
-        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 700);
+      let p = 0;
+      const interval = setInterval(() => {
+        p += 20;
+        if (p <= 100) {
+          barInner.style.width = p + "%";
+          percentText.textContent = p + "%";
+          if (p === 40) statusText.textContent = "Extrayendo datos de Google Business Profile...";
+          if (p === 80) statusText.textContent = "Analizando competencia en " + zone + "...";
+        } else {
+          clearInterval(interval);
+          progressBox.classList.add("hidden");
+          reportBox.classList.remove("hidden");
+          document.getElementById("repName").textContent = biz;
+          document.getElementById("repZone").textContent = "Zona: " + zone;
+          
+          const msg = encodeURIComponent(`Hola IsaPromo RD, ejecuté el escáner para "${biz}" en ${zone}. Mi reporte indica oportunidad crítica para subir al Top 1 de Google Maps. Deseo el plan técnico.`);
+          document.getElementById("repWaBtn").href = `https://wa.me/18295550199?text=${msg}`;
+          reportBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }, 300);
     }
   </script>
 </body>
