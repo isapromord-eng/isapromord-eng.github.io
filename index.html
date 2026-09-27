@@ -254,7 +254,7 @@
         <span id="toastBiz">Clínica en Piantini, DN</span>
       </div>
       <div class="text-slate-300 mt-0.5 text-xs sm:text-sm" id="toastAction">Lanzó nueva Web 100 Core Web Vitals (+140 chats)</div>
-      <div class="text-xs text-slate-400 mt-1 font-mono">Hace 2 minutos en República Dominicana</div>
+      <div class="text-xs text-slate-400 mt-1 font-mono" id="toastTime">Proyecto reciente en Santo Domingo</div>
     </div>
   </div>
 
@@ -1197,20 +1197,25 @@
     }
     typeLoop();
 
-    // Live Activity Toast Dispatcher
+    // Live Activity Toast Dispatcher (Frecuencia calibrada y elegante para no saturar)
     const liveToasts = [
-      { biz: "Clínica en Piantini, DN", action: "Estrenó nueva Web 100 Core Web Vitals (+140 chats)" },
-      { biz: "Inmobiliaria en Naco, DN", action: "Alcanzó Puesto #1 en Google Maps (+340 llamadas)" },
-      { biz: "Constructora en Santiago RD", action: "Rediseñó su Landing Page y duplicó leads" },
-      { biz: "Centro Veterinario en Bella Vista", action: "Subió 8 posiciones en Google en 14 días" }
+      { biz: "Clínica en Piantini, DN", action: "Estrenó nueva Web 100 Core Web Vitals (+140 chats)", time: "Proyecto reciente en Santo Domingo" },
+      { biz: "Inmobiliaria en Naco, DN", action: "Alcanzó Puesto #1 en Google Maps (+340 llamadas)", time: "Caso de éxito comprobado en RD" },
+      { biz: "Constructora en Santiago RD", action: "Rediseñó su Landing Page y duplicó leads", time: "Optimización web en Santiago" },
+      { biz: "Centro Veterinario en Bella Vista", action: "Subió 8 posiciones en Google en 14 días", time: "Estrategia local en el Polígono Central" }
     ];
     let toastIndex = 0;
     function showNextToast() {
       const toast = document.getElementById("liveActivityToast");
       if (!toast) return;
       const item = liveToasts[toastIndex];
-      document.getElementById("toastBiz").textContent = item.biz;
-      document.getElementById("toastAction").textContent = item.action;
+      const bizElem = document.getElementById("toastBiz");
+      const actionElem = document.getElementById("toastAction");
+      const timeElem = document.getElementById("toastTime");
+
+      if (bizElem) bizElem.textContent = item.biz;
+      if (actionElem) actionElem.textContent = item.action;
+      if (timeElem) timeElem.textContent = item.time;
       
       toast.classList.remove("translate-y-32", "opacity-0");
       toast.classList.add("translate-y-0", "opacity-100");
@@ -1219,10 +1224,12 @@
         toast.classList.remove("translate-y-0", "opacity-100");
         toast.classList.add("translate-y-32", "opacity-0");
         toastIndex = (toastIndex + 1) % liveToasts.length;
-        setTimeout(showNextToast, 5000);
-      }, 4500);
+        // Intervalo de descanso ampliado a 22 segundos (menos de la mitad de frecuencia previa)
+        setTimeout(showNextToast, 22000);
+      }, 5000);
     }
-    setTimeout(showNextToast, 3000);
+    // Primer popup retrasado a 10 segundos para dejar al visitante leer el Hero con calma
+    setTimeout(showNextToast, 10000);
 
     // Interactive Audit Scanner Simulation
     function triggerAuditScan() {

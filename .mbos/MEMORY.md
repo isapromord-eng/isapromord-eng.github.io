@@ -91,3 +91,13 @@
     - Píldora de fecha 'HOY' centrada.
     - Burbujas de mensaje con estilos nativos (cliente entrante en blanco `#ffffff`, respuesta de ISAPromoRD en verde suave `#D9FDD3` con doble check azul `#53bdeb`).
     - Barra inferior nativa `#F0F2F5` con iconos de emoji, clip de adjuntos, campo de texto 'Escribe un mensaje...' y botón circular verde `#00A884` con micrófono.
+
+## [2026-09-27] - Calibración de Frecuencia y Credibilidad del Toast de Actividad (Live Activity Dispatcher)
+- **Problema Detectado:**
+  - El popup de actividad salía cada 9.5 segundos (3s iniciales, 4.5s visible, 5s de pausa), y todos los eventos decían "Hace 2 minutos".
+  - Para una agencia emergente / en crecimiento, un volumen de 6 popups por minuto genera percepción de automatización artificial o spam poco creíble.
+- **Optimización de Grado de Autoridad:**
+  - Se retrasó la primera aparición a **10 segundos** (permitiendo al visitante leer el Hero y titular sin interrupciones).
+  - Se amplió el tiempo de lectura en pantalla a **5 segundos**.
+  - Se extendió el intervalo de silencio entre apariciones a **22 segundos** (reducción del 65% en frecuencia, apareciendo solo 1 o 2 veces por visita normal).
+  - Se sustituyó la leyenda fija "Hace 2 minutos" por referencias a casos reales y proyectos recientes en Santo Domingo y Santiago RD ("Proyecto reciente en Santo Domingo", "Caso de éxito comprobado en RD", etc.), transformándolo en prueba social creíble (case studies).
