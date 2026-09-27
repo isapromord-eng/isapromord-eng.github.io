@@ -52,6 +52,15 @@
   - Módulo de comparativa visual: "Web Tradicional en RD (5.8s, 0 ventas)" vs "Ingeniería IsaPromo RD (100 Core Web Vitals, WhatsApp directo)".
   - Actualización del grafo Schema.org JSON-LD para registrar ambos servicios formalmente ante Google.
 
+## [2026-09-27] - Evolución Tipográfica de Marca: ISAPromoRD (Opción A - Color Dividido)
+- **Decisión de Identidad:** Tras análisis de legibilidad fonética y de jerarquía visual, se seleccionó oficialmente el formato de capitulación **ISAPromoRD**.
+- **Tratamiento Tipográfico (Opción A):**
+  - `ISA`: En negro sólido / slate-950 (connotación de acrónimo institucional / tecnológico).
+  - `Promo`: En gris oscuro / slate-700 (palabra comercial en formato título legible).
+  - `RD`: En azul eléctrico de marca / brand-600 (anclaje geográfico de República Dominicana).
+- **Sincronización:** Se actualizó en `index.html`, metadatos, Schema.org JSON-LD, `BRAIN.md` y enlaces de llamada a la acción de WhatsApp.
+
+
 
 
 

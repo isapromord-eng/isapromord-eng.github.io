@@ -1,9 +1,9 @@
-# 🧠 BRAIN.md — Reglas Inmutables y Filosofía de IsaPromo RD (isapromord.com)
+# 🧠 BRAIN.md — Reglas Inmutables y Filosofía de ISAPromoRD (isapromord.com)
 
 > **Nodo MBOS:** `isapromord.com`
 > **Ecosistema:** Master Brain (MBOS369)
 > **Fecha de Creación:** 2026-09-27
-> **Identidad:** IsaPromo RD — Agencia Digital Especializada en SEO Local, Desarrollo Web de Alta Conversión y Pauta Estratégica en República Dominicana.
+> **Identidad:** ISAPromoRD — Agencia Digital de Ingeniería Especializada en Páginas Web de Alta Conversión y Posicionamiento SEO Local en República Dominicana.
 
 ---
 
