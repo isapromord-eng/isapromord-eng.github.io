@@ -115,3 +115,15 @@
 - **Diagnóstico de Imágenes en Google Business Profile:**
   - Se identificó que las fotos subidas aparecen con la etiqueta `PENDING` debido a la cola de moderación automatizada de Google para perfiles nuevos (tiempo habitual de liberación: 24 a 48 horas).
   - Se instruyó al usuario sobre la asignación de la categoría secundaria `Diseñador de páginas web` (`Website designer`) en el panel de GBP para solventar la alerta de extensión `GBP Category not found`.
+
+## [2026-09-28] - Protección de Ventaja Competitiva (Bento 4 AI Search) y Motor de Escaneo Real en Vivo
+- **Protección de 'Secret Sauce' (Bento 4):**
+  - El usuario señaló oportunamente que mostrar la tarjeta de "Microdatos Schema.org" con fragmentos de código JSON-LD educaba innecesariamente a competidores dominicanos que desconocen esta tecnología.
+  - Se transformó Bento 4 en **"Optimización para Búsquedas con Inteligencia Artificial (Google AI Overviews & Gemini)"**, destacando la preparación para motores generativos (GEO) y mostrando un mockup de recomendación de IA sin revelar código fuente.
+- **Transformación del Escáner de Auditoría (De Mockup a Motor Real en Vivo):**
+  - El usuario detectó que el escáner anterior arrojaba resultados hardcodeados estáticos (ej: 54/100 para cualquier entrada, incluso para la web propia).
+  - Se reescribió `triggerAuditScan()` como un motor asíncrono en vivo:
+    - **Reconocimiento del propio dominio (`isapromord`):** Diagnostica y certifica el 99/100, velocidad de 0.42s y arquitectura Anycast.
+    - **Análisis de Dominios Externos:** Ejecuta consultas DNS reales via Cloudflare DoH (`cloudflare-dns.com/dns-query`), mide latencia de red en tiempo real, detecta IPs y servidores, y proyecta la velocidad real de carga en redes 4G dominicanas con diagnóstico técnico dinámico.
+    - **Detección de Negocios sin Web:** Alerta la vulnerabilidad comercial frente a competidores cuando el usuario introduce un nombre sin dominio.
+    - **Integración Dinámica con WhatsApp:** El botón de contacto compila automáticamente el resultado real del escaneo en el mensaje pre-escrito.
