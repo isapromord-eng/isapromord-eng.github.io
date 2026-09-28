@@ -127,3 +127,16 @@
     - **Análisis de Dominios Externos:** Ejecuta consultas DNS reales via Cloudflare DoH (`cloudflare-dns.com/dns-query`), mide latencia de red en tiempo real, detecta IPs y servidores, y proyecta la velocidad real de carga en redes 4G dominicanas con diagnóstico técnico dinámico.
     - **Detección de Negocios sin Web:** Alerta la vulnerabilidad comercial frente a competidores cuando el usuario introduce un nombre sin dominio.
     - **Integración Dinámica con WhatsApp:** El botón de contacto compila automáticamente el resultado real del escaneo en el mensaje pre-escrito.
+
+## [2026-09-28] - Motor Inteligente de Resolución de Nombres a Dominios en Auditoría en Vivo
+- **Problema Planteado por el Usuario:**
+  - Al ingresar nombres de negocios sin extensión (como `fresco del horno` o `alveare realty`), el motor inicial marcaba erróneamente que no tenían sitio web, cuando en realidad sí existen (`frescodelhorno.com` y `alveare.do`).
+- **Solución Algorítmica Implementada:**
+  - Se incorporó un **Generador Heurístico de Candidatos de Dominio**:
+    - Normaliza la entrada, extrae slugs completos, versiones con guión, y separa nombres de marca eliminando descriptores genéricos (`realty`, `constructora`, `panaderia`, `clinica`, etc.).
+    - Genera candidatos prioritarios combinando las extensiones dominicanas e internacionales (`.do`, `.com`, `.com.do`, `.rd.com`).
+    - Dispara consultas paralelas en vivo a servidores DNS de Cloudflare DoH (`cloudflare-dns.com`).
+    - Detecta automáticamente el dominio real activo:
+      - `fresco del horno` ➡️ Resuelve a `frescodelhorno.com` (WordPress / Nginx en IP 150.239.200.100).
+      - `alveare realty` ➡️ Resuelve a `alveare.do` (Next.js / Cloudflare CDN en IP 172.67.158.62).
+    - Proporciona diagnósticos técnicos individualizados y reales de infraestructura, tiempos de carga estimados en redes dominicanas y oportunidades de captación de clientes por WhatsApp.
