@@ -140,3 +140,13 @@
       - `fresco del horno` ➡️ Resuelve a `frescodelhorno.com` (WordPress / Nginx en IP 150.239.200.100).
       - `alveare realty` ➡️ Resuelve a `alveare.do` (Next.js / Cloudflare CDN en IP 172.67.158.62).
     - Proporciona diagnósticos técnicos individualizados y reales de infraestructura, tiempos de carga estimados en redes dominicanas y oportunidades de captación de clientes por WhatsApp.
+
+## [2026-09-28] - Migración Exitosa a isapromord.github.io (Rebranding y Limpieza Canónica)
+- **Reorganización de Identidad en GitHub:**
+  - El usuario cambió su nombre de usuario de `@isapromord-eng` a `@isapromord`.
+  - El repositorio raíz fue renombrado exitosamente de `isapromord-eng.github.io` a `isapromord.github.io`.
+- **Acciones Técnicas Locales y Remotas:**
+  - Se actualizaron los remotes de Git (`origin` y `pages`) hacia las nuevas URLs oficiales de la organización `@isapromord`.
+  - Se sustituyeron todas las URLs canónicas, metadatos Open Graph, Twitter Cards y referencias en Schema JSON-LD dentro de `index.html`.
+  - Se realizó el push de sincronización inmediata hacia `isapromord.github.io` y `isapromord.com`.
+  - Se verificó por HTTP 200 que la nueva web está activa en su dominio limpio: `https://isapromord.github.io/`.
