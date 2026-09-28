@@ -1,20 +1,20 @@
 # 🤝 HANDOFF.md — Estado Técnico de IsaPromo RD (isapromord.com)
 
 > **Nodo MBOS:** `isapromord.com`  
-> **Última Actualización:** 2026-09-27  
-> **Repositorio Oficial:** [https://github.com/isapromord-eng/isapromord.com](https://github.com/isapromord-eng/isapromord.com)  
-> **Repositorio Root Pages:** [https://github.com/isapromord-eng/isapromord-eng.github.io](https://github.com/isapromord-eng/isapromord-eng.github.io)  
+> **Última Actualización:** 2026-09-28  
+> **Repositorio Oficial:** [https://github.com/isapromord/isapromord.com](https://github.com/isapromord/isapromord.com)  
+> **Repositorio Root Pages:** [https://github.com/isapromord/isapromord.github.io](https://github.com/isapromord/isapromord.github.io)  
 > **URLs EN VIVO Y FUNCIONALES ($0 Costo):**  
-> - 🌐 **Root Principal:** [https://isapromord-eng.github.io/](https://isapromord-eng.github.io/)  
-> - 🌐 **Subpath:** [https://isapromord-eng.github.io/isapromord.com/](https://isapromord-eng.github.io/isapromord.com/)  
+> - 🌐 **Root Principal:** [https://isapromord.github.io/](https://isapromord.github.io/)  
+> - 🌐 **Subpath:** [https://isapromord.github.io/isapromord.com/](https://isapromord.github.io/isapromord.com/)  
 > **Estado del Sistema:** En línea, HTTPS activo, 100% operativo sin costo mensual. Listo para recibir el dominio personalizado cuando se registre.
 
 ---
 
 ## 1. RESUMEN EJECUTIVO
 - **Dominio Futuro:** `isapromord.com`
-- **Dominio Actual en Vivo:** `https://isapromord-eng.github.io/`
-- **Organización GitHub:** `isapromord-eng`
+- **Dominio Actual en Vivo:** `https://isapromord.github.io/`
+- **Usuario GitHub:** `isapromord`
 - **Branch Principal:** `main`
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.
 - **Estatus SEO:** Microdatos Schema.org integrados, geolocalización DO-01, `robots.txt` y `sitemap.xml` sincronizados.
@@ -36,7 +36,7 @@ En tu registrador de dominio (Namecheap, GoDaddy, Cloudflare, etc.), agrega esto
 ### B. Registro CNAME (Para el subdominio `www`):
 | Tipo | Nombre / Host | Valor / Destino | TTL |
 | :--- | :--- | :--- | :--- |
-| **CNAME** | `www` | `isapromord-eng.github.io` | Automático / 3600 |
+| **CNAME** | `www` | `isapromord.github.io` | Automático / 3600 |
 
 *Nota: Una vez guardados los registros DNS, GitHub Pages activará automáticamente el certificado SSL (HTTPS) gratuito en unos minutos.*
 
