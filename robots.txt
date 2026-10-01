@@ -1,11 +1,15 @@
 User-agent: *
 Allow: /
 Disallow: /dashboard/
+Disallow: /propuesta/
+Disallow: /propuesta.html
 
 # Googlebot & Bingbot specific allowances
 User-agent: Googlebot
 Allow: /
 Disallow: /dashboard/
+Disallow: /propuesta/
+Disallow: /propuesta.html
 
 User-agent: Googlebot-Image
 Allow: /assets/

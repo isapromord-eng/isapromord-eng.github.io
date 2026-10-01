@@ -16,12 +16,13 @@
 - **Dominio Futuro:** `isapromord.com`
 - **Dominio Actual en Vivo:** `https://isapromord.github.io/`
 - **Dashboard de Clientes:** `/dashboard/` (protegido por PIN, con monitor de Uptime, gestión de cobros y generador de reportes WhatsApp).
+- **Cotizador & Propuestas "A la Carte":** `/propuesta/` (sistema de propuestas interactivas digitales con cálculo reactivo en tiempo real y aprobación por WhatsApp).
 - **Clientes en Producción:**
   - **Pasión Pecuaria RD:** `https://pasionpecuaria.vercel.app` (Repo oficial: `github.com/isapromord/pasion-pecuaria-rd` | React 18 + Vite + Tailwind CSS en Vercel Anycast).
 - **Usuario GitHub:** `isapromord`
 - **Branch Principal:** `main`
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.
-- **Estatus SEO:** Microdatos Schema.org integrados, geolocalización DO-01, `robots.txt` con restricción de `/dashboard/` y `sitemap.xml` canónico sincronizado.
+- **Estatus SEO:** Microdatos Schema.org integrados, geolocalización DO-01, `robots.txt` con restricción de `/dashboard/` y `/propuesta/`, y `sitemap.xml` canónico sincronizado.
 
 ---
 

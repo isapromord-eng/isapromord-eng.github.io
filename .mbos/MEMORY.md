@@ -172,3 +172,21 @@
   - Se confirmó que el repositorio oficial es **`https://github.com/isapromord/pasion-pecuaria-rd`** (privado, con descripción: *"Sitio web oficial y plataforma técnica veterinaria para Pasión Pecuaria RD"*).
   - Se actualizó el remote git local de `pasion-pecuaria-rd` apuntando a `origin https://github.com/isapromord/pasion-pecuaria-rd.git`.
   - Se actualizó la referencia en el Dashboard Administrador (`dashboard/index.html` y `dashboard.html`), incorporando lógica de migración automática transparente en `loadClients()` para corregir cualquier valor previo en el `localStorage` del navegador.
+
+## [2026-10-01] - Arquitectura del Cotizador y Propuestas Digitales Interactivas "A la Carte"
+- **Innovación en el Modelo de Negocio (Industry Standard):**
+  - Se sustituyó el formato arcaico de PDFs estáticos por **Propuestas Digitales Interactivas Mobile-First** alojadas en `propuesta/index.html` (y `propuesta.html`).
+  - El cliente recibe un enlace directo por WhatsApp (`isapromord.github.io/propuesta/?d=...`), optimizado para cargarse en menos de 0.5s en smartphones dominicanos.
+- **Capacidades del Generador de Propuestas (en `/dashboard/`):**
+  - **Pestaña Nueva:** "Cotizador & Propuestas A la Carte".
+  - **Selector de Cliente:** Permite elegir a clientes registrados o escribir prospectos nuevos en frío.
+  - **Paquetes Base Configurables:** Setup Inicial (`RD$ 18,000`), Monopolio Local Retainer (`RD$ 25,000/mes`), Dominación Total SEO+Ads (`RD$ 45,000/mes`).
+  - **Módulos A la Carte:** Landing page, geocodificación EXIF (GeoImgr), kit de reseñas QR acrílico, Google Ads transaccional, optimización IA (GEO) y spam fighting.
+  - **Cero Costo de Backend:** Toda la configuración se serializa y codifica en Base64 en la URL, asegurando que cualquier cliente pueda abrir su propuesta sin depender de bases de datos pagadas.
+  - **Historial Local:** Registro de propuestas recientes con botón para copiar o reabrir.
+- **Experiencia de Usuario del Cliente (en `/propuesta/`):**
+  - El cliente ve su propuesta personalizada con diseño *Clean Modern Agency*.
+  - Puede activar o desactivar los módulos "a la carta" con interruptores reactivos, viendo recalcularse en tiempo real la inversión inicial y el costo mensual.
+  - **Calculadora de ROI:** Estima cuántos clientes adicionales necesita al mes para que la inversión se pague sola.
+  - **Cierre en 1 Clic:** Botón "Aprobar Propuesta" que genera el mensaje formateado de aceptación y solicitud de anticipo (50%) directo al WhatsApp oficial de ISAPromoRD.
+- **Privacidad:** `robots.txt` actualizado con `Disallow: /propuesta/` y `Disallow: /propuesta.html`.
