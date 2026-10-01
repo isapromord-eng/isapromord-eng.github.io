@@ -528,7 +528,7 @@
         contactPerson: "Dr. Veterinario / Dirección",
         phone: "+1 (829) 455-4783",
         liveUrl: "https://pasionpecuaria.vercel.app",
-        repoUrl: "https://github.com/lunacodeabit/pasion-pecuaria-rd",
+        repoUrl: "https://github.com/isapromord/pasion-pecuaria-rd",
         platform: "Vercel Anycast (React 18 + Vite)",
         status: "active",
         fee: "RD$ 4,500 / mes",
@@ -642,6 +642,15 @@
       if (stored) {
         try {
           clients = JSON.parse(stored);
+          // Migración automática de repositorio oficial si existía referencia previa
+          let updated = false;
+          clients.forEach(c => {
+            if (c.repoUrl && c.repoUrl.includes("lunacodeabit/pasion-pecuaria-rd")) {
+              c.repoUrl = "https://github.com/isapromord/pasion-pecuaria-rd";
+              updated = true;
+            }
+          });
+          if (updated) saveClientsToStorage();
         } catch (e) {
           clients = INITIAL_CLIENTS;
         }

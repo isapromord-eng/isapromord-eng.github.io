@@ -17,7 +17,7 @@
 - **Dominio Actual en Vivo:** `https://isapromord.github.io/`
 - **Dashboard de Clientes:** `/dashboard/` (protegido por PIN, con monitor de Uptime, gestión de cobros y generador de reportes WhatsApp).
 - **Clientes en Producción:**
-  - **Pasión Pecuaria RD:** `https://pasionpecuaria.vercel.app` (React 18 + Vite + Tailwind CSS en Vercel Anycast).
+  - **Pasión Pecuaria RD:** `https://pasionpecuaria.vercel.app` (Repo oficial: `github.com/isapromord/pasion-pecuaria-rd` | React 18 + Vite + Tailwind CSS en Vercel Anycast).
 - **Usuario GitHub:** `isapromord`
 - **Branch Principal:** `main`
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.

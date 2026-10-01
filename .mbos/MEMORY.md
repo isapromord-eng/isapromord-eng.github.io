@@ -164,3 +164,11 @@
   - **Generador de Reporte WhatsApp:** Generador automático de reportes de estado técnico con 1 clic para enviar al cliente por WhatsApp.
   - **Backup & Portabilidad:** Soporte de exportación e importación de bases de datos en formato JSON para respaldar la información sin dependencia de bases de datos de terceros.
   - **SEO & Privacidad:** Configuración de `Disallow: /dashboard/` en `robots.txt` y metatag `noindex, nofollow` para evitar la indexación en motores de búsqueda.
+
+## [2026-10-01] - Corrección de Vinculación Oficial de Repositorio (Organización isapromord)
+- **Corrección Crítica Realizada:**
+  - El usuario advirtió oportunamente que el repositorio de Pasión Pecuaria estaba listado con un remote legacy (`lunacodeabit`).
+  - Se auditó la cuenta oficial de GitHub de la agencia (`isapromord`) utilizando GitHub CLI (`gh repo list isapromord`).
+  - Se confirmó que el repositorio oficial es **`https://github.com/isapromord/pasion-pecuaria-rd`** (privado, con descripción: *"Sitio web oficial y plataforma técnica veterinaria para Pasión Pecuaria RD"*).
+  - Se actualizó el remote git local de `pasion-pecuaria-rd` apuntando a `origin https://github.com/isapromord/pasion-pecuaria-rd.git`.
+  - Se actualizó la referencia en el Dashboard Administrador (`dashboard/index.html` y `dashboard.html`), incorporando lógica de migración automática transparente en `loadClients()` para corregir cualquier valor previo en el `localStorage` del navegador.
