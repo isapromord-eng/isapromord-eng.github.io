@@ -160,15 +160,15 @@
             <span class="inline-block px-2.5 py-0.5 rounded-full bg-brand-50 text-brand-700 text-[11px] font-black uppercase tracking-wider">
               Recomendación Principal
             </span>
-            <h4 id="basePackageTitle" class="text-2xl font-black text-slate-900">Sistema Monopolio Local & Dominación de Búsquedas</h4>
+            <h4 id="basePackageTitle" class="text-2xl font-black text-slate-900">Presencia Web & Google Maps Transaccional</h4>
             <p id="basePackageDesc" class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl">
-              Configuración completa, optimización técnica de Google Business Profile, landing page transaccional de alta conversión y gestión continua para liderar el Top 3 de Google Maps.
+              Landing page moderna y rápida (<1s), optimización profesional de perfil en Google Maps (GBP) e integración directa con WhatsApp.
             </p>
           </div>
           <div class="text-left sm:text-right shrink-0">
             <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Inversión Base</span>
             <div id="basePackagePrice" class="text-2xl sm:text-3xl font-black text-brand-600">RD$ 25,000</div>
-            <span id="basePackageType" class="text-xs font-semibold text-slate-500">/ mes (Retainer Mensual)</span>
+            <span id="basePackageType" class="text-xs font-semibold text-slate-500">Inversión Única</span>
           </div>
         </div>
 
@@ -305,68 +305,75 @@
       dateStr: "1 de Octubre, 2026",
       validity: "15 Días Hábiles",
       basePackage: {
-        id: "retainer-local",
-        title: "Sistema Monopolio Local & Dominación de Búsquedas",
-        description: "Optimización continua de Google Business Profile, posicionamiento en el Top 3 de Google Maps, gestión activa de reseñas y soporte de infraestructura web.",
+        id: "pack-esencial",
+        title: "Presencia Web & Google Maps Transaccional",
+        description: "Landing page moderna y rápida (<1s), optimización profesional de perfil en Google Maps (GBP) e integración directa con WhatsApp.",
         price: 25000,
-        type: "monthly", // monthly | onetime
+        type: "onetime",
         deliverables: [
-          "Reclamación y verificación técnica de Google Business Profile.",
-          "Categoría primaria exacta + 9 secundarias optimizadas con Pleper.",
-          "Publicaciones semanales de ofertas y novedades en el mapa.",
-          "Respuesta estratégica a todas las reseñas con palabras clave locales.",
-          "Alta y sincronización NAP en 15 directorios locales de RD.",
-          "Reporte mensual de llamadas, rutas y chats de WhatsApp generados."
+          "Diseño y desarrollo web transaccional adaptable a dispositivos móviles.",
+          "Reclamación, configuración técnica y verificación de Google Business Profile.",
+          "Carga de catálogo de servicios/productos y fotografías del negocio.",
+          "Integración de botón flotante y llamadas a la acción directas a WhatsApp.",
+          "Estructuración de datos Schema.org LocalBusiness para posicionamiento local."
         ]
       },
       addons: [
         {
           id: "landing-page",
-          name: "⚡ Landing Page Transaccional de Alta Conversión (<1s)",
-          description: "Desarrollo web ultra-rápido en React/Vite, catálogo interactivo de productos/cursos, botón flotante de WhatsApp y microdatos Schema.org LocalBusiness.",
+          name: "🌐 Landing Page Transaccional de Alta Conversión (<1s)",
+          description: "Desarrollo web ultra-rápido en React/Vite, catálogo interactivo de servicios/productos, diseño adaptable a móviles y botón directo a WhatsApp.",
           price: 20000,
           type: "onetime",
           checked: true,
           popular: true
         },
         {
-          id: "geocoding",
-          name: "📍 Inyección de Geoseñales EXIF en Fotografías (GeoImgr)",
-          description: "Geocodificación con coordenadas GPS exactas (latitud/longitud de RD) en 35 fotos del local, equipo y trabajos para disparar la relevancia en Maps.",
-          price: 5000,
+          id: "google-maps",
+          name: "📍 Optimización Profesional de Google Maps (GBP)",
+          description: "Reclamación, configuración técnica y optimización completa de ficha de Google Business Profile, categorías precisas, catálogo y fotografías.",
+          price: 15000,
           type: "onetime",
           checked: true
         },
         {
+          id: "crm-custom",
+          name: "💼 CRM Personalizado a las Necesidades del Negocio",
+          description: "Sistema de gestión a la medida diseñado específicamente para tu flujo: control de clientes, prospectos, inventario y seguimiento de ventas sin mensualidades forzosas.",
+          price: 25000,
+          type: "onetime",
+          checked: false
+        },
+        {
+          id: "chatbot-inventario",
+          name: "💬 Chatbot Inteligente para Servicios e Inventario",
+          description: "Chatbot interactivo programado con todo el catálogo de servicios, lista de productos o inventario en tiempo real para cotizaciones instantáneas a los clientes.",
+          price: 15000,
+          type: "onetime",
+          checked: false
+        },
+        {
+          id: "ai-agent",
+          name: "🤖 Agente de Inteligencia Artificial (Citas & Atención 24/7)",
+          description: "IA conversacional avanzada que atiende visitantes las 24 horas: resuelve dudas frecuentes, agenda citas en calendario y recomienda productos o servicios.",
+          price: 20000,
+          type: "onetime",
+          checked: false
+        },
+        {
           id: "reviews-kit",
-          name: "⭐ Kit de Captación de Reseñas QR para Mostrador",
-          description: "Diseño e impresión de acrílico QR de alta estética para colocar en recepción, enlace directo y plantilla automatizada post-servicio por WhatsApp.",
+          name: "⭐ Kit Físico de Captación de Reseñas QR / NFC para Mostrador",
+          description: "Placa o tarjeta de acrílico de alta estética con código QR y chip NFC para mostrador, para que tus clientes califiquen 5 estrellas con solo acercar el celular.",
           price: 4500,
           type: "onetime",
           checked: false
         },
         {
-          id: "google-ads",
-          name: "📢 Campaña Transaccional de Google Ads (Búsqueda Urgente)",
-          description: "Gestión de pauta publicitaria en Google para consultas de alta intención de compra inmediata. (Inversión publicitaria pagada aparte por el cliente).",
-          price: 15000,
+          id: "maintenance",
+          name: "🛡️ Mantenimiento Web, Hosting & Soporte Mensual",
+          description: "Alojamiento en infraestructura de alta velocidad, certificado SSL, monitoreo de disponibilidad, copias de seguridad continuas y cambios mensuales de contenido.",
+          price: 4500,
           type: "monthly",
-          checked: false
-        },
-        {
-          id: "geo-ai",
-          name: "🤖 Optimización para Motores de Inteligencia Artificial (GEO)",
-          description: "Estructuración de datos semánticos para posicionar la empresa en Google AI Overviews, Gemini Search y ChatGPT.",
-          price: 10000,
-          type: "onetime",
-          checked: false
-        },
-        {
-          id: "spam-fighting",
-          name: "🛡️ Limpieza de Spam y Fichas Falsas de la Competencia",
-          description: "Auditoría forense, denuncia formal y eliminación de fichas fraudulentas que canibalizan el Local Pack en tu zona de servicio.",
-          price: 8000,
-          type: "onetime",
           checked: false
         }
       ]

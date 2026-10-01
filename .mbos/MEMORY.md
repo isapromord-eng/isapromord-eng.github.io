@@ -190,3 +190,19 @@
   - **Calculadora de ROI:** Estima cuántos clientes adicionales necesita al mes para que la inversión se pague sola.
   - **Cierre en 1 Clic:** Botón "Aprobar Propuesta" que genera el mensaje formateado de aceptación y solicitud de anticipo (50%) directo al WhatsApp oficial de ISAPromoRD.
 - **Privacidad:** `robots.txt` actualizado con `Disallow: /propuesta/` y `Disallow: /propuesta.html`.
+
+## [2026-10-01] - Alineación de Catálogo Real de ISAPromoRD: Eliminación de Google Ads/Spam y Lanzamiento de CRM, Chatbots e IA
+- **Corrección de Vocabulario y Alcance:**
+  - El usuario auditó el generador de propuestas y descartó explícitamente tecnicismos de cursos internos (`GeoImgr`, `Limpieza de Spam / Spam fighting`) y servicios ajenos a su modelo (`Google Ads`).
+  - Se confirmó el stack de servicios de alto valor y diferenciación tecnológica que ISAPromoRD realmente comercializa:
+    1. **Landing Pages Transaccionales de Alta Conversión (<1s)**
+    2. **Optimización y Presencia en Google Maps (Google Business Profile)**
+    3. **CRM Personalizado a Medida:** Diseñado para adaptarse al flujo operativo y comercial exacto de cada negocio (sin suscripciones forzosas de software rígido).
+    4. **Chatbot Programado para Servicios e Inventario:** Integrado a la web para cotizaciones inmediatas, catálogo y disponibilidad en tiempo real.
+    5. **Agente de Inteligencia Artificial (24/7):** Asistente conversacional para responder preguntas frecuentes, agendar citas en calendario y recomendar productos/servicios.
+    6. **Kit Físico de Captación de Reseñas QR / NFC para Mostrador:** Placas acrílicas elegantes para calificar en Google Maps con 1 toque.
+    7. **Mantenimiento Técnico, Hosting & Soporte Mensual:** Soporte continuo, alta disponibilidad y actualización de contenidos.
+- **Actualización de Código:**
+  - `dashboard/index.html` y `dashboard.html`: Actualizados los paquetes base (`pack-esencial`, `pack-ia`, `pack-ecosistema`) y la lista de addons disponibles.
+  - `propuesta/index.html` y `propuesta.html`: Actualizados los valores predeterminados y el catálogo interactivo para clientes.
+

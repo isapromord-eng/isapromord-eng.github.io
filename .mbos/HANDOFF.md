@@ -17,6 +17,14 @@
 - **Dominio Actual en Vivo:** `https://isapromord.github.io/`
 - **Dashboard de Clientes:** `/dashboard/` (protegido por PIN, con monitor de Uptime, gestión de cobros y generador de reportes WhatsApp).
 - **Cotizador & Propuestas "A la Carte":** `/propuesta/` (sistema de propuestas interactivas digitales con cálculo reactivo en tiempo real y aprobación por WhatsApp).
+- **Catálogo Oficial de Servicios ISAPromoRD:**
+  1. 🌐 Landing Page Transaccional de Alta Conversión (<1s en Vite/React)
+  2. 📍 Optimización Profesional de Google Maps (Google Business Profile)
+  3. 💼 CRM Personalizado a la Medida del Negocio (flujo exclusivo del cliente)
+  4. 💬 Chatbot Inteligente para Servicios, Menú o Inventario en Tiempo Real
+  5. 🤖 Agente de Inteligencia Artificial 24/7 (Citas, Preguntas Frecuentes & Recomendaciones)
+  6. ⭐ Kit Físico de Captación de Reseñas QR / NFC para Mostrador
+  7. 🛡️ Mantenimiento Web, Hosting & Soporte Técnico Mensual
 - **Clientes en Producción:**
   - **Pasión Pecuaria RD:** `https://pasionpecuaria.vercel.app` (Repo oficial: `github.com/isapromord/pasion-pecuaria-rd` | React 18 + Vite + Tailwind CSS en Vercel Anycast).
 - **Usuario GitHub:** `isapromord`

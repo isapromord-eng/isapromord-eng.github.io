@@ -6,7 +6,7 @@
   <title>ISAPromoRD — Panel de Control de Clientes & Proyectos</title>
   
   <meta name="robots" content="noindex, nofollow" />
-  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
 
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -59,7 +59,7 @@
   <div id="authLockModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300">
     <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl border border-slate-100 text-center relative overflow-hidden animate-in fade-in zoom-in-95 duration-200">
       <div class="w-16 h-16 rounded-2xl bg-brand-50 border border-brand-100 flex items-center justify-center mx-auto mb-4 shadow-inner">
-        <img src="assets/logo.png" alt="ISAPromoRD" class="w-10 h-10 object-contain" />
+        <img src="../assets/logo.png" alt="ISAPromoRD" class="w-10 h-10 object-contain" />
       </div>
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider mb-2">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -92,7 +92,7 @@
       </form>
       <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
         <span>PIN de fábrica: <strong>3690</strong></span>
-        <a href="./" class="hover:text-brand-600 transition-colors">Volver a la Web</a>
+        <a href="../" class="hover:text-brand-600 transition-colors">Volver a la Web</a>
       </div>
     </div>
   </div>
@@ -105,8 +105,8 @@
       
       <!-- Brand & Status -->
       <div class="flex items-center gap-3">
-        <a href="./" class="flex items-center gap-2.5 group">
-          <img src="assets/logo.png" alt="ISAPromoRD" class="w-9 h-9 object-contain drop-shadow-sm group-hover:scale-105 transition-transform" />
+        <a href="../" class="flex items-center gap-2.5 group">
+          <img src="../assets/logo.png" alt="ISAPromoRD" class="w-9 h-9 object-contain drop-shadow-sm group-hover:scale-105 transition-transform" />
           <div class="flex flex-col">
             <span class="text-lg font-black tracking-tight leading-none text-slate-950">
               ISA<span class="text-slate-600">Promo</span><span class="text-brand-600">RD</span>
@@ -175,7 +175,7 @@
           </p>
         </div>
         <div class="flex items-center gap-3">
-          <a href="./" target="_blank" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm border border-white/10 transition-colors flex items-center gap-2">
+          <a href="../" target="_blank" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm border border-white/10 transition-colors flex items-center gap-2">
             <span>Ver Web Principal</span>
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
           </a>
@@ -339,7 +339,7 @@
             <h2 class="text-xl font-black text-slate-900">Armar Propuesta Digital Interactiva</h2>
             <p class="text-xs text-slate-500">Selecciona el cliente, el paquete base recomendado y los servicios que podrá activar a la carta.</p>
           </div>
-          <a href="propuesta/" target="_blank" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold flex items-center gap-1.5 transition-colors self-start sm:self-auto">
+          <a href="../propuesta/" target="_blank" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold flex items-center gap-1.5 transition-colors self-start sm:self-auto">
             <span>Ver Plantilla Demo</span>
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
           </a>
@@ -371,32 +371,32 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
               <label class="relative bg-slate-50 hover:bg-slate-100 p-4 rounded-2xl border-2 border-transparent has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/50 cursor-pointer transition-all space-y-2">
                 <div class="flex items-center justify-between">
-                  <input type="radio" name="basePkg" value="retainer-local" checked onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
-                  <span class="px-2 py-0.5 rounded-md bg-brand-100 text-brand-800 text-[10px] font-black uppercase">Recomendado</span>
+                  <input type="radio" name="basePkg" value="pack-esencial" checked onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
+                  <span class="px-2 py-0.5 rounded-md bg-brand-100 text-brand-800 text-[10px] font-black uppercase">Esencial</span>
                 </div>
-                <div class="font-black text-sm text-slate-900">Monopolio Local (Retainer)</div>
-                <div class="text-xs text-slate-500 leading-tight">GBP Top 3, publicaciones, reseñas activas, NAP en 15 directorios y soporte web.</div>
-                <div class="font-black text-base text-brand-700">RD$ 25,000 <span class="text-xs font-normal text-slate-500">/ mes</span></div>
+                <div class="font-black text-sm text-slate-900">Web & Google Maps</div>
+                <div class="text-xs text-slate-500 leading-tight">Landing page transaccional + optimización técnica de Google Maps + conexión a WhatsApp.</div>
+                <div class="font-black text-base text-brand-700">RD$ 25,000 <span class="text-xs font-normal text-slate-500">único</span></div>
               </label>
 
               <label class="relative bg-slate-50 hover:bg-slate-100 p-4 rounded-2xl border-2 border-transparent has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/50 cursor-pointer transition-all space-y-2">
                 <div class="flex items-center justify-between">
-                  <input type="radio" name="basePkg" value="setup-inicial" onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
-                  <span class="px-2 py-0.5 rounded-md bg-slate-200 text-slate-700 text-[10px] font-bold uppercase">Setup Único</span>
+                  <input type="radio" name="basePkg" value="pack-ia" onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
+                  <span class="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase">Más Popular</span>
                 </div>
-                <div class="font-black text-sm text-slate-900">Setup & Optimización Inicial</div>
-                <div class="text-xs text-slate-500 leading-tight">Reclamación, verificación asistida, catálogo de servicios y 30 fotos geocodificadas.</div>
-                <div class="font-black text-base text-slate-900">RD$ 18,000 <span class="text-xs font-normal text-slate-500">único</span></div>
+                <div class="font-black text-sm text-slate-900">Web Inteligente + Asistente IA</div>
+                <div class="text-xs text-slate-500 leading-tight">Web + Google Maps + Agente IA 24/7 para responder preguntas, mostrar catálogo y agendar citas.</div>
+                <div class="font-black text-base text-slate-900">RD$ 40,000 <span class="text-xs font-normal text-slate-500">único</span></div>
               </label>
 
               <label class="relative bg-slate-50 hover:bg-slate-100 p-4 rounded-2xl border-2 border-transparent has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/50 cursor-pointer transition-all space-y-2">
                 <div class="flex items-center justify-between">
-                  <input type="radio" name="basePkg" value="dominacion-total" onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
-                  <span class="px-2 py-0.5 rounded-md bg-purple-100 text-purple-800 text-[10px] font-black uppercase">Monopolio Total</span>
+                  <input type="radio" name="basePkg" value="pack-ecosistema" onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
+                  <span class="px-2 py-0.5 rounded-md bg-purple-100 text-purple-800 text-[10px] font-black uppercase">Ecosistema Total</span>
                 </div>
-                <div class="font-black text-sm text-slate-900">SEO Local + Google Ads</div>
-                <div class="text-xs text-slate-500 leading-tight">Retainer de Maps + Campaña Google Ads de alta intención (cobertura total de pantalla).</div>
-                <div class="font-black text-base text-purple-700">RD$ 45,000 <span class="text-xs font-normal text-slate-500">/ mes</span></div>
+                <div class="font-black text-sm text-slate-900">Ecosistema Completo + CRM</div>
+                <div class="text-xs text-slate-500 leading-tight">Web + Maps + IA 24/7 + CRM personalizado adaptado al flujo de clientes y ventas de la empresa.</div>
+                <div class="font-black text-base text-purple-700">RD$ 60,000 <span class="text-xs font-normal text-slate-500">único</span></div>
               </label>
             </div>
           </div>
@@ -1429,47 +1429,46 @@ ISAPromoRD — https://isapromord.com`;
     const STORAGE_KEY_PROPOSALS = "isapromo_agency_proposals_v1";
 
     const PROPOSAL_BASE_PACKAGES = {
-      "retainer-local": {
-        id: "retainer-local",
-        title: "Sistema Monopolio Local & Dominación de Búsquedas",
-        description: "Optimización continua de Google Business Profile, posicionamiento en el Top 3 de Google Maps, gestión activa de reseñas y soporte de infraestructura web.",
+      "pack-esencial": {
+        id: "pack-esencial",
+        title: "Presencia Web & Google Maps Transaccional",
+        description: "Landing page moderna y rápida (<1s), optimización profesional de perfil en Google Maps (GBP) e integración directa con WhatsApp.",
         price: 25000,
-        type: "monthly",
-        deliverables: [
-          "Reclamación y verificación técnica de Google Business Profile.",
-          "Categoría primaria exacta + 9 secundarias optimizadas con Pleper.",
-          "Publicaciones semanales de ofertas y novedades en el mapa.",
-          "Respuesta estratégica a todas las reseñas con palabras clave locales.",
-          "Alta y sincronización NAP en 15 directorios locales de RD.",
-          "Reporte mensual de llamadas, rutas y chats de WhatsApp generados."
-        ]
-      },
-      "setup-inicial": {
-        id: "setup-inicial",
-        title: "Setup & Optimización Inicial de Google Maps",
-        description: "Reclamación, verificación asistida, catálogo de servicios, configuración técnica y 30 fotos geocodificadas.",
-        price: 18000,
         type: "onetime",
         deliverables: [
-          "Reclamación y verificación técnica asistida de la ficha.",
-          "Configuración de categoría primaria y 9 secundarias con Pleper.",
-          "Redacción transaccional de 750 caracteres + catálogo de servicios.",
-          "Carga de 30 fotos con coordenadas GPS (GeoImgr).",
-          "Enlace directo y QR para captar reseñas de clientes satisfechos."
+          "Diseño y desarrollo web transaccional adaptable a dispositivos móviles.",
+          "Reclamación, configuración técnica y verificación de Google Business Profile.",
+          "Carga de catálogo de servicios/productos y fotografías del negocio.",
+          "Integración de botón flotante y llamadas a la acción directas a WhatsApp.",
+          "Estructuración de datos Schema.org LocalBusiness para posicionamiento local."
         ]
       },
-      "dominacion-total": {
-        id: "dominacion-total",
-        title: "Monopolio Total (SEO Local + Google Ads)",
-        description: "Cobertura total de pantalla para consultas de alta urgencia comercial en Google.",
-        price: 45000,
-        type: "monthly",
+      "pack-ia": {
+        id: "pack-ia",
+        title: "Web Inteligente + Asistente IA 24/7",
+        description: "Plataforma web completa y Google Maps integrados con Inteligencia Artificial conversacional entrenada con tus servicios o inventario para atención ininterrumpida.",
+        price: 40000,
+        type: "onetime",
         deliverables: [
-          "Todo el paquete mensual de Monopolio Local.",
-          "Gestión de campañas transaccionales de Google Ads.",
-          "Anuncio patrocinado en el #1 + Top 3 en Google Maps + Resultado Web.",
-          "Optimización semanal de palabras clave negativas para reducir costo por clic.",
-          "Reporte de conversiones y costo por contacto cualificado."
+          "Todo el paquete de Presencia Web & Google Maps.",
+          "Agente de Inteligencia Artificial 24/7 integrado en la página web.",
+          "Entrenamiento de la IA con preguntas frecuentes, servicios y políticas del negocio.",
+          "Agendamiento automático de citas o reservas en el calendario del negocio.",
+          "Recomendación inteligente de productos/servicios y derivación a WhatsApp."
+        ]
+      },
+      "pack-ecosistema": {
+        id: "pack-ecosistema",
+        title: "Ecosistema Digital Completo + CRM a Medida",
+        description: "Solución integral para empresas que buscan automatizar la captación, atención por IA y el control operativo con un CRM diseñado exclusivamente para su flujo de trabajo.",
+        price: 60000,
+        type: "onetime",
+        deliverables: [
+          "Todo el paquete de Web Inteligente + Asistente IA 24/7.",
+          "CRM personalizado desarrollado a la medida de los procesos de la empresa.",
+          "Gestión de prospectos, clientes, inventario y embudo de ventas.",
+          "Historial centralizado de interacciones y seguimiento de prospectos.",
+          "Capacitación del equipo para el uso del CRM y soporte técnico prioritario."
         ]
       }
     };
@@ -1477,50 +1476,58 @@ ISAPromoRD — https://isapromord.com`;
     const PROPOSAL_ADDONS = [
       {
         id: "landing-page",
-        name: "⚡ Landing Page Transaccional de Alta Conversión (<1s)",
-        description: "Desarrollo web ultra-rápido en React/Vite, catálogo interactivo de productos/cursos, botón flotante de WhatsApp y microdatos Schema.org LocalBusiness.",
+        name: "🌐 Landing Page Transaccional de Alta Conversión (<1s)",
+        description: "Desarrollo web ultra-rápido en React/Vite, catálogo interactivo de servicios/productos, diseño adaptable a móviles y botón directo a WhatsApp.",
         price: 20000,
         type: "onetime",
         checked: true
       },
       {
-        id: "geocoding",
-        name: "📍 Inyección de Geoseñales EXIF en Fotografías (GeoImgr)",
-        description: "Geocodificación con coordenadas GPS exactas (latitud/longitud de RD) en 35 fotos del local, equipo y trabajos para disparar la relevancia en Maps.",
-        price: 5000,
+        id: "google-maps",
+        name: "📍 Optimización Profesional de Google Maps (GBP)",
+        description: "Reclamación, configuración técnica y optimización completa de ficha de Google Business Profile, categorías precisas, catálogo y fotografías.",
+        price: 15000,
         type: "onetime",
         checked: true
       },
       {
+        id: "crm-custom",
+        name: "💼 CRM Personalizado a las Necesidades del Negocio",
+        description: "Sistema de gestión a la medida diseñado específicamente para tu flujo: control de clientes, prospectos, inventario y seguimiento de ventas sin mensualidades forzosas.",
+        price: 25000,
+        type: "onetime",
+        checked: false
+      },
+      {
+        id: "chatbot-inventario",
+        name: "💬 Chatbot Inteligente para Servicios e Inventario",
+        description: "Chatbot interactivo programado con todo el catálogo de servicios, lista de productos o inventario en tiempo real para cotizaciones instantáneas a los clientes.",
+        price: 15000,
+        type: "onetime",
+        checked: false
+      },
+      {
+        id: "ai-agent",
+        name: "🤖 Agente de Inteligencia Artificial (Citas & Atención 24/7)",
+        description: "IA conversacional avanzada que atiende visitantes las 24 horas: resuelve dudas frecuentes, agenda citas en calendario y recomienda productos o servicios.",
+        price: 20000,
+        type: "onetime",
+        checked: false
+      },
+      {
         id: "reviews-kit",
-        name: "⭐ Kit de Captación de Reseñas QR para Mostrador",
-        description: "Diseño e impresión de acrílico QR de alta estética para colocar en recepción, enlace directo y plantilla automatizada post-servicio por WhatsApp.",
+        name: "⭐ Kit Físico de Captación de Reseñas QR / NFC para Mostrador",
+        description: "Placa o tarjeta de acrílico de alta estética con código QR y chip NFC para mostrador, para que tus clientes califiquen 5 estrellas con solo acercar el celular.",
         price: 4500,
         type: "onetime",
         checked: false
       },
       {
-        id: "google-ads",
-        name: "📢 Campaña Transaccional de Google Ads (Búsqueda Urgente)",
-        description: "Gestión de pauta publicitaria en Google para consultas de alta intención de compra inmediata.",
-        price: 15000,
+        id: "maintenance",
+        name: "🛡️ Mantenimiento Web, Hosting & Soporte Mensual",
+        description: "Alojamiento en infraestructura de alta velocidad, certificado SSL, monitoreo de disponibilidad, copias de seguridad continuas y cambios mensuales de contenido.",
+        price: 4500,
         type: "monthly",
-        checked: false
-      },
-      {
-        id: "geo-ai",
-        name: "🤖 Optimización para Motores de Inteligencia Artificial (GEO)",
-        description: "Estructuración de datos semánticos para posicionar la empresa en Google AI Overviews, Gemini Search y ChatGPT.",
-        price: 10000,
-        type: "onetime",
-        checked: false
-      },
-      {
-        id: "spam-fighting",
-        name: "🛡️ Limpieza de Spam y Fichas Falsas de la Competencia",
-        description: "Auditoría forense, denuncia formal y eliminación de fichas fraudulentas que canibalizan el Local Pack en tu zona de servicio.",
-        price: 8000,
-        type: "onetime",
         checked: false
       }
     ];
