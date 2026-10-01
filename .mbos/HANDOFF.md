@@ -1,23 +1,27 @@
 # 🤝 HANDOFF.md — Estado Técnico de IsaPromo RD (isapromord.com)
 
 > **Nodo MBOS:** `isapromord.com`  
-> **Última Actualización:** 2026-09-28  
+> **Última Actualización:** 2026-10-01  
 > **Repositorio Oficial:** [https://github.com/isapromord/isapromord.com](https://github.com/isapromord/isapromord.com)  
 > **Repositorio Root Pages:** [https://github.com/isapromord/isapromord.github.io](https://github.com/isapromord/isapromord.github.io)  
 > **URLs EN VIVO Y FUNCIONALES ($0 Costo):**  
 > - 🌐 **Root Principal:** [https://isapromord.github.io/](https://isapromord.github.io/)  
 > - 🌐 **Subpath:** [https://isapromord.github.io/isapromord.com/](https://isapromord.github.io/isapromord.com/)  
-> **Estado del Sistema:** En línea, HTTPS activo, 100% operativo sin costo mensual. Listo para recibir el dominio personalizado cuando se registre.
+> - 🛡️ **Dashboard Administrador:** [https://isapromord.github.io/dashboard/](https://isapromord.github.io/dashboard/) (PIN predeterminado: `3690`)  
+> **Estado del Sistema:** En línea, HTTPS activo, 100% operativo sin costo mensual. Primer cliente en producción: Pasión Pecuaria RD.
 
 ---
 
 ## 1. RESUMEN EJECUTIVO
 - **Dominio Futuro:** `isapromord.com`
 - **Dominio Actual en Vivo:** `https://isapromord.github.io/`
+- **Dashboard de Clientes:** `/dashboard/` (protegido por PIN, con monitor de Uptime, gestión de cobros y generador de reportes WhatsApp).
+- **Clientes en Producción:**
+  - **Pasión Pecuaria RD:** `https://pasionpecuaria.vercel.app` (React 18 + Vite + Tailwind CSS en Vercel Anycast).
 - **Usuario GitHub:** `isapromord`
 - **Branch Principal:** `main`
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.
-- **Estatus SEO:** Microdatos Schema.org integrados, geolocalización DO-01, `robots.txt` y `sitemap.xml` sincronizados.
+- **Estatus SEO:** Microdatos Schema.org integrados, geolocalización DO-01, `robots.txt` con restricción de `/dashboard/` y `sitemap.xml` canónico sincronizado.
 
 ---
 

@@ -1,9 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /dashboard/
 
 # Googlebot & Bingbot specific allowances
 User-agent: Googlebot
 Allow: /
+Disallow: /dashboard/
 
 User-agent: Googlebot-Image
 Allow: /assets/

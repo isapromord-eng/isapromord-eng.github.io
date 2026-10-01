@@ -150,3 +150,17 @@
   - Se sustituyeron todas las URLs canónicas, metadatos Open Graph, Twitter Cards y referencias en Schema JSON-LD dentro de `index.html`.
   - Se realizó el push de sincronización inmediata hacia `isapromord.github.io` y `isapromord.com`.
   - Se verificó por HTTP 200 que la nueva web está activa en su dominio limpio: `https://isapromord.github.io/`.
+
+## [2026-10-01] - Arquitectura y Despliegue del Dashboard Administrador de Clientes (Hito Primer Cliente)
+- **Contexto & Hito Comercial:**
+  - ISAPromoRD consiguió su primer cliente comercial formal: **Pasión Pecuaria RD** (`pasionpecuaria.vercel.app` / repo `pasion-pecuaria-rd`).
+  - El usuario requirió la implementación de un Dashboard centralizado para gestionar a sus clientes y servicios.
+- **Implementación Técnica de Grado Agencia (`dashboard/index.html`):**
+  - **Ubicación:** `isapromord.com/dashboard/index.html`, accesible como subruta en GitHub Pages (`/dashboard/`) sin costos de servidor.
+  - **Seguridad & Autenticación:** Modal con teclado PIN de seguridad (PIN de fábrica: `3690`, actualizable por el usuario en localStorage).
+  - **Métricas & KPIs en Tiempo Real:** Monitor de clientes activos, sitios en producción, cálculo automático de ingresos recurrentes (MRR) y salud de red global.
+  - **Primer Cliente Pre-configurado:** Pasión Pecuaria RD con enlaces directos a su web en producción, repositorio, stack técnico (Vercel + Vite React), plan de mantenimiento mensual (RD$ 4,500), fecha de renovación y checklist de tareas/despliegues.
+  - **Inspector de Uptime & Latencia:** Integración de Cloudflare DoH (`cloudflare-dns.com`) para chequear latencia y estado en línea de las URLs de los clientes en tiempo real.
+  - **Generador de Reporte WhatsApp:** Generador automático de reportes de estado técnico con 1 clic para enviar al cliente por WhatsApp.
+  - **Backup & Portabilidad:** Soporte de exportación e importación de bases de datos en formato JSON para respaldar la información sin dependencia de bases de datos de terceros.
+  - **SEO & Privacidad:** Configuración de `Disallow: /dashboard/` en `robots.txt` y metatag `noindex, nofollow` para evitar la indexación en motores de búsqueda.
