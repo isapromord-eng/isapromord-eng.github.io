@@ -1609,7 +1609,7 @@ ISAPromoRD — https://isapromord.com`;
     }
 
     function updateProposalTotals() {
-      const selectedBaseKey = document.querySelector('input[name="basePkg"]:checked')?.value || "retainer-local";
+      const selectedBaseKey = document.querySelector('input[name="basePkg"]:checked')?.value || "pack-esencial";
       const basePkg = PROPOSAL_BASE_PACKAGES[selectedBaseKey];
 
       let onetime = 0;
@@ -1647,7 +1647,7 @@ ISAPromoRD — https://isapromord.com`;
       if (!clientName) clientName = "Cliente Estimado";
 
       const category = document.getElementById("proposalCategory").value.trim() || "Servicios Comerciales";
-      const selectedBaseKey = document.querySelector('input[name="basePkg"]:checked')?.value || "retainer-local";
+      const selectedBaseKey = document.querySelector('input[name="basePkg"]:checked')?.value || "pack-esencial";
       const basePkg = PROPOSAL_BASE_PACKAGES[selectedBaseKey];
 
       const today = new Date();
