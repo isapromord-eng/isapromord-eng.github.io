@@ -850,6 +850,56 @@
   </div>
 
   <!-- ========================================================
+       MODAL: AVISO DE RENOVACIÓN & COBRO MENSUAL (WHATSAPP)
+       ======================================================== -->
+  <div id="billingNoticeModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border border-slate-100 space-y-5">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-sm font-bold">
+            💳
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900" id="billingModalClientName">Aviso de Renovación Mensual</h3>
+            <span class="text-[11px] text-slate-500 font-medium">Facturación de Retainer & Cobertura de Servicio</span>
+          </div>
+        </div>
+        <button onclick="closeBillingNoticeModal()" class="p-1 text-slate-400 hover:text-slate-600 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Teléfono y Monto -->
+      <div class="grid grid-cols-2 gap-3 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">WhatsApp del Cliente:</label>
+          <input type="text" id="billingNoticePhone" oninput="updateBillingNoticeWhatsappLink()" class="w-full px-3 py-2 rounded-xl border border-slate-200 font-mono text-xs focus:ring-2 focus:ring-brand-600 focus:outline-none" />
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Monto a Cobrar:</label>
+          <input type="text" id="billingNoticeAmount" oninput="regenerateBillingMessage()" class="w-full px-3 py-2 rounded-xl border border-slate-200 font-bold text-xs focus:ring-2 focus:ring-brand-600 focus:outline-none" />
+        </div>
+      </div>
+
+      <div class="space-y-1.5">
+        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Mensaje Formal de Cobro (Editable):</label>
+        <textarea id="billingNoticeText" oninput="updateBillingNoticeWhatsappLink()" rows="10" class="w-full p-3.5 bg-slate-50 text-slate-800 font-mono text-xs rounded-2xl border border-slate-200 focus:bg-white focus:ring-2 focus:ring-brand-600 focus:outline-none leading-relaxed"></textarea>
+      </div>
+
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <button onclick="copyBillingNoticeText()" id="copyBillingNoticeBtn" class="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-700 font-bold text-xs flex items-center justify-center gap-1.5 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+          <span>Copiar Mensaje</span>
+        </button>
+        <a id="sendBillingWhatsappLink" target="_blank" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/20 transition-all">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 2.052.88 3.203.88l.004-.001 5.769-.001c3.18 0 5.766-2.587 5.766-5.767.001-3.18-2.585-5.764-5.765-5.764z"></path></svg>
+          <span>Enviar por WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
        MODAL: BACKUP & CONFIGURACIÓN PIN
        ======================================================== -->
   <div id="backupModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4">
@@ -861,8 +911,18 @@
         </button>
       </div>
 
-      <!-- Cambiar PIN -->
+      <!-- Datos Bancarios para Cobros -->
       <div class="space-y-2">
+        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Cuentas Bancarias para Cobros</label>
+        <textarea id="bankDetailsInput" rows="4" placeholder="Banco, Tipo de cuenta, Número, Titular..." class="w-full p-2.5 rounded-xl border border-slate-200 text-xs font-mono focus:ring-2 focus:ring-brand-600 focus:outline-none"></textarea>
+        <div class="flex items-center justify-between">
+          <span id="bankSuccessMsg" class="text-emerald-600 text-xs font-semibold hidden">Datos guardados.</span>
+          <button onclick="saveBankDetails()" class="ml-auto px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold transition-colors">Guardar Cuenta</button>
+        </div>
+      </div>
+
+      <!-- Cambiar PIN -->
+      <div class="pt-4 border-t border-slate-100 space-y-2">
         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Cambiar PIN de Acceso</label>
         <div class="flex gap-2">
           <input type="password" id="newPinInput" maxlength="6" placeholder="Nuevo PIN (ej: 3690)" class="flex-1 px-3.5 py-2 rounded-xl border border-slate-200 text-sm font-mono focus:ring-2 focus:ring-brand-600 focus:outline-none" />
@@ -1069,6 +1129,30 @@
     const STORAGE_KEY_CLIENTS = "isapromo_agency_clients_v1";
     const STORAGE_KEY_PIN = "isapromo_agency_pin_v1";
     const STORAGE_KEY_AUTH = "isapromo_agency_session_auth";
+    const STORAGE_KEY_BANK = "isapromo_agency_bank_details_v1";
+
+    const DEFAULT_BANK_DETAILS = `🏦 *Datos Bancarios para Transferencia:*
+• *Banco:* Banco Popular Dominicano
+• *Tipo:* Cuenta de Ahorros en Pesos (RD$)
+• *Cuenta No.:* 8294554783
+• *Titular:* ISAPromoRD
+• *RNC / Cédula:* Disponible a solicitud`;
+
+    function getBankDetails() {
+      return localStorage.getItem(STORAGE_KEY_BANK) || DEFAULT_BANK_DETAILS;
+    }
+
+    function saveBankDetails() {
+      const input = document.getElementById("bankDetailsInput");
+      if (input) {
+        localStorage.setItem(STORAGE_KEY_BANK, input.value.trim());
+        const msg = document.getElementById("bankSuccessMsg");
+        if (msg) {
+          msg.classList.remove("hidden");
+          setTimeout(() => msg.classList.add("hidden"), 2500);
+        }
+      }
+    }
 
     // Cliente Oficial #1: Pasión Pecuaria RD
     const INITIAL_CLIENTS = [
@@ -1235,6 +1319,63 @@
     }
 
     // ==========================================
+    // 4B. CÁLCULO DE CICLO DE FACTURACIÓN & STATUS
+    // ==========================================
+    function getBillingStatus(renewalDateStr) {
+      if (!renewalDateStr) {
+        return {
+          status: "none",
+          text: "Sin ciclo",
+          badgeClass: "bg-slate-100 text-slate-600 border-slate-200",
+          diffDays: null
+        };
+      }
+
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      const parts = renewalDateStr.split('-');
+      if (parts.length !== 3) {
+        return {
+          status: "none",
+          text: renewalDateStr,
+          badgeClass: "bg-slate-100 text-slate-600 border-slate-200",
+          diffDays: null
+        };
+      }
+
+      const renewal = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+      renewal.setHours(0, 0, 0, 0);
+
+      const diffTime = renewal.getTime() - today.getTime();
+      const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+
+      if (diffDays < 0) {
+        const overdueDays = Math.abs(diffDays);
+        return {
+          status: "overdue",
+          text: `🔴 Vencido (${overdueDays}d)`,
+          badgeClass: "bg-rose-50 text-rose-700 border-rose-200",
+          diffDays
+        };
+      } else if (diffDays <= 5) {
+        return {
+          status: "due_soon",
+          text: diffDays === 0 ? "🟡 Vence Hoy" : `🟡 Vence en ${diffDays}d`,
+          badgeClass: "bg-amber-50 text-amber-700 border-amber-200",
+          diffDays
+        };
+      } else {
+        return {
+          status: "paid",
+          text: `🟢 Al Día (${diffDays}d)`,
+          badgeClass: "bg-emerald-50 text-emerald-700 border-emerald-200",
+          diffDays
+        };
+      }
+    }
+
+    // ==========================================
     // 5. RENDERIZADO DEL DIRECTORIO
     // ==========================================
     function renderClients(clientsToRender = clients) {
@@ -1257,6 +1398,7 @@
         };
 
         const currentBadge = statusBadges[client.status] || statusBadges.active;
+        const billing = getBillingStatus(client.renewalDate);
 
         // Tareas completadas
         const completedTasks = (client.tasks || []).filter(t => t.done).length;
@@ -1362,11 +1504,19 @@
                   </div>
 
                   <div>
-                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Próximo Cobro / Revisión</span>
-                    <div class="text-xs font-bold text-brand-700 flex items-center gap-1.5 mt-0.5">
-                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                      ${client.renewalDate || 'Sin fecha'}
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Próximo Cobro / Ciclo</span>
+                      <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold border ${billing.badgeClass}">
+                        ${billing.text}
+                      </span>
                     </div>
+                    <div class="text-xs font-bold text-slate-800 flex items-center gap-1.5 font-mono">
+                      <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                      ${client.renewalDate || 'Sin fecha configurada'}
+                    </div>
+                    ${client.lastPaymentDate ? `
+                      <span class="text-[10px] text-slate-500 block mt-1">Último cobro: <b class="font-mono text-slate-700">${client.lastPaymentDate}</b></span>
+                    ` : ''}
                   </div>
 
                   ${client.repoUrl ? `
@@ -1386,9 +1536,22 @@
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                   </a>
 
-                  <button onclick="openReportModal('${client.id}')" class="w-full py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold border border-emerald-200/80 flex items-center justify-center gap-1.5 transition-colors">
-                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 2.052.88 3.203.88l.004-.001 5.769-.001c3.18 0 5.766-2.587 5.766-5.767.001-3.18-2.585-5.764-5.765-5.764z"></path></svg>
-                    <span>Generar Reporte WhatsApp</span>
+                  <!-- Módulo de Cobros WhatsApp y Pago Registrado -->
+                  <div class="grid grid-cols-2 gap-2">
+                    <button onclick="openBillingNoticeModal('${client.id}')" class="py-2 px-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 text-xs font-bold border border-amber-200/80 flex items-center justify-center gap-1 transition-colors" title="Generar aviso formal de cobro para WhatsApp">
+                      <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                      <span>Aviso Cobro</span>
+                    </button>
+
+                    <button onclick="registerClientPayment('${client.id}')" class="py-2 px-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1 shadow-sm transition-colors" title="Registrar pago recibido (+1 mes renovación)">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                      <span>✓ Pagado</span>
+                    </button>
+                  </div>
+
+                  <button onclick="openReportModal('${client.id}')" class="w-full py-2 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold border border-slate-200 flex items-center justify-center gap-1.5 transition-colors">
+                    <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 2.052.88 3.203.88l.004-.001 5.769-.001c3.18 0 5.766-2.587 5.766-5.767.001-3.18-2.585-5.764-5.765-5.764z"></path></svg>
+                    <span>Reporte Técnico</span>
                   </button>
 
                   <div class="flex items-center gap-2">
@@ -1657,7 +1820,7 @@ ${client.notes || 'Plataforma funcionando sin incidencias.'}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Ingeniería Web & Posicionamiento en República Dominicana
-ISAPromoRD — https://isapromord.com`;
+ISAPromoRD — https://isapromord.github.io`;
 
       document.getElementById("reportText").value = text;
       
@@ -1693,9 +1856,157 @@ ISAPromoRD — https://isapromord.com`;
     }
 
     // ==========================================
+    // 10B. GESTIÓN DE COBROS MENSUALES & RETAINERS
+    // ==========================================
+    let currentBillingClient = null;
+
+    function openBillingNoticeModal(id) {
+      const client = clients.find(c => c.id === id);
+      if (!client) return;
+      currentBillingClient = client;
+
+      document.getElementById("billingModalClientName").textContent = `Aviso Cobro — ${client.name}`;
+      document.getElementById("billingNoticePhone").value = client.phone || "";
+      document.getElementById("billingNoticeAmount").value = client.fee || "RD$ 4,500 / mes";
+
+      generateBillingNoticeMessage();
+      updateBillingNoticeWhatsappLink();
+
+      const modal = document.getElementById("billingNoticeModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeBillingNoticeModal() {
+      const modal = document.getElementById("billingNoticeModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      currentBillingClient = null;
+    }
+
+    function generateBillingNoticeMessage() {
+      if (!currentBillingClient) return;
+      const client = currentBillingClient;
+      const amount = document.getElementById("billingNoticeAmount").value.trim() || client.fee || "RD$ 4,500 / mes";
+      const bankDetails = getBankDetails();
+
+      const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+      const now = new Date();
+      const currentMonthStr = `${monthNames[now.getMonth()]} ${now.getFullYear()}`;
+
+      const text =
+`🧾 *ESTADO DE CUENTA & RENOVACIÓN DE SERVICIO | ISAPromoRD*
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏢 *Cliente:* ${client.name}
+🌐 *Plataforma:* ${client.liveUrl}
+📋 *Concepto:* Retainer Mensual — Mantenimiento Web, Hosting Cloud Anycast, Monitoreo 24/7 & Soporte
+📅 *Período:* ${currentMonthStr}
+💰 *Monto a Facturar:* ${amount}
+📆 *Fecha de Renovación:* ${client.renewalDate || 'Ciclo Activo'}
+
+${bankDetails}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📌 *Nota:* Una vez realizada la transferencia, favor de compartirnos el comprobante por este medio para asentar su pago en el sistema y remitir su recibo digital.
+
+¡Agradecemos su preferencia y confianza continua en ISAPromoRD!
+Dirección de Infraestructura & Operaciones
+https://isapromord.github.io`;
+
+      document.getElementById("billingNoticeText").value = text;
+    }
+
+    function regenerateBillingMessage() {
+      generateBillingNoticeMessage();
+      updateBillingNoticeWhatsappLink();
+    }
+
+    function updateBillingNoticeWhatsappLink() {
+      const phoneInput = document.getElementById("billingNoticePhone").value.trim();
+      const cleanPhone = phoneInput.replace(/\D/g, '');
+      const text = document.getElementById("billingNoticeText").value;
+      const encodedMsg = encodeURIComponent(text);
+
+      const whatsappUrl = cleanPhone.length >= 10 
+        ? `https://wa.me/${cleanPhone}?text=${encodedMsg}` 
+        : `https://wa.me/?text=${encodedMsg}`;
+
+      document.getElementById("sendBillingWhatsappLink").href = whatsappUrl;
+    }
+
+    function copyBillingNoticeText() {
+      const textarea = document.getElementById("billingNoticeText");
+      textarea.select();
+      navigator.clipboard.writeText(textarea.value).then(() => {
+        const btn = document.getElementById("copyBillingNoticeBtn");
+        const original = btn.innerHTML;
+        btn.innerHTML = `<span>✅ ¡Copiado!</span>`;
+        setTimeout(() => btn.innerHTML = original, 2000);
+      });
+    }
+
+    function registerClientPayment(id) {
+      const client = clients.find(c => c.id === id);
+      if (!client) return;
+
+      const today = new Date();
+      const todayStr = today.toISOString().split('T')[0];
+
+      // Calcular nueva fecha de renovación (+1 mes)
+      let nextRenewalDate;
+      if (client.renewalDate) {
+        const parts = client.renewalDate.split('-');
+        if (parts.length === 3) {
+          const d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+          d.setMonth(d.getMonth() + 1);
+          nextRenewalDate = d.toISOString().split('T')[0];
+        }
+      }
+      if (!nextRenewalDate) {
+        const nextMonth = new Date(today);
+        nextMonth.setMonth(nextMonth.getMonth() + 1);
+        nextRenewalDate = nextMonth.toISOString().split('T')[0];
+      }
+
+      const confirmMsg = `¿Confirmas registrar el pago de ${client.name}?\n\n• Monto: ${client.fee || 'Tarifa mensual'}\n• Fecha de Pago: ${todayStr}\n• Nueva fecha de renovación: ${nextRenewalDate}\n\nSe actualizará el estado del cliente a "Activo" y se extenderá su ciclo de facturación.`;
+
+      if (confirm(confirmMsg)) {
+        client.lastPaymentDate = todayStr;
+        client.renewalDate = nextRenewalDate;
+        client.status = "active";
+        
+        // Historial de pagos
+        if (!client.paymentHistory) client.paymentHistory = [];
+        client.paymentHistory.push({
+          date: todayStr,
+          amount: client.fee || "Tarifa Mensual",
+          renewalTo: nextRenewalDate
+        });
+
+        // Registrar tarea automática en bitácora
+        if (!client.tasks) client.tasks = [];
+        client.tasks.unshift({
+          id: Date.now(),
+          title: `Pago mensual confirmado (${client.fee || 'Retainer'})`,
+          done: true,
+          date: todayStr
+        });
+
+        saveClientsToStorage();
+        renderClients();
+        updateKpis();
+        alert(`✅ Pago registrado exitosamente para ${client.name}.\nPróxima fecha de renovación: ${nextRenewalDate}`);
+      }
+    }
+
+    // ==========================================
     // 11. BACKUP & EXPORT/IMPORT JSON
     // ==========================================
     function openBackupModal() {
+      const bankInput = document.getElementById("bankDetailsInput");
+      if (bankInput) {
+        bankInput.value = getBankDetails();
+      }
       const modal = document.getElementById("backupModal");
       modal.classList.remove("hidden");
       modal.classList.add("flex");
@@ -2499,7 +2810,7 @@ ISAPromoRD — https://isapromord.com`;
       if (referralClicks.length === 0) {
         feed.innerHTML = `
           <div class="text-center py-8 text-slate-400 text-xs">
-            Aún no hay clics registrados en vivo. Prueba abrir el enlace <code>https://isapromord.com/?ref=pasionpecuaria</code> en una ventana para ver el registro aquí.
+            Aún no hay clics registrados en vivo. Prueba abrir el enlace <code>https://isapromord.github.io/?ref=pasionpecuaria</code> en una ventana para ver el registro aquí.
           </div>
         `;
       } else {

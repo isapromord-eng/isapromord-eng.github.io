@@ -344,3 +344,30 @@
   - Se incorporó el campo interactivo "WhatsApp del Cliente (Para Enviar)" en el formulario del Dashboard (auto-completado al seleccionar un cliente registrado).
   - El botón en el modal ahora enlaza directamente con el cliente: `https://wa.me/${cleanNumber}?text=...`, abriendo directamente el chat del cliente con el mensaje pre-redactado y el enlace personalizado.
 - **Sincronización:** Módulos espejos `dashboard.html` y `propuesta.html` actualizados al 100%.
+
+## [2026-10-02] - Arquitectura de Cobros Recurrentes (Retainers Mensuales), Badges de Vencimiento y Avisos por WhatsApp
+- **Objetivo & Estándar de la Industria:**
+  - En agencias digitales modernas, la retención y facturación recurrente (MRR) de mantenimientos web y retainers de SEO/CRM requiere un control visual estricto de fechas de corte, estados de cobranza y recordatorios directos sin fricción.
+  - Se implementó un sistema de control de cobros recurrentes de 4 pilares integrado directamente en el Directorio de Clientes del Dashboard (`/dashboard/`):
+    1. **Monitor de Ciclo de Facturación (Semáforo de Cobro):**
+       - Cálculo automático en tiempo real (`getBillingStatus(renewalDateStr)`):
+         - 🟢 **Al Día:** Más de 5 días restantes para el vencimiento (muestra conteo regresivo).
+         - 🟡 **Por Vencer:** Faltan entre 0 y 5 días para la fecha de corte.
+         - 🔴 **Vencido:** Fecha superada (muestra días acumulados de mora).
+       - Visualización destacada en la tarjeta del cliente con fecha de próximo corte y registro del último pago realizado.
+    2. **Aviso Formal de Cobro & Renovación por WhatsApp (1 Clic):**
+       - Modal interactivo (`openBillingNoticeModal(clientId)`) que compila un estado de cuenta formal:
+         - Período facturado (ej: "Octubre 2026"), plataforma del cliente, concepto de servicios y tarifa acordada.
+         - Datos bancarios pre-cargados para transferencia directa (Banco Popular Dominicano, número de cuenta, titular).
+         - Apertura con 1 clic hacia el WhatsApp del cliente (`wa.me/1829...`) con el mensaje codificado o botón de copiado rápido al portapapeles.
+    3. **Registro de Pago con 1 Clic (`✓ Pagado`):**
+       - Botón reactivo en la tarjeta del cliente que, previa confirmación, asienta el cobro recibido:
+         - Calcula automáticamente y avanza la fecha de renovación al mes siguiente (+1 mes).
+         - Restablece el estado del cliente a `🟢 Activo`.
+         - Registra el recibo en el historial interno de pagos (`client.paymentHistory`).
+         - Agrega automáticamente una entrada completada en la bitácora de tareas del cliente.
+    4. **Configuración Centralizada de Cuentas Bancarias:**
+       - En el modal de "Ajustes & Respaldo" (`backupModal`), se integró un editor para personalizar las cuentas bancarias de la agencia (`bankDetailsInput`), almacenado en `localStorage` (`isapromo_agency_bank_details_v1`).
+- **Saneamiento Canónico de Dominio:**
+  - Se verificó y aseguró que todas las referencias activas apunten exclusivamente a `https://isapromord.github.io/` hasta que se adquiera formalmente el dominio personalizado.
+- **Sincronización:** Módulos espejos `dashboard.html` y `propuesta.html` actualizados al 100%.

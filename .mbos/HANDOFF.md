@@ -14,9 +14,14 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO
-- **Dominio Futuro:** `isapromord.com`
+- **Dominio Futuro:** `isapromord.com` (se activará cuando el usuario adquiera el dominio).
 - **Dominio Actual en Vivo:** `https://isapromord.github.io/`
-- **Dashboard de Clientes:** `/dashboard/` (protegido por PIN `3690`, con monitor de Uptime, gestión de cobros y generador de reportes WhatsApp).
+- **Dashboard de Clientes:** `/dashboard/` (protegido por PIN `3690`).
+- **Sistema de Facturación Recurrente & Retainers Mensuales (Industry Standard):**
+  - **Semáforo de Ciclo en Tarjeta de Cliente:** `🟢 Al Día` (>5 días), `🟡 Por Vencer` (<=5 días), `🔴 Vencido` (muestra días de mora).
+  - **Aviso de Cobro & Renovación por WhatsApp (1 Clic):** Modal que compila estado de cuenta formal con período, servicios cubiertos y datos bancarios para transferencia (Banco Popular Dominicano).
+  - **Registro de Pago con 1 Clic (`✓ Pagado`):** Extiende automáticamente la fecha de renovación al mes siguiente (+1 mes), asienta el recibo en el historial interno de pagos y registra la tarea en la bitácora del cliente.
+  - **Ajustes de Cuentas Bancarias:** Configurable en el modal de Ajustes & Respaldo (`backupModal`) y guardado en `localStorage`.
 - **Arquitectura de URLs de Marca y Enrutamiento Limpio:**
   - **Ruta Fija Personalizada para Pasión Pecuaria RD:** `https://isapromord.github.io/propuestas/pasionpecuaria/` (Directorio y archivo físico en el repositorio, cero parámetros, carga instantánea).
   - **Ruta Dinámica para Nuevos Clientes:** `https://isapromord.github.io/propuesta/?cliente=Nombre&plan=crm` (~60 caracteres, completamente legible).
