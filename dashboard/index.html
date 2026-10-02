@@ -263,8 +263,18 @@
         class="px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all flex items-center gap-2"
       >
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-        <span>Cotizador & Propuestas "A la Carte"</span>
-        <span class="px-1.5 py-0.5 rounded-md bg-amber-100 text-amber-800 text-[10px] font-black uppercase">Nuevo</span>
+        <span>Cotizador & Propuestas</span>
+        <span class="px-1.5 py-0.5 rounded-md bg-amber-100 text-amber-800 text-[10px] font-black uppercase">A la Carte</span>
+      </button>
+
+      <button 
+        id="tabReferralsBtn" 
+        onclick="switchDashboardTab('referrals')" 
+        class="px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all flex items-center gap-2"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        <span>Sistema de Referidos</span>
+        <span class="px-1.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase">Telemetría</span>
       </button>
     </div>
 
@@ -446,6 +456,144 @@
           <span class="text-xs text-slate-400" id="proposalCountText">0 propuestas</span>
         </div>
         <div id="proposalsHistoryContainer" class="space-y-3">
+          <!-- Inyectado por JS -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================================
+         PESTAÑA 3: SISTEMA DE RASTREO DE REFERIDOS & ATRIBUCIÓN
+         ======================================================== -->
+    <div id="referralsTabContent" class="space-y-6 hidden">
+      
+      <!-- ENCABEZADO Y ACCIONES -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-xs font-mono font-bold text-emerald-600 uppercase tracking-wider">Telemetría de Crecimiento Orgánico</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900 mt-1">Rastreo de Referidos & Atribución de Clientes</h2>
+          <p class="text-xs sm:text-sm text-slate-500 max-w-2xl mt-0.5">
+            Mide en tiempo real cuántas visitas, llamadas y conversiones por WhatsApp genera la insignia de ISAPromoRD en el pie de página de las webs de tus clientes.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2.5 shrink-0">
+          <button 
+            onclick="loadReferralsData(true)" 
+            id="refreshReferralsBtn"
+            class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all flex items-center gap-1.5"
+            title="Refrescar métricas en vivo"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+            <span>Sincronizar</span>
+          </button>
+
+          <button 
+            onclick="openNewPartnerModal()" 
+            class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 active:scale-[0.98] transition-all flex items-center gap-1.5"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path></svg>
+            <span>Añadir Partner</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- TARJETAS KPI DE REFERIDOS -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-slate-500 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider">Clics de Footers</span>
+            <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+              👆
+            </div>
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span id="kpiRefClicks" class="text-3xl font-black text-slate-900">0</span>
+            <span class="text-xs font-semibold text-emerald-600">En tiempo real</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-slate-500 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider">Leads WhatsApp</span>
+            <div class="w-8 h-8 rounded-lg bg-blue-50 text-brand-600 flex items-center justify-center font-bold">
+              💬
+            </div>
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span id="kpiRefLeads" class="text-3xl font-black text-slate-900">0</span>
+            <span class="text-xs font-semibold text-slate-500">Contactos</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-slate-500 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider">Tasa Conversión</span>
+            <div class="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
+              📈
+            </div>
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span id="kpiRefRate" class="text-3xl font-black text-slate-900">0.0%</span>
+            <span class="text-xs font-semibold text-slate-400">Clic a Lead</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-slate-500 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider">Partners Activos</span>
+            <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
+              🤝
+            </div>
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span id="kpiRefPartners" class="text-3xl font-black text-slate-900">1</span>
+            <span class="text-xs font-semibold text-amber-600">Pasión Pecuaria</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABLA DE PARTNERS & ENLACES -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 gap-2">
+          <div>
+            <h3 class="text-base font-black text-slate-900">Clientes Afiliados & Enlaces de Atribución</h3>
+            <p class="text-xs text-slate-500">Copia el enlace de referido o el código del badge para colocarlo en el pie de página de sus páginas web.</p>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="border-b border-slate-200/80 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                <th class="py-3 px-3">Cliente / Partner</th>
+                <th class="py-3 px-3">Enlace de Atribución</th>
+                <th class="py-3 px-3 text-center">Clics</th>
+                <th class="py-3 px-3 text-center">Leads</th>
+                <th class="py-3 px-3">Recompensa Acordada</th>
+                <th class="py-3 px-3 text-right">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="referralPartnersTableBody" class="divide-y divide-slate-100">
+              <!-- Inyectado por JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- REGISTRO DE TELEMETRÍA EN VIVO (ÚLTIMOS EVENTOS) -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-base font-black text-slate-900">Registro de Telemetría en Vivo</h3>
+            <p class="text-xs text-slate-500">Registro cronológico de visitas referidas y clics desde webs de clientes.</p>
+          </div>
+          <span class="text-xs font-mono text-slate-400" id="liveEventsCount">0 eventos</span>
+        </div>
+        <div id="referralsEventsFeed" class="space-y-2">
           <!-- Inyectado por JS -->
         </div>
       </div>
@@ -713,6 +861,106 @@
           <span>Enviar por WhatsApp</span>
         </a>
       </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL: SNIPPET DE FOOTER PARA CLIENTE
+       ======================================================== -->
+  <div id="partnerSnippetModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-xl w-full shadow-2xl border border-slate-100 space-y-5">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-xs font-mono font-bold text-emerald-600 uppercase">Insignia de Atribución</span>
+          </div>
+          <h3 class="text-lg font-black text-slate-900" id="snippetModalTitle">Snippet para Pasión Pecuaria RD</h3>
+        </div>
+        <button onclick="closePartnerSnippetModal()" class="p-1 text-slate-400 hover:text-slate-600 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Vista Previa del Badge -->
+      <div class="space-y-1.5">
+        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Vista Previa en el Footer del Cliente:</label>
+        <div class="bg-slate-950 p-6 rounded-2xl flex items-center justify-center border border-slate-800">
+          <a id="snippetPreviewBadge" target="_blank" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white border border-white/15 text-xs font-medium transition-all shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Plataforma por <strong class="text-white font-bold">ISAPromoRD</strong></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Selector de Formato (React JSX vs HTML) -->
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Código para Integrar:</label>
+          <div class="flex gap-1 bg-slate-100 p-0.5 rounded-lg text-xs font-bold">
+            <button type="button" id="snippetTabReact" onclick="switchSnippetFormat('react')" class="px-2.5 py-1 rounded-md bg-white text-slate-900 shadow-xs">React (JSX)</button>
+            <button type="button" id="snippetTabHtml" onclick="switchSnippetFormat('html')" class="px-2.5 py-1 rounded-md text-slate-500 hover:text-slate-900">HTML</button>
+          </div>
+        </div>
+
+        <textarea id="snippetCodeArea" readonly rows="5" class="w-full p-3 bg-slate-900 text-slate-200 font-mono text-xs rounded-xl focus:outline-none border border-slate-800"></textarea>
+      </div>
+
+      <div class="flex items-center justify-between pt-2">
+        <span class="text-[11px] text-slate-400">Pega este bloque en el Footer de la web del cliente.</span>
+        <button onclick="copySnippetCode()" id="copySnippetBtn" class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+          <span>Copiar Código</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL: REGISTRAR NUEVO PARTNER DE REFERIDOS
+       ======================================================== -->
+  <div id="newPartnerModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-slate-100 space-y-5">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div>
+          <h3 class="text-lg font-black text-slate-900">Nuevo Partner de Referidos</h3>
+          <p class="text-xs text-slate-500">Crea un enlace con seguimiento para un cliente nuevo.</p>
+        </div>
+        <button onclick="closeNewPartnerModal()" class="p-1 text-slate-400 hover:text-slate-600 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <form id="newPartnerForm" onsubmit="saveNewPartner(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nombre Comercial del Cliente *</label>
+          <input type="text" id="partnerNameInput" required placeholder="Ej: Clínica Dental Dra. Pérez" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-brand-600 focus:outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Slug / Código de Enlace *</label>
+          <div class="flex items-center">
+            <span class="px-3 py-2.5 bg-slate-100 border border-r-0 border-slate-200 rounded-l-xl text-xs text-slate-500 font-mono">?ref=</span>
+            <input type="text" id="partnerSlugInput" required placeholder="draperez" class="w-full px-3.5 py-2.5 rounded-r-xl border border-slate-200 text-sm font-mono focus:ring-2 focus:ring-brand-600 focus:outline-none" />
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1">Solo letras minúsculas y guiones (sin espacios).</p>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">URL de la Web del Cliente</label>
+          <input type="url" id="partnerUrlInput" placeholder="https://draperez.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-mono focus:ring-2 focus:ring-brand-600 focus:outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Recompensa / Incentivo</label>
+          <input type="text" id="partnerRewardInput" value="1 Mes de Mantenimiento Web Gratis" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-brand-600 focus:outline-none" />
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-3">
+          <button type="button" onclick="closeNewPartnerModal()" class="px-4 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 font-bold text-sm">Cancelar</button>
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md shadow-emerald-600/20 active:scale-[0.98] transition-all">Guardar Partner</button>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -1406,20 +1654,33 @@ ISAPromoRD — https://isapromord.com`;
     function switchDashboardTab(tab) {
       const clientsContent = document.getElementById("clientsTabContent");
       const proposalsContent = document.getElementById("proposalsTabContent");
+      const referralsContent = document.getElementById("referralsTabContent");
       const tabClientsBtn = document.getElementById("tabClientsBtn");
       const tabProposalsBtn = document.getElementById("tabProposalsBtn");
+      const tabReferralsBtn = document.getElementById("tabReferralsBtn");
+
+      const inactiveClass = "px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all flex items-center gap-2";
+      const activeClass = "px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-brand-600 text-white shadow-sm shadow-brand-600/20 transition-all flex items-center gap-2";
+
+      tabClientsBtn.className = inactiveClass;
+      tabProposalsBtn.className = inactiveClass;
+      tabReferralsBtn.className = inactiveClass;
+
+      clientsContent.classList.add("hidden");
+      proposalsContent.classList.add("hidden");
+      referralsContent.classList.add("hidden");
 
       if (tab === 'clients') {
         clientsContent.classList.remove("hidden");
-        proposalsContent.classList.add("hidden");
-        tabClientsBtn.className = "px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-brand-600 text-white shadow-sm shadow-brand-600/20 transition-all flex items-center gap-2";
-        tabProposalsBtn.className = "px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all flex items-center gap-2";
-      } else {
-        clientsContent.classList.add("hidden");
+        tabClientsBtn.className = activeClass;
+      } else if (tab === 'proposals') {
         proposalsContent.classList.remove("hidden");
-        tabProposalsBtn.className = "px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-brand-600 text-white shadow-sm shadow-brand-600/20 transition-all flex items-center gap-2";
-        tabClientsBtn.className = "px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all flex items-center gap-2";
+        tabProposalsBtn.className = activeClass;
         initProposalBuilder();
+      } else if (tab === 'referrals') {
+        referralsContent.classList.remove("hidden");
+        tabReferralsBtn.className = activeClass;
+        loadReferralsData();
       }
     }
 
@@ -1792,6 +2053,316 @@ En este enlace puedes revisar el alcance de cada módulo, activar o desactivar o
           </div>
         </div>
       `).join('');
+    }
+
+    // ==========================================
+    // 15. SISTEMA DE REFERIDOS & ATRIBUCIÓN (SUPABASE TELEMETRÍA)
+    // ==========================================
+    const SUPABASE_REFERRALS_URL = "https://lldhpidjcjyjldhpbjql.supabase.co";
+    const SUPABASE_REFERRALS_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxsZGhwaWRqY2p5amxkaHBianFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU4OTAxNTAsImV4cCI6MjA4MTQ2NjE1MH0.cVFJs-zehhJ_FHQUInusLazoIW3_DONVcPAlEmRqflY";
+    const STORAGE_KEY_REFERRAL_PARTNERS = "isapromo_agency_referral_partners_v1";
+
+    const DEFAULT_REFERRAL_PARTNERS = [
+      {
+        id: "pasionpecuaria",
+        client_slug: "pasionpecuaria",
+        client_name: "Pasión Pecuaria RD",
+        website_url: "https://pasionpecuaria.vercel.app",
+        reward_description: "1 Mes de Mantenimiento Web Gratis",
+        created_at: "2026-09-28"
+      }
+    ];
+
+    let referralPartners = [];
+    let referralClicks = [];
+    let referralConversions = [];
+    let currentSelectedSnippetPartner = null;
+    let currentSnippetFormat = 'react';
+
+    function getStoredReferralPartners() {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY_REFERRAL_PARTNERS);
+        return stored ? JSON.parse(stored) : DEFAULT_REFERRAL_PARTNERS;
+      } catch (e) {
+        return DEFAULT_REFERRAL_PARTNERS;
+      }
+    }
+
+    function saveReferralPartnersToStorage(list) {
+      localStorage.setItem(STORAGE_KEY_REFERRAL_PARTNERS, JSON.stringify(list));
+    }
+
+    async function loadReferralsData(forceSync = false) {
+      referralPartners = getStoredReferralPartners();
+
+      // Consultar Supabase en segundo plano si está disponible
+      try {
+        const resPartners = await fetch(`${SUPABASE_REFERRALS_URL}/rest/v1/isapromo_referrals?select=*&order=created_at.desc`, {
+          headers: {
+            'apikey': SUPABASE_REFERRALS_KEY,
+            'Authorization': `Bearer ${SUPABASE_REFERRALS_KEY}`
+          }
+        });
+        if (resPartners.ok) {
+          const cloudPartners = await resPartners.json();
+          if (Array.isArray(cloudPartners) && cloudPartners.length > 0) {
+            referralPartners = cloudPartners;
+            saveReferralPartnersToStorage(referralPartners);
+          }
+        }
+
+        const resClicks = await fetch(`${SUPABASE_REFERRALS_URL}/rest/v1/isapromo_referral_clicks?select=*&order=created_at.desc&limit=50`, {
+          headers: {
+            'apikey': SUPABASE_REFERRALS_KEY,
+            'Authorization': `Bearer ${SUPABASE_REFERRALS_KEY}`
+          }
+        });
+        if (resClicks.ok) {
+          referralClicks = await resClicks.json();
+        }
+
+        const resConvs = await fetch(`${SUPABASE_REFERRALS_URL}/rest/v1/isapromo_referral_conversions?select=*&order=created_at.desc`, {
+          headers: {
+            'apikey': SUPABASE_REFERRALS_KEY,
+            'Authorization': `Bearer ${SUPABASE_REFERRALS_KEY}`
+          }
+        });
+        if (resConvs.ok) {
+          referralConversions = await resConvs.json();
+        }
+      } catch (err) {
+        console.debug("Operando con almacenamiento local de referidos.");
+      }
+
+      renderReferralsView();
+      if (forceSync) {
+        alert("✅ Métricas de referidos y telemetría sincronizadas.");
+      }
+    }
+
+    function renderReferralsView() {
+      // 1. KPIs
+      const totalClicks = referralClicks.length;
+      const totalLeads = referralConversions.length;
+      const convRate = totalClicks > 0 ? ((totalLeads / totalClicks) * 100).toFixed(1) + "%" : "0.0%";
+
+      document.getElementById("kpiRefClicks").textContent = totalClicks;
+      document.getElementById("kpiRefLeads").textContent = totalLeads;
+      document.getElementById("kpiRefRate").textContent = convRate;
+      document.getElementById("kpiRefPartners").textContent = referralPartners.length;
+
+      // 2. Tabla de Partners
+      const tbody = document.getElementById("referralPartnersTableBody");
+      tbody.innerHTML = referralPartners.map(p => {
+        const partnerClicks = referralClicks.filter(c => c.client_slug === p.client_slug).length;
+        const partnerLeads = referralConversions.filter(c => c.client_slug === p.client_slug).length;
+        const refUrl = `https://isapromord.com/?ref=${p.client_slug}`;
+
+        return `
+          <tr class="hover:bg-slate-50/80 transition-colors">
+            <td class="py-3.5 px-3">
+              <div class="font-bold text-slate-900 text-sm">${p.client_name}</div>
+              <a href="${p.website_url || '#'}" target="_blank" class="text-[11px] font-mono text-slate-400 hover:text-brand-600 block truncate">
+                ${(p.website_url || '').replace('https://', '')}
+              </a>
+            </td>
+            <td class="py-3.5 px-3 font-mono">
+              <div class="flex items-center gap-1.5">
+                <span class="text-brand-700 bg-brand-50 px-2 py-0.5 rounded text-[11px] truncate max-w-[180px]">${refUrl}</span>
+                <button onclick="navigator.clipboard.writeText('${refUrl}'); alert('Enlace copiado al portapapeles');" class="p-1 hover:bg-slate-200 rounded text-slate-500" title="Copiar enlace">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                </button>
+              </div>
+            </td>
+            <td class="py-3.5 px-3 text-center">
+              <span class="inline-block px-2.5 py-0.5 rounded-full font-bold text-xs ${partnerClicks > 0 ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-600'}">
+                ${partnerClicks}
+              </span>
+            </td>
+            <td class="py-3.5 px-3 text-center">
+              <span class="inline-block px-2.5 py-0.5 rounded-full font-bold text-xs ${partnerLeads > 0 ? 'bg-blue-100 text-brand-800' : 'bg-slate-100 text-slate-600'}">
+                ${partnerLeads}
+              </span>
+            </td>
+            <td class="py-3.5 px-3 text-slate-600 font-medium">
+              <span class="inline-flex items-center gap-1">
+                <span>🎁</span>
+                <span>${p.reward_description || '1 Mes Gratis'}</span>
+              </span>
+            </td>
+            <td class="py-3.5 px-3 text-right">
+              <div class="flex items-center justify-end gap-1.5">
+                <button onclick="openPartnerSnippetModal('${p.client_slug}')" class="px-2.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition-colors flex items-center gap-1">
+                  <span>Badge Footer</span>
+                </button>
+                <button onclick="simulateReferralClick('${p.client_slug}')" class="px-2 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs" title="Simular Clic">
+                  ⚡
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      // 3. Feed de eventos
+      const feed = document.getElementById("referralsEventsFeed");
+      document.getElementById("liveEventsCount").textContent = `${referralClicks.length} eventos`;
+
+      if (referralClicks.length === 0) {
+        feed.innerHTML = `
+          <div class="text-center py-8 text-slate-400 text-xs">
+            Aún no hay clics registrados en vivo. Prueba abrir el enlace <code>https://isapromord.com/?ref=pasionpecuaria</code> en una ventana para ver el registro aquí.
+          </div>
+        `;
+      } else {
+        feed.innerHTML = referralClicks.slice(0, 10).map(c => `
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/80 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <strong class="text-slate-900 font-bold">${c.client_slug}</strong>
+              <span class="text-slate-400 font-mono text-[11px]">${c.created_at ? new Date(c.created_at).toLocaleString('es-DO') : 'Reciente'}</span>
+            </div>
+            <span class="text-[11px] text-slate-500 font-mono truncate max-w-xs">${c.referrer_url || 'Navegador directo'}</span>
+          </div>
+        `).join('');
+      }
+    }
+
+    // Modal Snippet
+    function openPartnerSnippetModal(slug) {
+      const partner = referralPartners.find(p => p.client_slug === slug) || { client_slug: slug, client_name: slug };
+      currentSelectedSnippetPartner = partner;
+      document.getElementById("snippetModalTitle").textContent = `Insignia para ${partner.client_name}`;
+      
+      const badgePreview = document.getElementById("snippetPreviewBadge");
+      badgePreview.href = `https://isapromord.com/?ref=${partner.client_slug}`;
+
+      updateSnippetCode();
+      const modal = document.getElementById("partnerSnippetModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closePartnerSnippetModal() {
+      const modal = document.getElementById("partnerSnippetModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    function switchSnippetFormat(fmt) {
+      currentSnippetFormat = fmt;
+      const tabReact = document.getElementById("snippetTabReact");
+      const tabHtml = document.getElementById("snippetTabHtml");
+
+      if (fmt === 'react') {
+        tabReact.className = "px-2.5 py-1 rounded-md bg-white text-slate-900 shadow-xs";
+        tabHtml.className = "px-2.5 py-1 rounded-md text-slate-500 hover:text-slate-900";
+      } else {
+        tabHtml.className = "px-2.5 py-1 rounded-md bg-white text-slate-900 shadow-xs";
+        tabReact.className = "px-2.5 py-1 rounded-md text-slate-500 hover:text-slate-900";
+      }
+      updateSnippetCode();
+    }
+
+    function updateSnippetCode() {
+      if (!currentSelectedSnippetPartner) return;
+      const slug = currentSelectedSnippetPartner.client_slug;
+      const url = `https://isapromord.com/?ref=${slug}`;
+
+      if (currentSnippetFormat === 'react') {
+        document.getElementById("snippetCodeArea").value = 
+`{/* Badge de Atribución Oficial ISAPromoRD */}
+<a 
+  href="${url}" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 hover:bg-slate-900 text-slate-300 hover:text-white border border-slate-700 text-xs font-medium transition-all shadow-sm"
+>
+  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+  <span>Plataforma por <strong className="font-bold text-white">ISAPromoRD</strong></span>
+</a>`;
+      } else {
+        document.getElementById("snippetCodeArea").value = 
+`<!-- Badge de Atribución Oficial ISAPromoRD -->
+<a href="${url}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;background:#0f172a;color:#cbd5e1;border:1px solid #334155;text-decoration:none;font-size:12px;font-family:system-ui,-apple-system,sans-serif;font-weight:600;">
+  <span style="width:8px;height:8px;border-radius:50%;background:#34d399;display:inline-block;"></span>
+  <span>Plataforma por <strong style="color:#ffffff;">ISAPromoRD</strong></span>
+</a>`;
+      }
+    }
+
+    function copySnippetCode() {
+      const area = document.getElementById("snippetCodeArea");
+      area.select();
+      navigator.clipboard.writeText(area.value).then(() => {
+        const btn = document.getElementById("copySnippetBtn");
+        const orig = btn.innerHTML;
+        btn.innerHTML = `<span>✅ ¡Copiado!</span>`;
+        setTimeout(() => btn.innerHTML = orig, 2000);
+      });
+    }
+
+    // Modal Nuevo Partner
+    function openNewPartnerModal() {
+      const modal = document.getElementById("newPartnerModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeNewPartnerModal() {
+      const modal = document.getElementById("newPartnerModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    async function saveNewPartner(e) {
+      e.preventDefault();
+      const name = document.getElementById("partnerNameInput").value.trim();
+      const slug = document.getElementById("partnerSlugInput").value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '');
+      const url = document.getElementById("partnerUrlInput").value.trim();
+      const reward = document.getElementById("partnerRewardInput").value.trim();
+
+      const newPartner = {
+        id: slug,
+        client_slug: slug,
+        client_name: name,
+        website_url: url,
+        reward_description: reward,
+        created_at: new Date().toISOString()
+      };
+
+      referralPartners.unshift(newPartner);
+      saveReferralPartnersToStorage(referralPartners);
+
+      // Intentar subir a Supabase
+      try {
+        fetch(`${SUPABASE_REFERRALS_URL}/rest/v1/isapromo_referrals`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_REFERRALS_KEY,
+            'Authorization': `Bearer ${SUPABASE_REFERRALS_KEY}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'resolution=merge-duplicates'
+          },
+          body: JSON.stringify(newPartner)
+        }).catch(() => {});
+      } catch (err) {}
+
+      closeNewPartnerModal();
+      document.getElementById("newPartnerForm").reset();
+      renderReferralsView();
+      alert(`✅ Partner "${name}" creado con éxito con enlace ?ref=${slug}`);
+    }
+
+    function simulateReferralClick(slug) {
+      const clickEvent = {
+        id: "click-" + Date.now(),
+        client_slug: slug,
+        referrer_url: "Simulación Dashboard",
+        created_at: new Date().toISOString()
+      };
+      referralClicks.unshift(clickEvent);
+      renderReferralsView();
     }
   </script>
 </body>

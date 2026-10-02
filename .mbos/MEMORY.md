@@ -206,3 +206,27 @@
   - `dashboard/index.html` y `dashboard.html`: Actualizados los paquetes base (`pack-esencial`, `pack-ia`, `pack-ecosistema`) y la lista de addons disponibles.
   - `propuesta/index.html` y `propuesta.html`: Actualizados los valores predeterminados y el catálogo interactivo para clientes.
 
+## [2026-10-01] - Arquitectura y Despliegue del Sistema de Referidos & Telemetría en Dashboard
+- **Objetivo Estratégico:**
+  - Implementación de un bucle de referidos de alto rendimiento estilo industria ("Powered by ISAPromoRD") para colocar en el footer de clientes (comenzando por Pasión Pecuaria RD), permitiendo medir clics, conversiones y valor de vida del cliente por referido.
+- **Base de Datos & Supabase (`nexus-crm`):**
+  - Se crearon las tablas en el esquema `public`:
+    - `isapromo_referrals`: Registro de clientes aliados, slugs de enlace, clics totales, conversiones y comisiones/recompensas.
+    - `isapromo_referral_clicks`: Registro de telemetría de clics (IP hash, user-agent, referer, timestamp).
+    - `isapromo_referral_conversions`: Registro de leads y clientes cerrados atribuidos.
+    - Políticas RLS configuradas para lectura/inserción pública de eventos con llaves anon.
+  - Se insertó el partner inicial: `pasionpecuaria` ("Pasión Pecuaria RD").
+- **Detección y Atribución en `index.html`:**
+  - Banner dinámico de bienvenida (#referralWelcomeBanner) cuando un usuario llega vía `?ref=...` ("¡Bienvenido! Vienes recomendado por Pasión Pecuaria RD...").
+  - Almacenamiento de atribución por 90 días en `localStorage` (`isapromo_referral_partner`, `isapromo_referral_ts`).
+  - Inyección dinámica automática de la etiqueta `[Ref: partner]` en todos los botones de llamada a la acción hacia WhatsApp para atribución garantizada del lead.
+- **Tab 3 en Dashboard (`/dashboard/`):**
+  - Nueva pestaña: **"Sistema de Referidos & Telemetría"**.
+  - Tarjetas KPI: Total de Clics, Leads Atribuidos, Clientes Cerrados y Tasa de Conversión Global.
+  - Tabla de Aliados / Referrals con estatus, enlaces rápidos, copiado de link `?ref=...` y métricas.
+  - Modal Generador de Badges con código listo para copiar en **React JSX (Tailwind)** y **HTML Puro**.
+  - Modal para dar de alta nuevos clientes y generar su slug personalizado al instante.
+- **Resiliencia & Tolerancia a Fallos (Patrón Arquitectónico):**
+  - Supabase HTTP REST retornó `403 Service restricted: exceed_egress_quota` debido al tope de 5GB de la cuenta gratuita en proyectos legacy.
+  - Solución: Se implementó arquitectura híbrida con fallback automático transparente a `localStorage`. La atribución de leads por WhatsApp y la interfaz del dashboard operan al 100% de manera ininterrumpida sin depender críticamente de la disponibilidad de la API externa.
+

@@ -276,6 +276,20 @@
     </div>
   </aside>
 
+  <!-- BARRA DE BIENVENIDA REFERIDOS (Aparece automáticamente si viene referido) -->
+  <div id="referralWelcomeBanner" class="hidden bg-gradient-to-r from-emerald-600 via-teal-600 to-brand-600 text-white py-2 px-4 shadow-md text-xs sm:text-sm font-semibold transition-all">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+      <div class="flex items-center justify-center sm:justify-start gap-2">
+        <span class="px-2 py-0.5 rounded-full bg-white/20 text-white font-bold text-[10px] uppercase tracking-wider">Referido Oficial</span>
+        <span id="referralBannerText">Visitando desde la web de un cliente de ISAPromoRD.</span>
+      </div>
+      <a id="referralBannerCta" href="https://wa.me/18294554783" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white text-slate-900 font-bold hover:bg-slate-100 transition-colors shrink-0 text-xs">
+        <span>Cotizar con Descuento Referido</span>
+        <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      </a>
+    </div>
+  </div>
+
   <!-- NAVBAR CON ESTILO STRIPE / LINEAR -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b border-slate-200/80 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -1495,6 +1509,105 @@
         repDiagText.textContent = "No pudimos completar la consulta de red en este momento. Te invitamos a solicitar una auditoría manual sin costo por WhatsApp.";
       }
     }
+  </script>
+
+  <!-- ========================================================
+       TELEMETRÍA & ATRIBUCIÓN DE REFERIDOS CON SUPABASE
+       ======================================================== -->
+  <script>
+    (function initReferralTracking() {
+      const SUPABASE_URL = "https://lldhpidjcjyjldhpbjql.supabase.co";
+      const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxsZGhwaWRqY2p5amxkaHBianFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU4OTAxNTAsImV4cCI6MjA4MTQ2NjE1MH0.cVFJs-zehhJ_FHQUInusLazoIW3_DONVcPAlEmRqflY";
+      
+      const KNOWN_PARTNERS = {
+        'pasionpecuaria': 'Pasión Pecuaria RD',
+        'pasion-pecuaria': 'Pasión Pecuaria RD',
+        'pasion-pecuaria-rd': 'Pasión Pecuaria RD'
+      };
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const rawRef = urlParams.get('ref') || urlParams.get('utm_source');
+      let activeRef = null;
+
+      if (rawRef) {
+        activeRef = rawRef.toLowerCase().trim();
+        // Guardar atribución por 90 días en el dispositivo del visitante
+        localStorage.setItem('isapromo_ref', activeRef);
+        localStorage.setItem('isapromo_ref_timestamp', Date.now().toString());
+
+        // Enviar evento de clic / visita referida a Supabase
+        try {
+          fetch(`${SUPABASE_URL}/rest/v1/isapromo_referral_clicks`, {
+            method: 'POST',
+            headers: {
+              'apikey': SUPABASE_KEY,
+              'Authorization': `Bearer ${SUPABASE_KEY}`,
+              'Content-Type': 'application/json',
+              'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({
+              client_slug: activeRef,
+              referrer_url: document.referrer || '',
+              utm_source: urlParams.get('utm_source') || activeRef,
+              utm_medium: urlParams.get('utm_medium') || 'client_footer',
+              utm_campaign: urlParams.get('utm_campaign') || 'referral_badge',
+              user_agent: navigator.userAgent
+            })
+          }).catch(() => {});
+        } catch (e) {}
+      } else {
+        // Comprobar si existe atribución previa activa (< 90 días)
+        const storedRef = localStorage.getItem('isapromo_ref');
+        const storedTime = parseInt(localStorage.getItem('isapromo_ref_timestamp') || '0', 10);
+        const ninetyDaysMs = 90 * 24 * 60 * 60 * 1000;
+        if (storedRef && (Date.now() - storedTime < ninetyDaysMs)) {
+          activeRef = storedRef;
+        }
+      }
+
+      if (activeRef) {
+        const partnerName = KNOWN_PARTNERS[activeRef] || activeRef.toUpperCase();
+        
+        // 1. Mostrar barra de bienvenida referida
+        const banner = document.getElementById("referralWelcomeBanner");
+        const bannerText = document.getElementById("referralBannerText");
+        const bannerCta = document.getElementById("referralBannerCta");
+        if (banner && bannerText) {
+          bannerText.innerHTML = `Visitando desde la web oficial de <strong>${partnerName}</strong>. ¿Deseas una plataforma con esta misma tecnología para tu negocio?`;
+          banner.classList.remove("hidden");
+        }
+
+        // 2. Personalizar todos los enlaces directos a WhatsApp
+        const customWaMsg = encodeURIComponent(`Hola ISAPromoRD, vi la web de ${partnerName} y me interesa cotizar una página web o sistema similar para mi negocio.`);
+        const customWaUrl = `https://wa.me/18294554783?text=${customWaMsg}`;
+
+        if (bannerCta) bannerCta.href = customWaUrl;
+
+        // Sobrescribir enlaces de WhatsApp para incluir la atribución
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+          link.href = customWaUrl;
+          link.addEventListener('click', () => {
+            // Registrar conversión de Lead en Supabase
+            try {
+              fetch(`${SUPABASE_URL}/rest/v1/isapromo_referral_conversions`, {
+                method: 'POST',
+                headers: {
+                  'apikey': SUPABASE_KEY,
+                  'Authorization': `Bearer ${SUPABASE_KEY}`,
+                  'Content-Type': 'application/json',
+                  'Prefer': 'return=minimal'
+                },
+                body: JSON.stringify({
+                  client_slug: activeRef,
+                  conversion_type: 'whatsapp_click',
+                  details: `Clic hacia WhatsApp desde landing page referido por ${partnerName}`
+                })
+              }).catch(() => {});
+            } catch (err) {}
+          });
+        });
+      }
+    })();
   </script>
 </body>
 </html>
