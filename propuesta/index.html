@@ -306,16 +306,17 @@
       validity: "15 Días Hábiles",
       basePackage: {
         id: "pack-esencial",
-        title: "Presencia Web & Google Maps Transaccional",
-        description: "Landing page moderna y rápida (<1s), optimización profesional de perfil en Google Maps (GBP) e integración directa con WhatsApp.",
-        price: 25000,
+        title: "Presencia & Captación Local (Web + Google Maps)",
+        description: "Landing page transaccional ultra-rápida (<1s) y gestión activa de Google Maps (GBP) para dominar el mapa local y canalizar llamadas y WhatsApp continuos.",
+        price: 30000,
         type: "onetime",
+        monthlyPrice: 15000,
         deliverables: [
-          "Diseño y desarrollo web transaccional adaptable a dispositivos móviles.",
-          "Reclamación, configuración técnica y verificación de Google Business Profile.",
-          "Carga de catálogo de servicios/productos y fotografías del negocio.",
-          "Integración de botón flotante y llamadas a la acción directas a WhatsApp.",
-          "Estructuración de datos Schema.org LocalBusiness para posicionamiento local."
+          "Diseño y desarrollo web transaccional mobile-first (<1s de carga en redes 4G RD).",
+          "Reclamación, configuración técnica y optimización completa de Google Business Profile.",
+          "Gestión activa mensual: publicaciones semanales y respuesta a todas las reseñas con SEO local.",
+          "Integración de llamadas a la acción directas y botón flotante de WhatsApp.",
+          "Estructuración de datos Schema.org LocalBusiness y reporte mensual de llamadas ganadas."
         ]
       },
       addons: [
@@ -329,7 +330,15 @@
           popular: true
         },
         {
-          id: "google-maps",
+          id: "web-maintenance",
+          name: "🛡️ Mantenimiento Web, Hosting Anycast & Soporte Mensual",
+          description: "Alojamiento en infraestructura de alta velocidad, certificado SSL, monitoreo de disponibilidad 24/7, copias de seguridad continuas y cambios mensuales de contenido.",
+          price: 4500,
+          type: "monthly",
+          checked: false
+        },
+        {
+          id: "google-maps-setup",
           name: "📍 Optimización Profesional de Google Maps (GBP)",
           description: "Reclamación, configuración técnica y optimización completa de ficha de Google Business Profile, categorías precisas, catálogo y fotografías.",
           price: 15000,
@@ -337,10 +346,18 @@
           checked: true
         },
         {
-          id: "crm-custom",
-          name: "💼 CRM Personalizado a las Necesidades del Negocio",
-          description: "Sistema de gestión a la medida diseñado específicamente para tu flujo: control de clientes, prospectos, inventario y seguimiento de ventas sin mensualidades forzosas.",
-          price: 25000,
+          id: "google-maps-retainer",
+          name: "📈 Gestión Activa Mensual de Google Maps & SEO Local",
+          description: "Publicaciones semanales en Google Maps, respuesta profesional a cada reseña con palabras clave locales y reporte mensual de llamadas ganadas.",
+          price: 12000,
+          type: "monthly",
+          checked: false
+        },
+        {
+          id: "geo-schemas",
+          name: "🔍 Optimización GEO & Schemas para ChatGPT y Gemini",
+          description: "Implementación de Schema JSON-LD avanzado y archivo llms.txt para que motores de búsqueda de Inteligencia Artificial recomienden tu negocio.",
+          price: 15000,
           type: "onetime",
           checked: false
         },
@@ -356,23 +373,31 @@
           id: "ai-agent",
           name: "🤖 Agente de Inteligencia Artificial (Citas & Atención 24/7)",
           description: "IA conversacional avanzada que atiende visitantes las 24 horas: resuelve dudas frecuentes, agenda citas en calendario y recomienda productos o servicios.",
-          price: 20000,
+          price: 25000,
           type: "onetime",
           checked: false
         },
         {
-          id: "reviews-kit",
-          name: "⭐ Kit Físico de Captación de Reseñas QR / NFC para Mostrador",
-          description: "Placa o tarjeta de acrílico de alta estética con código QR y chip NFC para mostrador, para que tus clientes califiquen 5 estrellas con solo acercar el celular.",
-          price: 4500,
+          id: "ai-agent-monthly",
+          name: "⚡ Mantenimiento & Consumo de Tokens de IA Mensual",
+          description: "Bolsa de tokens de procesamiento de IA para responder mensajes ilimitados, servidor activo y re-entrenamiento mensual de la IA.",
+          price: 10000,
+          type: "monthly",
+          checked: false
+        },
+        {
+          id: "crm-custom",
+          name: "💼 CRM Personalizado a las Necesidades del Negocio",
+          description: "Sistema de gestión a la medida diseñado específicamente para tu flujo: control de clientes, prospectos, inventario y ventas sin mensualidades por usuario.",
+          price: 35000,
           type: "onetime",
           checked: false
         },
         {
-          id: "maintenance",
-          name: "🛡️ Mantenimiento Web, Hosting & Soporte Mensual",
-          description: "Alojamiento en infraestructura de alta velocidad, certificado SSL, monitoreo de disponibilidad, copias de seguridad continuas y cambios mensuales de contenido.",
-          price: 4500,
+          id: "crm-monthly",
+          name: "☁️ Servidor Cloud CRM, Base de Datos & Backups Diarios",
+          description: "Infraestructura cloud dedicada para tu CRM, base de datos en tiempo real, respaldos automáticos diarios y soporte técnico para tu equipo.",
+          price: 8000,
           type: "monthly",
           checked: false
         }
@@ -422,8 +447,14 @@
       const bp = proposal.basePackage;
       document.getElementById("basePackageTitle").textContent = bp.title;
       document.getElementById("basePackageDesc").textContent = bp.description;
-      document.getElementById("basePackagePrice").textContent = `RD$ ${bp.price.toLocaleString('es-DO')}`;
-      document.getElementById("basePackageType").textContent = bp.type === "monthly" ? "/ mes (Retainer Mensual)" : "Inversión Única";
+      
+      if (bp.monthlyPrice) {
+        document.getElementById("basePackagePrice").innerHTML = `RD$ ${bp.price.toLocaleString('es-DO')} <span class="text-xs font-normal text-slate-500">+ RD$ ${bp.monthlyPrice.toLocaleString('es-DO')}/mes</span>`;
+        document.getElementById("basePackageType").textContent = "Inversión Inicial + Retainer Mensual";
+      } else {
+        document.getElementById("basePackagePrice").textContent = `RD$ ${bp.price.toLocaleString('es-DO')}`;
+        document.getElementById("basePackageType").textContent = bp.type === "monthly" ? "/ mes (Retainer Mensual)" : "Inversión Única";
+      }
 
       // Entregables base
       const delivEl = document.getElementById("baseDeliverables");
@@ -483,7 +514,10 @@
       let monthly = 0;
 
       // Base
-      if (proposal.basePackage.type === "monthly") {
+      if (proposal.basePackage.monthlyPrice) {
+        monthly += proposal.basePackage.monthlyPrice;
+        onetime += proposal.basePackage.price;
+      } else if (proposal.basePackage.type === "monthly") {
         monthly += proposal.basePackage.price;
       } else {
         onetime += proposal.basePackage.price;
@@ -517,7 +551,10 @@
       let monthly = 0;
       let selectedList = [];
 
-      if (proposal.basePackage.type === "monthly") {
+      if (proposal.basePackage.monthlyPrice) {
+        monthly += proposal.basePackage.monthlyPrice;
+        onetime += proposal.basePackage.price;
+      } else if (proposal.basePackage.type === "monthly") {
         monthly += proposal.basePackage.price;
       } else {
         onetime += proposal.basePackage.price;

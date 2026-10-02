@@ -18,14 +18,17 @@
 - **Dashboard de Clientes:** `/dashboard/` (protegido por PIN, con monitor de Uptime, gestión de cobros y generador de reportes WhatsApp).
 - **Cotizador & Propuestas "A la Carte":** `/propuesta/` (sistema de propuestas interactivas digitales con cálculo reactivo en tiempo real y aprobación por WhatsApp).
 - **Sistema de Referidos & Telemetría:** Pestaña 3 en `/dashboard/` y detector en `index.html` (`?ref=...`). Mide clics, atribución de leads por WhatsApp a 90 días, tabla de partners y generador de badges ("Powered by ISAPromoRD") en React JSX y HTML.
-- **Catálogo Oficial de Servicios ISAPromoRD:**
-  1. 🌐 Landing Page Transaccional de Alta Conversión (<1s en Vite/React)
-  2. 📍 Optimización Profesional de Google Maps (Google Business Profile)
-  3. 💼 CRM Personalizado a la Medida del Negocio (flujo exclusivo del cliente)
-  4. 💬 Chatbot Inteligente para Servicios, Menú o Inventario en Tiempo Real
-  5. 🤖 Agente de Inteligencia Artificial 24/7 (Citas, Preguntas Frecuentes & Recomendaciones)
-  6. ⭐ Kit Físico de Captación de Reseñas QR / NFC para Mostrador
-  7. 🛡️ Mantenimiento Web, Hosting & Soporte Técnico Mensual
+- **Catálogo Oficial de Servicios ISAPromoRD (Opción A):**
+  1. 🌐 Landing Page Transaccional de Alta Conversión (<1s en React/Vite) — RD$ 20,000 / RD$ 4,500/mes
+  2. 📍 Optimización Profesional de Google Maps (GBP) — RD$ 15,000 / RD$ 12,000/mes
+  3. 🔍 Optimización GEO & Schemas para ChatGPT y Gemini — RD$ 15,000 único
+  4. 💬 Chatbot Inteligente para Servicios e Inventario — RD$ 15,000 único
+  5. 🤖 Agente de Inteligencia Artificial 24/7 (Citas & FAQ) — RD$ 25,000 / RD$ 10,000/mes
+  6. 💼 CRM Personalizado a la Medida del Negocio — RD$ 35,000 / RD$ 8,000/mes
+- **Paquetes Oficiales:**
+  - P1: Presencia & Captación Local (RD$ 30,000 / RD$ 15,000 mes)
+  - P2: Negocio Inteligente con IA (RD$ 50,000 / RD$ 20,000 mes)
+  - P3: Ecosistema Digital Completo + CRM (RD$ 85,000 / RD$ 30,000 mes)
 - **Clientes en Producción:**
   - **Pasión Pecuaria RD:** `https://pasionpecuaria.vercel.app` (Repo oficial: `github.com/isapromord/pasion-pecuaria-rd` | React 18 + Vite + Tailwind CSS en Vercel Anycast | Ref slug: `pasionpecuaria`).
 - **Usuario GitHub:** `isapromord`

@@ -230,3 +230,22 @@
   - Supabase HTTP REST retornó `403 Service restricted: exceed_egress_quota` debido al tope de 5GB de la cuenta gratuita en proyectos legacy.
   - Solución: Se implementó arquitectura híbrida con fallback automático transparente a `localStorage`. La atribución de leads por WhatsApp y la interfaz del dashboard operan al 100% de manera ininterrumpida sin depender críticamente de la disponibilidad de la API externa.
 
+## [2026-10-01] - Calibración Estratégica del Modelo de Precios y Retainers Mensuales (Opción A Oficial)
+- **Diagnóstico Comercial:**
+  - El precio anterior de setup del CRM a medida (RD$ 25,000) sufría del sesgo de "descuento por sospecha" frente a las casas de software dominicanas (RD$ 300,000+), y los paquetes no reflejaban un modelo de ingresos recurrentes (MRR) coherente.
+  - Se eliminó el kit físico QR/NFC para enfocar la agencia 100% en software, IA y marketing de alto margen sin fricción logística.
+- **Estructura Oficial de Precios "A la Carte" (RD$):**
+  1. `Landing Page Transaccional (<1s)`: Setup RD$ 20,000 | Mantenimiento Anycast: RD$ 4,500/mes.
+  2. `Google Maps Profesional (GBP)`: Setup RD$ 15,000 | Gestión Activa & SEO Local: RD$ 12,000/mes.
+  3. `Optimización GEO & Schemas para ChatGPT/Gemini`: Setup RD$ 15,000 (Pago único).
+  4. `Chatbot Inteligente de Servicios/Inventario`: Setup RD$ 15,000 (Pago único).
+  5. `Agente de Inteligencia Artificial (Citas/FAQ 24/7)`: Setup RD$ 25,000 | Tokens & Mantenimiento: RD$ 10,000/mes.
+  6. `CRM Personalizado a Medida`: Setup RD$ 35,000 | Servidor Cloud & Backups Diarios: RD$ 8,000/mes.
+- **Paquetes Oficiales (Bundles con Ahorro Real para el Cliente):**
+  - **Paquete 1: Presencia & Captación Local:** Setup RD$ 30,000 | Mensualidad RD$ 15,000/mes.
+  - **Paquete 2: Negocio con Inteligencia Artificial:** Setup RD$ 50,000 | Mensualidad RD$ 20,000/mes.
+  - **Paquete 3: Ecosistema Digital Completo + CRM:** Setup RD$ 85,000 | Mensualidad RD$ 30,000/mes.
+- **Sincronización:**
+  - `dashboard/index.html` y `dashboard.html`: Actualizadas las tarjetas de radio, estructura `PROPOSAL_BASE_PACKAGES`, lista de addons `PROPOSAL_ADDONS` y cálculo en tiempo real con `monthlyPrice`.
+  - `propuesta/index.html` y `propuesta.html`: Actualizado `DEFAULT_PROPOSAL_DATA`, renderizado visual de precios combinados (Setup + Mensual) y cálculo reactivo en la barra fija y en el generador de cierre por WhatsApp.
+

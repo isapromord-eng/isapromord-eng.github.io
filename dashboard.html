@@ -384,9 +384,12 @@
                   <input type="radio" name="basePkg" value="pack-esencial" checked onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
                   <span class="px-2 py-0.5 rounded-md bg-brand-100 text-brand-800 text-[10px] font-black uppercase">Esencial</span>
                 </div>
-                <div class="font-black text-sm text-slate-900">Web & Google Maps</div>
-                <div class="text-xs text-slate-500 leading-tight">Landing page transaccional + optimización técnica de Google Maps + conexión a WhatsApp.</div>
-                <div class="font-black text-base text-brand-700">RD$ 25,000 <span class="text-xs font-normal text-slate-500">único</span></div>
+                <div class="font-black text-sm text-slate-900">Presencia & Captación Local</div>
+                <div class="text-xs text-slate-500 leading-tight">Landing page transaccional + gestión activa de Google Maps + atención por WhatsApp.</div>
+                <div class="space-y-0.5">
+                  <div class="font-black text-base text-brand-700">RD$ 30,000 <span class="text-xs font-normal text-slate-500">inicial</span></div>
+                  <div class="text-xs font-bold text-slate-600">+ RD$ 15,000 <span class="font-normal text-[11px] text-slate-400">/ mes</span></div>
+                </div>
               </label>
 
               <label class="relative bg-slate-50 hover:bg-slate-100 p-4 rounded-2xl border-2 border-transparent has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/50 cursor-pointer transition-all space-y-2">
@@ -394,9 +397,12 @@
                   <input type="radio" name="basePkg" value="pack-ia" onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
                   <span class="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase">Más Popular</span>
                 </div>
-                <div class="font-black text-sm text-slate-900">Web Inteligente + Asistente IA</div>
-                <div class="text-xs text-slate-500 leading-tight">Web + Google Maps + Agente IA 24/7 para responder preguntas, mostrar catálogo y agendar citas.</div>
-                <div class="font-black text-base text-slate-900">RD$ 40,000 <span class="text-xs font-normal text-slate-500">único</span></div>
+                <div class="font-black text-sm text-slate-900">Negocio con Inteligencia Artificial</div>
+                <div class="text-xs text-slate-500 leading-tight">Web + Maps + Agente IA 24/7 (citas/FAQ) + Schemas GEO para ChatGPT y Google Gemini.</div>
+                <div class="space-y-0.5">
+                  <div class="font-black text-base text-emerald-700">RD$ 50,000 <span class="text-xs font-normal text-slate-500">inicial</span></div>
+                  <div class="text-xs font-bold text-slate-600">+ RD$ 20,000 <span class="font-normal text-[11px] text-slate-400">/ mes</span></div>
+                </div>
               </label>
 
               <label class="relative bg-slate-50 hover:bg-slate-100 p-4 rounded-2xl border-2 border-transparent has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/50 cursor-pointer transition-all space-y-2">
@@ -404,9 +410,12 @@
                   <input type="radio" name="basePkg" value="pack-ecosistema" onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
                   <span class="px-2 py-0.5 rounded-md bg-purple-100 text-purple-800 text-[10px] font-black uppercase">Ecosistema Total</span>
                 </div>
-                <div class="font-black text-sm text-slate-900">Ecosistema Completo + CRM</div>
+                <div class="font-black text-sm text-slate-900">Ecosistema Completo + CRM a Medida</div>
                 <div class="text-xs text-slate-500 leading-tight">Web + Maps + IA 24/7 + CRM personalizado adaptado al flujo de clientes y ventas de la empresa.</div>
-                <div class="font-black text-base text-purple-700">RD$ 60,000 <span class="text-xs font-normal text-slate-500">único</span></div>
+                <div class="space-y-0.5">
+                  <div class="font-black text-base text-purple-700">RD$ 85,000 <span class="text-xs font-normal text-slate-500">inicial</span></div>
+                  <div class="text-xs font-bold text-slate-600">+ RD$ 30,000 <span class="font-normal text-[11px] text-slate-400">/ mes</span></div>
+                </div>
               </label>
             </div>
           </div>
@@ -1692,44 +1701,47 @@ ISAPromoRD — https://isapromord.com`;
     const PROPOSAL_BASE_PACKAGES = {
       "pack-esencial": {
         id: "pack-esencial",
-        title: "Presencia Web & Google Maps Transaccional",
-        description: "Landing page moderna y rápida (<1s), optimización profesional de perfil en Google Maps (GBP) e integración directa con WhatsApp.",
-        price: 25000,
+        title: "Presencia & Captación Local (Web + Google Maps)",
+        description: "Landing page transaccional ultra-rápida (<1s) y gestión activa de Google Maps (GBP) para dominar el mapa local y canalizar llamadas y WhatsApp continuos.",
+        price: 30000,
         type: "onetime",
+        monthlyPrice: 15000,
         deliverables: [
-          "Diseño y desarrollo web transaccional adaptable a dispositivos móviles.",
-          "Reclamación, configuración técnica y verificación de Google Business Profile.",
-          "Carga de catálogo de servicios/productos y fotografías del negocio.",
-          "Integración de botón flotante y llamadas a la acción directas a WhatsApp.",
-          "Estructuración de datos Schema.org LocalBusiness para posicionamiento local."
+          "Diseño y desarrollo web transaccional mobile-first (<1s de carga en redes 4G RD).",
+          "Reclamación, configuración técnica y optimización completa de Google Business Profile.",
+          "Gestión activa mensual: publicaciones semanales y respuesta a todas las reseñas con SEO local.",
+          "Integración de llamadas a la acción directas y botón flotante de WhatsApp.",
+          "Estructuración de datos Schema.org LocalBusiness y reporte mensual de llamadas ganadas."
         ]
       },
       "pack-ia": {
         id: "pack-ia",
-        title: "Web Inteligente + Asistente IA 24/7",
-        description: "Plataforma web completa y Google Maps integrados con Inteligencia Artificial conversacional entrenada con tus servicios o inventario para atención ininterrumpida.",
-        price: 40000,
+        title: "Negocio Inteligente (Web + Maps + Agente IA 24/7)",
+        description: "Plataforma web de alta conversión y Google Maps con Inteligencia Artificial conversacional entrenada con tus servicios o inventario para atención ininterrumpida.",
+        price: 50000,
         type: "onetime",
+        monthlyPrice: 20000,
         deliverables: [
-          "Todo el paquete de Presencia Web & Google Maps.",
+          "Todo el paquete de Presencia & Captación Local (Web + Google Maps).",
           "Agente de Inteligencia Artificial 24/7 integrado en la página web.",
-          "Entrenamiento de la IA con preguntas frecuentes, servicios y políticas del negocio.",
+          "Entrenamiento continuo de la IA con preguntas frecuentes, catálogo y políticas del negocio.",
           "Agendamiento automático de citas o reservas en el calendario del negocio.",
-          "Recomendación inteligente de productos/servicios y derivación a WhatsApp."
+          "Bolsa mensual de tokens de IA incluida y optimización GEO para ChatGPT y Google Gemini."
         ]
       },
       "pack-ecosistema": {
         id: "pack-ecosistema",
         title: "Ecosistema Digital Completo + CRM a Medida",
         description: "Solución integral para empresas que buscan automatizar la captación, atención por IA y el control operativo con un CRM diseñado exclusivamente para su flujo de trabajo.",
-        price: 60000,
+        price: 85000,
         type: "onetime",
+        monthlyPrice: 30000,
         deliverables: [
-          "Todo el paquete de Web Inteligente + Asistente IA 24/7.",
+          "Todo el paquete de Negocio Inteligente (Web + Google Maps + Agente IA 24/7).",
           "CRM personalizado desarrollado a la medida de los procesos de la empresa.",
-          "Gestión de prospectos, clientes, inventario y embudo de ventas.",
-          "Historial centralizado de interacciones y seguimiento de prospectos.",
-          "Capacitación del equipo para el uso del CRM y soporte técnico prioritario."
+          "Control de prospectos, clientes, catálogo/inventario y embudo de ventas en tiempo real.",
+          "Servidor cloud dedicado, base de datos en la nube y copias de seguridad diarias automáticas.",
+          "Capacitación del equipo para el uso del CRM y soporte técnico prioritario 24/7."
         ]
       }
     };
@@ -1744,7 +1756,15 @@ ISAPromoRD — https://isapromord.com`;
         checked: true
       },
       {
-        id: "google-maps",
+        id: "web-maintenance",
+        name: "🛡️ Mantenimiento Web, Hosting Anycast & Soporte Mensual",
+        description: "Alojamiento en infraestructura de alta velocidad, certificado SSL, monitoreo de disponibilidad 24/7, copias de seguridad continuas y cambios mensuales de contenido.",
+        price: 4500,
+        type: "monthly",
+        checked: false
+      },
+      {
+        id: "google-maps-setup",
         name: "📍 Optimización Profesional de Google Maps (GBP)",
         description: "Reclamación, configuración técnica y optimización completa de ficha de Google Business Profile, categorías precisas, catálogo y fotografías.",
         price: 15000,
@@ -1752,10 +1772,18 @@ ISAPromoRD — https://isapromord.com`;
         checked: true
       },
       {
-        id: "crm-custom",
-        name: "💼 CRM Personalizado a las Necesidades del Negocio",
-        description: "Sistema de gestión a la medida diseñado específicamente para tu flujo: control de clientes, prospectos, inventario y seguimiento de ventas sin mensualidades forzosas.",
-        price: 25000,
+        id: "google-maps-retainer",
+        name: "📈 Gestión Activa Mensual de Google Maps & SEO Local",
+        description: "Publicaciones semanales en Google Maps, respuesta profesional a cada reseña con palabras clave locales y reporte mensual de llamadas ganadas.",
+        price: 12000,
+        type: "monthly",
+        checked: false
+      },
+      {
+        id: "geo-schemas",
+        name: "🔍 Optimización GEO & Schemas para ChatGPT y Gemini",
+        description: "Implementación de Schema JSON-LD avanzado y archivo llms.txt para que motores de búsqueda de Inteligencia Artificial recomienden tu negocio.",
+        price: 15000,
         type: "onetime",
         checked: false
       },
@@ -1771,23 +1799,31 @@ ISAPromoRD — https://isapromord.com`;
         id: "ai-agent",
         name: "🤖 Agente de Inteligencia Artificial (Citas & Atención 24/7)",
         description: "IA conversacional avanzada que atiende visitantes las 24 horas: resuelve dudas frecuentes, agenda citas en calendario y recomienda productos o servicios.",
-        price: 20000,
+        price: 25000,
         type: "onetime",
         checked: false
       },
       {
-        id: "reviews-kit",
-        name: "⭐ Kit Físico de Captación de Reseñas QR / NFC para Mostrador",
-        description: "Placa o tarjeta de acrílico de alta estética con código QR y chip NFC para mostrador, para que tus clientes califiquen 5 estrellas con solo acercar el celular.",
-        price: 4500,
+        id: "ai-agent-monthly",
+        name: "⚡ Mantenimiento & Consumo de Tokens de IA Mensual",
+        description: "Bolsa de tokens de procesamiento de IA para responder mensajes ilimitados, servidor activo y re-entrenamiento mensual de la IA.",
+        price: 10000,
+        type: "monthly",
+        checked: false
+      },
+      {
+        id: "crm-custom",
+        name: "💼 CRM Personalizado a las Necesidades del Negocio",
+        description: "Sistema de gestión a la medida diseñado específicamente para tu flujo: control de clientes, prospectos, inventario y ventas sin mensualidades por usuario.",
+        price: 35000,
         type: "onetime",
         checked: false
       },
       {
-        id: "maintenance",
-        name: "🛡️ Mantenimiento Web, Hosting & Soporte Mensual",
-        description: "Alojamiento en infraestructura de alta velocidad, certificado SSL, monitoreo de disponibilidad, copias de seguridad continuas y cambios mensuales de contenido.",
-        price: 4500,
+        id: "crm-monthly",
+        name: "☁️ Servidor Cloud CRM, Base de Datos & Backups Diarios",
+        description: "Infraestructura cloud dedicada para tu CRM, base de datos en tiempo real, respaldos automáticos diarios y soporte técnico para tu equipo.",
+        price: 8000,
         type: "monthly",
         checked: false
       }
@@ -1876,10 +1912,15 @@ ISAPromoRD — https://isapromord.com`;
       let onetime = 0;
       let monthly = 0;
 
-      if (basePkg.type === "monthly") {
-        monthly += basePkg.price;
-      } else {
-        onetime += basePkg.price;
+      if (basePkg) {
+        if (basePkg.type === "monthly") {
+          monthly += basePkg.price;
+        } else {
+          onetime += basePkg.price;
+        }
+        if (basePkg.monthlyPrice) {
+          monthly += basePkg.monthlyPrice;
+        }
       }
 
       currentProposalAddons.forEach(a => {
