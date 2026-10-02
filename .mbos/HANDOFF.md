@@ -54,6 +54,6 @@
   - P3: Negocio Inteligente con IA (Setup RD$ 50,000 / RD$ 20,000 mes)
   - P4: Ecosistema Digital Completo + CRM (Setup RD$ 85,000 / RD$ 30,000 mes)
 - **Clientes en Producción:**
-  - **Pasión Pecuaria RD:** `https://pasionpecuaria.vercel.app` (Repo oficial: `github.com/isapromord/pasion-pecuaria-rd` | React 18 + Vite + Tailwind CSS en Vercel Anycast | Ref slug: `pasionpecuaria`).
+  - **Pasión Pecuaria RD:** `https://pasionpecuaria.vercel.app` (Tel/WA: `+1 (829) 396-1318` | Email: `pasionpecuariard@gmail.com` | Repo oficial: `github.com/isapromord/pasion-pecuaria-rd` | React 18 + Vite + Tailwind CSS en Vercel Anycast | Ref slug: `pasionpecuaria`).
 - **Branch Principal:** `main`
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.

@@ -371,3 +371,17 @@
 - **Saneamiento Canónico de Dominio:**
   - Se verificó y aseguró que todas las referencias activas apunten exclusivamente a `https://isapromord.github.io/` hasta que se adquiera formalmente el dominio personalizado.
 - **Sincronización:** Módulos espejos `dashboard.html` y `propuesta.html` actualizados al 100%.
+
+## [2026-10-02] - Corrección de Teléfono de Cliente Insignia (+1 829 396-1318), Edición de Ficha y Soporte de Email
+- **Diagnóstico del Error de Datos:**
+  - El cliente insignia (Pasión Pecuaria RD) tenía asignado erróneamente en `INITIAL_CLIENTS` el número personal de la agencia (`+1 (829) 455-4783`) en lugar de su número comercial oficial (`+1 (829) 396-1318`).
+  - Al estar almacenado en el `localStorage` del navegador del usuario, la tarjeta continuaba mostrando el número de la agencia.
+- **Mejoras de Grado Industria Implementadas:**
+  1. **Actualización Canónica:** Se corrigió el número en `INITIAL_CLIENTS` a `+1 (829) 396-1318` y se añadió el correo oficial `pasionpecuariard@gmail.com`.
+  2. **Migración Automática de Datos:** En `loadClients()`, se detecta cualquier registro previo de Pasión Pecuaria con el número anterior y se actualiza de inmediato al número comercial y correo correctos.
+  3. **Acceso Rápido a Edición (Industry Standard CRM):**
+     - Botón destacado **"✏️ Editar Ficha"** en la cabecera superior de la tarjeta del cliente para editar cualquier dato en tiempo real (Teléfono, Contacto, Email, Monto, Fechas, Notas).
+     - El teléfono ahora es un enlace interactivo directo hacia WhatsApp (`wa.me/18293961318`) con estilo de píldora verde e icono identificativo.
+  4. **Ampliación del Modelo de Datos:** Se integró el campo **"Correo Electrónico"** en el modal de cliente (`clientModal`), formulario y vista de tarjeta.
+  5. **Propuestas y Avisos Sincronizados:** Al generar propuestas o emitir avisos de cobro, el campo de teléfono del cliente ahora auto-completa el número real del cliente (`8293961318`).
+- **Sincronización:** Módulos espejos `dashboard.html` y `propuesta.html` actualizados al 100%.
