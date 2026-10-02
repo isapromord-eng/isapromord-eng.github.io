@@ -377,13 +377,27 @@
 
           <!-- Selección del Paquete Base -->
           <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">1. Paquete Base Recomendado *</label>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">1. Paquete Base Recomendado (o Cotización 100% A la Carta) *</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
+
+              <!-- 0. Sin Paquete Base / 100% A la Carta -->
+              <label class="relative bg-slate-50 hover:bg-slate-100 p-4 rounded-2xl border-2 border-transparent has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/50 cursor-pointer transition-all space-y-2">
+                <div class="flex items-center justify-between">
+                  <input type="radio" name="basePkg" value="pack-custom" onchange="handleBasePkgChange()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
+                  <span class="px-2 py-0.5 rounded-md bg-slate-200 text-slate-700 text-[10px] font-black uppercase">A la Carta</span>
+                </div>
+                <div class="font-black text-sm text-slate-900">Sin Paquete Base (100% A la Carta)</div>
+                <div class="text-xs text-slate-500 leading-tight">Cotiza únicamente los servicios específicos que elijas en el menú de abajo, sin paquete predeterminado.</div>
+                <div class="space-y-0.5">
+                  <div class="font-black text-base text-slate-900">RD$ 0 <span class="text-xs font-normal text-slate-500">base</span></div>
+                  <div class="text-xs font-bold text-slate-400">Total según selección</div>
+                </div>
+              </label>
               
               <!-- 1. Esencial -->
               <label class="relative bg-slate-50 hover:bg-slate-100 p-4 rounded-2xl border-2 border-transparent has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/50 cursor-pointer transition-all space-y-2">
                 <div class="flex items-center justify-between">
-                  <input type="radio" name="basePkg" value="pack-esencial" onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
+                  <input type="radio" name="basePkg" value="pack-esencial" onchange="handleBasePkgChange()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
                   <span class="px-2 py-0.5 rounded-md bg-brand-100 text-brand-800 text-[10px] font-black uppercase">Esencial</span>
                 </div>
                 <div class="font-black text-sm text-slate-900">Presencia & Captación Local</div>
@@ -397,7 +411,7 @@
               <!-- 2. Crecimiento & CRM (MÁS POPULAR) -->
               <label class="relative bg-emerald-50/40 hover:bg-emerald-50/70 p-4 rounded-2xl border-2 border-emerald-500/60 has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50 cursor-pointer transition-all space-y-2 shadow-xs">
                 <div class="flex items-center justify-between">
-                  <input type="radio" name="basePkg" value="pack-crm" checked onchange="updateProposalTotals()" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500" />
+                  <input type="radio" name="basePkg" value="pack-crm" checked onchange="handleBasePkgChange()" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500" />
                   <span class="px-2 py-0.5 rounded-md bg-emerald-600 text-white text-[10px] font-black uppercase tracking-wider shadow-xs">Más Popular</span>
                 </div>
                 <div class="font-black text-sm text-slate-900">Crecimiento & Control CRM</div>
@@ -411,7 +425,7 @@
               <!-- 3. Automatización IA -->
               <label class="relative bg-slate-50 hover:bg-slate-100 p-4 rounded-2xl border-2 border-transparent has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/50 cursor-pointer transition-all space-y-2">
                 <div class="flex items-center justify-between">
-                  <input type="radio" name="basePkg" value="pack-ia" onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
+                  <input type="radio" name="basePkg" value="pack-ia" onchange="handleBasePkgChange()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
                   <span class="px-2 py-0.5 rounded-md bg-blue-100 text-brand-800 text-[10px] font-bold uppercase">Automatización IA</span>
                 </div>
                 <div class="font-black text-sm text-slate-900">Negocio con Inteligencia Artificial</div>
@@ -425,7 +439,7 @@
               <!-- 4. Ecosistema Total -->
               <label class="relative bg-slate-50 hover:bg-slate-100 p-4 rounded-2xl border-2 border-transparent has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/50 cursor-pointer transition-all space-y-2">
                 <div class="flex items-center justify-between">
-                  <input type="radio" name="basePkg" value="pack-ecosistema" onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
+                  <input type="radio" name="basePkg" value="pack-ecosistema" onchange="handleBasePkgChange()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
                   <span class="px-2 py-0.5 rounded-md bg-purple-100 text-purple-800 text-[10px] font-black uppercase">Ecosistema Total</span>
                 </div>
                 <div class="font-black text-sm text-slate-900">Ecosistema Completo + CRM a Medida</div>
@@ -1718,6 +1732,20 @@ ISAPromoRD — https://isapromord.com`;
     const STORAGE_KEY_PROPOSALS = "isapromo_agency_proposals_v1";
 
     const PROPOSAL_BASE_PACKAGES = {
+      "pack-custom": {
+        id: "pack-custom",
+        title: "Cotización Personalizada A la Carta",
+        description: "Servicios digitales seleccionados a la medida de los requerimientos y objetivos específicos del negocio.",
+        price: 0,
+        type: "onetime",
+        monthlyPrice: 0,
+        deliverables: [
+          "Servicios independientes cotizados según los módulos seleccionados a continuación.",
+          "Garantía de rendimiento, código optimizado y propiedad total de los activos creados.",
+          "Soporte directo y canal de comunicación prioritario por WhatsApp."
+        ],
+        includedAddonIds: []
+      },
       "pack-esencial": {
         id: "pack-esencial",
         title: "Presencia & Captación Local (Web + Google Maps)",
@@ -1731,7 +1759,8 @@ ISAPromoRD — https://isapromord.com`;
           "Gestión activa mensual: publicaciones semanales y respuesta a todas las reseñas con SEO local.",
           "Integración de llamadas a la acción directas y botón flotante de WhatsApp.",
           "Estructuración de datos Schema.org LocalBusiness y reporte mensual de llamadas ganadas."
-        ]
+        ],
+        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer"]
       },
       "pack-crm": {
         id: "pack-crm",
@@ -1747,7 +1776,8 @@ ISAPromoRD — https://isapromord.com`;
           "CRM personalizado desarrollado a la medida de tu flujo de clientes, catálogo y ventas.",
           "Servidor cloud dedicado, base de datos en tiempo real y copias de seguridad diarias.",
           "Capacitación de uso para tu equipo y soporte prioritario por WhatsApp."
-        ]
+        ],
+        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer", "geo-schemas", "crm-custom", "crm-monthly"]
       },
       "pack-ia": {
         id: "pack-ia",
@@ -1762,7 +1792,8 @@ ISAPromoRD — https://isapromord.com`;
           "Entrenamiento continuo de la IA con preguntas frecuentes, catálogo y políticas del negocio.",
           "Agendamiento automático de citas o reservas en el calendario del negocio.",
           "Bolsa mensual de tokens de IA incluida y optimización GEO para ChatGPT y Google Gemini."
-        ]
+        ],
+        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer", "geo-schemas", "ai-agent", "ai-agent-monthly"]
       },
       "pack-ecosistema": {
         id: "pack-ecosistema",
@@ -1777,7 +1808,8 @@ ISAPromoRD — https://isapromord.com`;
           "Control de prospectos, clientes, catálogo/inventario y embudo de ventas en tiempo real.",
           "Servidor cloud dedicado, base de datos en la nube y copias de seguridad diarias automáticas.",
           "Capacitación del equipo para el uso del CRM y soporte técnico prioritario 24/7."
-        ]
+        ],
+        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer", "geo-schemas", "chatbot-inventario", "ai-agent", "ai-agent-monthly", "crm-custom", "crm-monthly"]
       }
     };
 
@@ -1788,7 +1820,7 @@ ISAPromoRD — https://isapromord.com`;
         description: "Desarrollo web ultra-rápido en React/Vite, catálogo interactivo de servicios/productos, diseño adaptable a móviles y botón directo a WhatsApp.",
         price: 20000,
         type: "onetime",
-        checked: true
+        checked: false
       },
       {
         id: "web-maintenance",
@@ -1804,7 +1836,7 @@ ISAPromoRD — https://isapromord.com`;
         description: "Reclamación, configuración técnica y optimización completa de ficha de Google Business Profile, categorías precisas, catálogo y fotografías.",
         price: 15000,
         type: "onetime",
-        checked: true
+        checked: false
       },
       {
         id: "google-maps-retainer",
@@ -1880,8 +1912,7 @@ ISAPromoRD — https://isapromord.com`;
         document.getElementById("proposalCategory").value = clients[0].category || "";
       }
 
-      renderProposalAddonsList();
-      updateProposalTotals();
+      handleBasePkgChange();
       renderProposalsHistory();
     }
 
@@ -1903,9 +1934,44 @@ ISAPromoRD — https://isapromord.com`;
       }
     }
 
+    function handleBasePkgChange() {
+      const selectedBaseKey = document.querySelector('input[name="basePkg"]:checked')?.value || "pack-crm";
+      const basePkg = PROPOSAL_BASE_PACKAGES[selectedBaseKey] || PROPOSAL_BASE_PACKAGES["pack-crm"];
+      const includedIds = basePkg.includedAddonIds || [];
+
+      // Desmarcar automáticamente addons que ya están incluidos en el paquete base seleccionado
+      currentProposalAddons.forEach(a => {
+        if (includedIds.includes(a.id)) {
+          a.checked = false;
+        }
+      });
+
+      renderProposalAddonsList();
+      updateProposalTotals();
+    }
+
     function renderProposalAddonsList() {
       const container = document.getElementById("proposalAddonsList");
-      container.innerHTML = currentProposalAddons.map((addon, idx) => {
+      const selectedBaseKey = document.querySelector('input[name="basePkg"]:checked')?.value || "pack-crm";
+      const basePkg = PROPOSAL_BASE_PACKAGES[selectedBaseKey] || PROPOSAL_BASE_PACKAGES["pack-crm"];
+      const includedIds = basePkg.includedAddonIds || [];
+
+      // Filtrar para no mostrar como opción lo que ya viene en el paquete base
+      const visibleAddons = currentProposalAddons.filter(a => !includedIds.includes(a.id));
+
+      if (visibleAddons.length === 0) {
+        container.innerHTML = `
+          <div class="p-4 bg-emerald-50/70 rounded-2xl border border-emerald-200/80 text-xs text-emerald-900 flex items-center gap-3">
+            <span class="text-xl">✨</span>
+            <div>
+              <strong class="font-bold">Ecosistema Completo:</strong> Este paquete ya incluye todos los servicios del catálogo digital. No requiere módulos adicionales opcionales.
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = visibleAddons.map(addon => {
         const typeBadge = addon.type === "monthly" 
           ? '<span class="px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[10px] font-bold border border-amber-200">Mensual</span>' 
           : '<span class="px-2 py-0.5 rounded-md bg-blue-50 text-brand-700 text-[10px] font-bold border border-blue-200">Pago Único</span>';
@@ -1916,7 +1982,7 @@ ISAPromoRD — https://isapromord.com`;
               <input 
                 type="checkbox" 
                 ${addon.checked ? 'checked' : ''} 
-                onchange="toggleProposalAddon(${idx})" 
+                onchange="toggleProposalAddon('${addon.id}')" 
                 class="mt-0.5 w-4 h-4 rounded text-brand-600 focus:ring-brand-500 cursor-pointer"
               />
               <div>
@@ -1935,14 +2001,18 @@ ISAPromoRD — https://isapromord.com`;
       }).join('');
     }
 
-    function toggleProposalAddon(idx) {
-      currentProposalAddons[idx].checked = !currentProposalAddons[idx].checked;
-      updateProposalTotals();
+    function toggleProposalAddon(id) {
+      const addon = currentProposalAddons.find(a => a.id === id);
+      if (addon) {
+        addon.checked = !addon.checked;
+        updateProposalTotals();
+      }
     }
 
     function updateProposalTotals() {
       const selectedBaseKey = document.querySelector('input[name="basePkg"]:checked')?.value || "pack-crm";
-      const basePkg = PROPOSAL_BASE_PACKAGES[selectedBaseKey];
+      const basePkg = PROPOSAL_BASE_PACKAGES[selectedBaseKey] || PROPOSAL_BASE_PACKAGES["pack-crm"];
+      const includedIds = basePkg.includedAddonIds || [];
 
       let onetime = 0;
       let monthly = 0;
@@ -1959,7 +2029,7 @@ ISAPromoRD — https://isapromord.com`;
       }
 
       currentProposalAddons.forEach(a => {
-        if (a.checked) {
+        if (a.checked && !includedIds.includes(a.id)) {
           if (a.type === "monthly") monthly += a.price;
           else onetime += a.price;
         }
@@ -1984,8 +2054,14 @@ ISAPromoRD — https://isapromord.com`;
       if (!clientName) clientName = "Cliente Estimado";
 
       const category = document.getElementById("proposalCategory").value.trim() || "Servicios Comerciales";
-      const selectedBaseKey = document.querySelector('input[name="basePkg"]:checked')?.value || "pack-esencial";
-      const basePkg = PROPOSAL_BASE_PACKAGES[selectedBaseKey];
+      const selectedBaseKey = document.querySelector('input[name="basePkg"]:checked')?.value || "pack-crm";
+      const basePkg = PROPOSAL_BASE_PACKAGES[selectedBaseKey] || PROPOSAL_BASE_PACKAGES["pack-crm"];
+      const includedIds = basePkg.includedAddonIds || [];
+
+      // Addons a incluir en la propuesta (excluyendo lo ya incluido en el paquete base)
+      const addonsToSend = currentProposalAddons
+        .filter(a => !includedIds.includes(a.id))
+        .map(a => ({ ...a }));
 
       const today = new Date();
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -1998,7 +2074,7 @@ ISAPromoRD — https://isapromord.com`;
         dateStr: dateFormatted,
         validity: "15 Días Hábiles",
         basePackage: basePkg,
-        addons: currentProposalAddons
+        addons: addonsToSend
       };
 
       lastGeneratedProposalData = proposalPayload;
@@ -2015,8 +2091,8 @@ ISAPromoRD — https://isapromord.com`;
 
       // Calcular totales para el modal
       let onetime = basePkg.type === "monthly" ? 0 : basePkg.price;
-      let monthly = basePkg.type === "monthly" ? basePkg.price : 0;
-      currentProposalAddons.forEach(a => {
+      let monthly = basePkg.monthlyPrice || (basePkg.type === "monthly" ? basePkg.price : 0);
+      addonsToSend.forEach(a => {
         if (a.checked) {
           if (a.type === "monthly") monthly += a.price;
           else onetime += a.price;

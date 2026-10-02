@@ -17,6 +17,9 @@
 - **Dominio Actual en Vivo:** `https://isapromord.github.io/`
 - **Dashboard de Clientes:** `/dashboard/` (protegido por PIN, con monitor de Uptime, gestión de cobros y generador de reportes WhatsApp).
 - **Cotizador & Propuestas "A la Carte":** `/propuesta/` (sistema de propuestas interactivas digitales con cálculo reactivo en tiempo real y aprobación por WhatsApp).
+- **Modos de Cotización en Dashboard (`/dashboard/`):**
+  - **Modo Paquetes:** P1 (Esencial), P2 (Crecimiento & CRM ⭐ Más Popular), P3 (Automatización IA), P4 (Ecosistema Total). Filtra dinámicamente los addons para que ningún servicio incluido en el paquete aparezca duplicado en las opciones a la carta.
+  - **Modo 100% A la Carta (`pack-custom`):** Permite enviar cotizaciones personalizadas sin paquete base (Setup base: RD$ 0, Mensual base: RD$ 0), habilitando la selección granular de cualquiera de los 10 módulos del catálogo. En `/propuesta/` oculta la sección de paquete base y formatea el mensaje de WhatsApp exclusivamente con los servicios contratados.
 - **Sistema de Referidos & Telemetría:** Pestaña 3 en `/dashboard/` y detector en `index.html` (`?ref=...`). Mide clics, atribución de leads por WhatsApp a 90 días, tabla de partners y generador de badges ("Powered by ISAPromoRD") en React JSX y HTML.
 - **Catálogo Oficial de Servicios ISAPromoRD (Opción A):**
   1. 🌐 Landing Page Transaccional de Alta Conversión (<1s en React/Vite) — RD$ 20,000 / RD$ 4,500/mes
@@ -26,6 +29,7 @@
   5. 🤖 Agente de Inteligencia Artificial 24/7 (Citas & FAQ) — RD$ 25,000 / RD$ 10,000/mes
   6. 💼 CRM Personalizado a la Medida del Negocio — RD$ 35,000 / RD$ 8,000/mes
 - **Paquetes Oficiales:**
+  - P0: Sin Paquete Base / 100% A la Carta (RD$ 0 base / cálculo según selección)
   - P1: Presencia & Captación Local (Setup RD$ 30,000 / RD$ 15,000 mes)
   - P2 ⭐: Crecimiento & Control CRM [MÁS POPULAR] (Setup RD$ 65,000 / RD$ 20,000 mes)
   - P3: Negocio Inteligente con IA (Setup RD$ 50,000 / RD$ 20,000 mes)

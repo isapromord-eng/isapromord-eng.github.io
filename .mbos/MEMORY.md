@@ -258,4 +258,21 @@
   - **Insignia:** Marcado oficialmente como el paquete **"MÁS POPULAR"** en el Dashboard y como paquete predeterminado en las propuestas digitales enviadas a clientes.
 - **Sincronización de Archivos:** `dashboard/index.html`, `dashboard.html`, `propuesta/index.html` y `propuesta.html` actualizados con cuadrícula responsiva de 4 paquetes (`sm:grid-cols-2 lg:grid-cols-4`).
 
+## [2026-10-01] - Desacoplamiento de Paquetes Base, Cotización 100% A la Carta y Deduplicación Dinámica de Addons
+- **Problema de Negocio Resuelto:**
+  1. *Duplicación de Servicios:* Cuando se seleccionaba un paquete base (ej. `Crecimiento & Control CRM`), los servicios ya incluidos en dicho paquete (Landing Page, Google Maps, Schemas GEO, CRM) seguían mostrándose como checkboxes opcionales en la lista de abajo, causando confusión en el cliente y riesgo de doble cobro.
+  2. *Inflexibilidad de Paquetes:* No existía una opción para deseleccionar los paquetes base y enviar una cotización 100% "A la Carta" (por ejemplo, si un cliente solo necesita el CRM, solo el agente de IA o solo la Landing Page).
+- **Solución de Ingeniería & UX:**
+  - **Opción "100% A la Carta (Sin Paquete Base)" (`pack-custom`):** Añadido 5to radio en el Dashboard con RD$ 0 setup y RD$ 0 mensual base. Permite componer cotizaciones totalmente libres seleccionando módulos independientes.
+  - **Deduplicación Reactiva en Dashboard (`dashboard/index.html`):**
+    - Cada paquete en `PROPOSAL_BASE_PACKAGES` define su lista inmutable `includedAddonIds: [...]`.
+    - Al cambiar de paquete base mediante `handleBasePkgChange()`, la lista de addons visibles filtra automáticamente cualquier servicio ya contemplado en el paquete (`currentProposalAddons.filter(a => !includedIds.includes(a.id))`), desmarcando preventivamente cualquier conflicto.
+    - Si se selecciona el paquete "Ecosistema Total", se presenta un banner inteligente informando que todos los módulos ya están incluidos.
+    - Si se selecciona "100% A la Carta", los 10 módulos del catálogo quedan disponibles para marcar a discreción.
+  - **Experiencia del Cliente en Propuestas (`propuesta/index.html`):**
+    - Si `basePackage.id === 'pack-custom'`, la sección "Fase 1: Plan Base Seleccionado" se oculta por completo de forma limpia, y la sección de módulos pasa a ser el catálogo principal ("Servicios Seleccionados a la Medida").
+    - En el cierre por WhatsApp (`acceptProposal()`), se omiten las etiquetas `• [Base]` y se desglosa únicamente la lista de servicios contratados, calculando con exactitud el setup total, la mensualidad y el anticipo del 50%.
+- **Sincronización:** Archivos espejo `dashboard.html` y `propuesta.html` actualizados y validados.
+
+
 
