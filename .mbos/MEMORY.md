@@ -385,3 +385,41 @@
   4. **Ampliación del Modelo de Datos:** Se integró el campo **"Correo Electrónico"** en el modal de cliente (`clientModal`), formulario y vista de tarjeta.
   5. **Propuestas y Avisos Sincronizados:** Al generar propuestas o emitir avisos de cobro, el campo de teléfono del cliente ahora auto-completa el número real del cliente (`8293961318`).
 - **Sincronización:** Módulos espejos `dashboard.html` y `propuesta.html` actualizados al 100%.
+
+## [2026-10-02] - Arquitectura Financiera & Contable de Grado CFO (Tab 4: Finanzas & Contabilidad)
+- **Objetivo & Estándar de la Industria (SaaS & Agency Financial Management):**
+  - El usuario solicitó una suite contable integral para visualizar todos los números de todas las cuentas bancarias de la agencia, calcular las entradas mensuales de ISAPromoRD, proyectar el flujo de caja y mantener conciliación financiera según los estándares de la industria (MRR, ARR, Aging de Cuentas por Cobrar, Inflow Mensual).
+- **Implementación Técnica de Grado CFO en `/dashboard/` (Tab 4):**
+  1. **Navegación & Tab 4 ("Finanzas & Contabilidad"):**
+     - Añadido botón interactivo `tabAccountingBtn` ("💼 Finanzas & Contabilidad") en la barra de navegación del Dashboard con sincronización reactiva de estado visual.
+  2. **CFO Executive KPIs (Cuadro de Mando en Vivo):**
+     - **Flujo de Caja del Mes (Inflow):** Suma automática de todos los ingresos liquidados durante el mes actual (Setup iniciales + Retainers recurrentes cobrados).
+     - **Ingresos Recurrentes (MRR):** Proyección mensual de mantenimientos activos y retainers SEO/CRM con cálculo dinámico del ARR (MRR x 12).
+     - **Cuentas por Cobrar (Aging Receivables):** Sumatoria de facturas pendientes con alerta visual de cuentas en mora (>30 días) y recordatorios directos por WhatsApp.
+     - **Tasa de Cobranza (Collection Rate):** Porcentaje de recaudación efectiva frente al total facturado en el ciclo.
+  3. **Conciliación Multibancaria (Multi-Bank Accounts):**
+     - Monitoreo en vivo de saldos en:
+       - **Banco Popular Dominicano** (Cuenta Corriente / Principal de la agencia).
+       - **Banco BHD / Banreservas** (Fondo Operativo y de Reserva).
+       - **Efectivo / Caja Chica** (Cobros directos en oficina / campo).
+     - Desglose de ingresos del mes y última conciliación en cada entidad bancaria.
+  4. **Simulador Interactivo de Crecimiento & Forecasting (MRR / ARR):**
+     - Herramienta analítica de proyección para planificar metas comerciales:
+       - Controles deslizantes/numéricos para modelar clientes en cada paquete oficial (`pack-esencial`, `pack-crm`, `pack-ia`, `pack-ecosistema`).
+       - Proyecta en tiempo real los ingresos de Setup (flujo de caja inmediato), el MRR resultante y los ingresos recurrentes anualizados (ARR).
+  5. **Matriz de Cuentas por Cobrar (Aging Receivables):**
+     - Tabla que lista el estado de cobro de cada cliente registrado con clasificación de antigüedad:
+       - `🟢 Al Día` (Facturado en ciclo).
+       - `🟡 Por Vencer` (Menos de 5 días para corte).
+       - `🔴 Vencido` (Mora calculada con días acumulados).
+     - Enlace directo de cobro por WhatsApp con mensaje formal y botón reactivo para registrar cobro (`✓ Confirmar Pago`).
+  6. **Libro Diario de Transacciones (Transaction Ledger):**
+     - Registro cronológico inmutable de ingresos y egresos con:
+       - Fecha, Cliente / Origen, Categoría (`Setup / Desarrollo`, `Mantenimiento Web`, `Retainer SEO & Maps`, `Servidor Cloud CRM`, etc.).
+       - Método / Cuenta Bancaria de ingreso y número de comprobante o referencia de transferencia.
+       - Filtro dinámico por mes de ejercicio (ej: "Octubre 2026").
+     - **Botón `+ Registrar Cobro`:** Modal completo (`manualTransactionModal`) para asentar ingresos de cualquier cliente o proyecto nuevo al instante.
+     - **Exportación CSV de Grado Auditoría:** Botón `📥 Exportar CSV` que genera y descarga el libro diario formal con codificación UTF-8 compatible con Microsoft Excel y Google Sheets.
+  7. **Sincronización Bidireccional Automática:**
+     - Al presionar `✓ Pagado` en la tarjeta de un cliente (Tab 1) o `✓ Confirmar Pago` en la matriz de cobranzas (Tab 4), el sistema automáticamente asienta la transacción en el libro contable de la agencia, actualiza el flujo de caja del mes y acredita los fondos a la cuenta bancaria seleccionada.
+- **Sincronización:** Módulos espejos `dashboard.html` y `propuesta.html` actualizados al 100%.

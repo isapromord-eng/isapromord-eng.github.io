@@ -279,6 +279,16 @@
         <span>Sistema de Referidos</span>
         <span class="px-1.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase">Telemetría</span>
       </button>
+
+      <button 
+        id="tabAccountingBtn" 
+        onclick="switchDashboardTab('accounting')" 
+        class="px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all flex items-center gap-2"
+      >
+        <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <span>Finanzas & Contabilidad</span>
+        <span class="px-1.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase">CFO</span>
+      </button>
     </div>
 
     <!-- ========================================================
@@ -680,6 +690,324 @@
         </div>
         <div id="referralsEventsFeed" class="space-y-2">
           <!-- Inyectado por JS -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================================
+         PESTAÑA 4: FINANZAS & CONTABILIDAD (CFO DASHBOARD & LEDGER)
+         ======================================================== -->
+    <div id="accountingTabContent" class="space-y-6 hidden">
+      
+      <!-- HERO BANNER CONTABILIDAD -->
+      <div class="bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+        <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-emerald-500/20 blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-semibold">
+              <span>🏛️ Contabilidad de Agencia</span>
+              <span class="w-1 h-1 rounded-full bg-emerald-400"></span>
+              <span>Flujo de Caja & Retainers</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black tracking-tight">Finanzas, Ingresos & Control de Cuentas</h2>
+            <p class="text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed">
+              Monitorea los ingresos recurrentes (MRR), cuentas por cobrar, estados de cuenta bancarios y libro diario de transacciones de ISAPromoRD.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-3">
+            <button onclick="exportAccountingReport()" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/10 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+              <span>Exportar CSV</span>
+            </button>
+            <button onclick="openManualTransactionModal()" class="px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+              <span>+ Registrar Cobro</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETAS KPI FINANCIERAS -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        
+        <!-- Cobrado Este Mes -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-slate-500 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider">Cobrado en el Mes</span>
+            <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+          </div>
+          <div>
+            <div id="acctKpiCashInflow" class="text-2xl sm:text-3xl font-black text-emerald-600">RD$ 0</div>
+            <span class="text-[11px] text-slate-400 font-semibold" id="acctKpiCurrentMonthLabel">Octubre 2026</span>
+          </div>
+        </div>
+
+        <!-- MRR Contratado -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-slate-500 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider">MRR Recurrente</span>
+            <div class="w-8 h-8 rounded-lg bg-blue-50 text-brand-600 flex items-center justify-center">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+            </div>
+          </div>
+          <div>
+            <div id="acctKpiMrr" class="text-2xl sm:text-3xl font-black text-slate-900">RD$ 0</div>
+            <span class="text-[11px] text-slate-400 font-semibold">Mensualidades fijas</span>
+          </div>
+        </div>
+
+        <!-- Cuentas por Cobrar -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-slate-500 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider">Cuentas por Cobrar</span>
+            <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+          </div>
+          <div>
+            <div id="acctKpiReceivables" class="text-2xl sm:text-3xl font-black text-amber-600">RD$ 0</div>
+            <span class="text-[11px] text-slate-400 font-semibold" id="acctKpiReceivablesCount">0 clientes pendientes</span>
+          </div>
+        </div>
+
+        <!-- ARR Anualizado Proyectado -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-slate-500 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider">ARR Anualizado</span>
+            <div class="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            </div>
+          </div>
+          <div>
+            <div id="acctKpiArr" class="text-2xl sm:text-3xl font-black text-slate-900">RD$ 0</div>
+            <span class="text-[11px] text-slate-400 font-semibold">Proyección a 12 meses</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SECCIÓN MEDIA: DESGLOSE BANCARIO & SIMULADOR DE METAS -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Columna Izquierda: Cuentas Bancarias & Distribución (5 cols) -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div>
+              <h3 class="text-base font-black text-slate-900">Cuentas Bancarias & Distribución</h3>
+              <p class="text-xs text-slate-500">Conciliación de fondos recibidos por canal.</p>
+            </div>
+            <button onclick="openBackupModal()" class="text-xs text-brand-600 hover:underline font-bold">Configurar Cuentas</button>
+          </div>
+
+          <div class="space-y-3">
+            <!-- Banco Popular -->
+            <div class="p-4 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black text-sm">
+                  BP
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Banco Popular Dominicano</h4>
+                  <span class="text-[11px] text-slate-500 font-mono">Cta. Ahorros • 8294554783</span>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-black text-slate-900" id="bankBalancePopular">RD$ 0</div>
+                <span class="text-[10px] text-emerald-600 font-semibold">Principal</span>
+              </div>
+            </div>
+
+            <!-- Banco BHD / Banreservas -->
+            <div class="p-4 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black text-sm">
+                  BHD
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Banco BHD / Banreservas</h4>
+                  <span class="text-[11px] text-slate-500 font-mono">Transferencias Secundarias</span>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-black text-slate-900" id="bankBalanceBhd">RD$ 0</div>
+                <span class="text-[10px] text-slate-400 font-semibold">Secundaria</span>
+              </div>
+            </div>
+
+            <!-- Efectivo / Caja Chica -->
+            <div class="p-4 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center font-black text-sm">
+                  💵
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900">Efectivo / Caja Chica</h4>
+                  <span class="text-[11px] text-slate-500 font-mono">Pagos presenciales directos</span>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-sm font-black text-slate-900" id="bankBalanceCash">RD$ 0</div>
+                <span class="text-[10px] text-slate-400 font-semibold">Caja Chica</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-3.5 bg-emerald-50 rounded-2xl border border-emerald-200/80 flex items-center justify-between text-xs">
+            <span class="font-bold text-emerald-900">Total Histórico Recaudado:</span>
+            <span class="font-black text-emerald-700 text-sm" id="allTimeCollectedTotal">RD$ 0</span>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Calculadora de Metas y Proyección (7 cols) -->
+        <div class="lg:col-span-7 bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div>
+              <h3 class="text-base font-black text-slate-900">Simulador de Metas & Proyección de Crecimiento</h3>
+              <p class="text-xs text-slate-500">Calcula tu facturación mensual (MRR) según la cantidad de clientes por paquete.</p>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 font-bold text-[11px]">Calculadora Dinámica</span>
+          </div>
+
+          <!-- Controles de Clientes -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+            <!-- Web Básica -->
+            <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200/80 text-center space-y-1.5">
+              <span class="font-bold text-slate-700 block truncate">Solo Web</span>
+              <span class="text-[11px] text-slate-400 block font-mono">RD$ 4.5k/m</span>
+              <div class="flex items-center justify-center gap-2 pt-1">
+                <button onclick="adjustForecastPlan('web', -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-700 font-bold hover:bg-slate-100">-</button>
+                <span id="forecastCount_web" class="font-black text-sm text-slate-900 w-6 text-center">1</span>
+                <button onclick="adjustForecastPlan('web', 1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-700 font-bold hover:bg-slate-100">+</button>
+              </div>
+            </div>
+
+            <!-- Esencial Maps -->
+            <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200/80 text-center space-y-1.5">
+              <span class="font-bold text-slate-700 block truncate">Plan Esencial</span>
+              <span class="text-[11px] text-slate-400 block font-mono">RD$ 15k/m</span>
+              <div class="flex items-center justify-center gap-2 pt-1">
+                <button onclick="adjustForecastPlan('esencial', -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-700 font-bold hover:bg-slate-100">-</button>
+                <span id="forecastCount_esencial" class="font-black text-sm text-slate-900 w-6 text-center">2</span>
+                <button onclick="adjustForecastPlan('esencial', 1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-700 font-bold hover:bg-slate-100">+</button>
+              </div>
+            </div>
+
+            <!-- Plan CRM (Popular) -->
+            <div class="p-3 bg-brand-50/60 rounded-2xl border border-brand-200 text-center space-y-1.5">
+              <span class="font-bold text-brand-900 block truncate">Plan CRM ⭐</span>
+              <span class="text-[11px] text-brand-600 block font-mono">RD$ 20k/m</span>
+              <div class="flex items-center justify-center gap-2 pt-1">
+                <button onclick="adjustForecastPlan('crm', -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-700 font-bold hover:bg-slate-100">-</button>
+                <span id="forecastCount_crm" class="font-black text-sm text-brand-900 w-6 text-center">3</span>
+                <button onclick="adjustForecastPlan('crm', 1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-700 font-bold hover:bg-slate-100">+</button>
+              </div>
+            </div>
+
+            <!-- Ecosistema IA -->
+            <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200/80 text-center space-y-1.5">
+              <span class="font-bold text-slate-700 block truncate">Ecosistema</span>
+              <span class="text-[11px] text-slate-400 block font-mono">RD$ 30k/m</span>
+              <div class="flex items-center justify-center gap-2 pt-1">
+                <button onclick="adjustForecastPlan('ecosistema', -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-700 font-bold hover:bg-slate-100">-</button>
+                <span id="forecastCount_ecosistema" class="font-black text-sm text-slate-900 w-6 text-center">1</span>
+                <button onclick="adjustForecastPlan('ecosistema', 1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 text-slate-700 font-bold hover:bg-slate-100">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resultados de la Simulación -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 bg-slate-900 text-white rounded-2xl">
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">MRR Mensual Resultante</span>
+              <div class="text-xl font-black text-emerald-400" id="simResultMrr">RD$ 124,500</div>
+              <span class="text-[10px] text-slate-400">Ingreso pasivo mensual</span>
+            </div>
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Facturación Anual (ARR)</span>
+              <div class="text-xl font-black text-white" id="simResultArr">RD$ 1,494,000</div>
+              <span class="text-[10px] text-slate-400">En 12 meses de operación</span>
+            </div>
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Ingresos por Setup Inicial</span>
+              <div class="text-xl font-black text-amber-300" id="simResultSetup">RD$ 360,000</div>
+              <span class="text-[10px] text-slate-400">Cobrado al inicio</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ESTADO DE CUENTAS POR COBRAR (RECEIVABLES AGING) -->
+      <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm space-y-4">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div>
+            <h3 class="text-base font-black text-slate-900">Estado de Cobranza del Mes (Cuentas por Cobrar)</h3>
+            <p class="text-xs text-slate-500">Supervisión del ciclo de renovación de cada cliente de la agencia.</p>
+          </div>
+          <span class="text-xs font-semibold text-slate-400" id="receivablesSummaryCount">1 cliente en radar</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-600">
+            <thead class="bg-slate-50 text-[11px] font-bold uppercase tracking-wider text-slate-500 border-b border-slate-200">
+              <tr>
+                <th class="py-3 px-4">Cliente</th>
+                <th class="py-3 px-4">Servicio / Tarifa</th>
+                <th class="py-3 px-4">Próxima Fecha Corte</th>
+                <th class="py-3 px-4">Estado de Cobro</th>
+                <th class="py-3 px-4 text-right">Acciones Directas</th>
+              </tr>
+            </thead>
+            <tbody id="accountingReceivablesTableBody" class="divide-y divide-slate-100 font-medium">
+              <!-- Inyectado por JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- LIBRO DIARIO DE TRANSACCIONES (TRANSACTION LEDGER) -->
+      <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-3 border-b border-slate-100">
+          <div>
+            <h3 class="text-base font-black text-slate-900">Libro Diario de Transacciones (Ledger)</h3>
+            <p class="text-xs text-slate-500">Historial inmutable de cobros registrados, anticipos y entradas a cuentas bancarias.</p>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <select id="ledgerFilterType" onchange="filterLedgerTransactions()" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 text-xs font-semibold focus:outline-none">
+              <option value="all">Todos los Tipos</option>
+              <option value="retainer">Retainers Mensuales</option>
+              <option value="setup">Anticipos Setup 50%</option>
+              <option value="settlement">Liquidaciones 50%</option>
+              <option value="alacarte">Servicios A la Carta</option>
+            </select>
+            <button onclick="openManualTransactionModal()" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors">
+              + Nueva Entrada
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-600">
+            <thead class="bg-slate-50 text-[11px] font-bold uppercase tracking-wider text-slate-500 border-b border-slate-200">
+              <tr>
+                <th class="py-3 px-4">Fecha</th>
+                <th class="py-3 px-4">Cliente</th>
+                <th class="py-3 px-4">Concepto</th>
+                <th class="py-3 px-4">Tipo</th>
+                <th class="py-3 px-4">Cuenta Destino</th>
+                <th class="py-3 px-4">Referencia</th>
+                <th class="py-3 px-4 text-right">Monto</th>
+                <th class="py-3 px-4 text-right">Acción</th>
+              </tr>
+            </thead>
+            <tbody id="accountingTransactionsTableBody" class="divide-y divide-slate-100 font-medium">
+              <!-- Inyectado por JS -->
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -1119,6 +1447,103 @@
         <div class="pt-2 flex items-center justify-end gap-3">
           <button type="button" onclick="closeNewPartnerModal()" class="px-4 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 font-bold text-sm">Cancelar</button>
           <button type="submit" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md shadow-emerald-600/20 active:scale-[0.98] transition-all">Guardar Partner</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL: REGISTRAR COBRO / ENTRADA MANUAL
+       ======================================================== -->
+  <div id="manualTransactionModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border border-slate-100 my-8 space-y-5">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm font-bold">
+            💵
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900">Registrar Entrada / Cobro</h3>
+            <span class="text-[11px] text-slate-500 font-medium">Asentar cobro en el Libro Diario de ISAPromoRD</span>
+          </div>
+        </div>
+        <button onclick="closeManualTransactionModal()" class="p-1 text-slate-400 hover:text-slate-600 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <form id="manualTransactionForm" onsubmit="saveManualTransaction(event)" class="space-y-4 text-xs">
+        <!-- Cliente -->
+        <div>
+          <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Cliente / Empresa *</label>
+          <div class="space-y-1.5">
+            <select id="txClientSelect" onchange="handleTxClientSelectChange()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold focus:ring-2 focus:ring-brand-600 focus:outline-none">
+              <!-- Opciones dinámicas de clientes registrados + 'Otro' -->
+            </select>
+            <input type="text" id="txClientCustomName" placeholder="O escribe el nombre del cliente..." class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-brand-600 focus:outline-none hidden" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <!-- Concepto -->
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Concepto / Servicio *</label>
+            <input type="text" id="txConcept" required placeholder="Ej: Retainer Mensual Octubre / Anticipo 50%" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-brand-600 focus:outline-none" />
+          </div>
+
+          <!-- Tipo de Ingreso -->
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Tipo de Ingreso *</label>
+            <select id="txType" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold focus:ring-2 focus:ring-brand-600 focus:outline-none">
+              <option value="retainer">🟢 Retainer Mensual (Recurrente)</option>
+              <option value="setup">🚀 Anticipo Setup 50% (Proyecto Nuevo)</option>
+              <option value="settlement">🏁 Liquidación Final 50% (Entrega)</option>
+              <option value="alacarte">⚡ Servicio A la Carta / Consultoría</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <!-- Monto -->
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Monto Cobrado (RD$) *</label>
+            <input type="number" id="txAmount" required min="1" step="1" placeholder="Ej: 4500" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-bold text-emerald-700 focus:ring-2 focus:ring-brand-600 focus:outline-none" />
+          </div>
+
+          <!-- Fecha -->
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Fecha de Cobro *</label>
+            <input type="date" id="txDate" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-brand-600 focus:outline-none" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <!-- Cuenta de Destino -->
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Cuenta Bancaria Destino *</label>
+            <select id="txAccount" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold focus:ring-2 focus:ring-brand-600 focus:outline-none">
+              <option value="Banco Popular Dominicano">Banco Popular Dominicano (8294554783)</option>
+              <option value="Banco BHD / Banreservas">Banco BHD / Banreservas</option>
+              <option value="Efectivo / Caja Chica">Efectivo / Caja Chica</option>
+            </select>
+          </div>
+
+          <!-- Referencia Bancaria -->
+          <div>
+            <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">No. Comprobante / Referencia</label>
+            <input type="text" id="txReference" placeholder="Ej: BP-981273 o Efectivo" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-mono focus:ring-2 focus:ring-brand-600 focus:outline-none" />
+          </div>
+        </div>
+
+        <!-- Notas Opcionales -->
+        <div>
+          <label class="block font-bold text-slate-700 uppercase tracking-wider mb-1">Notas de la Transacción</label>
+          <input type="text" id="txNotes" placeholder="Detalles adicionales, número de factura o acuerdo..." class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-brand-600 focus:outline-none" />
+        </div>
+
+        <div class="pt-3 border-t border-slate-100 flex items-center justify-end gap-3">
+          <button type="button" onclick="closeManualTransactionModal()" class="px-4 py-2.5 rounded-xl text-slate-600 hover:bg-slate-100 font-bold text-xs">Cancelar</button>
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md shadow-emerald-600/20 active:scale-[0.98] transition-all">Guardar en Libro Diario</button>
         </div>
       </form>
     </div>
@@ -2039,6 +2464,28 @@ https://isapromord.github.io`;
           date: todayStr
         });
 
+        // Registrar automáticamente en Libro Diario Contable
+        let numAmount = 4500;
+        if (client.fee) {
+          const match = client.fee.match(/[\d,]+/);
+          if (match) numAmount = parseInt(match[0].replace(/,/g, ''), 10) || 4500;
+        }
+
+        if (typeof addAccountingTransaction === 'function') {
+          addAccountingTransaction({
+            id: "tx-" + Date.now(),
+            clientId: client.id,
+            clientName: client.name,
+            concept: `Retainer Mensual — Mantenimiento & Hosting (${nextRenewalDate})`,
+            type: "retainer",
+            amount: numAmount,
+            date: todayStr,
+            account: "Banco Popular Dominicano",
+            reference: `REC-${Date.now().toString().slice(-6)}`,
+            notes: `Pago mensual registrado en ciclo de facturación`
+          });
+        }
+
         saveClientsToStorage();
         renderClients();
         updateKpis();
@@ -2107,9 +2554,11 @@ https://isapromord.github.io`;
       const clientsContent = document.getElementById("clientsTabContent");
       const proposalsContent = document.getElementById("proposalsTabContent");
       const referralsContent = document.getElementById("referralsTabContent");
+      const accountingContent = document.getElementById("accountingTabContent");
       const tabClientsBtn = document.getElementById("tabClientsBtn");
       const tabProposalsBtn = document.getElementById("tabProposalsBtn");
       const tabReferralsBtn = document.getElementById("tabReferralsBtn");
+      const tabAccountingBtn = document.getElementById("tabAccountingBtn");
 
       const inactiveClass = "px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all flex items-center gap-2";
       const activeClass = "px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-brand-600 text-white shadow-sm shadow-brand-600/20 transition-all flex items-center gap-2";
@@ -2117,10 +2566,12 @@ https://isapromord.github.io`;
       tabClientsBtn.className = inactiveClass;
       tabProposalsBtn.className = inactiveClass;
       tabReferralsBtn.className = inactiveClass;
+      if (tabAccountingBtn) tabAccountingBtn.className = inactiveClass;
 
       clientsContent.classList.add("hidden");
       proposalsContent.classList.add("hidden");
       referralsContent.classList.add("hidden");
+      if (accountingContent) accountingContent.classList.add("hidden");
 
       if (tab === 'clients') {
         clientsContent.classList.remove("hidden");
@@ -2133,6 +2584,10 @@ https://isapromord.github.io`;
         referralsContent.classList.remove("hidden");
         tabReferralsBtn.className = activeClass;
         loadReferralsData();
+      } else if (tab === 'accounting') {
+        if (accountingContent) accountingContent.classList.remove("hidden");
+        if (tabAccountingBtn) tabAccountingBtn.className = activeClass;
+        loadAccountingData();
       }
     }
 
@@ -3024,6 +3479,451 @@ https://isapromord.github.io`;
       };
       referralClicks.unshift(clickEvent);
       renderReferralsView();
+    }
+
+    // ==========================================
+    // 16. FINANZAS & CONTABILIDAD (CFO DASHBOARD & LEDGER)
+    // ==========================================
+    const STORAGE_KEY_ACCOUNTING = "isapromo_agency_accounting_ledger_v1";
+
+    const INITIAL_ACCOUNTING_LEDGER = [
+      {
+        id: "tx-init-1",
+        date: "2026-09-28",
+        clientId: "client-pasion-pecuaria",
+        clientName: "Pasión Pecuaria RD",
+        concept: "Anticipo 50% Desarrollo Web Transaccional & Despliegue Vercel",
+        type: "setup",
+        amount: 20000,
+        account: "Banco Popular Dominicano",
+        reference: "BP-892147",
+        notes: "Primer cliente insignia de ISAPromoRD"
+      },
+      {
+        id: "tx-init-2",
+        date: "2026-09-28",
+        clientId: "client-pasion-pecuaria",
+        clientName: "Pasión Pecuaria RD",
+        concept: "Retainer Mensual — Mantenimiento Web & Hosting Anycast (Ciclo 1)",
+        type: "retainer",
+        amount: 4500,
+        account: "Banco Popular Dominicano",
+        reference: "BP-892150",
+        notes: "Facturación inicial mensual de servicio"
+      }
+    ];
+
+    let accountingLedger = [];
+
+    // Estado del Simulador de Proyecciones
+    const forecastState = {
+      web: 1,       // RD$ 4,500/m (Setup 20,000)
+      esencial: 2,  // RD$ 15,000/m (Setup 30,000)
+      crm: 3,       // RD$ 20,000/m (Setup 65,000)
+      ecosistema: 1 // RD$ 30,000/m (Setup 85,000)
+    };
+
+    function loadAccountingData() {
+      const stored = localStorage.getItem(STORAGE_KEY_ACCOUNTING);
+      if (stored) {
+        try {
+          accountingLedger = JSON.parse(stored);
+        } catch (e) {
+          accountingLedger = INITIAL_ACCOUNTING_LEDGER;
+        }
+      } else {
+        accountingLedger = INITIAL_ACCOUNTING_LEDGER;
+        saveAccountingLedger();
+      }
+
+      updateAccountingKpis();
+      renderAccountingBankBalances();
+      renderAccountingReceivables();
+      renderAccountingTransactions();
+      updateForecastSimulation();
+      populateTxClientSelect();
+    }
+
+    function saveAccountingLedger() {
+      localStorage.setItem(STORAGE_KEY_ACCOUNTING, JSON.stringify(accountingLedger));
+    }
+
+    function addAccountingTransaction(tx) {
+      if (!tx.id) tx.id = "tx-" + Date.now();
+      accountingLedger.unshift(tx);
+      saveAccountingLedger();
+      updateAccountingKpis();
+      renderAccountingBankBalances();
+      renderAccountingTransactions();
+    }
+
+    function updateAccountingKpis() {
+      const now = new Date();
+      const currentYear = now.getFullYear();
+      const currentMonth = now.getMonth(); // 0-indexed
+
+      const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+      const currentMonthLabel = `${monthNames[currentMonth]} ${currentYear}`;
+      const monthLabelEl = document.getElementById("acctKpiCurrentMonthLabel");
+      if (monthLabelEl) monthLabelEl.textContent = currentMonthLabel;
+
+      // 1. Cobrado en el mes en curso (Cash Inflow)
+      let currentMonthInflow = 0;
+      let allTimeCollected = 0;
+      accountingLedger.forEach(tx => {
+        const amt = Number(tx.amount) || 0;
+        allTimeCollected += amt;
+        if (tx.date) {
+          const parts = tx.date.split('-');
+          if (parts.length === 3) {
+            const txYear = parseInt(parts[0], 10);
+            const txMonth = parseInt(parts[1], 10) - 1;
+            if (txYear === currentYear && txMonth === currentMonth) {
+              currentMonthInflow += amt;
+            }
+          }
+        }
+      });
+
+      const inflowEl = document.getElementById("acctKpiCashInflow");
+      if (inflowEl) inflowEl.textContent = `RD$ ${currentMonthInflow.toLocaleString('es-DO')}`;
+
+      const allTimeEl = document.getElementById("allTimeCollectedTotal");
+      if (allTimeEl) allTimeEl.textContent = `RD$ ${allTimeCollected.toLocaleString('es-DO')}`;
+
+      // 2. MRR Contratado (Suma de mensualidades fijas de clientes activos)
+      let mrrTotal = 0;
+      let receivablesTotal = 0;
+      let pendingClientsCount = 0;
+
+      clients.forEach(c => {
+        if (c.status === "active") {
+          let feeNum = 0;
+          if (c.fee) {
+            const m = c.fee.match(/[\d,]+/);
+            if (m) feeNum = parseInt(m[0].replace(/,/g, ''), 10) || 0;
+          }
+          mrrTotal += feeNum;
+
+          // Verificar estado de cobro
+          const billing = getBillingStatus(c.renewalDate);
+          if (billing.status === "due_soon" || billing.status === "overdue") {
+            receivablesTotal += feeNum;
+            pendingClientsCount++;
+          }
+        }
+      });
+
+      const mrrEl = document.getElementById("acctKpiMrr");
+      if (mrrEl) mrrEl.textContent = `RD$ ${mrrTotal.toLocaleString('es-DO')}`;
+
+      // 3. ARR Proyectado (MRR * 12)
+      const arrTotal = mrrTotal * 12;
+      const arrEl = document.getElementById("acctKpiArr");
+      if (arrEl) arrEl.textContent = `RD$ ${arrTotal.toLocaleString('es-DO')}`;
+
+      // 4. Cuentas por Cobrar
+      const recEl = document.getElementById("acctKpiReceivables");
+      if (recEl) recEl.textContent = `RD$ ${receivablesTotal.toLocaleString('es-DO')}`;
+
+      const recCountEl = document.getElementById("acctKpiReceivablesCount");
+      if (recCountEl) recCountEl.textContent = `${pendingClientsCount} ${pendingClientsCount === 1 ? 'cliente pendiente' : 'clientes pendientes'}`;
+
+      const recSummaryEl = document.getElementById("receivablesSummaryCount");
+      if (recSummaryEl) recSummaryEl.textContent = `${clients.length} ${clients.length === 1 ? 'cliente en radar' : 'clientes en radar'}`;
+    }
+
+    function renderAccountingBankBalances() {
+      let balancePopular = 0;
+      let balanceBhd = 0;
+      let balanceCash = 0;
+
+      accountingLedger.forEach(tx => {
+        const amt = Number(tx.amount) || 0;
+        const acc = (tx.account || "").toLowerCase();
+        if (acc.includes("popular")) {
+          balancePopular += amt;
+        } else if (acc.includes("bhd") || acc.includes("reservas")) {
+          balanceBhd += amt;
+        } else {
+          balanceCash += amt;
+        }
+      });
+
+      const popEl = document.getElementById("bankBalancePopular");
+      if (popEl) popEl.textContent = `RD$ ${balancePopular.toLocaleString('es-DO')}`;
+
+      const bhdEl = document.getElementById("bankBalanceBhd");
+      if (bhdEl) bhdEl.textContent = `RD$ ${balanceBhd.toLocaleString('es-DO')}`;
+
+      const cashEl = document.getElementById("bankBalanceCash");
+      if (cashEl) cashEl.textContent = `RD$ ${balanceCash.toLocaleString('es-DO')}`;
+    }
+
+    function renderAccountingReceivables() {
+      const tbody = document.getElementById("accountingReceivablesTableBody");
+      if (!tbody) return;
+
+      if (clients.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" class="py-6 text-center text-slate-400">No hay clientes registrados en el directorio.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = clients.map(client => {
+        const billing = getBillingStatus(client.renewalDate);
+
+        return `
+          <tr class="hover:bg-slate-50/80 transition-colors">
+            <td class="py-3.5 px-4">
+              <div class="font-bold text-slate-900">${client.name}</div>
+              <div class="text-[11px] text-slate-400 font-mono">${client.phone || 'Sin teléfono'}</div>
+            </td>
+            <td class="py-3.5 px-4 font-bold text-slate-800">
+              ${client.fee || 'No especificado'}
+            </td>
+            <td class="py-3.5 px-4 font-mono text-slate-600">
+              ${client.renewalDate || 'Sin fecha'}
+            </td>
+            <td class="py-3.5 px-4">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold border ${billing.badgeClass}">
+                ${billing.text}
+              </span>
+            </td>
+            <td class="py-3.5 px-4 text-right">
+              <div class="inline-flex items-center gap-1.5 justify-end">
+                <button onclick="openBillingNoticeModal('${client.id}')" class="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg border border-amber-200 text-xs font-bold transition-colors">
+                  Aviso WhatsApp
+                </button>
+                <button onclick="registerClientPayment('${client.id}')" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold transition-colors">
+                  ✓ Registrar Pago
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderAccountingTransactions(txList = accountingLedger) {
+      const tbody = document.getElementById("accountingTransactionsTableBody");
+      if (!tbody) return;
+
+      if (txList.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8" class="py-8 text-center text-slate-400">No hay transacciones registradas en este período.</td></tr>`;
+        return;
+      }
+
+      const typeBadges = {
+        retainer: { text: "Retainer Mensual", class: "bg-emerald-50 text-emerald-700 border-emerald-200" },
+        setup: { text: "Setup 50%", class: "bg-blue-50 text-blue-700 border-blue-200" },
+        settlement: { text: "Liquidación 50%", class: "bg-purple-50 text-purple-700 border-purple-200" },
+        alacarte: { text: "A la Carta", class: "bg-amber-50 text-amber-700 border-amber-200" }
+      };
+
+      tbody.innerHTML = txList.map(tx => {
+        const badge = typeBadges[tx.type] || { text: "Ingreso", class: "bg-slate-100 text-slate-700 border-slate-200" };
+        const formattedAmount = Number(tx.amount || 0).toLocaleString('es-DO');
+
+        return `
+          <tr class="hover:bg-slate-50/80 transition-colors">
+            <td class="py-3.5 px-4 font-mono text-slate-600">${tx.date}</td>
+            <td class="py-3.5 px-4 font-bold text-slate-900">${tx.clientName || 'Cliente'}</td>
+            <td class="py-3.5 px-4 text-slate-700 max-w-xs truncate" title="${tx.concept}">${tx.concept}</td>
+            <td class="py-3.5 px-4">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold border ${badge.class}">
+                ${badge.text}
+              </span>
+            </td>
+            <td class="py-3.5 px-4 text-slate-600">${tx.account || 'Banco'}</td>
+            <td class="py-3.5 px-4 font-mono text-slate-500">${tx.reference || '—'}</td>
+            <td class="py-3.5 px-4 text-right font-black text-emerald-600">RD$ ${formattedAmount}</td>
+            <td class="py-3.5 px-4 text-right">
+              <button onclick="deleteLedgerTransaction('${tx.id}')" class="text-rose-400 hover:text-rose-600 p-1" title="Eliminar transacción">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterLedgerTransactions() {
+      const type = document.getElementById("ledgerFilterType").value;
+      if (type === "all") {
+        renderAccountingTransactions(accountingLedger);
+      } else {
+        const filtered = accountingLedger.filter(tx => tx.type === type);
+        renderAccountingTransactions(filtered);
+      }
+    }
+
+    function openManualTransactionModal() {
+      populateTxClientSelect();
+      document.getElementById("manualTransactionForm").reset();
+      document.getElementById("txDate").value = new Date().toISOString().split('T')[0];
+      const customInput = document.getElementById("txClientCustomName");
+      if (customInput) customInput.classList.add("hidden");
+      const modal = document.getElementById("manualTransactionModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeManualTransactionModal() {
+      const modal = document.getElementById("manualTransactionModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    function populateTxClientSelect() {
+      const select = document.getElementById("txClientSelect");
+      if (!select) return;
+
+      select.innerHTML = `
+        <option value="">-- Seleccionar Cliente --</option>
+        ${clients.map(c => `<option value="${c.id}">${c.name} (${c.fee || 'Sin tarifa'})</option>`).join('')}
+        <option value="custom">✏️ Otro Cliente / Prospecto Nuevo...</option>
+      `;
+    }
+
+    function handleTxClientSelectChange() {
+      const select = document.getElementById("txClientSelect");
+      const customInput = document.getElementById("txClientCustomName");
+      if (select.value === "custom") {
+        customInput.classList.remove("hidden");
+        customInput.focus();
+      } else {
+        customInput.classList.add("hidden");
+        const found = clients.find(c => c.id === select.value);
+        if (found && found.fee) {
+          const match = found.fee.match(/[\d,]+/);
+          if (match) {
+            document.getElementById("txAmount").value = parseInt(match[0].replace(/,/g, ''), 10);
+          }
+          document.getElementById("txConcept").value = `Retainer Mensual — Mantenimiento & Hosting (${found.renewalDate || 'Ciclo Actual'})`;
+        }
+      }
+    }
+
+    function saveManualTransaction(e) {
+      e.preventDefault();
+      const select = document.getElementById("txClientSelect");
+      let clientName = "";
+      let clientId = "";
+
+      if (select.value === "custom") {
+        clientName = document.getElementById("txClientCustomName").value.trim() || "Cliente Externo";
+        clientId = "client-custom-" + Date.now();
+      } else if (select.value) {
+        const found = clients.find(c => c.id === select.value);
+        if (found) {
+          clientId = found.id;
+          clientName = found.name;
+        }
+      } else {
+        alert("Por favor selecciona o escribe el cliente.");
+        return;
+      }
+
+      const concept = document.getElementById("txConcept").value.trim();
+      const type = document.getElementById("txType").value;
+      const amount = Number(document.getElementById("txAmount").value) || 0;
+      const date = document.getElementById("txDate").value;
+      const account = document.getElementById("txAccount").value;
+      const reference = document.getElementById("txReference").value.trim() || "—";
+      const notes = document.getElementById("txNotes").value.trim();
+
+      addAccountingTransaction({
+        id: "tx-" + Date.now(),
+        clientId,
+        clientName,
+        concept,
+        type,
+        amount,
+        date,
+        account,
+        reference,
+        notes
+      });
+
+      closeManualTransactionModal();
+      alert(`✅ Cobro de RD$ ${amount.toLocaleString('es-DO')} registrado con éxito en el Libro Diario.`);
+    }
+
+    function deleteLedgerTransaction(txId) {
+      const tx = accountingLedger.find(t => t.id === txId);
+      if (!tx) return;
+
+      if (confirm(`¿Eliminar la transacción "${tx.concept}" (RD$ ${Number(tx.amount).toLocaleString('es-DO')})?`)) {
+        accountingLedger = accountingLedger.filter(t => t.id !== txId);
+        saveAccountingLedger();
+        updateAccountingKpis();
+        renderAccountingBankBalances();
+        renderAccountingTransactions();
+      }
+    }
+
+    function exportAccountingReport() {
+      if (accountingLedger.length === 0) {
+        alert("No hay transacciones registradas para exportar.");
+        return;
+      }
+
+      let csv = "ID,Fecha,Cliente,Concepto,Tipo,Cuenta,Referencia,Monto_RD\n";
+      accountingLedger.forEach(t => {
+        const safeName = (t.clientName || '').replace(/"/g, '""');
+        const safeConcept = (t.concept || '').replace(/"/g, '""');
+        csv += `"${t.id}","${t.date}","${safeName}","${safeConcept}","${t.type}","${t.account}","${t.reference}",${t.amount}\n`;
+      });
+
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `isapromo_libro_contable_${new Date().toISOString().split('T')[0]}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    function adjustForecastPlan(planKey, delta) {
+      if (forecastState[planKey] === undefined) return;
+      const next = forecastState[planKey] + delta;
+      if (next < 0) return;
+      forecastState[planKey] = next;
+
+      const countEl = document.getElementById(`forecastCount_${planKey}`);
+      if (countEl) countEl.textContent = next;
+
+      updateForecastSimulation();
+    }
+
+    function updateForecastSimulation() {
+      const planPrices = {
+        web: { monthly: 4500, setup: 20000 },
+        esencial: { monthly: 15000, setup: 30000 },
+        crm: { monthly: 20000, setup: 65000 },
+        ecosistema: { monthly: 30000, setup: 85000 }
+      };
+
+      let simMrr = 0;
+      let simSetup = 0;
+
+      for (const k in forecastState) {
+        const count = forecastState[k];
+        simMrr += count * planPrices[k].monthly;
+        simSetup += count * planPrices[k].setup;
+      }
+
+      const simArr = simMrr * 12;
+
+      const mrrEl = document.getElementById("simResultMrr");
+      if (mrrEl) mrrEl.textContent = `RD$ ${simMrr.toLocaleString('es-DO')}`;
+
+      const arrEl = document.getElementById("simResultArr");
+      if (arrEl) arrEl.textContent = `RD$ ${simArr.toLocaleString('es-DO')}`;
+
+      const setupEl = document.getElementById("simResultSetup");
+      if (setupEl) setupEl.textContent = `RD$ ${simSetup.toLocaleString('es-DO')}`;
     }
   </script>
 </body>
