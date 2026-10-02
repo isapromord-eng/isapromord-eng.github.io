@@ -498,23 +498,83 @@
     // 1. CATALOGOS (NUEVO ESQUEMA COMPACTO)
     // ==========================================
     const SERVICE_CATALOG = {
-      "landing-page": { id: "landing-page", name: "Landing Page Transaccional (<1s)", description: "Diseño web rápido.", price: 20000, type: "onetime" },
-      "web-maintenance": { id: "web-maintenance", name: "Mantenimiento Web Hosting Anycast", description: "Hosting y mantenimiento.", price: 4500, type: "monthly" },
-      "google-maps-setup": { id: "google-maps-setup", name: "Optimización Google Maps GBP", description: "Configuración inicial de Maps.", price: 15000, type: "onetime" },
-      "google-maps-retainer": { id: "google-maps-retainer", name: "Gestión Activa Mensual Maps SEO Local", description: "Mantenimiento SEO local.", price: 12000, type: "monthly" },
-      "geo-schemas": { id: "geo-schemas", name: "Optimización GEO Schemas ChatGPT Gemini", description: "Optimización para IA.", price: 15000, type: "onetime" },
-      "chatbot-inventario": { id: "chatbot-inventario", name: "Chatbot Inteligente Servicios Inventario", description: "Chatbot de IA.", price: 15000, type: "onetime" },
-      "ai-agent": { id: "ai-agent", name: "Agente IA Citas Atención 24/7", description: "Agente IA 24/7.", price: 25000, type: "onetime" },
-      "ai-agent-monthly": { id: "ai-agent-monthly", name: "Mantenimiento Tokens IA Mensual", description: "Mantenimiento de IA.", price: 10000, type: "monthly" },
-      "crm-custom": { id: "crm-custom", name: "CRM Personalizado a Medida", description: "Sistema CRM a medida.", price: 35000, type: "onetime" },
-      "crm-monthly": { id: "crm-monthly", name: "Servidor Cloud CRM Base Datos Backups", description: "Hosting para CRM.", price: 8000, type: "monthly" }
+      "landing-page": {
+        id: "landing-page",
+        name: "🌐 Landing Page Transaccional de Alta Conversión (<1s)",
+        description: "Desarrollo web ultra-rápido en React/Vite, catálogo interactivo de servicios/productos, diseño adaptable a móviles y botón directo a WhatsApp.",
+        price: 20000,
+        type: "onetime"
+      },
+      "web-maintenance": {
+        id: "web-maintenance",
+        name: "🛡️ Mantenimiento Web, Hosting Anycast & Soporte Mensual",
+        description: "Alojamiento en infraestructura de alta velocidad, certificado SSL, monitoreo de disponibilidad 24/7, copias de seguridad continuas y cambios mensuales de contenido.",
+        price: 4500,
+        type: "monthly"
+      },
+      "google-maps-setup": {
+        id: "google-maps-setup",
+        name: "📍 Optimización Profesional de Google Maps (GBP)",
+        description: "Reclamación, configuración técnica y optimización completa de ficha de Google Business Profile, categorías precisas, catálogo y fotografías.",
+        price: 15000,
+        type: "onetime"
+      },
+      "google-maps-retainer": {
+        id: "google-maps-retainer",
+        name: "📈 Gestión Activa Mensual de Google Maps & SEO Local",
+        description: "Publicaciones semanales en Google Maps, respuesta profesional a cada reseña con palabras clave locales y reporte mensual de llamadas ganadas.",
+        price: 12000,
+        type: "monthly"
+      },
+      "geo-schemas": {
+        id: "geo-schemas",
+        name: "🔍 Optimización GEO & Schemas para ChatGPT y Gemini",
+        description: "Implementación de Schema JSON-LD avanzado y archivo llms.txt para que motores de búsqueda de Inteligencia Artificial recomienden tu negocio.",
+        price: 15000,
+        type: "onetime"
+      },
+      "chatbot-inventario": {
+        id: "chatbot-inventario",
+        name: "💬 Chatbot Inteligente para Servicios e Inventario",
+        description: "Chatbot interactivo programado con todo el catálogo de servicios, lista de productos o inventario en tiempo real para cotizaciones instantáneas a los clientes.",
+        price: 15000,
+        type: "onetime"
+      },
+      "ai-agent": {
+        id: "ai-agent",
+        name: "🤖 Agente de Inteligencia Artificial (Citas & Atención 24/7)",
+        description: "IA conversacional avanzada que atiende visitantes las 24 horas: resuelve dudas frecuentes, agenda citas en calendario y recomienda productos o servicios.",
+        price: 25000,
+        type: "onetime"
+      },
+      "ai-agent-monthly": {
+        id: "ai-agent-monthly",
+        name: "⚡ Mantenimiento & Consumo de Tokens de IA Mensual",
+        description: "Bolsa de tokens de procesamiento de IA para responder mensajes ilimitados, servidor activo y re-entrenamiento mensual de la IA.",
+        price: 10000,
+        type: "monthly"
+      },
+      "crm-custom": {
+        id: "crm-custom",
+        name: "💼 CRM Personalizado a las Necesidades del Negocio",
+        description: "Sistema de gestión a la medida diseñado específicamente para tu flujo: control de clientes, prospectos, inventario y ventas sin mensualidades por usuario.",
+        price: 35000,
+        type: "onetime"
+      },
+      "crm-monthly": {
+        id: "crm-monthly",
+        name: "☁️ Servidor Cloud CRM, Base de Datos & Backups Diarios",
+        description: "Infraestructura cloud dedicada para tu CRM, base de datos en tiempo real, respaldos automáticos diarios y soporte técnico para tu equipo.",
+        price: 8000,
+        type: "monthly"
+      }
     };
 
     const PACKAGE_CATALOG = {
       "pack-none": {
         id: "pack-none",
-        title: "Solo A la Carta",
-        description: "Servicios individuales según necesidad.",
+        title: "Solo A la Carta (Sin Paquete)",
+        description: "Cotización simple basada exclusivamente en los servicios individuales requeridos.",
         price: 0,
         monthlyPrice: 0,
         type: "onetime",
@@ -523,75 +583,68 @@
       },
       "pack-esencial": {
         id: "pack-esencial",
-        title: "Presencia & Captación Local",
-        description: "Presencia & Captación Local",
+        title: "Presencia & Captación Local (Web + Google Maps)",
+        description: "Landing page transaccional ultra-rápida (<1s) y gestión activa de Google Maps (GBP) para dominar el mapa local y canalizar llamadas y WhatsApp continuos.",
         price: 30000,
-        monthlyPrice: 15000,
         type: "onetime",
-        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer"],
+        monthlyPrice: 15000,
         deliverables: [
-          "Landing Page Transaccional (<1s)",
-          "Mantenimiento Web Hosting Anycast",
-          "Optimización Google Maps GBP",
-          "Gestión Activa Mensual Maps SEO Local"
-        ]
+          "Diseño y desarrollo web transaccional mobile-first (<1s de carga en redes 4G RD).",
+          "Reclamación, configuración técnica y optimización completa de Google Business Profile.",
+          "Gestión activa mensual: publicaciones semanales y respuesta a todas las reseñas con SEO local.",
+          "Integración de llamadas a la acción directas y botón flotante de WhatsApp.",
+          "Estructuración de datos Schema.org LocalBusiness y reporte mensual de llamadas ganadas."
+        ],
+        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer"]
       },
       "pack-crm": {
         id: "pack-crm",
-        title: "Crecimiento & Control Operativo",
-        description: "Crecimiento & Control Operativo",
+        title: "Crecimiento & Control Operativo (Web + Maps + CRM)",
+        description: "Landing page transaccional, gestión activa de Google Maps, presencia en ChatGPT/Gemini y tu propio CRM a la medida para gestionar ventas e inventario sin pagar licencias por usuario.",
         price: 65000,
-        monthlyPrice: 20000,
         type: "onetime",
-        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer", "geo-schemas", "crm-custom", "crm-monthly"],
+        monthlyPrice: 20000,
         deliverables: [
-          "Landing Page Transaccional (<1s)",
-          "Mantenimiento Web Hosting Anycast",
-          "Optimización Google Maps GBP",
-          "Gestión Activa Mensual Maps SEO Local",
-          "Optimización GEO Schemas ChatGPT Gemini",
-          "CRM Personalizado a Medida",
-          "Servidor Cloud CRM Base Datos Backups"
-        ]
+          "Diseño y desarrollo web transaccional mobile-first (<1s de carga en redes 4G RD).",
+          "Reclamación, configuración técnica y gestión activa semanal de Google Maps (GBP).",
+          "Optimización GEO & Schemas JSON-LD para ChatGPT, Gemini y Perplexity.",
+          "CRM personalizado desarrollado a la medida de tu flujo de clientes, catálogo y ventas.",
+          "Servidor cloud dedicado, base de datos en tiempo real y copias de seguridad diarias.",
+          "Capacitación de uso para tu equipo y soporte prioritario por WhatsApp."
+        ],
+        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer", "geo-schemas", "crm-custom", "crm-monthly"]
       },
       "pack-ia": {
         id: "pack-ia",
-        title: "Negocio Inteligente",
-        description: "Negocio Inteligente",
+        title: "Negocio Inteligente (Web + Maps + Agente IA 24/7)",
+        description: "Plataforma web de alta conversión y Google Maps con Inteligencia Artificial conversacional entrenada con tus servicios o inventario para atención ininterrumpida.",
         price: 50000,
-        monthlyPrice: 20000,
         type: "onetime",
-        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer", "geo-schemas", "ai-agent", "ai-agent-monthly"],
+        monthlyPrice: 20000,
         deliverables: [
-          "Landing Page Transaccional (<1s)",
-          "Mantenimiento Web Hosting Anycast",
-          "Optimización Google Maps GBP",
-          "Gestión Activa Mensual Maps SEO Local",
-          "Optimización GEO Schemas ChatGPT Gemini",
-          "Agente IA Citas Atención 24/7",
-          "Mantenimiento Tokens IA Mensual"
-        ]
+          "Todo el paquete de Presencia & Captación Local (Web + Google Maps).",
+          "Agente de Inteligencia Artificial 24/7 integrado en la página web.",
+          "Entrenamiento continuo de la IA con preguntas frecuentes, catálogo y políticas del negocio.",
+          "Agendamiento automático de citas o reservas en el calendario del negocio.",
+          "Bolsa mensual de tokens de IA incluida y optimización GEO para ChatGPT y Google Gemini."
+        ],
+        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer", "geo-schemas", "ai-agent", "ai-agent-monthly"]
       },
       "pack-ecosistema": {
         id: "pack-ecosistema",
-        title: "Ecosistema Digital Completo + CRM",
-        description: "Ecosistema Digital Completo + CRM",
+        title: "Ecosistema Digital Completo + CRM a Medida",
+        description: "Solución integral para empresas que buscan automatizar la captación, atención por IA y el control operativo con un CRM diseñado exclusivamente para su flujo de trabajo.",
         price: 85000,
-        monthlyPrice: 30000,
         type: "onetime",
-        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer", "geo-schemas", "chatbot-inventario", "ai-agent", "ai-agent-monthly", "crm-custom", "crm-monthly"],
+        monthlyPrice: 30000,
         deliverables: [
-          "Landing Page Transaccional (<1s)",
-          "Mantenimiento Web Hosting Anycast",
-          "Optimización Google Maps GBP",
-          "Gestión Activa Mensual Maps SEO Local",
-          "Optimización GEO Schemas ChatGPT Gemini",
-          "Chatbot Inteligente Servicios Inventario",
-          "Agente IA Citas Atención 24/7",
-          "Mantenimiento Tokens IA Mensual",
-          "CRM Personalizado a Medida",
-          "Servidor Cloud CRM Base Datos Backups"
-        ]
+          "Todo el paquete de Negocio Inteligente (Web + Google Maps + Agente IA 24/7).",
+          "CRM personalizado desarrollado a la medida de los procesos de la empresa.",
+          "Control de prospectos, clientes, catálogo/inventario y embudo de ventas en tiempo real.",
+          "Servidor cloud dedicado, base de datos en la nube y copias de seguridad diarias automáticas.",
+          "Capacitación del equipo para el uso del CRM y soporte técnico prioritario 24/7."
+        ],
+        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer", "geo-schemas", "chatbot-inventario", "ai-agent", "ai-agent-monthly", "crm-custom", "crm-monthly"]
       }
     };
 
@@ -715,6 +768,7 @@
 
     function initProposalData() {
       const urlParams = new URLSearchParams(window.location.search);
+      const propId = urlParams.get('id');
       const clientName = urlParams.get('client');
       const category = urlParams.get('cat');
       const pkgId = urlParams.get('pkg');
@@ -722,16 +776,31 @@
       const mode = urlParams.get('mode');
       const dataParam = urlParams.get('d');
 
-      if (clientName && pkgId) {
-        // Esquema compacto
-        const offeredPackage = PACKAGE_CATALOG[pkgId] || PACKAGE_CATALOG["pack-none"];
+      // 1. Revisar si viene de localStorage por ID (en el mismo dispositivo/dashboard)
+      if (propId) {
+        try {
+          const cached = localStorage.getItem(`proposal_${propId}`);
+          if (cached) {
+            proposal = JSON.parse(cached);
+            return;
+          }
+        } catch (e) {
+          console.warn("No se pudo leer de localStorage", e);
+        }
+      }
+
+      // 2. Esquema compacto de URL
+      if (clientName || pkgId || svcIds) {
+        const resolvedClient = clientName || "Cliente Estimado";
+        const resolvedPkgId = pkgId || (mode === 'alacarte' ? 'pack-none' : 'pack-crm');
+        const offeredPackage = PACKAGE_CATALOG[resolvedPkgId] || PACKAGE_CATALOG["pack-none"];
         
         const selectedServices = [];
         let alacarteSetup = 0;
         let alacarteMonthly = 0;
         
         if (svcIds) {
-          const ids = svcIds.split(',');
+          const ids = svcIds.split(',').map(s => s.trim()).filter(Boolean);
           ids.forEach(id => {
             if (SERVICE_CATALOG[id]) {
               const svc = { ...SERVICE_CATALOG[id], checked: true };
@@ -741,8 +810,20 @@
             }
           });
         }
+
+        // Si no se pasaron servicios específicos pero hay un paquete, auto-poblar con los incluidos en el paquete
+        if (selectedServices.length === 0 && offeredPackage.includedAddonIds && offeredPackage.includedAddonIds.length > 0) {
+          offeredPackage.includedAddonIds.forEach(id => {
+            if (SERVICE_CATALOG[id]) {
+              const svc = { ...SERVICE_CATALOG[id], checked: true };
+              selectedServices.push(svc);
+              if (svc.type === "monthly") alacarteMonthly += svc.price;
+              else alacarteSetup += svc.price;
+            }
+          });
+        }
         
-        const isComparison = pkgId !== 'pack-none';
+        const isComparison = resolvedPkgId !== 'pack-none';
         const pkgSetup = isComparison ? offeredPackage.price : alacarteSetup;
         const pkgMonthly = isComparison ? offeredPackage.monthlyPrice : alacarteMonthly;
         const diffSetup = isComparison ? Math.max(0, alacarteSetup - pkgSetup) : 0;
@@ -753,8 +834,8 @@
         const dateFormatted = today.toLocaleDateString('es-DO', options);
 
         proposal = {
-          id: "prop-compact",
-          clientName: clientName,
+          id: propId || "prop-" + Date.now(),
+          clientName: resolvedClient,
           clientCategory: category || "Servicios Comerciales",
           dateStr: dateFormatted,
           validity: "15 Días Hábiles",

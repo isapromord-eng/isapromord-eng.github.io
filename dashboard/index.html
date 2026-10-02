@@ -2189,7 +2189,7 @@ ISAPromoRD — https://isapromord.com`;
       const paramSvc = selectedServices.map(s => s.id).join(',');
       const paramMode = isComparison ? 'comparison' : 'alacarte';
       
-      const fullUrl = `${origin}${pathname}/propuesta/?client=${paramClient}&cat=${paramCat}&pkg=${paramPkg}&svc=${paramSvc}&mode=${paramMode}`;
+      const fullUrl = `${origin}${pathname}/propuesta/?id=${proposalPayload.id}&client=${paramClient}&cat=${paramCat}&pkg=${paramPkg}&svc=${paramSvc}&mode=${paramMode}`;
       const downloadPdfUrl = `${fullUrl}&download=1`;
       lastGeneratedProposalUrl = fullUrl;
 

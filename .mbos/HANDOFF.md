@@ -1,7 +1,7 @@
 # 🤝 HANDOFF.md — Estado Técnico de IsaPromo RD (isapromord.com)
 
 > **Nodo MBOS:** `isapromord.com`  
-> **Última Actualización:** 2026-10-01  
+> **Última Actualización:** 2026-10-02  
 > **Repositorio Oficial:** [https://github.com/isapromord/isapromord.com](https://github.com/isapromord/isapromord.com)  
 > **Repositorio Root Pages:** [https://github.com/isapromord/isapromord.github.io](https://github.com/isapromord/isapromord.github.io)  
 > **URLs EN VIVO Y FUNCIONALES ($0 Costo):**  
@@ -18,6 +18,11 @@
 - **Dominio Actual en Vivo:** `https://isapromord.github.io/`
 - **Dashboard de Clientes:** `/dashboard/` (protegido por PIN, con monitor de Uptime, gestión de cobros y generador de reportes WhatsApp).
 - **Cotizador & Propuestas de Alto Valor:** `/propuesta/` (sistema de propuestas interactivas digitales con comparativa en vivo "A la Carta vs Paquete Combo", cálculo de ahorro demostrado, aprobación por WhatsApp y exportación directa de archivo PDF).
+- **Arquitectura de URLs Compactas (Solución HTTP 414):**
+  - Se eliminó la serialización masiva Base64 de la URL (`?d=...`) que generaba error 414 URI Too Long.
+  - La URL generada ahora es limpia, profesional y ultracorta (~180 caracteres) con parámetros semánticos: `?id=...&client=...&cat=...&pkg=...&svc=...&mode=...`.
+  - `/propuesta/` cuenta con catálogos locales completos (`SERVICE_CATALOG` y `PACKAGE_CATALOG`) con títulos, descripciones completas y entregables oficiales para reconstruir reactivamente la propuesta en cualquier dispositivo.
+  - Soporte de caché en `localStorage` con clave `proposal_{id}` para renderizado inmediato en el dashboard y compatibilidad hacia atrás con el parámetro legacy `?d=`.
 - **Jerarquía Comercial en Dashboard (`/dashboard/`):**
   - **Paso 1: Paquetes Comerciales Recomendados:** Visible en primera plana con las 5 opciones: Crecimiento CRM (⭐ Más Popular), Presencia Local (Esencial), Automatización IA, Ecosistema Total y 100% A la Carta.
   - **Paso 2: Servicios y Módulos de la Propuesta (A la Carta):** Selección granular con insignias visuales `✓ En Combo` y subtotal reactivo.
@@ -25,8 +30,8 @@
   - **Modal de Salida:** Proporciona enlace web interactivo, botón para descargar directamente el archivo físico `.pdf` (`&download=1`) y enlace de WhatsApp formateado.
 - **Experiencia del Cliente en Propuestas (`/propuesta/`):**
   - **Terminología Ejecutiva Limpia:** Reemplazados todos los tecnicismos extraños por lenguaje corporativo ("Máxima Visibilidad Local & Nuevos Clientes en Google", "Llamadas & WhatsApp Directo").
-  - **Descarga Directa de PDF (`html2pdf.js`):** El botón "Descargar en PDF" descarga automáticamente el archivo físico `Propuesta_ISAPromoRD_[Cliente].pdf` en formato A4 de alta resolución.
-  - **Estilos de Impresión / PDF:** Sin fondo negro ni consumo excesivo de tinta; se transforma en un membrete corporativo blanco con caja formal de firmas y autorización de inicio.
+  - **Descarga Directa de PDF (`html2pdf.js`):** El botón "Descargar en PDF" (o el enlace con `&download=1`) genera y descarga automáticamente el archivo físico `Propuesta_ISAPromoRD_[Cliente].pdf` en formato A4 de alta resolución con membrete corporativo y sección de firmas.
+  - **Estilos de Impresión / PDF:** Sin fondo negro ni consumo excesivo de tinta; membrete corporativo blanco ejecutivo con caja formal de firmas y autorización de inicio.
 - **Sistema de Referidos & Telemetría:** Pestaña 3 en `/dashboard/` y detector en `index.html` (`?ref=...`). Mide clics, atribución de leads por WhatsApp a 90 días, tabla de partners y generador de badges ("Powered by ISAPromoRD") en React JSX y HTML.
 - **Catálogo Oficial de Servicios ISAPromoRD (Opción A):**
   1. 🌐 Landing Page Transaccional de Alta Conversión (<1s en React/Vite) — RD$ 20,000 / RD$ 4,500/mes

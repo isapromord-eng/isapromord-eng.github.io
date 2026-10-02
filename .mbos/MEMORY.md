@@ -313,3 +313,18 @@
     - Descarga automática directa del archivo físico: `Propuesta_ISAPromoRD_[Cliente].pdf`.
     - Estilos `@media print` transforman el bloque oscuro en un membrete blanco ejecutivo, ocultan la barra de navegación web (`header`) para evitar doble cabecera, y formatean márgenes limpios de página.
 - **Sincronización:** Módulos y espejos `dashboard.html` y `propuesta.html` actualizados al 100%.
+
+## [2026-10-02] - Arquitectura de URLs Compactas (Solución HTTP 414), Catálogos Desacoplados y PDF Resiliente
+- **Diagnóstico Crítico (HTTP 414 URI Too Long):**
+  - La propuesta serializaba todo el árbol JSON (descripciones largas, entregables, cálculos y metadatos) en Base64 en el parámetro `?d=...`, generando URLs de más de 5,000 caracteres.
+  - Esto provocaba que GitHub Pages y navegadores móviles rechazaran la solicitud con error `414 URI Too Long`, rompiendo la pantalla en blanco y haciendo imposible abrir la propuesta o descargar el PDF.
+- **Ingeniería de URLs Compactas (Industry Standard):**
+  - **Reestructuración de Parámetros:** La URL ahora viaja limpia y ultracompacta (~180 caracteres): `?id=...&client=...&cat=...&pkg=...&svc=...&mode=...`.
+  - **Catálogo Desacoplado en Cliente (`SERVICE_CATALOG` & `PACKAGE_CATALOG`):** `/propuesta/` incorpora su propio catálogo maestro idéntico al Dashboard con los 10 servicios oficiales y los 4 paquetes estructurados.
+  - **Reconstrucción Dinámica Reactiva:** `initProposalData()` lee los IDs mínimos, recalcula subtotales, totales de paquetes, ahorros demostrados y reactividad sin pérdida de fidelidad.
+  - **Caché Local para Sesiones Dashboard:** En el navegador donde se generó la propuesta, se guarda en `localStorage` con la clave `proposal_{id}` para renderizado instantáneo y descarga directa de PDF.
+  - **Tolerancia a Enlaces Incompletos:** Si por alguna razón el parámetro `svc` viene vacío en un mensaje compartido, el motor auto-pobla los servicios desde `includedAddonIds` del paquete seleccionado.
+  - **Compatibilidad hacia Atrás:** Se mantiene soporte nativo transparente para el parámetro legacy `?d=...`.
+- **Descarga Física de PDF Optimizada:**
+  - Al abrirse con `&download=1`, la página renderiza inmediatamente el contenido y descarga de forma fluida el archivo A4 corporativo `Propuesta_ISAPromoRD_[Cliente].pdf`.
+- **Sincronización:** Actualizados `dashboard/index.html`, `dashboard.html`, `propuesta/index.html` y `propuesta.html`.
