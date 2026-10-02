@@ -2176,15 +2176,20 @@ ISAPromoRD — https://isapromord.com`;
       };
 
       lastGeneratedProposalData = proposalPayload;
+      // Guardar en localStorage para descarga de PDF y otros usos locales
+      localStorage.setItem(`proposal_${proposalPayload.id}`, JSON.stringify(proposalPayload));
 
-      // Codificar en Base64 seguro para URL
-      const jsonString = JSON.stringify(proposalPayload);
-      const encoded = btoa(unescape(encodeURIComponent(jsonString)));
-
-      // URL de la propuesta
+      // URL de la propuesta compacta
       const origin = window.location.origin;
       const pathname = window.location.pathname.replace(/\/dashboard(\/.*)?$/, '');
-      const fullUrl = `${origin}${pathname}/propuesta/?d=${encoded}`;
+      
+      const paramClient = encodeURIComponent(clientName);
+      const paramCat = encodeURIComponent(category);
+      const paramPkg = selectedBaseKey;
+      const paramSvc = selectedServices.map(s => s.id).join(',');
+      const paramMode = isComparison ? 'comparison' : 'alacarte';
+      
+      const fullUrl = `${origin}${pathname}/propuesta/?client=${paramClient}&cat=${paramCat}&pkg=${paramPkg}&svc=${paramSvc}&mode=${paramMode}`;
       const downloadPdfUrl = `${fullUrl}&download=1`;
       lastGeneratedProposalUrl = fullUrl;
 

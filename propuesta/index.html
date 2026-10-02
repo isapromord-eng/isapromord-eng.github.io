@@ -495,7 +495,108 @@
        ======================================================== -->
   <script>
     // ==========================================
-    // 1. DATOS POR DEFECTO (NotebookLM Knowledge Base)
+    // 1. CATALOGOS (NUEVO ESQUEMA COMPACTO)
+    // ==========================================
+    const SERVICE_CATALOG = {
+      "landing-page": { id: "landing-page", name: "Landing Page Transaccional (<1s)", description: "Diseño web rápido.", price: 20000, type: "onetime" },
+      "web-maintenance": { id: "web-maintenance", name: "Mantenimiento Web Hosting Anycast", description: "Hosting y mantenimiento.", price: 4500, type: "monthly" },
+      "google-maps-setup": { id: "google-maps-setup", name: "Optimización Google Maps GBP", description: "Configuración inicial de Maps.", price: 15000, type: "onetime" },
+      "google-maps-retainer": { id: "google-maps-retainer", name: "Gestión Activa Mensual Maps SEO Local", description: "Mantenimiento SEO local.", price: 12000, type: "monthly" },
+      "geo-schemas": { id: "geo-schemas", name: "Optimización GEO Schemas ChatGPT Gemini", description: "Optimización para IA.", price: 15000, type: "onetime" },
+      "chatbot-inventario": { id: "chatbot-inventario", name: "Chatbot Inteligente Servicios Inventario", description: "Chatbot de IA.", price: 15000, type: "onetime" },
+      "ai-agent": { id: "ai-agent", name: "Agente IA Citas Atención 24/7", description: "Agente IA 24/7.", price: 25000, type: "onetime" },
+      "ai-agent-monthly": { id: "ai-agent-monthly", name: "Mantenimiento Tokens IA Mensual", description: "Mantenimiento de IA.", price: 10000, type: "monthly" },
+      "crm-custom": { id: "crm-custom", name: "CRM Personalizado a Medida", description: "Sistema CRM a medida.", price: 35000, type: "onetime" },
+      "crm-monthly": { id: "crm-monthly", name: "Servidor Cloud CRM Base Datos Backups", description: "Hosting para CRM.", price: 8000, type: "monthly" }
+    };
+
+    const PACKAGE_CATALOG = {
+      "pack-none": {
+        id: "pack-none",
+        title: "Solo A la Carta",
+        description: "Servicios individuales según necesidad.",
+        price: 0,
+        monthlyPrice: 0,
+        type: "onetime",
+        includedAddonIds: [],
+        deliverables: []
+      },
+      "pack-esencial": {
+        id: "pack-esencial",
+        title: "Presencia & Captación Local",
+        description: "Presencia & Captación Local",
+        price: 30000,
+        monthlyPrice: 15000,
+        type: "onetime",
+        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer"],
+        deliverables: [
+          "Landing Page Transaccional (<1s)",
+          "Mantenimiento Web Hosting Anycast",
+          "Optimización Google Maps GBP",
+          "Gestión Activa Mensual Maps SEO Local"
+        ]
+      },
+      "pack-crm": {
+        id: "pack-crm",
+        title: "Crecimiento & Control Operativo",
+        description: "Crecimiento & Control Operativo",
+        price: 65000,
+        monthlyPrice: 20000,
+        type: "onetime",
+        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer", "geo-schemas", "crm-custom", "crm-monthly"],
+        deliverables: [
+          "Landing Page Transaccional (<1s)",
+          "Mantenimiento Web Hosting Anycast",
+          "Optimización Google Maps GBP",
+          "Gestión Activa Mensual Maps SEO Local",
+          "Optimización GEO Schemas ChatGPT Gemini",
+          "CRM Personalizado a Medida",
+          "Servidor Cloud CRM Base Datos Backups"
+        ]
+      },
+      "pack-ia": {
+        id: "pack-ia",
+        title: "Negocio Inteligente",
+        description: "Negocio Inteligente",
+        price: 50000,
+        monthlyPrice: 20000,
+        type: "onetime",
+        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer", "geo-schemas", "ai-agent", "ai-agent-monthly"],
+        deliverables: [
+          "Landing Page Transaccional (<1s)",
+          "Mantenimiento Web Hosting Anycast",
+          "Optimización Google Maps GBP",
+          "Gestión Activa Mensual Maps SEO Local",
+          "Optimización GEO Schemas ChatGPT Gemini",
+          "Agente IA Citas Atención 24/7",
+          "Mantenimiento Tokens IA Mensual"
+        ]
+      },
+      "pack-ecosistema": {
+        id: "pack-ecosistema",
+        title: "Ecosistema Digital Completo + CRM",
+        description: "Ecosistema Digital Completo + CRM",
+        price: 85000,
+        monthlyPrice: 30000,
+        type: "onetime",
+        includedAddonIds: ["landing-page", "web-maintenance", "google-maps-setup", "google-maps-retainer", "geo-schemas", "chatbot-inventario", "ai-agent", "ai-agent-monthly", "crm-custom", "crm-monthly"],
+        deliverables: [
+          "Landing Page Transaccional (<1s)",
+          "Mantenimiento Web Hosting Anycast",
+          "Optimización Google Maps GBP",
+          "Gestión Activa Mensual Maps SEO Local",
+          "Optimización GEO Schemas ChatGPT Gemini",
+          "Chatbot Inteligente Servicios Inventario",
+          "Agente IA Citas Atención 24/7",
+          "Mantenimiento Tokens IA Mensual",
+          "CRM Personalizado a Medida",
+          "Servidor Cloud CRM Base Datos Backups"
+        ]
+      }
+    };
+
+    // ==========================================
+    // 2. DATOS POR DEFECTO (NotebookLM Knowledge Base)
     // ==========================================
     const DEFAULT_PROPOSAL_DATA = {
       clientName: "Pasión Pecuaria RD",
@@ -593,7 +694,7 @@
     let chosenOption = 'package'; // 'package' | 'alacarte'
 
     // ==========================================
-    // 2. INICIALIZACIÓN Y DECODIFICACIÓN URL
+    // 3. INICIALIZACIÓN Y DECODIFICACIÓN URL
     // ==========================================
     window.addEventListener("DOMContentLoaded", () => {
       initProposalData();
@@ -614,9 +715,69 @@
 
     function initProposalData() {
       const urlParams = new URLSearchParams(window.location.search);
+      const clientName = urlParams.get('client');
+      const category = urlParams.get('cat');
+      const pkgId = urlParams.get('pkg');
+      const svcIds = urlParams.get('svc');
+      const mode = urlParams.get('mode');
       const dataParam = urlParams.get('d');
 
-      if (dataParam) {
+      if (clientName && pkgId) {
+        // Esquema compacto
+        const offeredPackage = PACKAGE_CATALOG[pkgId] || PACKAGE_CATALOG["pack-none"];
+        
+        const selectedServices = [];
+        let alacarteSetup = 0;
+        let alacarteMonthly = 0;
+        
+        if (svcIds) {
+          const ids = svcIds.split(',');
+          ids.forEach(id => {
+            if (SERVICE_CATALOG[id]) {
+              const svc = { ...SERVICE_CATALOG[id], checked: true };
+              selectedServices.push(svc);
+              if (svc.type === "monthly") alacarteMonthly += svc.price;
+              else alacarteSetup += svc.price;
+            }
+          });
+        }
+        
+        const isComparison = pkgId !== 'pack-none';
+        const pkgSetup = isComparison ? offeredPackage.price : alacarteSetup;
+        const pkgMonthly = isComparison ? offeredPackage.monthlyPrice : alacarteMonthly;
+        const diffSetup = isComparison ? Math.max(0, alacarteSetup - pkgSetup) : 0;
+        const diffMonthly = isComparison ? Math.max(0, alacarteMonthly - pkgMonthly) : 0;
+
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const dateFormatted = today.toLocaleDateString('es-DO', options);
+
+        proposal = {
+          id: "prop-compact",
+          clientName: clientName,
+          clientCategory: category || "Servicios Comerciales",
+          dateStr: dateFormatted,
+          validity: "15 Días Hábiles",
+          mode: mode === 'alacarte' ? 'alacarte' : 'comparison',
+          selectedServices: selectedServices,
+          alacarteTotals: {
+            setup: alacarteSetup,
+            monthly: alacarteMonthly
+          },
+          offeredPackage: isComparison ? offeredPackage : null,
+          packageTotals: {
+            setup: pkgSetup,
+            monthly: pkgMonthly
+          },
+          savings: {
+            setup: diffSetup,
+            monthly: diffMonthly
+          },
+          basePackage: isComparison ? offeredPackage : { id: 'pack-custom', title: 'Cotización A la Carta', price: alacarteSetup, monthlyPrice: alacarteMonthly, deliverables: [] },
+          addons: selectedServices
+        };
+      } else if (dataParam) {
+        // Compatibilidad hacia atrás (esquema antiguo Base64)
         try {
           const jsonStr = decodeURIComponent(escape(atob(dataParam)));
           proposal = JSON.parse(jsonStr);
