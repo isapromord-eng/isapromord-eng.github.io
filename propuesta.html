@@ -238,7 +238,7 @@
       <!-- Desglose de Totales -->
       <div class="flex items-center justify-between sm:justify-start gap-4 sm:gap-8 w-full sm:w-auto">
         <div>
-          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Inversión Inicial Única</span>
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Inversión Setup Única</span>
           <div id="barOnetimeTotal" class="text-lg sm:text-2xl font-black text-slate-900 leading-tight">RD$ 0</div>
         </div>
         <div class="h-8 w-px bg-slate-200"></div>
@@ -450,10 +450,10 @@
       
       if (bp.monthlyPrice) {
         document.getElementById("basePackagePrice").innerHTML = `RD$ ${bp.price.toLocaleString('es-DO')} <span class="text-xs font-normal text-slate-500">+ RD$ ${bp.monthlyPrice.toLocaleString('es-DO')}/mes</span>`;
-        document.getElementById("basePackageType").textContent = "Inversión Inicial + Retainer Mensual";
+        document.getElementById("basePackageType").textContent = "Inversión Setup + Retainer Mensual";
       } else {
         document.getElementById("basePackagePrice").textContent = `RD$ ${bp.price.toLocaleString('es-DO')}`;
-        document.getElementById("basePackageType").textContent = bp.type === "monthly" ? "/ mes (Retainer Mensual)" : "Inversión Única";
+        document.getElementById("basePackageType").textContent = bp.type === "monthly" ? "/ mes (Retainer Mensual)" : "Inversión Setup Única";
       }
 
       // Entregables base
@@ -579,9 +579,9 @@
 ${selectedList.join('\n')}
 
 💰 *Resumen Económico Acordado:*
-• *Inversión Inicial Única:* RD$ ${onetime.toLocaleString('es-DO')}
+• *Inversión Setup Única:* RD$ ${onetime.toLocaleString('es-DO')}
 • *Mantenimiento Mensual:* RD$ ${monthly.toLocaleString('es-DO')} / mes
-• *Anticipo para Inicio (50% Inicial):* RD$ ${(onetime > 0 ? onetime * 0.5 : monthly * 0.5).toLocaleString('es-DO')}
+• *Anticipo para Inicio (50% Setup):* RD$ ${(onetime > 0 ? onetime * 0.5 : monthly * 0.5).toLocaleString('es-DO')}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Deseo formalizar el inicio del proyecto y coordinar los datos de pago/anticipo con ISAPromoRD.`;
