@@ -15,6 +15,8 @@
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- html2pdf.js for client-side direct PDF downloads -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -46,11 +48,60 @@
   <style>
     @media print {
       .no-print { display: none !important; }
-      body { background: white !important; color: #0f172a !important; padding-bottom: 0 !important; }
+      @page {
+        margin: 10mm 12mm;
+        size: A4 portrait;
+      }
+      body {
+        background: white !important;
+        color: #0f172a !important;
+        padding-bottom: 0 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
       .shadow-2xl, .shadow-xl, .shadow-lg, .shadow-md, .shadow-sm { box-shadow: none !important; }
-      header { position: static !important; border: none !important; }
+      header { display: none !important; }
       .border-2 { border-width: 1px !important; }
       .break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
+      
+      /* Transformar el hero oscuro en un membrete ejecutivo blanco sin gasto de tinta */
+      #proposalHeroBox {
+        background: #f8fafc !important;
+        color: #0f172a !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+        padding: 1.5rem !important;
+      }
+      #proposalHeroBox h1, 
+      #proposalHeroBox strong,
+      #proposalHeroBox span,
+      #proposalHeroBox p {
+        color: #0f172a !important;
+      }
+      #proposalHeroBox .hero-subtext {
+        color: #475569 !important;
+      }
+      #proposalHeroBox .hero-badge {
+        background: #e2e8f0 !important;
+        color: #1e293b !important;
+        border: 1px solid #cbd5e1 !important;
+      }
+      #proposalHeroBox .hero-accent {
+        color: #059669 !important;
+        font-weight: 800 !important;
+      }
+      #roiBox {
+        background: #f8fafc !important;
+        color: #0f172a !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+      }
+      #roiBox * {
+        color: #0f172a !important;
+      }
+      #roiBox #roiClientCount {
+        color: #059669 !important;
+      }
     }
   </style>
 </head>
@@ -59,7 +110,7 @@
   <!-- ========================================================
        BARRA SUPERIOR CORPORATIVA
        ======================================================== -->
-  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-30">
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-30 no-print">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
       <div class="flex items-center gap-2.5">
         <img src="../assets/logo.png" alt="ISAPromoRD" class="w-8 h-8 object-contain drop-shadow-sm" />
@@ -67,16 +118,20 @@
           ISA<span class="text-slate-600">Promo</span><span class="text-brand-600">RD</span>
         </span>
         <span class="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-brand-50 text-brand-700 text-[11px] font-bold uppercase tracking-wider border border-brand-100">
-          Propuesta Formal
+          Propuesta Comercial
         </span>
       </div>
 
       <div class="flex items-center gap-2">
-        <button onclick="window.print()" class="no-print px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all">
+        <button id="downloadPdfBtn" onclick="downloadProposalPdf()" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 active:scale-[0.98] text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-          <span>Descargar en PDF</span>
+          <span id="downloadBtnLabel">Descargar en PDF</span>
         </button>
-        <a href="https://wa.me/18294554783" target="_blank" class="no-print px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 transition-colors">
+        <button onclick="window.print()" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1.5 transition-colors cursor-pointer" title="Imprimir en papel">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          <span class="hidden sm:inline">Imprimir</span>
+        </button>
+        <a href="https://wa.me/18294554783" target="_blank" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 transition-colors">
           <span>WhatsApp Directo</span>
         </a>
       </div>
@@ -86,15 +141,15 @@
   <!-- ========================================================
        CONTENIDO PRINCIPAL DE LA PROPUESTA
        ======================================================== -->
-  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10 space-y-8 flex-1 w-full">
+  <main id="proposalMainContent" class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10 space-y-8 flex-1 w-full bg-white print:bg-white rounded-3xl print:p-0">
 
     <!-- MEMBRETE CORPORATIVO OFICIAL (Visible solo en Impresión / PDF) -->
-    <div class="hidden print:flex items-center justify-between pb-6 mb-6 border-b-2 border-slate-900">
+    <div id="printLetterhead" class="hidden print:flex items-center justify-between pb-6 mb-6 border-b-2 border-slate-900">
       <div class="flex items-center gap-3">
         <img src="../assets/logo.png" alt="ISAPromoRD" class="w-12 h-12 object-contain" />
         <div>
           <span class="text-xl font-black text-slate-950 tracking-tight">ISA<span class="text-slate-600">Promo</span><span class="text-brand-600">RD</span></span>
-          <p class="text-xs text-slate-600 font-semibold">Agencia Digital & Marketing de Alto Rendimiento • Santo Domingo, RD</p>
+          <p class="text-xs text-slate-600 font-semibold">Agencia Digital & Desarrollo de Software • Santo Domingo, República Dominicana</p>
         </div>
       </div>
       <div class="text-right text-xs text-slate-600 font-mono">
@@ -105,40 +160,40 @@
     </div>
 
     <!-- HERO DE LA PROPUESTA -->
-    <div class="bg-gradient-to-br from-slate-950 via-slate-900 to-brand-950 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden break-inside-avoid">
+    <div id="proposalHeroBox" class="bg-gradient-to-br from-slate-950 via-slate-900 to-brand-950 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden break-inside-avoid">
       <!-- Glow ambiental -->
       <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-brand-500/20 blur-3xl pointer-events-none no-print"></div>
 
       <div class="relative z-10 space-y-4">
         <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
-          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-brand-300 font-bold border border-white/10 uppercase tracking-wider text-[11px]">
+          <span class="hero-badge inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-brand-300 font-bold border border-white/10 uppercase tracking-wider text-[11px]">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse no-print"></span>
-            Propuesta Digital & Comparativa
+            Propuesta Comercial & Comparativa
           </span>
-          <span class="text-slate-400 font-mono" id="proposalDate">Fecha: Octubre 2026</span>
+          <span class="hero-subtext text-slate-400 font-mono" id="proposalDate">Fecha: Octubre 2026</span>
         </div>
 
         <div class="space-y-1">
-          <span class="text-xs uppercase tracking-widest text-slate-400 font-mono">Preparada especialmente para:</span>
+          <span class="hero-subtext text-xs uppercase tracking-widest text-slate-400 font-mono">Preparada especialmente para:</span>
           <h1 id="clientNameHeader" class="text-2xl sm:text-4xl font-black tracking-tight text-white">Pasión Pecuaria RD</h1>
-          <p id="clientCategoryHeader" class="text-slate-300 text-sm sm:text-base font-medium">Plataforma Veterinaria, Catálogo de Productos y Monopolio de Búsquedas en RD</p>
+          <p id="clientCategoryHeader" class="hero-subtext text-slate-300 text-sm sm:text-base font-medium">Estrategia Digital de Alto Rendimiento, Captación en Google & CRM Operativo</p>
         </div>
 
         <div class="pt-4 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
           <div>
-            <span class="text-slate-400 block text-[11px]">Agencia Responsable:</span>
+            <span class="hero-subtext text-slate-400 block text-[11px]">Agencia Responsable:</span>
             <strong class="text-white font-bold">ISAPromoRD</strong>
           </div>
           <div>
-            <span class="text-slate-400 block text-[11px]">Objetivo Central:</span>
-            <strong class="text-white font-bold">Monopolio de SERPs & Clientes</strong>
+            <span class="hero-subtext text-slate-400 block text-[11px]">Objetivo Estratégico:</span>
+            <strong class="text-white font-bold">Máxima Visibilidad Local & Nuevos Clientes</strong>
           </div>
           <div>
-            <span class="text-slate-400 block text-[11px]">Canal Primario:</span>
-            <strong class="text-emerald-400 font-bold">Llamadas & WhatsApp RD</strong>
+            <span class="hero-subtext text-slate-400 block text-[11px]">Canal de Captación:</span>
+            <strong class="hero-accent text-emerald-400 font-bold">Llamadas & WhatsApp Directo</strong>
           </div>
           <div>
-            <span class="text-slate-400 block text-[11px]">Validez de la Propuesta:</span>
+            <span class="hero-subtext text-slate-400 block text-[11px]">Validez de la Oferta:</span>
             <strong class="text-amber-400 font-bold" id="validityDays">15 Días Hábiles</strong>
           </div>
         </div>
@@ -152,14 +207,15 @@
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
         </div>
         <div>
-          <h2 class="text-lg font-black text-slate-900">Enfoque de Dominación: Resultados Tangibles, Cero Humo</h2>
-          <p class="text-xs text-slate-500">Por qué este plan no se parece a las agencias convencionales de redes sociales.</p>
+          <h2 class="text-lg font-black text-slate-900">Enfoque Comercial: Posicionamiento en Google & Retorno de Inversión</h2>
+          <p class="text-xs text-slate-500">Diseñado para captar clientes con alta intención de compra en República Dominicana.</p>
         </div>
       </div>
       <p class="text-sm text-slate-600 leading-relaxed">
-        En República Dominicana, el <strong>92% de los usuarios de smartphones</strong> busca servicios locales en Google y el <strong>75% genera una llamada, mensaje de WhatsApp o visita en menos de 24 horas</strong>. Esta propuesta está diseñada para copar las primeras posiciones de Google Search y Google Maps, canalizando la demanda transaccional directamente hacia tu teléfono corporativo.
+        En República Dominicana, el <strong>92% de los usuarios de smartphones</strong> busca servicios locales en Google y el <strong>75% genera una llamada, mensaje de WhatsApp o visita en menos de 24 horas</strong>. Esta propuesta está diseñada para posicionar tu negocio en las primeras posiciones de Google Search y Google Maps, canalizando la demanda transaccional directamente hacia tu WhatsApp y equipo de ventas.
       </p>
     </div>
+
 
     <!-- SECCIÓN COMPARATIVA: A LA CARTA VS PAQUETE RECOMENDADO -->
     <div id="comparisonSection" class="space-y-4 break-inside-avoid">
@@ -346,7 +402,7 @@
     </div>
 
     <!-- SECCIÓN DE APROBACIÓN Y FIRMA FORMAL (Visible en PDF/Impresión) -->
-    <div class="hidden print:block pt-8 mt-8 border-t-2 border-slate-200 break-inside-avoid">
+    <div id="printSignatureSection" class="hidden print:block pt-8 mt-8 border-t-2 border-slate-200 break-inside-avoid">
       <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">Aceptación Formal y Autorización de Inicio:</h4>
       <p class="text-xs text-slate-600 mb-8 leading-relaxed">
         Al firmar este documento o confirmar por WhatsApp, la empresa autoriza el inicio de los trabajos conforme al alcance, montos de inversión y condiciones estipuladas en esta propuesta formal.
@@ -543,12 +599,16 @@
       initProposalData();
       renderProposal();
 
-      // Si viene con parámetro print=1, disparar diálogo de impresión automáticamente
+      // Parámetros de URL para descarga directa o impresión
       const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('print') === '1' || urlParams.get('print') === 'true') {
+      if (urlParams.get('download') === '1' || urlParams.get('download') === 'true') {
+        setTimeout(() => {
+          downloadProposalPdf();
+        }, 800);
+      } else if (urlParams.get('print') === '1' || urlParams.get('print') === 'true') {
         setTimeout(() => {
           window.print();
-        }, 700);
+        }, 800);
       }
     });
 
@@ -996,6 +1056,79 @@ Por favor comunicarse conmigo para revisar los detalles.`;
       const encoded = encodeURIComponent(message);
       window.open(`https://wa.me/18294554783?text=${encoded}`, '_blank');
       closeAdjustModal();
+    }
+
+    // ==========================================
+    // 6. DESCARGA DIRECTA DE ARCHIVO PDF (Industry Standard)
+    // ==========================================
+    function downloadProposalPdf() {
+      const btn = document.getElementById("downloadPdfBtn");
+      const label = document.getElementById("downloadBtnLabel");
+      const origText = label ? label.textContent : "Descargar en PDF";
+
+      if (label) label.textContent = "Generando PDF...";
+      if (btn) btn.disabled = true;
+
+      const element = document.getElementById("proposalMainContent");
+      const printLetterhead = document.getElementById("printLetterhead");
+      const printSignatureSection = document.getElementById("printSignatureSection");
+
+      // Mostrar membrete y firmas durante la captura
+      if (printLetterhead) {
+        printLetterhead.classList.remove("hidden");
+        printLetterhead.classList.add("flex");
+      }
+      if (printSignatureSection) {
+        printSignatureSection.classList.remove("hidden");
+        printSignatureSection.classList.add("block");
+      }
+
+      const clientClean = (proposal.clientName || 'Cliente').replace(/[^a-zA-Z0-9]/g, '_');
+      const filename = `Propuesta_ISAPromoRD_${clientClean}.pdf`;
+
+      const opt = {
+        margin: [8, 8, 10, 8],
+        filename: filename,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, logging: false },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+      };
+
+      if (window.html2pdf) {
+        window.html2pdf().set(opt).from(element).save().then(() => {
+          if (printLetterhead) {
+            printLetterhead.classList.add("hidden");
+            printLetterhead.classList.remove("flex");
+          }
+          if (printSignatureSection) {
+            printSignatureSection.classList.add("hidden");
+            printSignatureSection.classList.remove("block");
+          }
+          if (label) label.textContent = "✅ ¡PDF Descargado!";
+          setTimeout(() => {
+            if (label) label.textContent = origText;
+            if (btn) btn.disabled = false;
+          }, 3000);
+        }).catch(err => {
+          console.warn("Fallo html2pdf, abriendo impresión estándar...", err);
+          if (printLetterhead) {
+            printLetterhead.classList.add("hidden");
+            printLetterhead.classList.remove("flex");
+          }
+          if (printSignatureSection) {
+            printSignatureSection.classList.add("hidden");
+            printSignatureSection.classList.remove("block");
+          }
+          if (label) label.textContent = origText;
+          if (btn) btn.disabled = false;
+          window.print();
+        });
+      } else {
+        window.print();
+        if (label) label.textContent = origText;
+        if (btn) btn.disabled = false;
+      }
     }
   </script>
 </body>

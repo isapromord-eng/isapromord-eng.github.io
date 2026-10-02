@@ -294,3 +294,22 @@
     - Soporte de parámetro URL `?print=1` que dispara automáticamente el diálogo `window.print()` con 700ms de retraso para renderizado completo.
     - Membrete corporativo oficial ISAPromoRD y sección formal de firmas y autorización de inicio visible únicamente al imprimir o guardar en PDF (`@media print`).
 - **Sincronización:** Módulos y páginas espejo actualizados (`dashboard.html` y `propuesta.html`).
+
+
+## [2026-10-01] - Refinamiento UX Comercial: Paquetes en Primera Vista, Terminología Corporativa y Exportación Real de PDF (html2pdf.js)
+- **Corrección de Jerarquía Visual en Dashboard (`/dashboard/`):**
+  - **Problema:** Al colocar los 10 servicios "A la Carta" arriba de los paquetes, las tarjetas de combos comerciales quedaban empujadas fuera del viewport inicial, dando la impresión de que los paquetes habían desaparecido.
+  - **Solución:** Se restauró la jerarquía de ventas situando **Paso 1: Paquetes Comerciales Recomendados (Combo con Descuento)** en la parte superior inmediata, seguido de **Paso 2: Servicios y Módulos de la Propuesta (A la Carta)** con etiquetas reactivas `✓ En Combo`, y **Paso 3: Tablero Comparativo en Vivo**.
+- **Erradicación de Tecnicismos y Vocabulario Extraño:**
+  - Se eliminaron expresiones disonantes o agresivas como *"Monopolio de SERPs & Clientes"* y *"Enfoque de Dominación: Cero Humo"*.
+  - Se sustituyeron por lenguaje corporativo de alta credibilidad empresarial:
+    - *"Objetivo Estratégico: Máxima Visibilidad Local & Nuevos Clientes en Google"*.
+    - *"Canal de Captación: Llamadas & WhatsApp Directo"*.
+    - *"Enfoque Comercial: Posicionamiento en Google & Retorno de Inversión"*.
+- **Generación y Descarga de Archivo PDF Real (`html2pdf.js`):**
+  - **Problema:** El botón "Descargar en PDF" anteriormente solo invocaba el diálogo del navegador `window.print()`, que no descargaba un archivo real y presentaba fondos negros con alto consumo de tinta.
+  - **Solución:**
+    - Integración de `html2pdf.js` (renderizado A4 a 2x de resolución).
+    - Descarga automática directa del archivo físico: `Propuesta_ISAPromoRD_[Cliente].pdf`.
+    - Estilos `@media print` transforman el bloque oscuro en un membrete blanco ejecutivo, ocultan la barra de navegación web (`header`) para evitar doble cabecera, y formatean márgenes limpios de página.
+- **Sincronización:** Módulos y espejos `dashboard.html` y `propuesta.html` actualizados al 100%.
