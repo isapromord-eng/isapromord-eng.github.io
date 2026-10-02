@@ -249,3 +249,13 @@
   - `dashboard/index.html` y `dashboard.html`: Actualizadas las tarjetas de radio, estructura `PROPOSAL_BASE_PACKAGES`, lista de addons `PROPOSAL_ADDONS` y cálculo en tiempo real con `monthlyPrice`.
   - `propuesta/index.html` y `propuesta.html`: Actualizado `DEFAULT_PROPOSAL_DATA`, renderizado visual de precios combinados (Setup + Mensual) y cálculo reactivo en la barra fija y en el generador de cierre por WhatsApp.
 
+## [2026-10-01] - Creación e Integración de Paquete Estrella "Crecimiento & Control CRM" (MÁS POPULAR)
+- **Razón Estratégica:**
+  - No todos los clientes locales están listos para chatbots o agentes de IA, pero sí tienen una necesidad crítica de: Web (<1s) + Google Maps activo + Schemas GEO + CRM a la medida para control operativo de ventas y clientes sin costo mensual por usuario.
+- **Configuración del Paquete "Crecimiento & Control Operativo" (`pack-crm`):**
+  - **Inversión Setup:** **RD$ 65,000** *(Ahorro de RD$ 20,000 vs los RD$ 85,000 sueltos)*.
+  - **Mantenimiento Mensual:** **RD$ 20,000 / mes** *(Ahorro de RD$ 4,500/mes vs los RD$ 24,500 sueltos)*.
+  - **Insignia:** Marcado oficialmente como el paquete **"MÁS POPULAR"** en el Dashboard y como paquete predeterminado en las propuestas digitales enviadas a clientes.
+- **Sincronización de Archivos:** `dashboard/index.html`, `dashboard.html`, `propuesta/index.html` y `propuesta.html` actualizados con cuadrícula responsiva de 4 paquetes (`sm:grid-cols-2 lg:grid-cols-4`).
+
+

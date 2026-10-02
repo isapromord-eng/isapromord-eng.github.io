@@ -378,10 +378,12 @@
           <!-- Selección del Paquete Base -->
           <div>
             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">1. Paquete Base Recomendado *</label>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              
+              <!-- 1. Esencial -->
               <label class="relative bg-slate-50 hover:bg-slate-100 p-4 rounded-2xl border-2 border-transparent has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/50 cursor-pointer transition-all space-y-2">
                 <div class="flex items-center justify-between">
-                  <input type="radio" name="basePkg" value="pack-esencial" checked onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
+                  <input type="radio" name="basePkg" value="pack-esencial" onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
                   <span class="px-2 py-0.5 rounded-md bg-brand-100 text-brand-800 text-[10px] font-black uppercase">Esencial</span>
                 </div>
                 <div class="font-black text-sm text-slate-900">Presencia & Captación Local</div>
@@ -392,19 +394,35 @@
                 </div>
               </label>
 
-              <label class="relative bg-slate-50 hover:bg-slate-100 p-4 rounded-2xl border-2 border-transparent has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/50 cursor-pointer transition-all space-y-2">
+              <!-- 2. Crecimiento & CRM (MÁS POPULAR) -->
+              <label class="relative bg-emerald-50/40 hover:bg-emerald-50/70 p-4 rounded-2xl border-2 border-emerald-500/60 has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50 cursor-pointer transition-all space-y-2 shadow-xs">
                 <div class="flex items-center justify-between">
-                  <input type="radio" name="basePkg" value="pack-ia" onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
-                  <span class="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase">Más Popular</span>
+                  <input type="radio" name="basePkg" value="pack-crm" checked onchange="updateProposalTotals()" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500" />
+                  <span class="px-2 py-0.5 rounded-md bg-emerald-600 text-white text-[10px] font-black uppercase tracking-wider shadow-xs">Más Popular</span>
                 </div>
-                <div class="font-black text-sm text-slate-900">Negocio con Inteligencia Artificial</div>
-                <div class="text-xs text-slate-500 leading-tight">Web + Maps + Agente IA 24/7 (citas/FAQ) + Schemas GEO para ChatGPT y Google Gemini.</div>
+                <div class="font-black text-sm text-slate-900">Crecimiento & Control CRM</div>
+                <div class="text-xs text-slate-500 leading-tight">Web + Maps Activo + Schemas GEO + CRM a medida sin mensualidades por usuario.</div>
                 <div class="space-y-0.5">
-                  <div class="font-black text-base text-emerald-700">RD$ 50,000 <span class="text-xs font-normal text-slate-500">setup</span></div>
+                  <div class="font-black text-base text-emerald-700">RD$ 65,000 <span class="text-xs font-normal text-slate-500">setup</span></div>
                   <div class="text-xs font-bold text-slate-600">+ RD$ 20,000 <span class="font-normal text-[11px] text-slate-400">/ mes</span></div>
                 </div>
               </label>
 
+              <!-- 3. Automatización IA -->
+              <label class="relative bg-slate-50 hover:bg-slate-100 p-4 rounded-2xl border-2 border-transparent has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/50 cursor-pointer transition-all space-y-2">
+                <div class="flex items-center justify-between">
+                  <input type="radio" name="basePkg" value="pack-ia" onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
+                  <span class="px-2 py-0.5 rounded-md bg-blue-100 text-brand-800 text-[10px] font-bold uppercase">Automatización IA</span>
+                </div>
+                <div class="font-black text-sm text-slate-900">Negocio con Inteligencia Artificial</div>
+                <div class="text-xs text-slate-500 leading-tight">Web + Maps + Agente IA 24/7 (citas/FAQ) + Schemas GEO para ChatGPT y Google Gemini.</div>
+                <div class="space-y-0.5">
+                  <div class="font-black text-base text-slate-900">RD$ 50,000 <span class="text-xs font-normal text-slate-500">setup</span></div>
+                  <div class="text-xs font-bold text-slate-600">+ RD$ 20,000 <span class="font-normal text-[11px] text-slate-400">/ mes</span></div>
+                </div>
+              </label>
+
+              <!-- 4. Ecosistema Total -->
               <label class="relative bg-slate-50 hover:bg-slate-100 p-4 rounded-2xl border-2 border-transparent has-[:checked]:border-brand-600 has-[:checked]:bg-brand-50/50 cursor-pointer transition-all space-y-2">
                 <div class="flex items-center justify-between">
                   <input type="radio" name="basePkg" value="pack-ecosistema" onchange="updateProposalTotals()" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
@@ -417,6 +435,7 @@
                   <div class="text-xs font-bold text-slate-600">+ RD$ 30,000 <span class="font-normal text-[11px] text-slate-400">/ mes</span></div>
                 </div>
               </label>
+
             </div>
           </div>
 
@@ -1714,6 +1733,22 @@ ISAPromoRD — https://isapromord.com`;
           "Estructuración de datos Schema.org LocalBusiness y reporte mensual de llamadas ganadas."
         ]
       },
+      "pack-crm": {
+        id: "pack-crm",
+        title: "Crecimiento & Control Operativo (Web + Maps + CRM)",
+        description: "Landing page transaccional, gestión activa de Google Maps, presencia en ChatGPT/Gemini y tu propio CRM a la medida para gestionar ventas e inventario sin pagar licencias por usuario.",
+        price: 65000,
+        type: "onetime",
+        monthlyPrice: 20000,
+        deliverables: [
+          "Diseño y desarrollo web transaccional mobile-first (<1s de carga en redes 4G RD).",
+          "Reclamación, configuración técnica y gestión activa semanal de Google Maps (GBP).",
+          "Optimización GEO & Schemas JSON-LD para ChatGPT, Gemini y Perplexity.",
+          "CRM personalizado desarrollado a la medida de tu flujo de clientes, catálogo y ventas.",
+          "Servidor cloud dedicado, base de datos en tiempo real y copias de seguridad diarias.",
+          "Capacitación de uso para tu equipo y soporte prioritario por WhatsApp."
+        ]
+      },
       "pack-ia": {
         id: "pack-ia",
         title: "Negocio Inteligente (Web + Maps + Agente IA 24/7)",
@@ -1906,7 +1941,7 @@ ISAPromoRD — https://isapromord.com`;
     }
 
     function updateProposalTotals() {
-      const selectedBaseKey = document.querySelector('input[name="basePkg"]:checked')?.value || "pack-esencial";
+      const selectedBaseKey = document.querySelector('input[name="basePkg"]:checked')?.value || "pack-crm";
       const basePkg = PROPOSAL_BASE_PACKAGES[selectedBaseKey];
 
       let onetime = 0;

@@ -26,9 +26,10 @@
   5. 🤖 Agente de Inteligencia Artificial 24/7 (Citas & FAQ) — RD$ 25,000 / RD$ 10,000/mes
   6. 💼 CRM Personalizado a la Medida del Negocio — RD$ 35,000 / RD$ 8,000/mes
 - **Paquetes Oficiales:**
-  - P1: Presencia & Captación Local (RD$ 30,000 / RD$ 15,000 mes)
-  - P2: Negocio Inteligente con IA (RD$ 50,000 / RD$ 20,000 mes)
-  - P3: Ecosistema Digital Completo + CRM (RD$ 85,000 / RD$ 30,000 mes)
+  - P1: Presencia & Captación Local (Setup RD$ 30,000 / RD$ 15,000 mes)
+  - P2 ⭐: Crecimiento & Control CRM [MÁS POPULAR] (Setup RD$ 65,000 / RD$ 20,000 mes)
+  - P3: Negocio Inteligente con IA (Setup RD$ 50,000 / RD$ 20,000 mes)
+  - P4: Ecosistema Digital Completo + CRM (Setup RD$ 85,000 / RD$ 30,000 mes)
 - **Clientes en Producción:**
   - **Pasión Pecuaria RD:** `https://pasionpecuaria.vercel.app` (Repo oficial: `github.com/isapromord/pasion-pecuaria-rd` | React 18 + Vite + Tailwind CSS en Vercel Anycast | Ref slug: `pasionpecuaria`).
 - **Usuario GitHub:** `isapromord`
