@@ -213,7 +213,7 @@
         </div>
         <div class="flex items-baseline gap-2">
           <span id="kpiProductionSites" class="text-3xl font-black text-slate-900">1</span>
-          <span class="text-xs font-semibold text-slate-500">pasionpecuaria.vercel.app</span>
+          <span id="kpiProductionSubtitle" class="text-xs font-semibold text-slate-500 truncate max-w-[140px]">pasionpecuaria.vercel.app</span>
         </div>
       </div>
 
@@ -1312,9 +1312,26 @@
     }
 
     function updateKpis() {
-      const activeCount = clients.filter(c => c.status === "active").length;
+      const activeClients = clients.filter(c => c.status === "active");
+      const activeCount = activeClients.length;
       document.getElementById("kpiTotalClients").textContent = clients.length;
       document.getElementById("kpiProductionSites").textContent = activeCount;
+
+      const subEl = document.getElementById("kpiProductionSubtitle");
+      if (subEl) {
+        if (activeCount === 1) {
+          try {
+            const host = new URL(activeClients[0].liveUrl).hostname;
+            subEl.textContent = host;
+          } catch(e) {
+            subEl.textContent = activeClients[0].name;
+          }
+        } else if (activeCount > 1) {
+          subEl.textContent = `${activeCount} plataformas online`;
+        } else {
+          subEl.textContent = "0 activas";
+        }
+      }
       
       // Sumar MRR
       let totalMrr = 0;
