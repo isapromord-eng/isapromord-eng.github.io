@@ -328,3 +328,19 @@
 - **Descarga Física de PDF Optimizada:**
   - Al abrirse con `&download=1`, la página renderiza inmediatamente el contenido y descarga de forma fluida el archivo A4 corporativo `Propuesta_ISAPromoRD_[Cliente].pdf`.
 - **Sincronización:** Actualizados `dashboard/index.html`, `dashboard.html`, `propuesta/index.html` y `propuesta.html`.
+
+## [2026-10-02] - Enlaces Personalizados de Marca (/propuestas/pasionpecuaria), Enrutamiento Directo a WhatsApp y Anti-Caché
+- **Causa Raíz del Link Largo en Pantalla del Usuario:**
+  - El navegador del usuario conservaba en memoria la versión previa del dashboard cargada antes de los despliegues. Al hacer clic en "Generar", ejecutaba el JavaScript en caché que producía el parámetro antiguo `?d=eyJpZ...`.
+  - Solución Anti-Caché: Se inyectaron metatags HTTP `Cache-Control: no-cache, no-store, must-revalidate` y `Pragma: no-cache` en `<head>` para forzar a navegadores y proxies a obtener siempre la última versión.
+- **Rutas Limpias y Personalizadas de Marca (Industry Standard):**
+  - Para clientes registrados como Pasión Pecuaria RD, el generador ahora emite directamente la ruta personalizada de negocio:
+    `https://isapromord.github.io/propuestas/pasionpecuaria/` (¡Cero parámetros de consulta, idéntico a PandaDoc / Proposify!).
+  - Para nuevos clientes o prospectos en frío, emite una URL semántica limpia y corta:
+    `https://isapromord.github.io/propuesta/?cliente=Nombre&plan=crm` (~60 caracteres).
+  - Se creó el directorio y página física dedicada `propuestas/pasionpecuaria/index.html` en el repositorio para que GitHub Pages la sirva de manera nativa sin depender de un servidor de aplicaciones dinámico.
+- **Corrección del Botón de WhatsApp:**
+  - Anteriormente, el enlace `https://wa.me/?text=...` sin número forzaba a WhatsApp Web a abrir el chat con uno mismo ("Mensaje a ti mismo").
+  - Se incorporó el campo interactivo "WhatsApp del Cliente (Para Enviar)" en el formulario del Dashboard (auto-completado al seleccionar un cliente registrado).
+  - El botón en el modal ahora enlaza directamente con el cliente: `https://wa.me/${cleanNumber}?text=...`, abriendo directamente el chat del cliente con el mensaje pre-redactado y el enlace personalizado.
+- **Sincronización:** Módulos espejos `dashboard.html` y `propuesta.html` actualizados al 100%.

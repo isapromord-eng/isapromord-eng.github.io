@@ -769,12 +769,19 @@
     function initProposalData() {
       const urlParams = new URLSearchParams(window.location.search);
       const propId = urlParams.get('id');
-      const clientName = urlParams.get('client');
-      const category = urlParams.get('cat');
-      const pkgId = urlParams.get('pkg');
-      const svcIds = urlParams.get('svc');
+      const slugPreset = (urlParams.get('p') || urlParams.get('c') || '').toLowerCase().trim();
+      const rawClient = urlParams.get('cliente') || urlParams.get('client');
+      const category = urlParams.get('cat') || urlParams.get('categoria');
+      const rawPkg = urlParams.get('plan') || urlParams.get('pkg');
+      const svcIds = urlParams.get('svc') || urlParams.get('servicios') || urlParams.get('addons');
       const mode = urlParams.get('mode');
       const dataParam = urlParams.get('d');
+
+      // 0. Preset personalizado por slug (ej: ?p=pasionpecuaria o ?c=pasionpecuaria)
+      if (slugPreset.includes('pasionpecuaria') || slugPreset.includes('pasion-pecuaria') || slugPreset.includes('pasion')) {
+        proposal = DEFAULT_PROPOSAL_DATA;
+        return;
+      }
 
       // 1. Revisar si viene de localStorage por ID (en el mismo dispositivo/dashboard)
       if (propId) {
@@ -789,11 +796,16 @@
         }
       }
 
-      // 2. Esquema compacto de URL
-      if (clientName || pkgId || svcIds) {
-        const resolvedClient = clientName || "Cliente Estimado";
-        const resolvedPkgId = pkgId || (mode === 'alacarte' ? 'pack-none' : 'pack-crm');
-        const offeredPackage = PACKAGE_CATALOG[resolvedPkgId] || PACKAGE_CATALOG["pack-none"];
+      // 2. Esquema corto y legible de URL
+      if (rawClient || rawPkg || svcIds) {
+        const resolvedClient = rawClient || "Cliente Estimado";
+        let resolvedPkgId = "pack-crm";
+        if (rawPkg) {
+          resolvedPkgId = rawPkg.startsWith('pack-') ? rawPkg : ('pack-' + rawPkg);
+        } else if (mode === 'alacarte') {
+          resolvedPkgId = 'pack-none';
+        }
+        const offeredPackage = PACKAGE_CATALOG[resolvedPkgId] || PACKAGE_CATALOG["pack-crm"];
         
         const selectedServices = [];
         let alacarteSetup = 0;

@@ -6,6 +6,9 @@
   <title>ISAPromoRD — Panel de Control de Clientes & Proyectos</title>
   
   <meta name="robots" content="noindex, nofollow" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <link rel="icon" type="image/png" href="../assets/logo.png" />
 
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
@@ -358,7 +361,7 @@
         <form id="proposalForm" onsubmit="handleGenerateProposal(event)" class="space-y-6">
           
           <!-- Datos del Prospecto / Cliente -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Cliente o Prospecto *</label>
               <div class="flex gap-2">
@@ -371,7 +374,12 @@
 
             <div>
               <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Categoría / Sector *</label>
-              <input type="text" id="proposalCategory" required placeholder="Ej: Clínica Dental, Cerrajería, Inmobiliaria" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-brand-600 focus:outline-none" />
+              <input type="text" id="proposalCategory" required placeholder="Ej: Clínica Dental, Inmobiliaria" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-brand-600 focus:outline-none" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">WhatsApp del Cliente (Para Enviar)</label>
+              <input type="tel" id="proposalClientPhone" placeholder="Ej: 8294554783" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-mono focus:ring-2 focus:ring-brand-600 focus:outline-none" />
             </div>
           </div>
 
@@ -1949,6 +1957,8 @@ ISAPromoRD — https://isapromord.com`;
       if (clients.length > 0) {
         select.value = clients[0].name;
         document.getElementById("proposalCategory").value = clients[0].category || "";
+        const phoneInput = document.getElementById("proposalClientPhone");
+        if (phoneInput) phoneInput.value = clients[0].phone || "";
       }
 
       handlePackageSelect('pack-crm');
@@ -1959,16 +1969,19 @@ ISAPromoRD — https://isapromord.com`;
       const select = document.getElementById("proposalClientSelect");
       const customInput = document.getElementById("proposalClientCustom");
       const categoryInput = document.getElementById("proposalCategory");
+      const phoneInput = document.getElementById("proposalClientPhone");
 
       if (select.value === "__custom__") {
         customInput.classList.remove("hidden");
         customInput.focus();
         categoryInput.value = "";
+        if (phoneInput) phoneInput.value = "";
       } else {
         customInput.classList.add("hidden");
         const found = clients.find(c => c.name === select.value);
         if (found) {
           categoryInput.value = found.category || "";
+          if (phoneInput) phoneInput.value = found.phone || "";
         }
       }
     }
@@ -2179,18 +2192,23 @@ ISAPromoRD — https://isapromord.com`;
       // Guardar en localStorage para descarga de PDF y otros usos locales
       localStorage.setItem(`proposal_${proposalPayload.id}`, JSON.stringify(proposalPayload));
 
-      // URL de la propuesta compacta
+      // URL limpia, personalizada y de marca corporativa (Industry Standard)
       const origin = window.location.origin;
       const pathname = window.location.pathname.replace(/\/dashboard(\/.*)?$/, '');
       
-      const paramClient = encodeURIComponent(clientName);
-      const paramCat = encodeURIComponent(category);
-      const paramPkg = selectedBaseKey;
-      const paramSvc = selectedServices.map(s => s.id).join(',');
-      const paramMode = isComparison ? 'comparison' : 'alacarte';
+      const clientSlug = clientName.toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
+      let fullUrl = "";
+      if (clientSlug.includes("pasion-pecuaria") || clientSlug.includes("pasionpecuaria")) {
+        fullUrl = `${origin}${pathname}/propuestas/pasionpecuaria/`;
+      } else {
+        const shortPlan = selectedBaseKey.replace(/^pack-/, '');
+        fullUrl = `${origin}${pathname}/propuesta/?cliente=${encodeURIComponent(clientName)}&plan=${shortPlan}`;
+      }
       
-      const fullUrl = `${origin}${pathname}/propuesta/?id=${proposalPayload.id}&client=${paramClient}&cat=${paramCat}&pkg=${paramPkg}&svc=${paramSvc}&mode=${paramMode}`;
-      const downloadPdfUrl = `${fullUrl}&download=1`;
+      const downloadPdfUrl = fullUrl.includes('?') ? `${fullUrl}&download=1` : `${fullUrl}?download=1`;
       lastGeneratedProposalUrl = fullUrl;
 
       // Guardar en historial
@@ -2221,7 +2239,7 @@ ISAPromoRD — https://isapromord.com`;
       document.getElementById("modalResOpenBtn").href = fullUrl;
       document.getElementById("modalResPdfBtn").href = downloadPdfUrl;
 
-      // Enlace para WhatsApp
+      // Enlace para WhatsApp (Directo al número del cliente si se proporcionó)
       let waMessage = `Hola ${clientName}, un placer saludarte.\n\nDesde *ISAPromoRD* te hemos preparado una *Propuesta Digital Interactiva* personalizada`;
       if (isComparison && diffSetup > 0) {
         waMessage += ` donde podrás comparar la cotización de los servicios solicitados frente a la opción en combo con un *ahorro de RD$ ${diffSetup.toLocaleString('es-DO')} en setup*:\n\n`;
@@ -2230,7 +2248,17 @@ ISAPromoRD — https://isapromord.com`;
       }
       waMessage += `👉 Abre tu propuesta en vivo aquí:\n${fullUrl}\n\nEn este enlace interactivo puedes revisar el alcance de cada módulo, ver la comparativa de inversión y aprobarla o descargarla en PDF con un clic. Quedo atento a tus comentarios.`;
 
-      document.getElementById("modalResWhatsappBtn").href = `https://wa.me/?text=${encodeURIComponent(waMessage)}`;
+      const phoneInput = document.getElementById("proposalClientPhone");
+      let rawPhone = phoneInput ? phoneInput.value.replace(/[^0-9]/g, '') : "";
+      let waTarget = "";
+      if (rawPhone.length >= 10) {
+        // En República Dominicana / EEUU (código de país 1)
+        const cleanNumber = rawPhone.length === 10 ? ('1' + rawPhone) : rawPhone;
+        waTarget = `https://wa.me/${cleanNumber}?text=${encodeURIComponent(waMessage)}`;
+      } else {
+        waTarget = `https://wa.me/?text=${encodeURIComponent(waMessage)}`;
+      }
+      document.getElementById("modalResWhatsappBtn").href = waTarget;
 
       const modal = document.getElementById("proposalResultModal");
       modal.classList.remove("hidden");
