@@ -276,3 +276,21 @@
 
 
 
+
+
+## [2026-10-01] - Arquitectura de Comparativa de Valor (A la Carta vs Paquete Combo) y Exportación PDF Formal
+- **Psicología Comercial & Arquitectura de Ventas:**
+  - En lugar de enviar un precio cerrado aislado, el cliente visualiza un contraste directo entre contratar los servicios de forma individual (precio de lista "A la Carta") frente a la opción de adquirirlos en combo como paquete sugerido.
+  - Esto desbloquea el principio comercial de "Value Stacking": el cliente percibe de forma transparente el beneficio tangible y el ahorro económico inmediato ("🔥 Te ahorras RD$ X en Setup y RD$ Y/mes").
+- **Flujo Operativo en Dashboard (`/dashboard/`):**
+  - **Paso 1: Módulos Solicitados "A la Carta":** Selección libre de cualquiera de los 10 módulos de software, IA y posicionamiento sin restricciones de bloqueo. Se calcula un subtotal en vivo.
+  - **Paso 2: Paquete Recomendado a Ofrecer:** Selector de combos (incluyendo la opción "Sin Paquete • Solo Servicios A la Carta"). Por defecto sugiere el paquete más popular (`pack-crm`).
+  - **Paso 3: Caja de Análisis Comparativo en Vivo:** Presenta 3 métricas simultáneas antes de generar el enlace: Total A la Carta, Inversión en Paquete y Ahorro Inmediato Demostrado.
+- **Experiencia de la Propuesta Digital (`/propuesta/`):**
+  - **Tarjeta Dual Interactiva:** Presenta lado a lado "Opción 1: Servicios A la Carta" y "Opción 2: Paquete Recomendado", con toggle interactivo donde el cliente puede hacer clic en cualquiera de las dos para adoptarla.
+  - **Barra Flotante Reactiva:** Actualiza los totales de inversión y el mensaje de cierre por WhatsApp según la opción elegida por el cliente.
+  - **Diseño Print-First & Exportación a PDF:**
+    - Botón "Descargar en PDF" en cabecera y modal.
+    - Soporte de parámetro URL `?print=1` que dispara automáticamente el diálogo `window.print()` con 700ms de retraso para renderizado completo.
+    - Membrete corporativo oficial ISAPromoRD y sección formal de firmas y autorización de inicio visible únicamente al imprimir o guardar en PDF (`@media print`).
+- **Sincronización:** Módulos y páginas espejo actualizados (`dashboard.html` y `propuesta.html`).

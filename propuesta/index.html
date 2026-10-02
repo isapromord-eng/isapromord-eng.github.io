@@ -46,8 +46,11 @@
   <style>
     @media print {
       .no-print { display: none !important; }
-      body { background: white !important; }
-      .shadow-2xl, .shadow-xl, .shadow-lg { box-shadow: none !important; }
+      body { background: white !important; color: #0f172a !important; padding-bottom: 0 !important; }
+      .shadow-2xl, .shadow-xl, .shadow-lg, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      header { position: static !important; border: none !important; }
+      .border-2 { border-width: 1px !important; }
+      .break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
     }
   </style>
 </head>
@@ -69,12 +72,12 @@
       </div>
 
       <div class="flex items-center gap-2">
-        <button onclick="window.print()" class="no-print p-2 rounded-xl text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors text-xs font-semibold flex items-center gap-1.5 border border-slate-200">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-          <span class="hidden sm:inline">Imprimir / PDF</span>
+        <button onclick="window.print()" class="no-print px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          <span>Descargar en PDF</span>
         </button>
-        <a href="https://wa.me/18294554783" target="_blank" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center gap-1.5 transition-colors">
-          <span>Soporte Directo</span>
+        <a href="https://wa.me/18294554783" target="_blank" class="no-print px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 transition-colors">
+          <span>WhatsApp Directo</span>
         </a>
       </div>
     </div>
@@ -85,16 +88,32 @@
        ======================================================== -->
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10 space-y-8 flex-1 w-full">
 
+    <!-- MEMBRETE CORPORATIVO OFICIAL (Visible solo en Impresión / PDF) -->
+    <div class="hidden print:flex items-center justify-between pb-6 mb-6 border-b-2 border-slate-900">
+      <div class="flex items-center gap-3">
+        <img src="../assets/logo.png" alt="ISAPromoRD" class="w-12 h-12 object-contain" />
+        <div>
+          <span class="text-xl font-black text-slate-950 tracking-tight">ISA<span class="text-slate-600">Promo</span><span class="text-brand-600">RD</span></span>
+          <p class="text-xs text-slate-600 font-semibold">Agencia Digital & Marketing de Alto Rendimiento • Santo Domingo, RD</p>
+        </div>
+      </div>
+      <div class="text-right text-xs text-slate-600 font-mono">
+        <div class="font-bold text-slate-900 uppercase">Propuesta Comercial Formal</div>
+        <div>WhatsApp: +1 (829) 455-4783</div>
+        <div>isapromord.com</div>
+      </div>
+    </div>
+
     <!-- HERO DE LA PROPUESTA -->
-    <div class="bg-gradient-to-br from-slate-950 via-slate-900 to-brand-950 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
+    <div class="bg-gradient-to-br from-slate-950 via-slate-900 to-brand-950 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden break-inside-avoid">
       <!-- Glow ambiental -->
-      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-brand-500/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-brand-500/20 blur-3xl pointer-events-none no-print"></div>
 
       <div class="relative z-10 space-y-4">
         <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
           <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-brand-300 font-bold border border-white/10 uppercase tracking-wider text-[11px]">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            Propuesta Digital Interactiva
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse no-print"></span>
+            Propuesta Digital & Comparativa
           </span>
           <span class="text-slate-400 font-mono" id="proposalDate">Fecha: Octubre 2026</span>
         </div>
@@ -127,7 +146,7 @@
     </div>
 
     <!-- NOTA INTRODUCTORIA / ENFOQUE DE RESULTADOS -->
-    <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-4">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-4 break-inside-avoid">
       <div class="flex items-center gap-3 text-brand-600">
         <div class="w-10 h-10 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
@@ -142,8 +161,107 @@
       </p>
     </div>
 
-    <!-- SECCIÓN: PAQUETE BASE RECOMENDADO -->
-    <div id="basePackageSection" class="space-y-4">
+    <!-- SECCIÓN COMPARATIVA: A LA CARTA VS PAQUETE RECOMENDADO -->
+    <div id="comparisonSection" class="space-y-4 break-inside-avoid">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-mono font-bold text-brand-600 uppercase tracking-wider">Comparativa Comercial</span>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Opciones de Inversión y Análisis de Ahorro</h3>
+          <p class="text-xs text-slate-500">Compara el costo de contratar los servicios por separado frente a la conveniencia de adquirirlos en combo.</p>
+        </div>
+        <span class="text-xs font-semibold text-slate-400 italic no-print">Haz clic en una opción para seleccionarla</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- TARJETA 1: SERVICIOS A LA CARTA -->
+        <div id="cardOptionAlacarte" onclick="selectProposalOption('alacarte')" class="bg-white rounded-3xl p-6 sm:p-7 border-2 border-slate-200 hover:border-slate-300 cursor-pointer transition-all flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[11px] font-black uppercase tracking-wider">
+                Opción 1 • Individual
+              </span>
+              <input type="radio" name="optChoice" id="radioAlacarte" class="w-4 h-4 text-brand-600 focus:ring-brand-500" />
+            </div>
+
+            <div>
+              <h4 class="text-lg font-black text-slate-900">Servicios A la Carta</h4>
+              <p class="text-xs text-slate-500">Módulos independientes cotizados a su precio regular de lista.</p>
+            </div>
+
+            <!-- Lista de Servicios A la Carta -->
+            <div id="compAlacarteItemsList" class="space-y-2 pt-2 border-t border-slate-100 text-xs">
+              <!-- Inyectado por JS -->
+            </div>
+          </div>
+
+          <!-- Total A la Carta -->
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Total A la Carta</span>
+              <div id="compAlacarteSetupPrice" class="text-xl font-black text-slate-900">RD$ 0</div>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Mantenimiento</span>
+              <div id="compAlacarteMonthlyPrice" class="text-sm font-bold text-slate-700">RD$ 0 / mes</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TARJETA 2: PAQUETE RECOMENDADO EN COMBO -->
+        <div id="cardOptionPackage" onclick="selectProposalOption('package')" class="bg-white rounded-3xl p-6 sm:p-7 border-2 border-emerald-500 ring-2 ring-emerald-500/20 shadow-xl cursor-pointer transition-all flex flex-col justify-between space-y-6 relative overflow-hidden">
+          
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-emerald-600 text-white text-[11px] font-black uppercase tracking-wider shadow-xs">
+                Opción 2 • Recomendada ⭐
+              </span>
+              <input type="radio" name="optChoice" id="radioPackage" checked class="w-4 h-4 text-emerald-600 focus:ring-emerald-500" />
+            </div>
+
+            <div>
+              <h4 id="compPackageTitle" class="text-xl font-black text-slate-900">Crecimiento & Control CRM</h4>
+              <p id="compPackageDesc" class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Landing page transaccional + Maps activo + Schemas GEO + CRM a la medida con soporte y hosting cloud incluidos.
+              </p>
+            </div>
+
+            <!-- Entregables del Paquete -->
+            <div id="compPackageDeliverables" class="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-700">
+              <!-- Inyectado por JS -->
+            </div>
+
+            <!-- BANNER DE AHORRO DESTACADO -->
+            <div id="compSavingsBanner" class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200/80 text-xs text-emerald-900 space-y-1">
+              <div class="font-black text-emerald-800 flex items-center gap-1.5">
+                <span>🔥</span>
+                <span>Ahorro Inmediato Demostrado:</span>
+              </div>
+              <p id="compSavingsText" class="text-xs text-emerald-700 leading-snug">
+                ¡Te ahorras RD$ 20,000 en Setup y RD$ 4,500 cada mes en comparación con comprar los servicios individuales!
+              </p>
+            </div>
+          </div>
+
+          <!-- Total Paquete -->
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Inversión en Paquete</span>
+              <div id="compPackageSetupPrice" class="text-2xl font-black text-emerald-600">RD$ 65,000</div>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Mantenimiento Mensual</span>
+              <div id="compPackageMonthlyPrice" class="text-base font-bold text-slate-900">RD$ 20,000 / mes</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SECCIÓN: PAQUETE BASE TRADICIONAL (Para enlaces antiguos) -->
+    <div id="basePackageSection" class="space-y-4 hidden break-inside-avoid">
       <div class="flex items-center justify-between">
         <div>
           <span class="text-xs font-mono font-bold text-brand-600 uppercase tracking-wider">Fase 1</span>
@@ -182,15 +300,15 @@
       </div>
     </div>
 
-    <!-- SECCIÓN: MENÚ "A LA CARTE" (SERVICIOS ADICIONALES OPCIONALES) -->
-    <div id="addonsSectionWrapper" class="space-y-4 pt-4">
+    <!-- SECCIÓN: MENÚ "A LA CARTE" (Para propuestas solo a la carta) -->
+    <div id="addonsSectionWrapper" class="space-y-4 pt-4 hidden break-inside-avoid">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div>
           <span id="addonsSectionBadge" class="text-xs font-mono font-bold text-amber-600 uppercase tracking-wider">Fase 2 • Personaliza tu Plan</span>
           <h3 id="addonsSectionTitle" class="text-xl font-black text-slate-900 tracking-tight">Menú de Módulos Opcionales "A la Carte"</h3>
           <p id="addonsSectionDesc" class="text-xs text-slate-500">Puedes activar o desactivar cualquiera de estos servicios adicionales según las prioridades de tu negocio.</p>
         </div>
-        <span class="text-xs font-semibold text-slate-400 italic">Haz clic en los interruptores para recalcular</span>
+        <span class="text-xs font-semibold text-slate-400 italic no-print">Haz clic en los interruptores para recalcular</span>
       </div>
 
       <!-- Cuadrícula de Addons Interactivos -->
@@ -200,7 +318,7 @@
     </div>
 
     <!-- CALCULADORA DE RETORNO (ROI) ESTIMADO -->
-    <div class="bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-900 rounded-3xl p-6 sm:p-8 text-white border border-emerald-900/60 shadow-lg">
+    <div class="bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-900 rounded-3xl p-6 sm:p-8 text-white border border-emerald-900/60 shadow-lg break-inside-avoid">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div class="space-y-2 max-w-xl">
           <span class="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-wider">Matemática Comercial</span>
@@ -218,13 +336,37 @@
     </div>
 
     <!-- TÉRMINOS & CONDICIONES CLARAS -->
-    <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 text-xs text-slate-500 space-y-3">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 text-xs text-slate-500 space-y-3 break-inside-avoid">
       <h5 class="font-bold text-slate-800 uppercase tracking-wider text-[11px]">Condiciones de Servicio y Transparencia:</h5>
       <ul class="list-disc pl-5 space-y-1.5 leading-relaxed">
         <li><strong>Forma de Pago:</strong> 50% de anticipo al formalizar el inicio del proyecto y 50% contra entrega de la plataforma o al completar el primer mes de servicio.</li>
         <li><strong>Propiedad Total:</strong> Todos los activos creados (perfil de Google Maps, dominio, códigos y base de datos) pertenecen 100% al cliente.</li>
         <li><strong>Flexibilidad:</strong> En planes mensuales no hay cláusulas de permanencia forzosa. El servicio se renueva mes a mes por resultados auditables.</li>
       </ul>
+    </div>
+
+    <!-- SECCIÓN DE APROBACIÓN Y FIRMA FORMAL (Visible en PDF/Impresión) -->
+    <div class="hidden print:block pt-8 mt-8 border-t-2 border-slate-200 break-inside-avoid">
+      <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">Aceptación Formal y Autorización de Inicio:</h4>
+      <p class="text-xs text-slate-600 mb-8 leading-relaxed">
+        Al firmar este documento o confirmar por WhatsApp, la empresa autoriza el inicio de los trabajos conforme al alcance, montos de inversión y condiciones estipuladas en esta propuesta formal.
+      </p>
+      <div class="grid grid-cols-2 gap-12 pt-4 text-xs text-slate-700">
+        <div class="space-y-4">
+          <div class="border-b border-slate-400 h-10"></div>
+          <div>
+            <strong class="block text-slate-900 font-bold" id="printClientName">Firma Autorizada del Cliente</strong>
+            <span class="text-slate-500">Propietario / Representante Legal</span>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="border-b border-slate-400 h-10"></div>
+          <div>
+            <strong class="block text-slate-900 font-bold">Por ISAPromoRD</strong>
+            <span class="text-slate-500">Dirección de Operaciones & Tecnología</span>
+          </div>
+        </div>
+      </div>
     </div>
 
   </main>
@@ -244,7 +386,7 @@
         <div class="h-8 w-px bg-slate-200"></div>
         <div>
           <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Mantenimiento Mensual</span>
-          <div id="barMonthlyTotal" class="text-lg sm:text-2xl font-black text-brand-600 leading-tight">RD$ 25,000 / mes</div>
+          <div id="barMonthlyTotal" class="text-lg sm:text-2xl font-black text-brand-600 leading-tight">RD$ 20,000 / mes</div>
         </div>
       </div>
 
@@ -262,7 +404,7 @@
           class="flex-1 sm:flex-initial px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-black text-xs sm:text-sm shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 transition-all"
         >
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 2.052.88 3.203.88l.004-.001 5.769-.001c3.18 0 5.766-2.587 5.766-5.767.001-3.18-2.585-5.764-5.765-5.764zm3.377 8.21c-.14.394-.813.738-1.127.785-.302.046-.697.067-1.133-.073-.284-.092-.647-.215-1.114-.419-1.968-.858-3.237-2.859-3.336-2.991-.098-.133-.799-1.063-.799-2.024 0-.961.503-1.433.682-1.628.179-.196.391-.245.522-.245.131 0 .262.001.376.007.12.006.281-.046.438.333.163.393.555 1.353.604 1.452.049.098.082.213.016.344-.066.13-.098.213-.196.328-.098.115-.207.257-.295.344-.098.098-.201.205-.087.401.115.197.511.843 1.096 1.365.753.672 1.388.88 1.585.979.197.098.312.082.427-.049.115-.131.491-.573.622-.77.131-.197.262-.164.442-.098.18.065 1.146.541 1.343.639.197.098.328.148.377.23.049.082.049.475-.091.869z"></path></svg>
-          <span>Aprobar Propuesta</span>
+          <span id="acceptButtonText">Aprobar Opción Seleccionada</span>
         </button>
       </div>
 
@@ -297,20 +439,67 @@
        ======================================================== -->
   <script>
     // ==========================================
-    // 1. CATÁLOGO BASE DE SERVICIOS (NotebookLM Knowledge)
+    // 1. DATOS POR DEFECTO (NotebookLM Knowledge Base)
     // ==========================================
     const DEFAULT_PROPOSAL_DATA = {
       clientName: "Pasión Pecuaria RD",
       clientCategory: "Agropecuaria & Tienda Online",
       dateStr: "1 de Octubre, 2026",
       validity: "15 Días Hábiles",
-      basePackage: {
+      mode: "comparison",
+      selectedServices: [
+        {
+          id: "landing-page",
+          name: "🌐 Landing Page Transaccional de Alta Velocidad",
+          description: "Diseño y desarrollo web mobile-first con tiempo de carga inferior a 1 segundo en redes 4G locales.",
+          price: 25000,
+          type: "onetime",
+          checked: true
+        },
+        {
+          id: "google-maps-setup",
+          name: "📍 Reclamación & Optimización Google Business Profile",
+          description: "Auditoría, verificación oficial, categorías y optimización GEO para búsquedas locales en Google Maps.",
+          price: 15000,
+          type: "onetime",
+          checked: true
+        },
+        {
+          id: "google-maps-monthly",
+          name: "⭐ Gestión Activa de Perfil en Maps & Reseñas",
+          description: "Publicaciones semanales con fotos y productos, respuesta a reseñas y monitoreo de posicionamiento local.",
+          price: 4500,
+          type: "monthly",
+          checked: true
+        },
+        {
+          id: "crm-custom",
+          name: "📊 Sistema CRM a la Medida (Sin Licencias por Usuario)",
+          description: "Base de datos y flujo operativo para cotizaciones, clientes, pedidos e inventario adaptado a tu empresa.",
+          price: 45000,
+          type: "onetime",
+          checked: true
+        },
+        {
+          id: "crm-hosting-monthly",
+          name: "☁️ Servidor Cloud Dedicado & Soporte Técnico para CRM",
+          description: "Infraestructura cloud, backups diarios automatizados y soporte técnico directo vía WhatsApp.",
+          price: 15500,
+          type: "monthly",
+          checked: true
+        }
+      ],
+      alacarteTotals: {
+        setup: 85000,
+        monthly: 20000
+      },
+      offeredPackage: {
         id: "pack-crm",
         title: "Crecimiento & Control Operativo (Web + Maps + CRM)",
         description: "Landing page transaccional, gestión activa de Google Maps, presencia en ChatGPT/Gemini y tu propio CRM a la medida para gestionar ventas e inventario sin pagar licencias por usuario.",
         price: 65000,
-        type: "onetime",
         monthlyPrice: 20000,
+        type: "onetime",
         deliverables: [
           "Diseño y desarrollo web transaccional mobile-first (<1s de carga en redes 4G RD).",
           "Reclamación, configuración técnica y gestión activa semanal de Google Maps (GBP).",
@@ -320,35 +509,32 @@
           "Capacitación de uso para tu equipo y soporte prioritario por WhatsApp."
         ]
       },
-      addons: [
-        {
-          id: "chatbot-inventario",
-          name: "💬 Chatbot Inteligente para Servicios e Inventario",
-          description: "Chatbot interactivo programado con todo el catálogo de servicios, lista de productos o inventario en tiempo real para cotizaciones instantáneas a los clientes.",
-          price: 15000,
-          type: "onetime",
-          checked: false
-        },
-        {
-          id: "ai-agent",
-          name: "🤖 Agente de Inteligencia Artificial (Citas & Atención 24/7)",
-          description: "IA conversacional avanzada que atiende visitantes las 24 horas: resuelve dudas frecuentes, agenda citas en calendario y recomienda productos o servicios.",
-          price: 25000,
-          type: "onetime",
-          checked: false
-        },
-        {
-          id: "ai-agent-monthly",
-          name: "⚡ Mantenimiento & Consumo de Tokens de IA Mensual",
-          description: "Bolsa de tokens de procesamiento de IA para responder mensajes ilimitados, servidor activo y re-entrenamiento mensual de la IA.",
-          price: 10000,
-          type: "monthly",
-          checked: false
-        }
-      ]
+      packageTotals: {
+        setup: 65000,
+        monthly: 20000
+      },
+      savings: {
+        setup: 20000,
+        monthly: 0
+      },
+      basePackage: {
+        id: "pack-crm",
+        title: "Crecimiento & Control Operativo (Web + Maps + CRM)",
+        description: "Landing page transaccional + Maps activo + Schemas GEO + CRM a la medida.",
+        price: 65000,
+        monthlyPrice: 20000,
+        deliverables: [
+          "Diseño y desarrollo web transaccional mobile-first (<1s).",
+          "Optimización profesional de perfil en Google Maps (GBP).",
+          "CRM personalizado a la medida de tus operaciones.",
+          "Servidor cloud dedicado y backups diarios."
+        ]
+      },
+      addons: []
     };
 
     let proposal = {};
+    let chosenOption = 'package'; // 'package' | 'alacarte'
 
     // ==========================================
     // 2. INICIALIZACIÓN Y DECODIFICACIÓN URL
@@ -356,11 +542,17 @@
     window.addEventListener("DOMContentLoaded", () => {
       initProposalData();
       renderProposal();
-      recalculateTotals();
+
+      // Si viene con parámetro print=1, disparar diálogo de impresión automáticamente
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('print') === '1' || urlParams.get('print') === 'true') {
+        setTimeout(() => {
+          window.print();
+        }, 700);
+      }
     });
 
     function initProposalData() {
-      // Intentar leer payload base64 desde ?d=... o usar por defecto
       const urlParams = new URLSearchParams(window.location.search);
       const dataParam = urlParams.get('d');
 
@@ -369,7 +561,7 @@
           const jsonStr = decodeURIComponent(escape(atob(dataParam)));
           proposal = JSON.parse(jsonStr);
         } catch (e) {
-          console.warn("No se pudo decodificar el parámetro de la URL, usando configuración estándar.");
+          console.warn("No se pudo decodificar el parámetro de la URL, usando configuración estándar.", e);
           proposal = DEFAULT_PROPOSAL_DATA;
         }
       } else {
@@ -381,105 +573,230 @@
     // 3. RENDERIZADO VISUAL
     // ==========================================
     function renderProposal() {
+      // Cabeceras y metadatos
       document.getElementById("pageTitle").textContent = `Propuesta para ${proposal.clientName} | ISAPromoRD`;
       document.getElementById("clientNameHeader").textContent = proposal.clientName;
+      if (document.getElementById("printClientName")) {
+        document.getElementById("printClientName").textContent = proposal.clientName;
+      }
       document.getElementById("clientCategoryHeader").textContent = proposal.clientCategory || "Estrategia Digital Local";
       document.getElementById("proposalDate").textContent = `Fecha: ${proposal.dateStr || 'Octubre 2026'}`;
       document.getElementById("validityDays").textContent = proposal.validity || "15 Días Hábiles";
 
-      const bp = proposal.basePackage || {};
-      const isCustomOnly = !bp.id || bp.id === 'pack-custom';
-
+      const compSection = document.getElementById("comparisonSection");
       const baseSection = document.getElementById("basePackageSection");
       const addonsWrapper = document.getElementById("addonsSectionWrapper");
 
-      if (isCustomOnly) {
-        if (baseSection) baseSection.classList.add("hidden");
-        document.getElementById("addonsSectionBadge").textContent = "Cotización A la Carta";
-        document.getElementById("addonsSectionTitle").textContent = "Servicios y Módulos Seleccionados";
-        document.getElementById("addonsSectionDesc").textContent = "Selección a la medida para tu negocio. Puedes activar o desactivar cualquiera para recalcular tu presupuesto.";
-      } else {
-        if (baseSection) baseSection.classList.remove("hidden");
-        document.getElementById("addonsSectionBadge").textContent = "Fase 2 • Personaliza tu Plan";
-        document.getElementById("addonsSectionTitle").textContent = "Menú de Módulos Opcionales \"A la Carte\"";
-        document.getElementById("addonsSectionDesc").textContent = "Puedes activar o desactivar cualquiera de estos servicios adicionales según las prioridades de tu negocio.";
+      // Verificar si es modo comparativa
+      const hasOfferedPkg = proposal.offeredPackage && proposal.offeredPackage.id && proposal.offeredPackage.id !== 'pack-none';
+      const hasSelectedServices = proposal.selectedServices && proposal.selectedServices.length > 0;
+      const isComparisonMode = proposal.mode === 'comparison' || (hasOfferedPkg && hasSelectedServices);
 
-        // Paquete Base
-        document.getElementById("basePackageTitle").textContent = bp.title || "Plan Seleccionado";
-        document.getElementById("basePackageDesc").textContent = bp.description || "";
-        
-        if (bp.monthlyPrice) {
-          document.getElementById("basePackagePrice").innerHTML = `RD$ ${(bp.price || 0).toLocaleString('es-DO')} <span class="text-xs font-normal text-slate-500">+ RD$ ${(bp.monthlyPrice || 0).toLocaleString('es-DO')}/mes</span>`;
-          document.getElementById("basePackageType").textContent = "Inversión Setup + Retainer Mensual";
-        } else {
-          document.getElementById("basePackagePrice").textContent = `RD$ ${(bp.price || 0).toLocaleString('es-DO')}`;
-          document.getElementById("basePackageType").textContent = bp.type === "monthly" ? "/ mes (Retainer Mensual)" : "Inversión Setup Única";
+      if (isComparisonMode && compSection) {
+        // Mostrar sección de comparativa
+        compSection.classList.remove("hidden");
+        if (baseSection) baseSection.classList.add("hidden");
+        if (addonsWrapper) addonsWrapper.classList.add("hidden");
+
+        // 1. Renderizar Tarjeta 1: A la Carta
+        const sList = proposal.selectedServices || proposal.addons || [];
+        const compAlacarteListEl = document.getElementById("compAlacarteItemsList");
+        if (compAlacarteListEl) {
+          compAlacarteListEl.innerHTML = sList.map(s => `
+            <div class="flex items-start justify-between gap-2 py-1.5 border-b border-slate-50 last:border-b-0">
+              <div class="flex items-start gap-2">
+                <span class="text-emerald-500 font-bold mt-0.5">•</span>
+                <span class="text-slate-800 font-medium">${s.name}</span>
+              </div>
+              <div class="text-right shrink-0">
+                <span class="font-bold text-slate-900">RD$ ${(s.price || 0).toLocaleString('es-DO')}</span>
+                <span class="text-[10px] text-slate-400 block">${s.type === 'monthly' ? '/ mes' : 'único'}</span>
+              </div>
+            </div>
+          `).join('');
         }
 
-        // Entregables base
-        const delivEl = document.getElementById("baseDeliverables");
-        delivEl.innerHTML = (bp.deliverables || []).map(d => `
-          <div class="flex items-start gap-2">
-            <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-            <span>${d}</span>
-          </div>
-        `).join('');
-      }
+        const alacarteSetup = proposal.alacarteTotals ? proposal.alacarteTotals.setup : sList.filter(s => s.type !== 'monthly').reduce((sum, s) => sum + (s.price || 0), 0);
+        const alacarteMonthly = proposal.alacarteTotals ? proposal.alacarteTotals.monthly : sList.filter(s => s.type === 'monthly').reduce((sum, s) => sum + (s.price || 0), 0);
 
-      // Render Addons
-      if (!proposal.addons || proposal.addons.length === 0) {
-        if (!isCustomOnly) {
-          addonsWrapper.classList.add("hidden");
+        document.getElementById("compAlacarteSetupPrice").textContent = `RD$ ${alacarteSetup.toLocaleString('es-DO')}`;
+        document.getElementById("compAlacarteMonthlyPrice").textContent = `RD$ ${alacarteMonthly.toLocaleString('es-DO')} / mes`;
+
+        // 2. Renderizar Tarjeta 2: Paquete Recomendado
+        const pkg = proposal.offeredPackage || proposal.basePackage || {};
+        document.getElementById("compPackageTitle").textContent = pkg.title || "Paquete Recomendado";
+        document.getElementById("compPackageDesc").textContent = pkg.description || "";
+
+        const delivEl = document.getElementById("compPackageDeliverables");
+        if (delivEl) {
+          delivEl.innerHTML = (pkg.deliverables || []).map(d => `
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              <span>${d}</span>
+            </div>
+          `).join('');
+        }
+
+        const pkgSetup = proposal.packageTotals ? proposal.packageTotals.setup : (pkg.price || 0);
+        const pkgMonthly = proposal.packageTotals ? proposal.packageTotals.monthly : (pkg.monthlyPrice || 0);
+
+        document.getElementById("compPackageSetupPrice").textContent = `RD$ ${pkgSetup.toLocaleString('es-DO')}`;
+        document.getElementById("compPackageMonthlyPrice").textContent = `RD$ ${pkgMonthly.toLocaleString('es-DO')} / mes`;
+
+        // 3. Renderizar Banner de Ahorro
+        const savingsSetup = proposal.savings ? proposal.savings.setup : Math.max(0, alacarteSetup - pkgSetup);
+        const savingsMonthly = proposal.savings ? proposal.savings.monthly : Math.max(0, alacarteMonthly - pkgMonthly);
+        const bannerEl = document.getElementById("compSavingsBanner");
+
+        if (savingsSetup > 0 || savingsMonthly > 0) {
+          bannerEl.classList.remove("hidden");
+          let txt = "¡Te ahorras ";
+          if (savingsSetup > 0) txt += `<strong>RD$ ${savingsSetup.toLocaleString('es-DO')}</strong> en Setup`;
+          if (savingsSetup > 0 && savingsMonthly > 0) txt += " y ";
+          if (savingsMonthly > 0) txt += `<strong>RD$ ${savingsMonthly.toLocaleString('es-DO')}/mes</strong> de forma recurrente`;
+          txt += " al adquirir el combo completo en lugar de los servicios individuales!";
+          document.getElementById("compSavingsText").innerHTML = txt;
+        } else {
+          bannerEl.classList.add("hidden");
+        }
+
+        // Selección por defecto: Paquete
+        selectProposalOption('package');
+
+      } else {
+        // Modo Tradicional / Solo A la Carta
+        if (compSection) compSection.classList.add("hidden");
+
+        const bp = proposal.basePackage || {};
+        const isCustomOnly = !bp.id || bp.id === 'pack-custom' || bp.id === 'pack-none';
+
+        if (isCustomOnly) {
+          if (baseSection) baseSection.classList.add("hidden");
+          document.getElementById("addonsSectionBadge").textContent = "Cotización A la Carta";
+          document.getElementById("addonsSectionTitle").textContent = "Servicios y Módulos Seleccionados";
+          document.getElementById("addonsSectionDesc").textContent = "Selección a la medida para tu negocio. Puedes activar o desactivar cualquiera para recalcular tu presupuesto.";
+        } else {
+          if (baseSection) baseSection.classList.remove("hidden");
+          document.getElementById("addonsSectionBadge").textContent = "Fase 2 • Personaliza tu Plan";
+          document.getElementById("addonsSectionTitle").textContent = "Menú de Módulos Opcionales \"A la Carte\"";
+          document.getElementById("addonsSectionDesc").textContent = "Puedes activar o desactivar cualquiera de estos servicios adicionales según las prioridades de tu negocio.";
+
+          document.getElementById("basePackageTitle").textContent = bp.title || "Plan Seleccionado";
+          document.getElementById("basePackageDesc").textContent = bp.description || "";
+          
+          if (bp.monthlyPrice) {
+            document.getElementById("basePackagePrice").innerHTML = `RD$ ${(bp.price || 0).toLocaleString('es-DO')} <span class="text-xs font-normal text-slate-500">+ RD$ ${(bp.monthlyPrice || 0).toLocaleString('es-DO')}/mes</span>`;
+            document.getElementById("basePackageType").textContent = "Inversión Setup + Retainer Mensual";
+          } else {
+            document.getElementById("basePackagePrice").textContent = `RD$ ${(bp.price || 0).toLocaleString('es-DO')}`;
+            document.getElementById("basePackageType").textContent = bp.type === "monthly" ? "/ mes (Retainer Mensual)" : "Inversión Setup Única";
+          }
+
+          const delivEl = document.getElementById("baseDeliverables");
+          delivEl.innerHTML = (bp.deliverables || []).map(d => `
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              <span>${d}</span>
+            </div>
+          `).join('');
+        }
+
+        // Render Addons
+        const activeAddons = proposal.addons || proposal.selectedServices || [];
+        if (activeAddons.length === 0) {
+          if (!isCustomOnly) {
+            addonsWrapper.classList.add("hidden");
+          } else {
+            addonsWrapper.classList.remove("hidden");
+            document.getElementById("addonsContainer").innerHTML = `
+              <div class="p-6 bg-slate-100 rounded-2xl text-center text-slate-500 text-xs">
+                No se han seleccionado servicios a la carta.
+              </div>
+            `;
+          }
         } else {
           addonsWrapper.classList.remove("hidden");
-          document.getElementById("addonsContainer").innerHTML = `
-            <div class="p-6 bg-slate-100 rounded-2xl text-center text-slate-500 text-xs">
-              No se han seleccionado servicios a la carta.
-            </div>
-          `;
-        }
-      } else {
-        addonsWrapper.classList.remove("hidden");
-        const addonsEl = document.getElementById("addonsContainer");
-        addonsEl.innerHTML = proposal.addons.map((addon, index) => {
-          const typeBadge = addon.type === "monthly" 
-            ? '<span class="px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[10px] font-bold border border-amber-200">Mensual</span>' 
-            : '<span class="px-2 py-0.5 rounded-md bg-blue-50 text-brand-700 text-[10px] font-bold border border-blue-200">Pago Único</span>';
+          const addonsEl = document.getElementById("addonsContainer");
+          addonsEl.innerHTML = activeAddons.map((addon, index) => {
+            const typeBadge = addon.type === "monthly" 
+              ? '<span class="px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[10px] font-bold border border-amber-200">Mensual</span>' 
+              : '<span class="px-2 py-0.5 rounded-md bg-blue-50 text-brand-700 text-[10px] font-bold border border-blue-200">Pago Único</span>';
 
-          return `
-            <label class="group relative bg-white rounded-2xl p-5 border ${addon.checked ? 'border-brand-500 ring-1 ring-brand-500 shadow-sm' : 'border-slate-200/80 hover:border-slate-300'} flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer transition-all">
-              <div class="flex items-start gap-3.5 flex-1">
-                <input 
-                  type="checkbox" 
-                  id="addon_${addon.id}" 
-                  ${addon.checked ? 'checked' : ''} 
-                  onchange="toggleAddon(${index})" 
-                  class="mt-1 w-5 h-5 rounded text-brand-600 focus:ring-brand-500 border-slate-300 transition-colors cursor-pointer"
-                />
-                <div class="space-y-1">
-                  <div class="flex flex-wrap items-center gap-2">
-                    <span class="text-sm font-bold text-slate-900 group-hover:text-brand-600 transition-colors">${addon.name}</span>
-                    ${typeBadge}
-                    ${addon.popular ? '<span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[10px] font-black uppercase tracking-wider">Más Elegido</span>' : ''}
+            return `
+              <label class="group relative bg-white rounded-2xl p-5 border ${addon.checked !== false ? 'border-brand-500 ring-1 ring-brand-500 shadow-sm' : 'border-slate-200/80 hover:border-slate-300'} flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer transition-all">
+                <div class="flex items-start gap-3.5 flex-1">
+                  <input 
+                    type="checkbox" 
+                    id="addon_${addon.id}" 
+                    ${addon.checked !== false ? 'checked' : ''} 
+                    onchange="toggleAddon(${index})" 
+                    class="mt-1 w-5 h-5 rounded text-brand-600 focus:ring-brand-500 border-slate-300 transition-colors cursor-pointer"
+                  />
+                  <div class="space-y-1">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <span class="text-sm font-bold text-slate-900 group-hover:text-brand-600 transition-colors">${addon.name}</span>
+                      ${typeBadge}
+                      ${addon.popular ? '<span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[10px] font-black uppercase tracking-wider">Más Elegido</span>' : ''}
+                    </div>
+                    <p class="text-xs text-slate-500 leading-relaxed">${addon.description}</p>
                   </div>
-                  <p class="text-xs text-slate-500 leading-relaxed">${addon.description}</p>
                 </div>
-              </div>
-              <div class="text-left sm:text-right shrink-0 pl-8 sm:pl-0">
-                <div class="text-lg font-black text-slate-900">RD$ ${addon.price.toLocaleString('es-DO')}</div>
-                <span class="text-[11px] text-slate-400 font-medium">${addon.type === "monthly" ? '/ mes' : 'pago único'}</span>
-              </div>
-            </label>
-          `;
-        }).join('');
+                <div class="text-left sm:text-right shrink-0 pl-8 sm:pl-0">
+                  <div class="text-lg font-black text-slate-900">RD$ ${addon.price.toLocaleString('es-DO')}</div>
+                  <span class="text-[11px] text-slate-400 font-medium">${addon.type === "monthly" ? '/ mes' : 'pago único'}</span>
+                </div>
+              </label>
+            `;
+          }).join('');
+        }
+
+        recalculateTotals();
       }
     }
 
     // ==========================================
     // 4. INTERACTIVIDAD & CÁLCULOS
     // ==========================================
+    function selectProposalOption(opt) {
+      chosenOption = opt;
+      const cardAlacarte = document.getElementById("cardOptionAlacarte");
+      const cardPackage = document.getElementById("cardOptionPackage");
+      const radioAlacarte = document.getElementById("radioAlacarte");
+      const radioPackage = document.getElementById("radioPackage");
+      const btnText = document.getElementById("acceptButtonText");
+
+      if (opt === 'package') {
+        if (radioPackage) radioPackage.checked = true;
+        if (radioAlacarte) radioAlacarte.checked = false;
+
+        if (cardPackage) {
+          cardPackage.className = "bg-white rounded-3xl p-6 sm:p-7 border-2 border-emerald-500 ring-2 ring-emerald-500/20 shadow-xl cursor-pointer transition-all flex flex-col justify-between space-y-6 relative overflow-hidden";
+        }
+        if (cardAlacarte) {
+          cardAlacarte.className = "bg-white rounded-3xl p-6 sm:p-7 border-2 border-slate-200 hover:border-slate-300 opacity-80 cursor-pointer transition-all flex flex-col justify-between space-y-6";
+        }
+        if (btnText) btnText.textContent = "Aprobar Opción 2: Paquete Recomendado";
+      } else {
+        if (radioAlacarte) radioAlacarte.checked = true;
+        if (radioPackage) radioPackage.checked = false;
+
+        if (cardAlacarte) {
+          cardAlacarte.className = "bg-white rounded-3xl p-6 sm:p-7 border-2 border-brand-500 ring-2 ring-brand-500/20 shadow-xl cursor-pointer transition-all flex flex-col justify-between space-y-6";
+        }
+        if (cardPackage) {
+          cardPackage.className = "bg-white rounded-3xl p-6 sm:p-7 border-2 border-slate-200 hover:border-slate-300 opacity-80 cursor-pointer transition-all flex flex-col justify-between space-y-6 relative overflow-hidden";
+        }
+        if (btnText) btnText.textContent = "Aprobar Opción 1: Servicios A la Carta";
+      }
+
+      recalculateTotals();
+    }
+
     function toggleAddon(index) {
-      proposal.addons[index].checked = !proposal.addons[index].checked;
+      const list = proposal.addons || proposal.selectedServices || [];
+      if (list[index]) {
+        list[index].checked = !list[index].checked;
+      }
       renderProposal();
       recalculateTotals();
     }
@@ -488,28 +805,43 @@
       let onetime = 0;
       let monthly = 0;
 
-      const bp = proposal.basePackage || {};
-      if (bp.id && bp.id !== 'pack-custom') {
-        if (bp.monthlyPrice) {
-          monthly += bp.monthlyPrice;
-          onetime += bp.price;
-        } else if (bp.type === "monthly") {
-          monthly += bp.price;
-        } else {
-          onetime += bp.price;
-        }
-      }
+      const compSection = document.getElementById("comparisonSection");
+      const isComparisonMode = compSection && !compSection.classList.contains("hidden");
 
-      // Addons
-      (proposal.addons || []).forEach(a => {
-        if (a.checked) {
-          if (a.type === "monthly") {
-            monthly += a.price;
+      if (isComparisonMode) {
+        if (chosenOption === 'package') {
+          const pkg = proposal.offeredPackage || proposal.basePackage || {};
+          onetime = proposal.packageTotals ? proposal.packageTotals.setup : (pkg.price || 0);
+          monthly = proposal.packageTotals ? proposal.packageTotals.monthly : (pkg.monthlyPrice || 0);
+        } else {
+          const sList = proposal.selectedServices || proposal.addons || [];
+          onetime = proposal.alacarteTotals ? proposal.alacarteTotals.setup : sList.filter(s => s.type !== 'monthly').reduce((sum, s) => sum + (s.price || 0), 0);
+          monthly = proposal.alacarteTotals ? proposal.alacarteTotals.monthly : sList.filter(s => s.type === 'monthly').reduce((sum, s) => sum + (s.price || 0), 0);
+        }
+      } else {
+        const bp = proposal.basePackage || {};
+        if (bp.id && bp.id !== 'pack-custom' && bp.id !== 'pack-none') {
+          if (bp.monthlyPrice) {
+            monthly += bp.monthlyPrice;
+            onetime += bp.price;
+          } else if (bp.type === "monthly") {
+            monthly += bp.price;
           } else {
-            onetime += a.price;
+            onetime += bp.price;
           }
         }
-      });
+
+        const activeAddons = proposal.addons || proposal.selectedServices || [];
+        activeAddons.forEach(a => {
+          if (a.checked !== false) {
+            if (a.type === "monthly") {
+              monthly += a.price;
+            } else {
+              onetime += a.price;
+            }
+          }
+        });
+      }
 
       // Actualizar Barra Inferior
       document.getElementById("barOnetimeTotal").textContent = `RD$ ${onetime.toLocaleString('es-DO')}`;
@@ -524,39 +856,99 @@
     // 5. ACCIONES & WHATSAPP
     // ==========================================
     function acceptProposal() {
-      let onetime = 0;
-      let monthly = 0;
-      let selectedList = [];
+      const compSection = document.getElementById("comparisonSection");
+      const isComparisonMode = compSection && !compSection.classList.contains("hidden");
 
-      const bp = proposal.basePackage || {};
-      if (bp.id && bp.id !== 'pack-custom') {
-        if (bp.monthlyPrice) {
-          monthly += bp.monthlyPrice;
-          onetime += bp.price;
-        } else if (bp.type === "monthly") {
-          monthly += bp.price;
+      let message = "";
+
+      if (isComparisonMode) {
+        if (chosenOption === 'package') {
+          const pkg = proposal.offeredPackage || proposal.basePackage || {};
+          const pkgSetup = proposal.packageTotals ? proposal.packageTotals.setup : (pkg.price || 0);
+          const pkgMonthly = proposal.packageTotals ? proposal.packageTotals.monthly : (pkg.monthlyPrice || 0);
+          const advance = pkgSetup > 0 ? pkgSetup * 0.5 : (pkgMonthly > 0 ? pkgMonthly * 0.5 : 0);
+          const delivs = (pkg.deliverables || []).map(d => `• ${d}`).join('\n');
+
+          message = 
+`✅ *APROBACIÓN DE PROPUESTA DIGITAL | ISAPromoRD*
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏢 *Empresa:* ${proposal.clientName}
+📅 *Fecha:* ${proposal.dateStr || 'Octubre 2026'}
+⭐ *Opción Aprobada:* Opción 2 • Paquete Recomendado (${pkg.title})
+
+📦 *Alcance Incluido:*
+${delivs}
+
+💰 *Resumen Económico Acordado:*
+• *Inversión Setup:* RD$ ${pkgSetup.toLocaleString('es-DO')}
+• *Mantenimiento Mensual:* RD$ ${pkgMonthly.toLocaleString('es-DO')} / mes
+• *Anticipo para Inicio (50% Setup):* RD$ ${advance.toLocaleString('es-DO')}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Deseo formalizar el inicio del proyecto bajo este paquete recomendado y coordinar el anticipo con ISAPromoRD.`;
+
         } else {
-          onetime += bp.price;
+          const sList = proposal.selectedServices || proposal.addons || [];
+          const alacarteSetup = proposal.alacarteTotals ? proposal.alacarteTotals.setup : sList.filter(s => s.type !== 'monthly').reduce((sum, s) => sum + (s.price || 0), 0);
+          const alacarteMonthly = proposal.alacarteTotals ? proposal.alacarteTotals.monthly : sList.filter(s => s.type === 'monthly').reduce((sum, s) => sum + (s.price || 0), 0);
+          const advance = alacarteSetup > 0 ? alacarteSetup * 0.5 : (alacarteMonthly > 0 ? alacarteMonthly * 0.5 : 0);
+          const servicesText = sList.map(s => `• ${s.name} (RD$ ${(s.price || 0).toLocaleString('es-DO')}${s.type === 'monthly' ? '/mes' : ''})`).join('\n');
+
+          message = 
+`✅ *APROBACIÓN DE PROPUESTA DIGITAL | ISAPromoRD*
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏢 *Empresa:* ${proposal.clientName}
+📅 *Fecha:* ${proposal.dateStr || 'Octubre 2026'}
+📋 *Opción Aprobada:* Opción 1 • Servicios A la Carta
+
+📦 *Servicios Seleccionados:*
+${servicesText}
+
+💰 *Resumen Económico Acordado:*
+• *Inversión Setup:* RD$ ${alacarteSetup.toLocaleString('es-DO')}
+• *Mantenimiento Mensual:* RD$ ${alacarteMonthly.toLocaleString('es-DO')} / mes
+• *Anticipo para Inicio (50% Setup):* RD$ ${advance.toLocaleString('es-DO')}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Deseo formalizar el inicio del proyecto con estos servicios a la carta y coordinar el anticipo con ISAPromoRD.`;
         }
-        selectedList.push(`• [Base] ${bp.title}`);
-      }
 
-      (proposal.addons || []).forEach(a => {
-        if (a.checked) {
-          if (a.type === "monthly") monthly += a.price;
-          else onetime += a.price;
-          selectedList.push(`• ${a.name} (RD$ ${a.price.toLocaleString('es-DO')}${a.type === 'monthly' ? '/mes' : ''})`);
+      } else {
+        // Modo Tradicional
+        let onetime = 0;
+        let monthly = 0;
+        let selectedList = [];
+
+        const bp = proposal.basePackage || {};
+        if (bp.id && bp.id !== 'pack-custom' && bp.id !== 'pack-none') {
+          if (bp.monthlyPrice) {
+            monthly += bp.monthlyPrice;
+            onetime += bp.price;
+          } else if (bp.type === "monthly") {
+            monthly += bp.price;
+          } else {
+            onetime += bp.price;
+          }
+          selectedList.push(`• [Base] ${bp.title}`);
         }
-      });
 
-      if (selectedList.length === 0) {
-        alert("Por favor selecciona al menos un servicio o paquete para formalizar la propuesta.");
-        return;
-      }
+        const activeAddons = proposal.addons || proposal.selectedServices || [];
+        activeAddons.forEach(a => {
+          if (a.checked !== false) {
+            if (a.type === "monthly") monthly += a.price;
+            else onetime += a.price;
+            selectedList.push(`• ${a.name} (RD$ ${a.price.toLocaleString('es-DO')}${a.type === 'monthly' ? '/mes' : ''})`);
+          }
+        });
 
-      const advancePayment = onetime > 0 ? onetime * 0.5 : (monthly > 0 ? monthly * 0.5 : 0);
+        if (selectedList.length === 0) {
+          alert("Por favor selecciona al menos un servicio o paquete para formalizar la propuesta.");
+          return;
+        }
 
-      const message = 
+        const advancePayment = onetime > 0 ? onetime * 0.5 : (monthly > 0 ? monthly * 0.5 : 0);
+
+        message = 
 `✅ *APROBACIÓN DE PROPUESTA DIGITAL | ISAPromoRD*
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🏢 *Empresa:* ${proposal.clientName}
@@ -572,6 +964,7 @@ ${selectedList.join('\n')}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Deseo formalizar el inicio del proyecto y coordinar los datos de pago/anticipo con ISAPromoRD.`;
+      }
 
       const encoded = encodeURIComponent(message);
       window.open(`https://wa.me/18294554783?text=${encoded}`, '_blank');
@@ -607,3 +1000,4 @@ Por favor comunicarse conmigo para revisar los detalles.`;
   </script>
 </body>
 </html>
+

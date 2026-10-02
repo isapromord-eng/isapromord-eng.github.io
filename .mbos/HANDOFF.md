@@ -8,6 +8,7 @@
 > - 🌐 **Root Principal:** [https://isapromord.github.io/](https://isapromord.github.io/)  
 > - 🌐 **Subpath:** [https://isapromord.github.io/isapromord.com/](https://isapromord.github.io/isapromord.com/)  
 > - 🛡️ **Dashboard Administrador:** [https://isapromord.github.io/dashboard/](https://isapromord.github.io/dashboard/) (PIN predeterminado: `3690`)  
+> - 📄 **Propuestas Digitales:** [https://isapromord.github.io/propuesta/](https://isapromord.github.io/propuesta/)  
 > **Estado del Sistema:** En línea, HTTPS activo, 100% operativo sin costo mensual. Primer cliente en producción: Pasión Pecuaria RD.
 
 ---
@@ -16,10 +17,16 @@
 - **Dominio Futuro:** `isapromord.com`
 - **Dominio Actual en Vivo:** `https://isapromord.github.io/`
 - **Dashboard de Clientes:** `/dashboard/` (protegido por PIN, con monitor de Uptime, gestión de cobros y generador de reportes WhatsApp).
-- **Cotizador & Propuestas "A la Carte":** `/propuesta/` (sistema de propuestas interactivas digitales con cálculo reactivo en tiempo real y aprobación por WhatsApp).
-- **Modos de Cotización en Dashboard (`/dashboard/`):**
-  - **Modo Paquetes:** P1 (Esencial), P2 (Crecimiento & CRM ⭐ Más Popular), P3 (Automatización IA), P4 (Ecosistema Total). Filtra dinámicamente los addons para que ningún servicio incluido en el paquete aparezca duplicado en las opciones a la carta.
-  - **Modo 100% A la Carta (`pack-custom`):** Permite enviar cotizaciones personalizadas sin paquete base (Setup base: RD$ 0, Mensual base: RD$ 0), habilitando la selección granular de cualquiera de los 10 módulos del catálogo. En `/propuesta/` oculta la sección de paquete base y formatea el mensaje de WhatsApp exclusivamente con los servicios contratados.
+- **Cotizador & Propuestas de Alto Valor:** `/propuesta/` (sistema de propuestas interactivas digitales con comparativa en vivo "A la Carta vs Paquete Combo", cálculo de ahorro demostrado, aprobación por WhatsApp y exportación a PDF formal).
+- **Arquitectura de la Propuesta Comercial en Dashboard (`/dashboard/`):**
+  - **Paso 1: Módulos Solicitados "A la Carta":** Selección sin restricciones de cualquiera de los 10 módulos de software, IA y SEO local con subtotal reactivo.
+  - **Paso 2: Paquete Recomendado a Ofrecer:** Selector de combos (sugiere por defecto `pack-crm` o permite seleccionar "Sin Paquete / Solo A la Carta").
+  - **Paso 3: Caja de Análisis Comparativo en Vivo:** Muestra simultáneamente el Total A la Carta, Inversión en Paquete y Ahorro Inmediato Demostrado ("🔥 Te ahorras RD$ X en Setup").
+  - **Modal de Salida:** Proporciona enlace web interactivo, botón directo para guardar en PDF con auto-impresión (`?print=1`) y enlace para redactar el mensaje de WhatsApp.
+- **Experiencia del Cliente en Propuestas (`/propuesta/`):**
+  - **Comparativa Lado a Lado:** Tarjeta 1 (Servicios A la Carta) vs Tarjeta 2 (Paquete Recomendado con banner de ahorro destacado).
+  - **Interactividad:** El cliente puede hacer clic en cualquiera de las dos tarjetas para seleccionarla, recalculando la barra inferior y configurando el mensaje de WhatsApp respectivo.
+  - **Exportación en PDF / Impresión:** Cabecera con botón "Descargar en PDF", soporte `@media print`, membrete corporativo oficial y caja de firmas para autorización formal de inicio.
 - **Sistema de Referidos & Telemetría:** Pestaña 3 en `/dashboard/` y detector en `index.html` (`?ref=...`). Mide clics, atribución de leads por WhatsApp a 90 días, tabla de partners y generador de badges ("Powered by ISAPromoRD") en React JSX y HTML.
 - **Catálogo Oficial de Servicios ISAPromoRD (Opción A):**
   1. 🌐 Landing Page Transaccional de Alta Conversión (<1s en React/Vite) — RD$ 20,000 / RD$ 4,500/mes
@@ -36,10 +43,8 @@
   - P4: Ecosistema Digital Completo + CRM (Setup RD$ 85,000 / RD$ 30,000 mes)
 - **Clientes en Producción:**
   - **Pasión Pecuaria RD:** `https://pasionpecuaria.vercel.app` (Repo oficial: `github.com/isapromord/pasion-pecuaria-rd` | React 18 + Vite + Tailwind CSS en Vercel Anycast | Ref slug: `pasionpecuaria`).
-- **Usuario GitHub:** `isapromord`
 - **Branch Principal:** `main`
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.
-- **Estatus SEO:** Microdatos Schema.org integrados, geolocalización DO-01, `robots.txt` con restricción de `/dashboard/` y `/propuesta/`, y `sitemap.xml` canónico sincronizado.
 
 ---
 
@@ -60,8 +65,6 @@ En tu registrador de dominio (Namecheap, GoDaddy, Cloudflare, etc.), agrega esto
 | :--- | :--- | :--- | :--- |
 | **CNAME** | `www` | `isapromord.github.io` | Automático / 3600 |
 
-*Nota: Una vez guardados los registros DNS, GitHub Pages activará automáticamente el certificado SSL (HTTPS) gratuito en unos minutos.*
-
 ---
 
 ## 3. CHECKLIST PARA GOOGLE SEARCH CONSOLE (GSC)
@@ -69,24 +72,17 @@ En tu registrador de dominio (Namecheap, GoDaddy, Cloudflare, etc.), agrega esto
 1. Ingresa a [Google Search Console](https://search.google.com/search-console/).
 2. Haz clic en **Añadir Propiedad**:
    - **Opción Recomendada (Dominio):** Ingresa `isapromord.com`. Google te entregará un registro `TXT` (ej. `google-site-verification=...`). Agrégalo en tu panel de DNS con Host `@`.
-   - **Opción Alternativa (Prefijo de URL):** Ingresa `https://isapromord.com`. Copia la etiqueta HTML `<meta name="google-site-verification" content="..." />` y reemplaza el token en `index.html`.
 3. **Enviar Sitemap:**
    - Ve a la sección **Sitemaps** en el menú izquierdo de GSC.
    - Escribe `sitemap.xml` y haz clic en **Enviar**.
-   - Google confirmará el rastreo inmediato del sitio.
 
 ---
 
 ## 4. CHECKLIST PARA GOOGLE BUSINESS PROFILE (GBP)
 
 - Ficha oficial: **ISAPromoRD**
-- Categoría Principal (Primary Category):
-  - En inglés: **`Internet marketing service`** (Exacta)
-  - En español: **`Agencia de marketing en Internet`**
-- Categorías Secundarias (Additional Categories):
-  - **`Website designer`** / *Diseñador de páginas web*
-  - **`Marketing agency`** / *Agencia de marketing*
-  - **`Marketing consultant`** / *Consultor de marketing*
+- Categoría Principal: **`Internet marketing service`** / **`Agencia de marketing en Internet`**
+- Categorías Secundarias: **`Website designer`**, **`Marketing agency`**, **`Marketing consultant`**
 - Dirección: **Santo Domingo, Distrito Nacional, República Dominicana**
-- Sitio Web: `https://isapromord.com` (o mientras tanto `https://isapromord.github.io/`)
+- Sitio Web: `https://isapromord.com` (o `https://isapromord.github.io/`)
 - WhatsApp/Teléfono: `+1 (829) 455-4783`
