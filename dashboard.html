@@ -2434,10 +2434,12 @@ ISAPromoRD — https://isapromord.com`;
 
       // 2. Tabla de Partners
       const tbody = document.getElementById("referralPartnersTableBody");
+      const baseOrigin = window.location.origin.includes('github.io') ? 'https://isapromord.github.io' : window.location.origin;
+      
       tbody.innerHTML = referralPartners.map(p => {
         const partnerClicks = referralClicks.filter(c => c.client_slug === p.client_slug).length;
         const partnerLeads = referralConversions.filter(c => c.client_slug === p.client_slug).length;
-        const refUrl = `https://isapromord.com/?ref=${p.client_slug}`;
+        const refUrl = `${baseOrigin}/?ref=${p.client_slug}`;
 
         return `
           <tr class="hover:bg-slate-50/80 transition-colors">
@@ -2466,10 +2468,15 @@ ISAPromoRD — https://isapromord.com`;
               </span>
             </td>
             <td class="py-3.5 px-3 text-slate-600 font-medium">
-              <span class="inline-flex items-center gap-1">
-                <span>🎁</span>
-                <span>${p.reward_description || '1 Mes Gratis'}</span>
-              </span>
+              <div class="flex items-center gap-1.5">
+                <span class="inline-flex items-center gap-1">
+                  <span>🎁</span>
+                  <span id="partnerRewardText_${p.client_slug}">${p.reward_description || '1 Mes Gratis'}</span>
+                </span>
+                <button onclick="editPartnerReward('${p.client_slug}')" class="p-1 hover:bg-slate-200 text-slate-400 hover:text-slate-700 rounded transition-colors" title="Editar recompensa">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                </button>
+              </div>
             </td>
             <td class="py-3.5 px-3 text-right">
               <div class="flex items-center justify-end gap-1.5">
@@ -2509,14 +2516,28 @@ ISAPromoRD — https://isapromord.com`;
       }
     }
 
+    // Edición rápida de recompensa de partner
+    function editPartnerReward(slug) {
+      const partner = referralPartners.find(p => p.client_slug === slug);
+      if (!partner) return;
+      const current = partner.reward_description || "1 Mes de Mantenimiento Web Gratis";
+      const updated = prompt(`Editar recompensa / incentivo para ${partner.client_name}:`, current);
+      if (updated !== null && updated.trim() !== "") {
+        partner.reward_description = updated.trim();
+        saveReferralPartnersToStorage(referralPartners);
+        renderReferralsView();
+      }
+    }
+
     // Modal Snippet
     function openPartnerSnippetModal(slug) {
       const partner = referralPartners.find(p => p.client_slug === slug) || { client_slug: slug, client_name: slug };
       currentSelectedSnippetPartner = partner;
       document.getElementById("snippetModalTitle").textContent = `Insignia para ${partner.client_name}`;
       
+      const baseOrigin = window.location.origin.includes('github.io') ? 'https://isapromord.github.io' : window.location.origin;
       const badgePreview = document.getElementById("snippetPreviewBadge");
-      badgePreview.href = `https://isapromord.com/?ref=${partner.client_slug}`;
+      badgePreview.href = `${baseOrigin}/?ref=${partner.client_slug}`;
 
       updateSnippetCode();
       const modal = document.getElementById("partnerSnippetModal");
@@ -2548,7 +2569,8 @@ ISAPromoRD — https://isapromord.com`;
     function updateSnippetCode() {
       if (!currentSelectedSnippetPartner) return;
       const slug = currentSelectedSnippetPartner.client_slug;
-      const url = `https://isapromord.com/?ref=${slug}`;
+      const baseOrigin = window.location.origin.includes('github.io') ? 'https://isapromord.github.io' : window.location.origin;
+      const url = `${baseOrigin}/?ref=${slug}`;
 
       if (currentSnippetFormat === 'react') {
         document.getElementById("snippetCodeArea").value = 
