@@ -6,7 +6,7 @@
 > **Repositorio Root Pages:** [https://github.com/isapromord/isapromord.github.io](https://github.com/isapromord/isapromord.github.io)  
 > **URLs EN VIVO Y FUNCIONALES ($0 Costo):**  
 > - 🌐 **Root Principal (Rediseño Stitch "Obsidian Cyber Luxe"):** [https://isapromord.github.io/](https://isapromord.github.io/)  
-> - 🛡️ **Dashboard Administrador:** [https://isapromord.github.io/dashboard/](https://isapromord.github.io/dashboard/) (PIN: `3690`)  
+> - 🛡️ **Dashboard Administrador ("Obsidian Cyber Luxe"):** [https://isapromord.github.io/dashboard/](https://isapromord.github.io/dashboard/) (PIN: `3690`)  
 > - 💼 **Suite Contable & CFO:** [https://isapromord.github.io/dashboard/](https://isapromord.github.io/dashboard/) (Tab 4: "Finanzas & Contabilidad")  
 > - 📄 **Propuesta Pasión Pecuaria (Ruta Limpia):** [https://isapromord.github.io/propuestas/pasionpecuaria/](https://isapromord.github.io/propuestas/pasionpecuaria/)  
 > - 📄 **Motor de Propuestas Dinámicas:** [https://isapromord.github.io/propuesta/](https://isapromord.github.io/propuesta/)  
@@ -15,24 +15,22 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO
-- **Nuevo Look de Stitch Implementado en Producción (`index.html`):**
-  - **Identidad Visual:** "Obsidian Cyber Luxe" (Dark Luxury Tech) inspirado en Vercel y Linear.
-  - **Paleta de Color:** Obsidian profundo (`#0a0e17`), azul cobalto (`#2563EB`), verde esmeralda (`#10B981`) y cian neón (`#00d2ff`).
-  - **Tipografía Fluid Responsiva:** *Plus Jakarta Sans* para copy de marca y títulos editoriales + *JetBrains Mono* para métricas y telemetría técnica.
-  - **Assets Locales Ultra-Comprimidos en `assets/`:**
-    - `hero_bg.webp` (Fondo cósmico del Hero).
-    - `pillar_speed.webp`, `pillar_maps.webp`, `pillar_ai.webp` (3 visuales de alta definición para los pilares).
-    - `logo_stitch.png` (Logo transparente oficial de ISAPromoRD).
-  - **Doble Motor de Diagnóstico & Conversión (`#simulador`):**
-    1. *Simulador ROI de 2 Clics:* Cálculo reactivo según sector (*Clínica*, *Firma Legal*, *Inmobiliaria*, *Comercio*) y zona dominicana (*Piantini/Naco*, *Bella Vista*, *Santiago*, *Punta Cana*).
-    2. *Escáner DNS Real en Vivo:* Motor con Cloudflare DoH (`cloudflare-dns.com/dns-query`) que audita en vivo dominios dominicanos, latencia de red en 4G/5G y diagnóstico de pérdidas de clientes.
-  - **Canal de Contacto Verificado:** 100% de enlaces de WhatsApp enlazan a la línea oficial de la agencia: **`+1 (829) 455-4783`**.
-  - **Bucle de Referidos:** Barra `#referralWelcomeBanner` integrada con estilo Obsidian y telemetría a Supabase.
+- **Unificación Visual Completa ("Obsidian Cyber Luxe" / Dark Luxury Tech):**
+  - **Landing Page (`index.html`):** Diseñada a partir de Google Stitch con paleta Obsidian (`#0a0e17`), cobalto (`#2563EB`), esmeralda (`#10B981`) y cian neón (`#00d2ff`), activos locales de alta resolución en `assets/` (`hero_bg.webp`, `pillar_speed.webp`, `pillar_maps.webp`, `pillar_ai.webp`, `logo_stitch.png`), doble motor de cálculo (Simulador ROI 2 clics + Escáner DNS en vivo con Cloudflare DoH), WhatsApp verificado (`+1 829 455-4783`) y telemetría de referidos.
+  - **Dashboard Administrador (`dashboard/index.html` y `dashboard.html`):** Actualizado con el mismo lenguaje de diseño Obsidian Cyber Luxe. Tipografía fluid *Plus Jakarta Sans* y *JetBrains Mono*, escala responsiva estándar de la industria (desktop/móvil), touch targets >= 44px, contraste WCAG AAA (>10:1), y navegación de 4 pestañas sincronizada.
 - **Configuración de Servidores MCP:**
-  - Servidor **`stitch`** (`@_davideast/stitch-mcp`) registrado y autenticado en `~/.gemini/config/mcp_config.json` con la API Key del usuario.
-- **Dashboard Administrador (`/dashboard/`):**
-  - Protegido por PIN `3690`.
-  - Directorio de clientes con primer cliente insignia: Pasión Pecuaria RD.
-  - Suite de Finanzas & Contabilidad (Tab 4): 4 KPIs CFO, Conciliación multibancaria (Popular, BHD, Efectivo), Matriz de aging y Libro Diario con exportación CSV.
+  - Servidor **`stitch`** (`@_davideast/stitch-mcp`) registrado y autenticado en `~/.gemini/config/mcp_config.json` con API Key.
+- **Suite Financiera & CFO (Tab 4 en Dashboard):**
+  - Cuadro de mandos con 4 KPIs CFO (Inflow del mes, MRR/ARR, Cuentas por Cobrar con aging y Tasa de Cobranza).
+  - Conciliación multibancaria (Popular, BHD, Efectivo).
+  - Simulador predictivo de MRR/ARR.
+  - Libro Diario de Transacciones con registro rápido y exportación a CSV.
+- **Directorio de Clientes & Facturación Recurrente (Tab 1 en Dashboard):**
+  - Cliente Insignia: Pasión Pecuaria RD (`+1 829 396-1318`, `pasionpecuariard@gmail.com`).
+  - Semáforo de cobranza (Al Día, Por Vencer, Vencido) y generación de avisos de cobro por WhatsApp con 1 clic.
+  - Registro de pago rápido con avance automático de fecha de renovación (+1 mes) y asiento contable automático.
+- **Cotizador & Propuestas (Tab 2 en Dashboard & `/propuesta/`):**
+  - Arquitectura de URLs compactas (~180 chars) para evitar el error HTTP 414.
+  - Generador de rutas de marca limpias (`/propuestas/pasionpecuaria/`) y PDF descargable con un clic.
 - **Branch Principal:** `main`
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.

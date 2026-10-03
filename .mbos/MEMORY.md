@@ -440,3 +440,30 @@
   - **Telemetría de Referidos (`?ref=...`):** Barra `#referralWelcomeBanner` adaptada a la estética Obsidian y script de tracking hacia Supabase conservado intacto.
   - **SEO & Metadatos:** Metatags geográficos de Santo Domingo, etiquetas OpenGraph y gráfico Schema.org JSON-LD (`LocalBusiness`, `ProfessionalService`, `FAQPage`) preservados íntegramente.
   - **Acceso Administrativo:** Enlace discreto a `/dashboard/` en el footer corporativo.
+
+## [2026-10-02] - Unificación Visual del Dashboard Administrador: "Obsidian Cyber Luxe" y Estándares Tipográficos
+- **Objetivo y Requerimiento:**
+  - El usuario consultó si el Dashboard requería diseñarse de cero en Stitch o si podía aplicarse el mismo tema visual ("Obsidian Cyber Luxe" / *Dark Luxury Tech*) directamente, y solicitó validar que los tamaños de fuentes y responsividad se apegaran a los estándares de la industria en desktop y móvil.
+- **Implementación Técnica de Grado Agencia (`dashboard/index.html` y espejo `dashboard.html`):**
+  - **Paleta Unificada Dark Luxury Tech:**
+    - Fondo global: Obsidian `#0a0e17`.
+    - Superficies de tarjetas y modales: `#121824` y `#161f30`.
+    - Bordes e interactivos sutiles: `#222f46`.
+    - Acentos de neón: Electric Cyan `#00d2ff` (con sombras `glow-cyan`), Emerald `#10b981` y Cobalt `#2563eb`.
+  - **Estándares Tipográficos y Responsividad Mobile/Desktop (Apple HIG & Material 3):**
+    - **Tipografías:** *Plus Jakarta Sans* para jerarquía editorial y controles + *JetBrains Mono* para métricas financieras (RD$), latencias, comprobantes y relojes.
+    - **Escala Tipográfica:**
+      - H1/Cabeceras principales: `text-2xl sm:text-3xl font-black` (24px móvil, 30px desktop).
+      - Subtítulos: `text-xs sm:text-sm text-slate-400` (12px móvil, 14px desktop).
+      - Tarjetas y Módulos: `text-base sm:text-lg font-bold` / `text-xl font-black`.
+      - Métricas & KPIs CFO: `text-2xl sm:text-3xl font-black font-mono` de alto contraste.
+      - Datos tabulares y celdas: `text-xs sm:text-sm` (12px a 14px) para máxima densidad informativa sin perder legibilidad.
+      - Microcopias y Badges: `text-[10px] sm:text-xs font-semibold uppercase tracking-wider`.
+    - **Touch Targets & Accesibilidad:**
+      - Botones y tabs con área táctil mínima de 44px (`py-2.5 px-4`).
+      - Contrastes superiores a 10:1 (superando el estándar WCAG AAA de 7:1) en textos `#f8fafc` sobre fondos `#0a0e17` y `#121824`.
+      - Tablas con contenedor `overflow-x-auto` para visualización táctil fluida en smartphones sin romper el viewport.
+  - **Interactividad y Pestañas Dinámicas (`switchDashboardTab`):**
+    - Sincronización de estados activos/inactivos en las 4 pestañas: Directorio de Clientes, Cotizador & Propuestas, Telemetría de Referidos y Suite Contable CFO.
+  - **Preservación Total de Lógica de Negocio:**
+    - Se mantuvieron al 100% las funciones JavaScript operativas (PIN 3690, alta y edición de clientes, cotizador compacto, libros contables, telemetría y exportación CSV).
