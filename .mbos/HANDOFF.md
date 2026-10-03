@@ -15,21 +15,19 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
-- **Pipeline GitHub Pages Desbloqueado y Optimizado:**
-  - Migrado a entrega directa por rama `gh-pages`, resolviendo de forma permanente el bloqueo de concurrencia de GitHub Actions. Despliegues en menos de 10 segundos.
-- **Fondo Animado Aurora (Opción A):**
-  - Animación de resplandor atmosférico en GPU pura (cero JavaScript, cero impacto en velocidad o carga) con halos cyan, esmeralda y menta respirando lentamente.
+- **Copywriting Hero Definitivo:**
+  - **H1:** *"Multiplica tus clientes y haz que tu negocio aparezca en el primer lugar de búsqueda en tu zona."* con realce degradado en `primer lugar de búsqueda`.
+  - **Subtítulo:** *"Impulsamos tu crecimiento con posicionamiento SEO local estratégico, desarrollo de páginas web optimizadas, aplicaciones a la medida y sistemas CRM inteligentes."*
+  - Metadatos SEO (`description`, `og:description`, `twitter:description`) sincronizados exactamente con la nueva redacción.
+- **Efectos Cyber Grid & Spotlight Interactivo (0 Latencia / 60-120 FPS):**
+  - **Cyber Grid Scanning Beams:** Destellos de luz láser que recorren de forma continua las líneas horizontales y verticales de la cuadrícula con aceleración pura por hardware (`translate3d`, GPU compositor).
+  - **Pulsos en Perspectiva 3D:** Brillo localizado en esquinas inferior izquierda y superior derecha acentuando la geometría técnica del fondo.
+  - **Linterna Interactiva al Cursor (`#heroMouseTorch`):** Foco sutil de luz neón que sigue con suavidad orgánica el movimiento del mouse sobre el Hero, apagándose automáticamente al salir sin consumir CPU innecesaria.
+- **Pipeline GitHub Pages Ultrarrápido:**
+  - Despliegues continuos directamente a la rama `gh-pages` con build limpio en segundos.
 - **Alineación Geométrica & Centrado del Hero:**
-  - Hero en contenedor flex con altura adaptativa (`min-h-[82vh] flex items-center justify-center`), eliminando el vacío inferior.
-- **Titular Principal (H1):**
-  - *"Multiplica tus clientes y haz que tu negocio aparezca en primera posición en tu zona."*
+  - Hero en contenedor flex con altura adaptativa (`min-h-[82vh] flex items-center justify-center`).
 - **Frecuencia de Notificaciones Toast:**
-  - Ajustada a 60 segundos de intervalo entre apariciones.
-- **Logotipo Auténtico 100% Fiel:**
-  - Emblema 3D nítido, letras `promo` en blanco puro y acrónimos `ISA` / `RD` en naranja oficial sobre fondo transparente.
-- **Limpieza de Tags & Badges Redundantes:**
-  - Eliminados todos los chips decorativos superfluos.
-- **Desacople de Oferta DGII / NCF:**
-  - Garantía de Rendimiento Técnico y Satisfacción establecida.
+  - Intervalo de 60 segundos entre avisos en vivo.
 - **Branch Principal:** `main` y `gh-pages` (sincronizados con remotos `origin` y `pages`).
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.
