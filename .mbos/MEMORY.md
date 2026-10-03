@@ -748,3 +748,28 @@
   - Telemetría en tiempo real actualizada con eventos basados exclusivamente en clientes reales (`Pasión Pecuaria RD`, `Torre La Esperilla`, `SynkRD`, `IsaTransLogic`, `MiCondoRD`).
 
 
+## [2026-10-03] - Transformación Estética: De Botones a Marcas Tipográficas Corporativas (Opción 2)
+
+### 1. Crítica de Diseño del Usuario
+- El usuario señaló acertadamente que el formato de "botones" o píldoras encerradas restaba categoría y elegancia corporativa al ticker de marcas.
+- Se seleccionó la **Opción 2**: Tratamiento de Logotipos / Marcas Tipográficas (Wordmarks) estilo Stripe / Apple.
+
+### 2. Solución de Ingeniería Visual de Alto Nivel
+- **Eliminación Total de Cajas y Bordes:** Se removieron los fondos de botón (`bg-[#121824]`), los bordes pesados (`border-[#222f46]`) y las píldoras redondeadas (`rounded-full`).
+- **Personalidad Tipográfica por Negocio:**
+  - `PASIÓN PECUARIA RD`: Mayúsculas con tracking espaciado y acento verde esmeralda.
+  - `TORRE LA ESPERILLA`: Serifa arquitectónica de alto standing (`font-serif tracking-[0.18em]`).
+  - `synk.rd`: Tipografía tecnológica SaaS minúscula con sufijo en cian eléctrico (`#00d2ff`).
+  - `TRENDYRD`: Estilo editorial boutique con peso fino y contraste negro.
+  - `granja tracker`: Tipografía monospace bio-tecnológica en ámbar.
+  - `nextCRM.rd`: Marca B2B SaaS con gradiente cian/esmeralda.
+  - `miCondoRD`: PropTech moderna con relieve en índigo.
+  - `ISATRANSLOGIC`: Titular corporativo industrial con tracking extra-ancho.
+  - `HIGHLAND BRIDGE CO.`: Firma institucional de holding/inversiones en serifa y mono.
+- **Acabado y Dinámica de Interacción:**
+  - Estado base: Opacidad suave al 55% en plata platino satinado (`opacity-55 filter text-slate-300`).
+  - Hover: 100% opacidad, resplandor en blanco puro con micro-escalado de icono y color de marca.
+  - Separación de lujo: `gap: 3.75rem` (60px) y velocidad calibrada a 42s continuos sin fricción (0% CPU, 100% GPU).
+
+
+

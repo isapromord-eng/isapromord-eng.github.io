@@ -15,8 +15,13 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
+- **Transformación de Marquee a Logotipos / Marcas Tipográficas (Opción 2 - Estilo Stripe/Apple):**
+  - Eliminado el aspecto de "botones" o píldoras encerradas.
+  - Cada una de las 9 empresas cuenta con su propia identidad tipográfica corporativa (serif de lujo para bienes raíces, grotesk tech para SaaS, monospace bio-tech, editorial para lifestyle, etc.).
+  - Acabado flotante monocromático en plata satinada al 55% de opacidad, iluminándose a 100% blanco puro con resplandor de marca al pasar el cursor.
+  - Espaciado generoso de 60px (`gap: 3.75rem`) y desplazamiento ultrasuave a 42s continuos (100% acelerado por GPU, 0% CPU).
 - **Cartera Oficial de Clientes Reales en Ticker Marquee & Testimonios:**
-  - Sustituidos todos los nombres provisionales/ficticios por los 9 clientes reales oficiales:
+  - Los 9 clientes reales oficiales:
     1. `Pasión Pecuaria RD`
     2. `Torre La Esperilla`
     3. `SynkRD`
@@ -26,14 +31,7 @@
     7. `MiCondoRD`
     8. `IsaTransLogic`
     9. `Highland Bridge Company`
-  - Marquee Ticker continuo (`#confianza`) 100% GPU-accelerated con los 9 clientes reales en bucle continuo de doble juego.
-  - Testimonios actualizados con `IsaTransLogic`, `Pasión Pecuaria Dominicana` y `Torre La Esperilla`.
-  - Notificador Toast en vivo sincronizado con los clientes del portafolio.
-- **Banner Deslizante Continuo (Scrolling Marquee Ticker) en Franja de Clientes:**
-  - Sección `#confianza` con carrusel infinito de desplazamiento continuo (`marquee-track`).
-  - 100% acelerado por hardware GPU (`translate3d`, `will-change: transform`, 0% lag en CPU).
-  - Máscara con degradado en los extremos (`linear-gradient`) para desvanecimiento suave de bordes.
-  - Pausa automática al pasar el mouse por encima (`:hover`).
+  - Testimonios y notificador Toast sincronizados con la cartera real.
 - **Botones Side-by-Side 50/50 Congruentes con el Texto (Sin Flechas):**
   - Contenedor de botones alineado exactamente al ancho del bloque de texto (`max-w-xl lg:max-w-[560px]`). Los botones no sobresalen del texto ni por la izquierda ni por la derecha.
   - Distribución `flex-1` para que ambos botones tengan exactamente el 50% del ancho cada uno.
