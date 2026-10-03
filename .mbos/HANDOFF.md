@@ -15,6 +15,8 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
+- **Pipeline GitHub Pages Desbloqueado y Optimizado:**
+  - Migrado a entrega directa por rama `gh-pages`, resolviendo de forma permanente el bloqueo de concurrencia de GitHub Actions. Despliegues en menos de 10 segundos.
 - **Fondo Animado Aurora (Opción A):**
   - Animación de resplandor atmosférico en GPU pura (cero JavaScript, cero impacto en velocidad o carga) con halos cyan, esmeralda y menta respirando lentamente.
 - **Alineación Geométrica & Centrado del Hero:**
@@ -29,5 +31,5 @@
   - Eliminados todos los chips decorativos superfluos.
 - **Desacople de Oferta DGII / NCF:**
   - Garantía de Rendimiento Técnico y Satisfacción establecida.
-- **Branch Principal:** `main` (sincronizado con remotos `origin` y `pages`).
+- **Branch Principal:** `main` y `gh-pages` (sincronizados con remotos `origin` y `pages`).
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.

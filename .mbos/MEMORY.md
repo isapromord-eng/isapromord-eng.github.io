@@ -590,3 +590,19 @@
 - **Rendimiento:** 100% código CSS (`@keyframes`, `will-change: transform, opacity;`, `translate3d`), ejecutado estrictamente en el hilo del compositor de la GPU sin recalcular diseño (reflows ni repaints).
 - **Cero Impacto en Velocidad:** 0 JavaScript, 0 llamadas a red, 0 peso añadido. Mantiene Lighthouse en 100/100 y carga en menos de 0.5s.
 - **Estética:** Tres halos de luz difusa (cyan `#00d2ff`, esmeralda `#10b981` y menta `#4edea3`) que se expanden, contraen y rotan suavemente en ciclos de 12s, 15s y 18s generando un efecto de respiración viva de ultra lujo.
+
+
+## [2026-10-02] - Solución Definitiva al Bloqueo de GitHub Pages (Despliegue Instantáneo en Rama gh-pages)
+
+### 1. Diagnóstico del Bloqueo en la Nube
+- **Causa Raíz:** El entorno dinámico de GitHub Pages (`pages-build-deployment`) se encontraba bloqueado en un bucle zombi de reintentos concurrentes (`HTTP 400: Deployment request failed due to in progress deployment` y `HTTP 409: Cannot cancel a workflow re-run that has not yet queued`). Por ello, GitHub Pages retenía y servía el despliegue antiguo en caché.
+- **Acción Correctiva:**
+  1. Se purgaron todos los objetos de despliegue residuales mediante la API REST de GitHub.
+  2. Se bifurcó la entrega hacia la rama estándar dedicada `gh-pages`, actualizando la configuración de origen en GitHub Pages (`source: gh-pages /`).
+  3. El flujo compiló y desplegó en 10 segundos con éxito total (HTTP 200 OK).
+
+### 2. Estado de Producción Verificado
+- **H1 Actualizado y Verificado:** *"Multiplica tus clientes y haz que tu negocio aparezca en primera posición en tu zona."*
+- **Hero Centrado y Balanceado:** `min-h-[82vh] flex items-center justify-center` activo.
+- **Animación Aurora Operativa:** 3 halos respirando en GPU pura con CSS nativo.
+- **Intervalo de Toasts:** 60 segundos verificado en el bundle de producción.
