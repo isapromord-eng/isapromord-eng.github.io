@@ -502,3 +502,28 @@
   - **Botón Flotante (FAB):** Se sustituyó la cápsula rectangular invasiva por un botón circular flotante de 56x56px (`w-14 h-14`), icono SVG oficial de WhatsApp, pulso verde de disponibilidad y tooltip discreto al hover (`¿Preguntas? WhatsApp directo`). Nunca bloquea texto ni interfiere con la lectura en móviles o escritorios.
   - **Botón Superior (Navbar):** Reducido a dimensiones compactas estándar (`px-3.5 py-2`, `text-xs`) con icono de WhatsApp integrado.
   - **Botón del Simulador de ROI:** Calibrado a un botón balanceado de acción clara (`px-5 py-2.5`, `text-xs sm:text-sm font-bold`).
+
+## [2026-10-02] - Evolución Estratégica: Modelo 'A la Carta', 4 Pilares de Crecimiento y Restauración Tipográfica 3D del Logo
+
+### 1. Restauración Tipográfica 3D del Logo Oficial
+- **Problema:** En el logo previo (`logo_v7.jpg`), las letras de "PROMO" eran blancas sobre lienzo blanco y desaparecieron durante la transparencia alfa, dejando un espacio vacío oscuro entre `ISA` y `RD`.
+- **Solución:** Reconstrucción geométrica 3D de la palabra `PROMO` en letras blancas (`#FFFFFF`) con bisel metálico pizarra (`slate-400`), resplandor especular sutil y sombra de profundidad. Espaciado simétrico milimétrico (`gapL=11px, gapR=12px`) y flujo diagonal armónico. Sincronizado en `assets/logo_stitch.png` y `assets/logo.png`.
+
+### 2. Transición de Planes Fijos a 'Servicios a la Carta' (B2B High-Ticket)
+- Se eliminaron las tablas de precios rígidas que desalineaban la landing con el cotizador y generaban fricción comercial.
+- Se implementó la sección **"Servicios a la Medida / A la Carta"** con 6 módulos combinables:
+  1. Landing Page Transaccional (<0.5s)
+  2. Google Maps GBP & SEO Local
+  3. Agente IA WhatsApp 24/7 (<3s de respuesta)
+  4. CRM Personalizado a Medida
+  5. GEO Schemas para ChatGPT & Gemini
+  6. Cloud Anycast & Mantenimiento Continuo
+- Se incorporó un card interactivo de solicitud de propuesta a la medida con apertura directa a WhatsApp y enlace para visualizar la propuesta formal de Pasión Pecuaria RD.
+
+### 3. Expansión a los 4 Pilares del Éxito Comercial
+- Se estructuraron los 4 pilares tecnológicos reales de la agencia:
+  - **Pilar 01:** Rendimiento de Ultra Velocidad (<0.5s, Core Web Vitals 100/100).
+  - **Pilar 02:** Dominancia en Google Maps y Búsqueda IA (ChatGPT & Gemini con GEO Schemas).
+  - **Pilar 03:** Cierre de Ventas Inmediato por WhatsApp con IA (<3s de respuesta interactiva).
+  - **Pilar 04:** CRM Personalizado a Medida para retención y control operativo en la nube (con visual 3D dedicado `assets/pillar_crm.webp`).
+- Se potenció el caso de estudio de **Pasión Pecuaria RD** como Caso Insignia con acceso directo a su propuesta.

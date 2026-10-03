@@ -15,17 +15,16 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
-- **Nueva Identidad Visual 3D & Favicon Multi-resolución:**
-  - Activos actualizados en `assets/`: `logo_icon.png` (emblema 3D transparente extraído de `logo_v4.jpg`), `logo_stitch.png` y `logo.png` (logotipo horizontal procesado de `logo_v7.jpg`), y favicons universales `favicon.png` (192x192) y `favicon.ico` (16, 32, 48, 64px).
-  - Sincronizados en `index.html`, `dashboard/index.html`, `dashboard.html`, `propuesta/index.html`, `propuesta.html` y `propuestas/pasionpecuaria/index.html`.
-- **Limpieza de Badges Sobrecargados:**
-  - Se eliminaron las etiquetas intrusivas `ESTIMACIÓN INMEDIATA & AUDITORÍA EN VIVO` y `EN VIVO: 3 cupos disponibles este mes para Santo Domingo / Santiago`.
-- **Racionalización de Botones de WhatsApp (Estándar CRO / UX de la Industria):**
-  - Botón flotante reemplazado por un **Floating Action Button (FAB) circular estándar (56x56px)** con pulso verde y tooltip ergonómico. No invade contenido ni obstruye la lectura.
-  - Botones de cotización en barra de navegación y simulador redimensionados a proporciones profesionales de software moderno (Linear / Vercel style).
-- **Dashboard Administrador (`dashboard/index.html` y `dashboard.html`):**
-  - Estética completa Obsidian Cyber Luxe, autenticación PIN 3690, suite contable CFO y gestión de clientes activa.
-- **Cotizador & Propuestas (`/propuesta/` y `/propuestas/pasionpecuaria/`):**
-  - Motor compacto de propuestas sin error HTTP 414 y exportación a PDF nativa.
+- **Logo Oficial Restaurado con Letras Blancas 3D:**
+  - Letras de `PROMO` reconstruidas en blanco puro (`#FFFFFF`) con bisel pizarra 3D y sombra profunda, integradas armoniosamente entre `ISA` y `RD` en `assets/logo_stitch.png` y `assets/logo.png`.
+- **Evolución a Modelo 'A la Carta' (Sin Tablas Rígidas):**
+  - La sección `#precios` ahora expone los 6 módulos combinables de la agencia y un card central de cotización personalizada hacia WhatsApp con opción de ver la propuesta interactiva de Pasión Pecuaria RD.
+- **Los 4 Pilares del Éxito Comercial:**
+  - Pilar 01: Velocidad Extrema (<0.5s) con 100/100 Core Web Vitals.
+  - Pilar 02: Dominancia en Google Maps y Búsqueda IA (ChatGPT & Gemini con GEO Schemas).
+  - Pilar 03: Ventas Inmediatas por WhatsApp con IA (<3s de respuesta interactiva).
+  - Pilar 04: CRM Personalizado a Medida (con render CGI 3D `assets/pillar_crm.webp`).
+- **Prueba Social Potenciada:**
+  - Testimonio de Pasión Pecuaria RD etiquetado como "Caso Insignia" con enlace directo a su propuesta.
 - **Branch Principal:** `main` (sincronizado con remotos `origin` y `pages`).
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.
