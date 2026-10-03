@@ -15,17 +15,17 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
-- **Nuevo Copywriting del Hero (Estrategia B2B de Crecimiento & Liderazgo):**
-  - **H1:** *"Multiplica tus clientes y lidera la primera posición en tu zona."*
-  - **Subtítulo:** *"Impulsamos tu negocio con posicionamiento SEO local estratégico, páginas web de alto rendimiento, aplicaciones y sistemas CRM a la medida."*
-  - Metadatos Open Graph y Twitter sincronizados.
+- **Alineación Geométrica & Centrado del Hero:**
+  - Hero transformado en contenedor flex con altura adaptativa (`min-h-[82vh] flex items-center justify-center`), balanceando el espacio superior e inferior sin el vacío desmedido previo.
+- **Titular Principal (H1):**
+  - *"Multiplica tus clientes y haz que tu negocio aparezca en primera posición en tu zona."*
+- **Frecuencia de Notificaciones Toast:**
+  - Ajustada a 60 segundos de intervalo entre apariciones.
 - **Logotipo Auténtico 100% Fiel:**
-  - Emblema 3D nítido, letras `promo` en blanco puro anti-aliased y acrónimos `ISA` / `RD` en naranja oficial sobre fondo transparente (`assets/logo_stitch.png` y `assets/logo.png`).
+  - Emblema 3D nítido, letras `promo` en blanco puro anti-aliased y acrónimos `ISA` / `RD` en naranja oficial sobre fondo transparente.
 - **Limpieza de Tags & Badges Redundantes:**
-  - Eliminados todos los chips decorativos superfluos del Hero, Pilares, Testimonios, Cotizador y Auditoría.
+  - Eliminados todos los chips decorativos superfluos.
 - **Desacople de Oferta DGII / NCF:**
-  - Garantía de Satisfacción y Rendimiento Técnico establecida; menciones fiscales públicas retiradas.
-- **Ocultación de Enlaces de Rastreo (Crawlers) en Footer:**
-  - `sitemap.xml` y `robots.txt` retirados del menú visual del footer; conservados en disco para Googlebot.
+  - Garantía de Rendimiento Técnico y Satisfacción establecida.
 - **Branch Principal:** `main` (sincronizado con remotos `origin` y `pages`).
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.

@@ -568,3 +568,16 @@
   - **H1:** *"Multiplica tus clientes y lidera la primera posición en tu zona."* (con acento en gradiente cyan-esmeralda en `primera posición`).
   - **Subtítulo:** *"Impulsamos tu negocio con posicionamiento SEO local estratégico, páginas web de alto rendimiento, aplicaciones y sistemas CRM a la medida."*
 - **Alineación Omnicanal:** Sincronizado en `og:title`, `og:description`, `twitter:title` y `twitter:description` para consistencia total en redes sociales y buscadores.
+
+
+## [2026-10-02] - Calibración Geométrica del Hero, Espaciado de Toasts y Ajuste de H1
+
+### 1. Centrado Vertical y Armonización Espacial del Hero
+- **Problema:** Tras remover el chip superior y los 3 badges de métricas, el contenido del Hero quedó desbalanceado: pegado arriba hacia el navbar y con un espacio vacío desmedido abajo.
+- **Solución:** Se transformó el Hero en un viewport flex verticalmente equilibrado (`min-h-[82vh] flex items-center justify-center`), balanceando el padding superior e inferior y eliminando el margen inferior residual de los CTAs.
+
+### 2. Ajuste Textual del H1
+- H1 afinado según directriz directa: *"Multiplica tus clientes y haz que tu negocio aparezca en primera posición en tu zona."* con acento gradiente en `primera posición`.
+
+### 3. Frecuencia de Notificaciones Toast
+- Se espaciaron las notificaciones automáticas para aparecer cada **60 segundos** (en lugar de 22s), haciéndolas más sutiles y respetuosas de la navegación del usuario.
