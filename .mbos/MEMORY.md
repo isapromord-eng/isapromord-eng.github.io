@@ -646,3 +646,18 @@
 - Implementación de `-webkit-mask-image` y `mask-image` lineal con gradiente suave hacia la izquierda.
 - Capa de gradiente `hero-video-overlay` en obsidiana `#0a0e17` asegurando que la columna izquierda ofrezca 100% legibilidad y contraste tipográfico en cualquier pantalla o resolución.
 - Tipografía y botones reconfigurados con `text-left` y `items-start`, logrando una composición de nivel global (estilo Vercel/Linear).
+
+
+## [2026-10-02] - Ampliación de Navbar & Logo y Calibración Milimétrica de Zona Segura Hero
+
+### 1. Ampliación de Franja y Logotipo Institucional
+- **Requerimiento:** Mayor presencia de marca y visibilidad para el logo `ISAPromoRD`.
+- **Ejecución:**
+  - Altura del navbar incrementada a `h-24 sm:h-28` (de 80px a 96px/112px) con fondo obsidiana reforzado al 90% de opacidad y backdrop blur.
+  - Dimensiones del logotipo aumentadas a 62px de altura efectiva (`h-14 sm:h-16 lg:h-[64px]`), ~48% mayor visibilidad con resplandor neón `drop-shadow(0 3px 14px rgba(0, 210, 255, 0.35))`.
+  - Padding superior del Hero compensado a `pt-36 lg:pt-44` para un respiro visual equilibrado.
+
+### 2. Calibración Geométrica del Hero dentro del Cuadro Seguro
+- **Titular Principal (H1):** *"Multiplica tus clientes y haz que tu negocio aparezca en el primer lugar de búsqueda."* (acento degradado en `primer lugar de búsqueda`).
+- **Ajuste Espacial de Tipografía:** Para evitar cualquier solapamiento con el monitor del desarrollador en el video lateral, se delimitó el ancho máximo a `max-w-[480px] xl:max-w-[520px]` con escala tipográfica `text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px]` y leading `1.16`.
+- **Disposición Vertical de CTAs:** Botones de WhatsApp y Simulador organizados en stack vertical de 460px máx, manteniéndose 100% dentro del margen libre a la izquierda de la taza y el monitor.
