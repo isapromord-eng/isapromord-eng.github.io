@@ -722,3 +722,29 @@
   - Track duplicado con 2 juegos completos idénticos de los 8 negocios dominicanos (Red Médica Piantini, Vet Metropolitana RD, Torres Apex Esperilla, Bufete Jurídico Capital, Pasión Pecuaria RD, Clínica Dental Naco, Constructora Santiago RD, Auto Import Piantini).
   - Píldoras con estética obsidiana glass (`#121824`, borde `#222f46`, hover cian/esmeralda).
 
+
+## [2026-10-03] - Actualización Oficial de Cartera Real de Clientes en Ticker y Testimonios
+
+### 1. Requerimiento del Usuario
+- Sustituir negocios de prueba por los 9 clientes reales oficiales del portafolio:
+  1. `Pasión Pecuaria RD`
+  2. `Torre La Esperilla`
+  3. `SynkRD`
+  4. `TrendyRD`
+  5. `Granja Tracker`
+  6. `NextCRMRD`
+  7. `MiCondoRD`
+  8. `IsaTransLogic`
+  9. `Highland Bridge Company`
+
+### 2. Implementación & Consistencia Global
+- **Marquee Ticker (`#confianza`):**
+  - Se actualizaron ambos bucles (Set 1 y Set 2) con los 9 clientes oficiales, acompañados de iconos temáticos distintivos y manteniendo el acento esmeralda para Pasión Pecuaria RD.
+- **Sección Testimonios & Casos de Éxito (`#testimonios`):**
+  - Testimonio 1 alineado con `Ing. Carlos Morales — IsaTransLogic` (logística y captación de clientes corporativos).
+  - Testimonio 2 mantenido con `Lic. Arnaldo Castillo — Pasión Pecuaria Dominicana`.
+  - Testimonio 3 corregido a `Ing. Roberto Jiménez — Torre La Esperilla`.
+- **Live Activity Toast Dispatcher:**
+  - Telemetría en tiempo real actualizada con eventos basados exclusivamente en clientes reales (`Pasión Pecuaria RD`, `Torre La Esperilla`, `SynkRD`, `IsaTransLogic`, `MiCondoRD`).
+
+
