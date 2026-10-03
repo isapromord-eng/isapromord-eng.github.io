@@ -15,16 +15,13 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
-- **Logo Oficial Restaurado con Letras Blancas 3D:**
-  - Letras de `PROMO` reconstruidas en blanco puro (`#FFFFFF`) con bisel pizarra 3D y sombra profunda, integradas armoniosamente entre `ISA` y `RD` en `assets/logo_stitch.png` y `assets/logo.png`.
-- **Evolución a Modelo 'A la Carta' (Sin Tablas Rígidas):**
-  - La sección `#precios` ahora expone los 6 módulos combinables de la agencia y un card central de cotización personalizada hacia WhatsApp con opción de ver la propuesta interactiva de Pasión Pecuaria RD.
-- **Los 4 Pilares del Éxito Comercial:**
-  - Pilar 01: Velocidad Extrema (<0.5s) con 100/100 Core Web Vitals.
-  - Pilar 02: Dominancia en Google Maps y Búsqueda IA (ChatGPT & Gemini con GEO Schemas).
-  - Pilar 03: Ventas Inmediatas por WhatsApp con IA (<3s de respuesta interactiva).
-  - Pilar 04: CRM Personalizado a Medida (con render CGI 3D `assets/pillar_crm.webp`).
-- **Prueba Social Potenciada:**
-  - Testimonio de Pasión Pecuaria RD etiquetado como "Caso Insignia" con enlace directo a su propuesta.
+- **Logotipo Auténtico 100% Fiel:**
+  - Emblema 3D nítido, letras `promo` en blanco puro anti-aliased y acrónimos `ISA` / `RD` en naranja oficial sobre fondo transparente (`assets/logo_stitch.png` y `assets/logo.png`).
+- **Limpieza de Tags & Badges Redundantes:**
+  - Se eliminaron todos los chips decorativos superfluos (chip de país en Hero, métricas 0.4s/Maps/NCF, tag de comparativa, tags de los 4 pilares, tag de testimonios, tag caso insignia, tag modular y tags de cotización y video-auditoría).
+- **Desacople de Oferta DGII / NCF:**
+  - Se removieron todas las menciones a Comprobante Fiscal NCF / DGII del sitio público, transformando la garantía en una de rendimiento tecnológico y satisfacción.
+- **Ocultación de Enlaces de Rastreo (Crawlers) en Footer:**
+  - Enlaces públicos `<a href="sitemap.xml">` y `<a href="robots.txt">` removidos del footer; archivos físicos preservados intactos en el servidor para motores de búsqueda.
 - **Branch Principal:** `main` (sincronizado con remotos `origin` y `pages`).
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.

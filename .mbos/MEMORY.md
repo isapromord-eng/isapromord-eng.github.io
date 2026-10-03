@@ -527,3 +527,34 @@
   - **Pilar 03:** Cierre de Ventas Inmediato por WhatsApp con IA (<3s de respuesta interactiva).
   - **Pilar 04:** CRM Personalizado a Medida para retención y control operativo en la nube (con visual 3D dedicado `assets/pillar_crm.webp`).
 - Se potenció el caso de estudio de **Pasión Pecuaria RD** como Caso Insignia con acceso directo a su propuesta.
+
+
+## [2026-10-02] - Depuración de UI: Remoción de Tags/Badges Recargados, Desacople de Promesas DGII y Ocultación de Enlaces Crawler en Footer
+
+### 1. Reconstrucción y Fidelidad Absoluta del Logotipo de Marca
+- Reconstrucción exacta del logo a partir del activo oficial transparente:
+  - Letras de `promo` en blanco puro anti-aliased (`#FFFFFF`).
+  - Emblema tridimensional de pantalla flotante con bisel metálico pulido.
+  - Tipografías en naranja oficial de marca para `ISA` (superior) y `RD` (inferior).
+  - Crop simétrico de alta densidad (987x265 px) exportado a `assets/logo_stitch.png` y `assets/logo.png`.
+
+### 2. Remoción de Tags, Pills y Eyebrows Sobrecargados
+- Por solicitud explícita del cliente para elevar la sobriedad y elegancia corporativa del sitio, se eliminaron los chips y tags redundantes:
+  - Chip superior en Hero: `🇩🇴 INGENIERÍA DIGITAL DE ÉLITE EN REPÚBLICA DOMINICANA`.
+  - Las 3 tarjetas de métricas en Hero (`0.4s`, `Top 3 Google Maps`, `NCF DGII`).
+  - Eyebrow tag de comparativa: `CONTRASTE TECNOLÓGICO Y PÉRDIDA DE INGRESOS`.
+  - Eyebrows de los 4 pilares: `LOS 4 PILARES DEL ÉXITO COMERCIAL`, `Pilar 01`, `Pilar 02`, `Pilar 03`, `Pilar 04`.
+  - Tag de testimonios: `⭐ PRUEBA SOCIAL COMPROBADA`.
+  - Pill de tarjeta de testimonio: `CASO INSIGNIA`.
+  - Eyebrow de servicios a la carta: `🧩 MODULAR // A LA CARTA`.
+  - Pill animado en tarjeta de cotización: `Respuesta en menos de 15 minutos`.
+  - Eyebrow en banner de auditoría: `🎥 AUDITORÍA DIGITAL SIN COSTO`.
+
+### 3. Desacople de Ofertas y Promesas Fiscales DGII / NCF
+- Se eliminaron todas las ofertas públicas de Comprobante Fiscal NCF / DGII a lo largo del sitio (Hero, sección de cotización, tarjeta de garantía y footer).
+- La garantía fue redirigida a una **Garantía de Satisfacción y Rendimiento Técnico** (<0.5s y posicionamiento medible en 60 días).
+- En el footer se sustituyó `Facturación DGII NCF` por `Servicios a la Carta`.
+
+### 4. Ocultación de Enlaces de Rastreo (Crawlers) en Footer Público
+- Se eliminaron los hipervínculos visuales `<a href="sitemap.xml">` y `<a href="robots.txt">` del footer público para no exponer enlaces técnicos al visitante.
+- Los archivos físicos `sitemap.xml` y `robots.txt` permanecen activos e intactos en la raíz del servidor para consumo directo de Googlebot, Bingbot y demás motores de búsqueda.
