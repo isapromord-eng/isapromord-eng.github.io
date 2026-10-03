@@ -15,12 +15,14 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
-- **Botones Gemelos Verticales (Mismo Tamaño & Alto Contraste):**
-  - Botones dispuestos uno encima del otro en un contenedor delimitado (`w-full max-w-[360px] sm:max-w-[390px]`), compartiendo exactamente las mismas dimensiones (`px-6 py-4 rounded-xl`, misma altura y misma tipografía `font-bold text-sm sm:text-base`).
-  - Botón Primario: `Video-Auditoría Gratis →` con icono de WhatsApp sobre degradado esmeralda.
-  - Botón Secundario: `Calcular mis Clientes Potenciales ↓` en **Electric Cyan Glass** (`bg-[#00d2ff]/10`, `text-[#00d2ff]`, `border-[#00d2ff]/45` y brillo cian neón), resolviendo la falta de visibilidad sobre el fondo oscuro.
-- **Puntuación H1:**
-  - Punto final eliminado tras `búsqueda`.
+- **Botones Side-by-Side 50/50 Congruentes con el Texto (Sin Flechas):**
+  - Contenedor de botones alineado exactamente al ancho del bloque de texto (`max-w-xl lg:max-w-[560px]`). Los botones no sobresalen del texto ni por la izquierda ni por la derecha.
+  - Distribución `flex-1` para que ambos botones tengan exactamente el 50% del ancho cada uno.
+  - Flechas eliminadas:
+    - Botón 1: `Video-Auditoría Gratis` (verde esmeralda con icono de WhatsApp).
+    - Botón 2: `Calcular Clientes Potenciales` (Electric Cyan Glass de alto contraste).
+- **H1 Sin Punto Final:**
+  - *"Multiplica tus clientes y haz que tu negocio aparezca en el primer lugar de búsqueda"*
 - **Interlineado y Respiración Tipográfica:**
   - H1 con `leading-[1.28]` y separación `mb-7` respecto al subtítulo.
 - **Navbar y Logotipo con Máxima Visibilidad:**

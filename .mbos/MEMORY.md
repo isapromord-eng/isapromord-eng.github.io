@@ -691,3 +691,16 @@
 
 ### 2. Puntuación en H1
 - Se eliminó el punto final residual tras la palabra `búsqueda` en el H1.
+
+
+## [2026-10-03] - Botones Horizontales 50/50 Congruentes con el Bloque de Texto (Sin Flechas)
+
+### 1. Alineación Geométrica y Remoción de Flechas
+- **Requerimiento:** Retornar a la disposición horizontal (side-by-side) pero garantizando que los botones no sobresalgan del ancho del bloque de texto superior, eliminar las flechas (`→` y `↓`), y mantener congruencia visual total.
+- **Solución Técnica:**
+  - Se fijó el ancho del bloque de texto y de la fila de botones al mismo valor exacto: `max-w-xl lg:max-w-[560px]`.
+  - Ambos botones operan con `flex-1` (50/50 del contenedor), alineándose al ras tanto por la izquierda como por la derecha del texto.
+  - Se eliminaron las flechas decorativas:
+    - Botón 1: `Video-Auditoría Gratis` (verde esmeralda con icono oficial de WhatsApp).
+    - Botón 2: `Calcular Clientes Potenciales` (Electric Cyan Glass de alto contraste).
+  - Mismo relleno (`py-3.5 px-4 sm:px-5 rounded-xl`), misma altura y escala tipográfica `font-bold text-xs sm:text-sm lg:text-[15px] whitespace-nowrap`.
