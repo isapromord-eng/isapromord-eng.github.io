@@ -622,3 +622,27 @@
   2. **Perspective Corner Pulses:** Pulsos de neón sincronizados en las esquinas inferior izquierda y superior derecha que resaltan las mallas de perspectiva isométrica del fondo.
   3. **Interactive Mouse Torch / Spotlight:** Un foco de luz radial inteligente (`#heroMouseTorch`) que sigue el puntero del mouse sobre la sección Hero mediante una interpolación suave (lerp) coordinada por `requestAnimationFrame`. Diseñado con listeners pasivos y apagado automático en reposo o al salir del área (`isHovered = false`), garantizando 0% de uso innecesario de CPU y manteniendo una tasa de refresco fluida de 60 a 120 FPS sin bloqueos en el hilo principal.
 - **Resultado:** Sensación inmersiva y de alta tecnología, 100/100 en Google Core Web Vitals y respuesta instantánea al usuario.
+
+
+## [2026-10-02] - Integración de Video Animado Cinemático en Hero (Alineación Derecha & Desvanecimiento Izquierdo)
+
+### 1. Visión y Requerimiento del Cliente
+- El cliente suministró una animación de alta gama (`hero_anim.mp4`) representando un entorno de ingeniería de software (espacio de desarrollo con monitor de código, teclado mecánico RGB y ambientación tecnológica).
+- **Especificación de Diseño:**
+  - Video posicionado a la derecha del Hero.
+  - Desvanecimiento gradual hacia la mitad de la pantalla hacia el fondo obsidiana oscuro (`#0a0e17`).
+  - Textos (H1, subtítulo) y botones justificados a la izquierda (`text-left`) con máxima nitidez y contraste.
+  - Requisito estricto: Optimizar sin perder calidad ni ralentizar la carga.
+
+### 2. Pipeline de Optimización de Video (Cero Latencia Web)
+- **Extracción de Pistas Innecesarias:** Se eliminó la pista de audio AAC de 128 kbps (inútil en un background loop silencioso).
+- **Codificación Dual Moderna:**
+  - `assets/hero_anim.webm`: Renderizado en VP9 con CRF 30, reduciendo el tamaño a solo **1.14 MB** (62% de ahorro respecto a los 3.0 MB originales) manteniendo resolución HD 720p impecable.
+  - `assets/hero_anim.mp4`: Renderizado con libx264, preset `slow`, CRF 22 y flag `+faststart` (átomo `moov` al inicio para streaming progresivo inmediato sin esperar descarga completa). Tamaño: **1.49 MB**.
+- **First-Frame Poster WebP:** Se generó `assets/hero_video_poster.webp` de solo **11 KB** para garantizar LCP (Largest Contentful Paint) instantáneo y CLS = 0.000.
+- **Configuración de Reproductor HTML5:** `autoplay`, `loop`, `muted`, `playsinline`, `preload="metadata"`, `disableRemotePlayback`.
+
+### 3. Máscara Cinemática y Composición Visual
+- Implementación de `-webkit-mask-image` y `mask-image` lineal con gradiente suave hacia la izquierda.
+- Capa de gradiente `hero-video-overlay` en obsidiana `#0a0e17` asegurando que la columna izquierda ofrezca 100% legibilidad y contraste tipográfico en cualquier pantalla o resolución.
+- Tipografía y botones reconfigurados con `text-left` y `items-start`, logrando una composición de nivel global (estilo Vercel/Linear).

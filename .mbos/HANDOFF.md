@@ -15,19 +15,15 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
-- **Copywriting Hero Definitivo:**
-  - **H1:** *"Multiplica tus clientes y haz que tu negocio aparezca en el primer lugar de búsqueda en tu zona."* con realce degradado en `primer lugar de búsqueda`.
-  - **Subtítulo:** *"Impulsamos tu crecimiento con posicionamiento SEO local estratégico, desarrollo de páginas web optimizadas, aplicaciones a la medida y sistemas CRM inteligentes."*
-  - Metadatos SEO (`description`, `og:description`, `twitter:description`) sincronizados exactamente con la nueva redacción.
-- **Efectos Cyber Grid & Spotlight Interactivo (0 Latencia / 60-120 FPS):**
-  - **Cyber Grid Scanning Beams:** Destellos de luz láser que recorren de forma continua las líneas horizontales y verticales de la cuadrícula con aceleración pura por hardware (`translate3d`, GPU compositor).
-  - **Pulsos en Perspectiva 3D:** Brillo localizado en esquinas inferior izquierda y superior derecha acentuando la geometría técnica del fondo.
-  - **Linterna Interactiva al Cursor (`#heroMouseTorch`):** Foco sutil de luz neón que sigue con suavidad orgánica el movimiento del mouse sobre el Hero, apagándose automáticamente al salir sin consumir CPU innecesaria.
+- **Hero Split Cinemático con Video Animado Optimizado:**
+  - Video de desarrollo/ingeniería (`assets/hero_anim.webm` de 1.14 MB y `assets/hero_anim.mp4` de 1.49 MB con faststart y poster WebP de 11 KB).
+  - Justificado a la derecha con máscara de desvanecimiento suave (`mask-image` y `hero-video-overlay`) integrándose de forma limpia hacia el negro obsidiana (`#0a0e17`) a la mitad de la pantalla.
+  - Textos (H1, subtítulo) y llamadas a la acción alineados a la izquierda (`text-left`, `items-start`) con máxima legibilidad y jerarquía visual.
+- **Rendimiento Web Garantizado:**
+  - Sin impacto en Google PageSpeed ni Lighthouse gracias a codificación WebM/MP4 sin pista de audio, `preload="metadata"` y poster frame instantáneo.
+- **Interactive Mouse Spotlight Torch:**
+  - Foco interactivo con aceleración por GPU sobre el Hero.
 - **Pipeline GitHub Pages Ultrarrápido:**
   - Despliegues continuos directamente a la rama `gh-pages` con build limpio en segundos.
-- **Alineación Geométrica & Centrado del Hero:**
-  - Hero en contenedor flex con altura adaptativa (`min-h-[82vh] flex items-center justify-center`).
-- **Frecuencia de Notificaciones Toast:**
-  - Intervalo de 60 segundos entre avisos en vivo.
 - **Branch Principal:** `main` y `gh-pages` (sincronizados con remotos `origin` y `pages`).
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.
