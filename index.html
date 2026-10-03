@@ -283,8 +283,8 @@
       display: flex;
       align-items: center;
       width: max-content;
-      gap: 2.25rem;
-      animation: marqueeScroll 34s linear infinite;
+      gap: 2rem;
+      animation: marqueeScroll 32s linear infinite;
       will-change: transform;
     }
     .marquee-track:hover {
@@ -543,109 +543,128 @@
   </section>
 
   <!-- ========================================================
-       CLIENT TRUST STRIP (SCROLLING MARQUEE BANNER)
+       CLIENT TRUST STRIP (OPTION 3: FINANCIAL / TECH INFRASTRUCTURE TAPE)
        ======================================================== -->
-  <section class="py-9 border-y border-[#222f46]/40 bg-[#0a0e17] relative z-10 overflow-hidden" data-purpose="client-trust-strip" id="confianza">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-5">
-      <p class="text-center text-xs font-mono tracking-widest text-slate-400 uppercase">
-        Empresas dominicanas que dominan su mercado local con nosotros
+  <section class="py-5 border-y border-[#222f46]/50 bg-[#070b12] relative z-10 overflow-hidden font-mono" data-purpose="client-trust-strip" id="confianza">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-3 flex items-center justify-center gap-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+      <p class="text-center text-[11px] font-mono tracking-[0.25em] text-slate-400 uppercase">
+        RED DE INFRAESTRUCTURA DIGITAL // CLIENTES EN PRODUCCIÓN
       </p>
     </div>
 
-    <!-- Infinite Smooth Scrolling Wordmark Track (Option 1: Minimalist Monochromatic Luxury - GPU Accelerated) -->
-    <div class="marquee-mask py-3">
+    <!-- Infinite Smooth Scrolling Ticker Tape (GPU Accelerated) -->
+    <div class="marquee-mask py-1">
       <div class="marquee-track">
         <!-- Set 1 -->
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          Pasión Pecuaria RD
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#10b981] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-emerald-300 transition-colors uppercase whitespace-nowrap">PASIÓN PECUARIA RD</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          Torre La Esperilla
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">TORRE LA ESPERILLA</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          SynkRD
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">SYNKRD</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          TrendyRD
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">TRENDYRD</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          Granja Tracker
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">GRANJA TRACKER</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          NextCRMRD
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">NEXTCRMRD</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          MiCondoRD
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">MICONDORD</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          IsaTransLogic
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">ISATRANSLOGIC</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          Highland Bridge Company
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">HIGHLAND BRIDGE COMPANY</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
         <!-- Set 2 (Identical Duplicate for Seamless Infinite 360 Loop) -->
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          Pasión Pecuaria RD
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#10b981] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-emerald-300 transition-colors uppercase whitespace-nowrap">PASIÓN PECUARIA RD</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          Torre La Esperilla
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">TORRE LA ESPERILLA</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          SynkRD
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">SYNKRD</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          TrendyRD
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">TRENDYRD</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          Granja Tracker
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">GRANJA TRACKER</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          NextCRMRD
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">NEXTCRMRD</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          MiCondoRD
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">MICONDORD</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          IsaTransLogic
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">ISATRANSLOGIC</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
 
-        <span class="text-sm sm:text-[15px] font-medium tracking-wide text-slate-300/80 hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)] cursor-default select-none whitespace-nowrap shrink-0">
-          Highland Bridge Company
-        </span>
-        <span class="text-[#00d2ff]/40 text-xs select-none pointer-events-none shrink-0">✦</span>
+        <div class="inline-flex items-center gap-2.5 cursor-default select-none shrink-0 group">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00d2ff] shadow-[0_0_8px_#00d2ff] group-hover:scale-125 transition-transform"></span>
+          <span class="text-xs sm:text-[13px] font-mono font-bold tracking-[0.18em] text-slate-300 group-hover:text-[#00d2ff] transition-colors uppercase whitespace-nowrap">HIGHLAND BRIDGE COMPANY</span>
+        </div>
+        <span class="text-[#00d2ff]/30 font-mono text-xs select-none pointer-events-none shrink-0">//</span>
       </div>
     </div>
   </section>

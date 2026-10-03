@@ -15,11 +15,11 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
-- **Despliegue de Ticker Minimalista Monocromático de Lujo (Opción 1 - Estilo Linear / Vercel):**
-  - Cero cajas, cero fondos y cero aspecto de botón. Tipografía limpia y pulida en Title Case platino (`text-slate-300/80 hover:text-white`).
-  - Separadores finos en forma de rombo cian traslúcido (`✦`) con ritmo visual simétrico y elegante.
-  - Hover con resplandor blanco puro ambiental (`hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)]`).
-  - Desplazamiento continuo a 34s, pausado al posar el cursor, 100% acelerado por hardware GPU (0% CPU).
+- **Despliegue de Ticker Tape Continuo tipo Terminal Financiera (Opción 3):**
+  - Cinta compacta y técnica (`py-5`, fondo oscuro profundo `#070b12` con bordes finos `#222f46`).
+  - Encabezado con micro-LED pulsante y texto `RED DE INFRAESTRUCTURA DIGITAL // CLIENTES EN PRODUCCIÓN`.
+  - Cada cliente identificado como nodo activo con LED luminoso, tipografía monospace técnica en mayúsculas (`tracking-[0.18em]`) y separadores de terminal `//`.
+  - Desplazamiento fluido a 32s (100% acelerado por GPU, 0% CPU overhead, pausa al cursor).
 - **Cartera Oficial de Clientes Reales en Ticker Marquee & Testimonios:**
   - Los 9 clientes reales oficiales:
     1. `Pasión Pecuaria RD`
