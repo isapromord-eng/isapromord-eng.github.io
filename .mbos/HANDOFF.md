@@ -15,11 +15,11 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
-- **Transformación de Marquee a Logotipos / Marcas Tipográficas (Opción 2 - Estilo Stripe/Apple):**
-  - Eliminado el aspecto de "botones" o píldoras encerradas.
-  - Cada una de las 9 empresas cuenta con su propia identidad tipográfica corporativa (serif de lujo para bienes raíces, grotesk tech para SaaS, monospace bio-tech, editorial para lifestyle, etc.).
-  - Acabado flotante monocromático en plata satinada al 55% de opacidad, iluminándose a 100% blanco puro con resplandor de marca al pasar el cursor.
-  - Espaciado generoso de 60px (`gap: 3.75rem`) y desplazamiento ultrasuave a 42s continuos (100% acelerado por GPU, 0% CPU).
+- **Despliegue de Ticker Minimalista Monocromático de Lujo (Opción 1 - Estilo Linear / Vercel):**
+  - Cero cajas, cero fondos y cero aspecto de botón. Tipografía limpia y pulida en Title Case platino (`text-slate-300/80 hover:text-white`).
+  - Separadores finos en forma de rombo cian traslúcido (`✦`) con ritmo visual simétrico y elegante.
+  - Hover con resplandor blanco puro ambiental (`hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)]`).
+  - Desplazamiento continuo a 34s, pausado al posar el cursor, 100% acelerado por hardware GPU (0% CPU).
 - **Cartera Oficial de Clientes Reales en Ticker Marquee & Testimonios:**
   - Los 9 clientes reales oficiales:
     1. `Pasión Pecuaria RD`

@@ -772,4 +772,22 @@
   - Separación de lujo: `gap: 3.75rem` (60px) y velocidad calibrada a 42s continuos sin fricción (0% CPU, 100% GPU).
 
 
+## [2026-10-03] - Despliegue de Opción 1: Minimalismo Monocromático de Lujo (Estilo Linear / Vercel)
+
+### 1. Requerimiento del Usuario
+- Tras explorar la Opción 2, el cliente solicitó probar la **Opción 1** (diseño minimalista flotante con separadores finos de lujo).
+
+### 2. Implementación de Alta Gama
+- **Tipografía Limpia & Flotante:**
+  - Nombres oficiales de los 9 clientes en Title Case con espaciado elegante: `font-medium tracking-wide text-slate-300/80 hover:text-white`.
+  - Sin emojis, sin recuadros ni pastillas de botón.
+  - Efecto hover: Resplandor blanco puro con aura ambiental sutil (`hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)]`).
+- **Separadores de Élite (Cyan Diamond):**
+  - Rombo fino en cian translúcido (`✦` con `text-[#00d2ff]/40 text-xs`) entre cada empresa, logrando un ritmo simétrico y sofisticado tipo terminal financiera de Wall Street / tech suite.
+- **Calibración Marquee:**
+  - `gap: 2.25rem` (36px) perfectamente equidistante entre texto y separador.
+  - Velocidad a 34s lineales continuos (100% acelerado por GPU, 0% CPU overhead, pausa al posar el cursor).
+
+
+
 
