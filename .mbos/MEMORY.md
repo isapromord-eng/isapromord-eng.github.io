@@ -478,3 +478,27 @@
 - **Verificación en Producción:**
   - Verificado vía `curl` con HTTP 200 y `Last-Modified: Sat, 03 Oct 2026 01:18:09 GMT`.
   - El Dashboard en `https://isapromord.github.io/dashboard/` y `https://isapromord.github.io/dashboard.html` está 100% activo en vivo con la estética completa **Obsidian Cyber Luxe** (fondo `#0a0e17`, tarjetas `#121824`, acentos `#00d2ff`, tipografías *Plus Jakarta Sans* y *JetBrains Mono*).
+
+## [2026-10-02] - Actualización de Identidad Visual (Logo & Favicon 3D) y Racionalización CRO de Botones WhatsApp
+
+### 1. Reemplazo de Identidad Visual y Favicon Multi-resolución
+- **Nuevos Activos Procesados:**
+  - `assets/logo_v4.jpg`: Extraído con mateo alfa de alta resolución para generar `assets/logo_icon.png` (emblema 3D con monitor, satélites de clientes y megáfono dorado).
+  - `assets/logo_v7.jpg`: Procesado a `assets/logo_stitch.png` y `assets/logo.png` con canal alfa limpio y defringing perimetral.
+  - Generación de `assets/favicon.png` (192x192) y `assets/favicon.ico` con capas embebidas de 16, 32, 48 y 64px para compatibilidad universal de navegadores y dispositivos móviles.
+- **Sincronización en Todo el Ecosistema:**
+  - Actualizado en `index.html`, `dashboard/index.html`, `dashboard.html`, `propuesta/index.html`, `propuesta.html` y `propuestas/pasionpecuaria/index.html`.
+
+### 2. Depuración de Etiquetas y Desaturación Visual
+- Se eliminaron las etiquetas intrusivas solicitadas por el usuario:
+  - `ESTIMACIÓN INMEDIATA & AUDITORÍA EN VIVO` (encima del Simulador de ROI).
+  - `EN VIVO: 3 cupos disponibles este mes para Santo Domingo / Santiago` (en la barra superior de navegación).
+- Resultado: Look & Feel mucho más premium, limpio y de agencia de software de alto nivel.
+
+### 3. Racionalización de Botones de WhatsApp según Estándares de la Industria (CRO / UX)
+- **Diagnóstico de Saturación ("CTA Fatigue" & "Banner Blindness"):**
+  - Botones sobredimensionados tipo banner fijo bloqueaban contenidos clave y generaban percepción de "telemercadeo agresivo" en lugar de un socio tecnológico de élite.
+- **Implementación del Estándar de la Industria:**
+  - **Botón Flotante (FAB):** Se sustituyó la cápsula rectangular invasiva por un botón circular flotante de 56x56px (`w-14 h-14`), icono SVG oficial de WhatsApp, pulso verde de disponibilidad y tooltip discreto al hover (`¿Preguntas? WhatsApp directo`). Nunca bloquea texto ni interfiere con la lectura en móviles o escritorios.
+  - **Botón Superior (Navbar):** Reducido a dimensiones compactas estándar (`px-3.5 py-2`, `text-xs`) con icono de WhatsApp integrado.
+  - **Botón del Simulador de ROI:** Calibrado a un botón balanceado de acción clara (`px-5 py-2.5`, `text-xs sm:text-sm font-bold`).

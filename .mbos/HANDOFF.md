@@ -14,23 +14,18 @@
 
 ---
 
-## 1. RESUMEN EJECUTIVO
-- **Unificación Visual Completa ("Obsidian Cyber Luxe" / Dark Luxury Tech):**
-  - **Landing Page (`index.html`):** Diseñada a partir de Google Stitch con paleta Obsidian (`#0a0e17`), cobalto (`#2563EB`), esmeralda (`#10B981`) y cian neón (`#00d2ff`), activos locales de alta resolución en `assets/` (`hero_bg.webp`, `pillar_speed.webp`, `pillar_maps.webp`, `pillar_ai.webp`, `logo_stitch.png`), doble motor de cálculo (Simulador ROI 2 clics + Escáner DNS en vivo con Cloudflare DoH), WhatsApp verificado (`+1 829 455-4783`) y telemetría de referidos.
-  - **Dashboard Administrador (`dashboard/index.html` y `dashboard.html`):** Actualizado con el mismo lenguaje de diseño Obsidian Cyber Luxe. Tipografía fluid *Plus Jakarta Sans* y *JetBrains Mono*, escala responsiva estándar de la industria (desktop/móvil), touch targets >= 44px, contraste WCAG AAA (>10:1), y navegación de 4 pestañas sincronizada.
-- **Configuración de Servidores MCP:**
-  - Servidor **`stitch`** (`@_davideast/stitch-mcp`) registrado y autenticado en `~/.gemini/config/mcp_config.json` con API Key.
-- **Suite Financiera & CFO (Tab 4 en Dashboard):**
-  - Cuadro de mandos con 4 KPIs CFO (Inflow del mes, MRR/ARR, Cuentas por Cobrar con aging y Tasa de Cobranza).
-  - Conciliación multibancaria (Popular, BHD, Efectivo).
-  - Simulador predictivo de MRR/ARR.
-  - Libro Diario de Transacciones con registro rápido y exportación a CSV.
-- **Directorio de Clientes & Facturación Recurrente (Tab 1 en Dashboard):**
-  - Cliente Insignia: Pasión Pecuaria RD (`+1 829 396-1318`, `pasionpecuariard@gmail.com`).
-  - Semáforo de cobranza (Al Día, Por Vencer, Vencido) y generación de avisos de cobro por WhatsApp con 1 clic.
-  - Registro de pago rápido con avance automático de fecha de renovación (+1 mes) y asiento contable automático.
-- **Cotizador & Propuestas (Tab 2 en Dashboard & `/propuesta/`):**
-  - Arquitectura de URLs compactas (~180 chars) para evitar el error HTTP 414.
-  - Generador de rutas de marca limpias (`/propuestas/pasionpecuaria/`) y PDF descargable con un clic.
-- **Branch Principal:** `main`
+## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
+- **Nueva Identidad Visual 3D & Favicon Multi-resolución:**
+  - Activos actualizados en `assets/`: `logo_icon.png` (emblema 3D transparente extraído de `logo_v4.jpg`), `logo_stitch.png` y `logo.png` (logotipo horizontal procesado de `logo_v7.jpg`), y favicons universales `favicon.png` (192x192) y `favicon.ico` (16, 32, 48, 64px).
+  - Sincronizados en `index.html`, `dashboard/index.html`, `dashboard.html`, `propuesta/index.html`, `propuesta.html` y `propuestas/pasionpecuaria/index.html`.
+- **Limpieza de Badges Sobrecargados:**
+  - Se eliminaron las etiquetas intrusivas `ESTIMACIÓN INMEDIATA & AUDITORÍA EN VIVO` y `EN VIVO: 3 cupos disponibles este mes para Santo Domingo / Santiago`.
+- **Racionalización de Botones de WhatsApp (Estándar CRO / UX de la Industria):**
+  - Botón flotante reemplazado por un **Floating Action Button (FAB) circular estándar (56x56px)** con pulso verde y tooltip ergonómico. No invade contenido ni obstruye la lectura.
+  - Botones de cotización en barra de navegación y simulador redimensionados a proporciones profesionales de software moderno (Linear / Vercel style).
+- **Dashboard Administrador (`dashboard/index.html` y `dashboard.html`):**
+  - Estética completa Obsidian Cyber Luxe, autenticación PIN 3690, suite contable CFO y gestión de clientes activa.
+- **Cotizador & Propuestas (`/propuesta/` y `/propuestas/pasionpecuaria/`):**
+  - Motor compacto de propuestas sin error HTTP 414 y exportación a PDF nativa.
+- **Branch Principal:** `main` (sincronizado con remotos `origin` y `pages`).
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.
