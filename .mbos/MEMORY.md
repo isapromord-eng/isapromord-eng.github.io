@@ -423,3 +423,20 @@
   7. **Sincronización Bidireccional Automática:**
      - Al presionar `✓ Pagado` en la tarjeta de un cliente (Tab 1) o `✓ Confirmar Pago` en la matriz de cobranzas (Tab 4), el sistema automáticamente asienta la transacción en el libro contable de la agencia, actualiza el flujo de caja del mes y acredita los fondos a la cuenta bancaria seleccionada.
 - **Sincronización:** Módulos espejos `dashboard.html` y `propuesta.html` actualizados al 100%.
+
+## [2026-10-02] - Integración de Servidor MCP Stitch y Rediseño Web "Obsidian Cyber Luxe"
+- **Conexión & Configuración del Servidor MCP Google Stitch:**
+  - Registrado y autenticado `@_davideast/stitch-mcp` en `~/.gemini/config/mcp_config.json` con la API Key oficial proporcionada por el usuario.
+- **Rediseño Completo de Landing Page Principal (`index.html`):**
+  - Implementación del nuevo look diseñado en Stitch ("Obsidian Cyber Luxe", Dark Luxury Tech):
+    - Paleta: Obsidian (`#0a0e17`), azul cobalto (`#2563EB`), verde esmeralda (`#10B981`) y cian neón (`#00d2ff`).
+    - Tipografía de grado industria: *Plus Jakarta Sans* (jerarquía editorial) + *JetBrains Mono* (telemetría y badges).
+    - Descarga y almacenamiento local de activos de alta definición en `assets/` (`hero_bg.webp`, `pillar_speed.webp`, `pillar_maps.webp`, `pillar_ai.webp`, `logo_stitch.png`) para 0ms de latencia y eliminación de dependencias externas.
+- **Preservación & Fusión de Sistemas Críticos:**
+  - **Doble Motor de Estimación & Auditoría (`#simulador`):**
+    1. *Simulador Reactivo de 2 Clics:* Cálculo instantáneo de ROI por sector comercial (*Clínica*, *Firma Legal*, *Inmobiliaria*, *Comercio*) y zona dominicana (*Piantini/Naco*, *Bella Vista*, *Santiago*, *Punta Cana*).
+    2. *Escáner Real DNS en Vivo:* Motor asíncrono con **Cloudflare DoH** (`cloudflare-dns.com/dns-query`) que audita en vivo dominios dominicanos, latencia de red, tiempo de carga en 4G/5G y diagnóstico de pérdidas de clientes.
+  - **Canal de Contacto Oficial:** 100% de enlaces de WhatsApp configurados hacia el número verificado de la agencia: **`+1 (829) 455-4783`**.
+  - **Telemetría de Referidos (`?ref=...`):** Barra `#referralWelcomeBanner` adaptada a la estética Obsidian y script de tracking hacia Supabase conservado intacto.
+  - **SEO & Metadatos:** Metatags geográficos de Santo Domingo, etiquetas OpenGraph y gráfico Schema.org JSON-LD (`LocalBusiness`, `ProfessionalService`, `FAQPage`) preservados íntegramente.
+  - **Acceso Administrativo:** Enlace discreto a `/dashboard/` en el footer corporativo.
