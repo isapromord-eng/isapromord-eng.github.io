@@ -246,9 +246,9 @@
     }
     @media (min-width: 1024px) {
       .hero-video-container {
-        width: 60%;
-        mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.1) 12%, rgba(0, 0, 0, 0.75) 40%, #000 75%);
-        -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.1) 12%, rgba(0, 0, 0, 0.75) 40%, #000 75%);
+        width: 55%;
+        mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.08) 12%, rgba(0, 0, 0, 0.7) 42%, #000 78%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.08) 12%, rgba(0, 0, 0, 0.7) 42%, #000 78%);
       }
     }
     .hero-video-overlay {
@@ -256,7 +256,7 @@
       inset: 0;
       pointer-events: none;
       z-index: 1;
-      background: linear-gradient(to right, #0a0e17 0%, #0a0e17 28%, rgba(10, 14, 23, 0.88) 42%, rgba(10, 14, 23, 0.5) 60%, rgba(10, 14, 23, 0.15) 80%, rgba(10, 14, 23, 0.35) 100%),
+      background: linear-gradient(to right, #0a0e17 0%, #0a0e17 35%, rgba(10, 14, 23, 0.85) 50%, rgba(10, 14, 23, 0.4) 70%, rgba(10, 14, 23, 0.12) 85%, rgba(10, 14, 23, 0.3) 100%),
                   linear-gradient(to bottom, rgba(10, 14, 23, 0.85) 0%, transparent 18%, transparent 80%, #0a0e17 100%);
     }
     @media (max-width: 1023px) {
@@ -488,19 +488,19 @@
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
 
-      <!-- Main Headline & Subtitle (Left Justified - Fitted to Safe Zone) -->
-      <div class="max-w-lg lg:max-w-[480px] xl:max-w-[520px] text-left mb-8">
-        <h1 class="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold tracking-tight text-white leading-[1.16] mb-5">
+      <!-- Main Headline & Subtitle (Left Justified - Balanced Spacing) -->
+      <div class="max-w-2xl lg:max-w-[620px] text-left mb-8">
+        <h1 class="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold tracking-tight text-white leading-[1.28] sm:leading-[1.26] lg:leading-[1.24] mb-7">
           Multiplica tus clientes y haz que tu negocio aparezca en el <span class="bg-gradient-to-r from-[#00d2ff] via-[#4edea3] to-[#10b981] bg-clip-text text-transparent">primer lugar de búsqueda</span>.
         </h1>
-        <p class="text-sm sm:text-base text-slate-300 max-w-[440px] leading-relaxed">
+        <p class="text-sm sm:text-base lg:text-[17px] text-slate-300 max-w-xl leading-relaxed">
           Impulsamos tu crecimiento con posicionamiento SEO local estratégico, desarrollo de páginas web optimizadas, aplicaciones a la medida y sistemas CRM inteligentes.
         </p>
       </div>
 
-      <!-- Dual CTAs (Left Justified - Vertical Stack to Stay Inside Safe Zone) -->
-      <div class="flex flex-col items-start gap-3.5 w-full max-w-[460px]">
-        <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-white font-bold text-sm sm:text-base transition-all shadow-[0_0_35px_-5px_rgba(37,211,102,0.5)] hover:translate-y-[-2px] active:translate-y-0" 
+      <!-- Dual CTAs (Side-by-Side - Equal Size & Visual Weight) -->
+      <div class="flex flex-col sm:flex-row items-center justify-start gap-4">
+        <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl text-white font-bold text-sm sm:text-base transition-all shadow-[0_0_35px_-5px_rgba(37,211,102,0.5)] hover:translate-y-[-2px] active:translate-y-0 text-center shrink-0" 
            data-purpose="hero-primary-cta" 
            href="https://wa.me/18294554783?text=Hola%20ISAPromoRD,%20quiero%20cotizar%20mi%20web%20y%20recibir%20la%20Video-Auditor%C3%ADa%20Gratis" 
            rel="noopener noreferrer" 
@@ -509,7 +509,7 @@
           <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
           <span>Cotizar por WhatsApp → (Video-Auditoría Gratis)</span>
         </a>
-        <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#121824]/90 hover:bg-[#161f30] text-slate-300 border border-[#222f46] hover:border-[#00d2ff]/50 font-semibold text-xs sm:text-sm transition-all" 
+        <a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-[#121824]/90 hover:bg-[#161f30] text-slate-200 border border-[#222f46] hover:border-[#00d2ff]/50 font-bold text-sm sm:text-base transition-all text-center shrink-0" 
            data-purpose="hero-secondary-cta" 
            href="#simulador">
           <span>Calcular mis Clientes Potenciales ↓</span>

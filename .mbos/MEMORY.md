@@ -661,3 +661,20 @@
 - **Titular Principal (H1):** *"Multiplica tus clientes y haz que tu negocio aparezca en el primer lugar de búsqueda."* (acento degradado en `primer lugar de búsqueda`).
 - **Ajuste Espacial de Tipografía:** Para evitar cualquier solapamiento con el monitor del desarrollador en el video lateral, se delimitó el ancho máximo a `max-w-[480px] xl:max-w-[520px]` con escala tipográfica `text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px]` y leading `1.16`.
 - **Disposición Vertical de CTAs:** Botones de WhatsApp y Simulador organizados en stack vertical de 460px máx, manteniéndose 100% dentro del margen libre a la izquierda de la taza y el monitor.
+
+
+## [2026-10-02] - Corrección Tipográfica de Interlineado (Leading) y Unificación de Botones Side-by-Side
+
+### 1. Descompresión Tipográfica y Separación Vertical
+- **Problema Detectado por el Cliente:** Las líneas del H1 estaban aglomeradas y los descendentes de letras ("y", "g", "q") casi tocaban las letras de la línea inferior (`leading-[1.16]` insuficiente). Además, la distancia entre el H1 y el subtítulo era reducida.
+- **Solución:**
+  - Interlineado ampliado a `leading-[1.28] sm:leading-[1.26] lg:leading-[1.24]`, garantizando holgura visual sin colisiones entre renglones.
+  - Margen inferior del H1 ampliado a `mb-7`, otorgando un espacio limpio de respiración antes del subtítulo.
+  - Subtítulo ajustado con `leading-relaxed` y `text-sm sm:text-base lg:text-[17px]`.
+
+### 2. Estandarización de Botones (Mismo Tamaño y Side-by-Side)
+- **Problema:** Un botón aparecía notablemente más grande que el otro y se encontraban apilados verticalmente.
+- **Solución:**
+  - Se unificó el diseño de ambos botones con las mismas dimensiones: `px-6 py-4 rounded-xl font-bold text-sm sm:text-base`.
+  - Disposición colocada en fila horizontal uno al lado del otro (`flex flex-col sm:flex-row items-center gap-4`), con ajuste adaptable a pantalla completa en teléfonos móviles pequeños.
+  - Contenedor ampliado a `max-w-2xl lg:max-w-[620px]` y máscara del video desplazada al 55% en escritorio para permitir que ambos botones descansen perfectamente sobre el fondo oscuro sin interferir con la pantalla del desarrollador.
