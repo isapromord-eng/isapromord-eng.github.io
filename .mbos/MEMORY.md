@@ -678,3 +678,16 @@
   - Se unificó el diseño de ambos botones con las mismas dimensiones: `px-6 py-4 rounded-xl font-bold text-sm sm:text-base`.
   - Disposición colocada en fila horizontal uno al lado del otro (`flex flex-col sm:flex-row items-center gap-4`), con ajuste adaptable a pantalla completa en teléfonos móviles pequeños.
   - Contenedor ampliado a `max-w-2xl lg:max-w-[620px]` y máscara del video desplazada al 55% en escritorio para permitir que ambos botones descansen perfectamente sobre el fondo oscuro sin interferir con la pantalla del desarrollador.
+
+
+## [2026-10-03] - Refinamiento de Botones (Stack Vertical Simétrico & Estilo Cian Eléctrico) y Remoción de Punto en H1
+
+### 1. Ajustes en Botones y Jerarquía de Acción
+- **Disposición Vertical Idéntica:** El cliente solicitó volver a la disposición vertical ("uno arriba y el otro abajo"), pero con la exigencia estricta de que ambos botones tengan **exactamente el mismo tamaño** (`w-full max-w-[360px] sm:max-w-[390px]`, `px-6 py-4 rounded-xl`, `font-bold text-sm sm:text-base`).
+- **Simplificación del Botón Primario:** Se removió "Cotizar por WhatsApp" para dejar exclusivamente el texto de alto valor: `Video-Auditoría Gratis →` acompañado del icono oficial de WhatsApp.
+- **Solución de Contraste para el Botón Secundario:** El fondo oscuro original (`#121824`) se perdía sobre el fondo obsidiana `#0a0e17`. Se transformó a **Electric Cyan Glass**:
+  - `bg-[#00d2ff]/10`, `text-[#00d2ff]`, `border border-[#00d2ff]/45`, `shadow-[0_0_20px_-3px_rgba(0,210,255,0.25)]` y `backdrop-blur-md`.
+  - Logra un contraste de alta gama, perfectamente visible, que complementa al botón verde esmeralda.
+
+### 2. Puntuación en H1
+- Se eliminó el punto final residual tras la palabra `búsqueda` en el H1.

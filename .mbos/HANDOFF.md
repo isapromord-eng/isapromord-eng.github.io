@@ -1,7 +1,7 @@
 # 🤝 HANDOFF.md — Estado Técnico de IsaPromo RD (isapromord.com)
 
 > **Nodo MBOS:** `isapromord.com`  
-> **Última Actualización:** 2026-10-02  
+> **Última Actualización:** 2026-10-03  
 > **Repositorio Oficial:** [https://github.com/isapromord/isapromord.com](https://github.com/isapromord/isapromord.com)  
 > **Repositorio Root Pages:** [https://github.com/isapromord/isapromord.github.io](https://github.com/isapromord/isapromord.github.io)  
 > **URLs EN VIVO Y FUNCIONALES ($0 Costo):**  
@@ -15,16 +15,18 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
-- **Interlineado y Respiración Tipográfica Hero:**
-  - H1 con leading ampliado a `leading-[1.28] sm:leading-[1.26] lg:leading-[1.24]` eliminando cualquier solapamiento de letras.
-  - Separación vertical generosa con `mb-7` entre H1 y subtítulo.
-- **Botones Gemelos Side-by-Side:**
-  - Mismo tamaño, mismo relleno (`px-6 py-4 rounded-xl`), misma tipografía (`font-bold text-sm sm:text-base`) y misma altura.
-  - Posicionados en horizontal uno al lado del otro (`flex flex-col sm:flex-row items-center gap-4`).
+- **Botones Gemelos Verticales (Mismo Tamaño & Alto Contraste):**
+  - Botones dispuestos uno encima del otro en un contenedor delimitado (`w-full max-w-[360px] sm:max-w-[390px]`), compartiendo exactamente las mismas dimensiones (`px-6 py-4 rounded-xl`, misma altura y misma tipografía `font-bold text-sm sm:text-base`).
+  - Botón Primario: `Video-Auditoría Gratis →` con icono de WhatsApp sobre degradado esmeralda.
+  - Botón Secundario: `Calcular mis Clientes Potenciales ↓` en **Electric Cyan Glass** (`bg-[#00d2ff]/10`, `text-[#00d2ff]`, `border-[#00d2ff]/45` y brillo cian neón), resolviendo la falta de visibilidad sobre el fondo oscuro.
+- **Puntuación H1:**
+  - Punto final eliminado tras `búsqueda`.
+- **Interlineado y Respiración Tipográfica:**
+  - H1 con `leading-[1.28]` y separación `mb-7` respecto al subtítulo.
 - **Navbar y Logotipo con Máxima Visibilidad:**
   - Altura del navbar en `h-24 sm:h-28` (96-112px).
   - Emblema 3D aumentado a 62px con resplandor cyan.
-- **Video Animado Cinemático con Máscara 55%:**
+- **Video Animado Cinemático en Producción:**
   - Archivos WebM (1.14 MB) y MP4 (1.49 MB) con faststart y poster WebP de 11 KB.
 - **Pipeline GitHub Pages Ultrarrápido:**
   - Despliegues continuos directamente a la rama `gh-pages` con build limpio en segundos.
