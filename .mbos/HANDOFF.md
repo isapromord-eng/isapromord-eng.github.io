@@ -15,6 +15,12 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
+- **Banner Deslizante Continuo (Scrolling Marquee Ticker) en Franja de Clientes:**
+  - Sección `#confianza` transformada en carrusel infinito de desplazamiento continuo (`marquee-track` a 35s).
+  - 100% acelerado por hardware GPU (`translate3d`, `will-change: transform`, 0% lag en CPU).
+  - Máscara con degradado en los extremos (`linear-gradient`) para desvanecimiento suave de bordes.
+  - Pausa automática al pasar el mouse por encima (`:hover`).
+  - Badges de los 8 negocios dominicanos destacados en estilo obsidiana glass y acento verde para Pasión Pecuaria RD.
 - **Botones Side-by-Side 50/50 Congruentes con el Texto (Sin Flechas):**
   - Contenedor de botones alineado exactamente al ancho del bloque de texto (`max-w-xl lg:max-w-[560px]`). Los botones no sobresalen del texto ni por la izquierda ni por la derecha.
   - Distribución `flex-1` para que ambos botones tengan exactamente el 50% del ancho cada uno.

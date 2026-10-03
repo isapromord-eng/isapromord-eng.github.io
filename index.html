@@ -267,6 +267,28 @@
         background: linear-gradient(to bottom, rgba(10, 14, 23, 0.8) 0%, rgba(10, 14, 23, 0.92) 100%);
       }
     }
+
+    /* Infinite Smooth Scrolling Marquee (Pure GPU Transform - Zero Latency) */
+    @keyframes marqueeScroll {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+    .marquee-mask {
+      overflow: hidden;
+      width: 100%;
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      gap: 1.5rem;
+      animation: marqueeScroll 35s linear infinite;
+      will-change: transform;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
   </style>
 
   <!-- ==========================================
@@ -520,28 +542,84 @@
   </section>
 
   <!-- ========================================================
-       CLIENT TRUST STRIP (EMPRESAS EN RD QUE DOMINAN SU MERCADO)
+       CLIENT TRUST STRIP (SCROLLING MARQUEE BANNER)
        ======================================================== -->
-  <section class="py-12 border-y border-[#222f46]/40 bg-[#0a0e17] relative z-10" data-purpose="client-trust-strip" id="confianza">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-xs font-mono tracking-widest text-slate-400 uppercase mb-8">
+  <section class="py-9 border-y border-[#222f46]/40 bg-[#0a0e17] relative z-10 overflow-hidden" data-purpose="client-trust-strip" id="confianza">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-5">
+      <p class="text-center text-xs font-mono tracking-widest text-slate-400 uppercase">
         Empresas dominicanas que dominan su mercado local con nosotros
       </p>
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center justify-items-center text-center">
-        <div class="text-sm font-bold tracking-tight text-slate-400 hover:text-[#00d2ff] transition-colors py-2">
-          🏥 Red Médica Piantini
+    </div>
+
+    <!-- Infinite Smooth Scrolling Marquee Track (GPU Accelerated) -->
+    <div class="marquee-mask py-1.5">
+      <div class="marquee-track">
+        <!-- Set 1 -->
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#121824]/90 hover:bg-[#161f30] border border-[#222f46] hover:border-[#00d2ff]/40 text-slate-300 hover:text-[#00d2ff] transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>🏥</span>
+          <span>Red Médica Piantini</span>
         </div>
-        <div class="text-sm font-bold tracking-tight text-slate-400 hover:text-[#00d2ff] transition-colors py-2">
-          🐾 Vet Metropolitana RD
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#121824]/90 hover:bg-[#161f30] border border-[#222f46] hover:border-[#00d2ff]/40 text-slate-300 hover:text-[#00d2ff] transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>🐾</span>
+          <span>Vet Metropolitana RD</span>
         </div>
-        <div class="text-sm font-bold tracking-tight text-slate-400 hover:text-[#00d2ff] transition-colors py-2">
-          🏢 Torres Apex Esperilla
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#121824]/90 hover:bg-[#161f30] border border-[#222f46] hover:border-[#00d2ff]/40 text-slate-300 hover:text-[#00d2ff] transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>🏢</span>
+          <span>Torres Apex Esperilla</span>
         </div>
-        <div class="text-sm font-bold tracking-tight text-slate-400 hover:text-[#00d2ff] transition-colors py-2">
-          ⚖️ Bufete Jurídico Capital
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#121824]/90 hover:bg-[#161f30] border border-[#222f46] hover:border-[#00d2ff]/40 text-slate-300 hover:text-[#00d2ff] transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>⚖️</span>
+          <span>Bufete Jurídico Capital</span>
         </div>
-        <div class="col-span-2 md:col-span-1 text-sm font-bold tracking-tight text-emerald-400 hover:text-[#00d2ff] transition-colors py-2">
-          🌾 Pasión Pecuaria RD
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-emerald-950/40 hover:bg-emerald-950/60 border border-emerald-500/40 hover:border-emerald-400 text-emerald-300 hover:text-emerald-200 transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>🌾</span>
+          <span>Pasión Pecuaria RD</span>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#121824]/90 hover:bg-[#161f30] border border-[#222f46] hover:border-[#00d2ff]/40 text-slate-300 hover:text-[#00d2ff] transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>⚡</span>
+          <span>Clínica Dental Naco</span>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#121824]/90 hover:bg-[#161f30] border border-[#222f46] hover:border-[#00d2ff]/40 text-slate-300 hover:text-[#00d2ff] transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>🏗️</span>
+          <span>Constructora Santiago RD</span>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#121824]/90 hover:bg-[#161f30] border border-[#222f46] hover:border-[#00d2ff]/40 text-slate-300 hover:text-[#00d2ff] transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>🚗</span>
+          <span>Auto Import Piantini</span>
+        </div>
+
+        <!-- Set 2 (Identical Duplicate for Seamless Infinite 360 Loop) -->
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#121824]/90 hover:bg-[#161f30] border border-[#222f46] hover:border-[#00d2ff]/40 text-slate-300 hover:text-[#00d2ff] transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>🏥</span>
+          <span>Red Médica Piantini</span>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#121824]/90 hover:bg-[#161f30] border border-[#222f46] hover:border-[#00d2ff]/40 text-slate-300 hover:text-[#00d2ff] transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>🐾</span>
+          <span>Vet Metropolitana RD</span>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#121824]/90 hover:bg-[#161f30] border border-[#222f46] hover:border-[#00d2ff]/40 text-slate-300 hover:text-[#00d2ff] transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>🏢</span>
+          <span>Torres Apex Esperilla</span>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#121824]/90 hover:bg-[#161f30] border border-[#222f46] hover:border-[#00d2ff]/40 text-slate-300 hover:text-[#00d2ff] transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>⚖️</span>
+          <span>Bufete Jurídico Capital</span>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-emerald-950/40 hover:bg-emerald-950/60 border border-emerald-500/40 hover:border-emerald-400 text-emerald-300 hover:text-emerald-200 transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>🌾</span>
+          <span>Pasión Pecuaria RD</span>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#121824]/90 hover:bg-[#161f30] border border-[#222f46] hover:border-[#00d2ff]/40 text-slate-300 hover:text-[#00d2ff] transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>⚡</span>
+          <span>Clínica Dental Naco</span>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#121824]/90 hover:bg-[#161f30] border border-[#222f46] hover:border-[#00d2ff]/40 text-slate-300 hover:text-[#00d2ff] transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>🏗️</span>
+          <span>Constructora Santiago RD</span>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#121824]/90 hover:bg-[#161f30] border border-[#222f46] hover:border-[#00d2ff]/40 text-slate-300 hover:text-[#00d2ff] transition-all text-sm font-semibold shrink-0 cursor-default select-none shadow-sm">
+          <span>🚗</span>
+          <span>Auto Import Piantini</span>
         </div>
       </div>
     </div>

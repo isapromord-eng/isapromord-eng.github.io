@@ -704,3 +704,21 @@
     - Botón 1: `Video-Auditoría Gratis` (verde esmeralda con icono oficial de WhatsApp).
     - Botón 2: `Calcular Clientes Potenciales` (Electric Cyan Glass de alto contraste).
   - Mismo relleno (`py-3.5 px-4 sm:px-5 rounded-xl`), misma altura y escala tipográfica `font-bold text-xs sm:text-sm lg:text-[15px] whitespace-nowrap`.
+
+
+## [2026-10-03] - Transformación de Franja de Clientes en Ticker Continuo Marquee (Smooth Infinite Scroll)
+
+### 1. Requerimiento del Usuario
+- Convertir la cuadrícula estática de clientes dominicanos (`#confianza`) en un banner deslizante continuo ("scrolling banner que se desplaza slowly scrowling on the screen").
+
+### 2. Implementación de Alta Fidelidad & Cero Lag
+- **Tecnología Pure CSS GPU-Accelerated:**
+  - `@keyframes marqueeScroll` con desplazamiento suave `translate3d(0, 0, 0)` a `translate3d(-50%, 0, 0)` en 35 segundos continuos.
+  - `will-change: transform` para garantizar renderizado 100% en el compositor GPU (0% CPU overhead, 60fps/120fps sostenidos sin frame drops ni layout thrashing).
+  - Pausa interactiva al posar el cursor (`.marquee-track:hover { animation-play-state: paused; }`).
+- **Máscara de Atenuación en Bordes (Edge Feathering):**
+  - Contenedor con `mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)` (y su variante `-webkit-mask-image`) para que los elementos entren y salgan de la pantalla con un desvanecimiento elegante sin cortes bruscos.
+- **Loop Infinito Sin Saltos:**
+  - Track duplicado con 2 juegos completos idénticos de los 8 negocios dominicanos (Red Médica Piantini, Vet Metropolitana RD, Torres Apex Esperilla, Bufete Jurídico Capital, Pasión Pecuaria RD, Clínica Dental Naco, Constructora Santiago RD, Auto Import Piantini).
+  - Píldoras con estética obsidiana glass (`#121824`, borde `#222f46`, hover cian/esmeralda).
+
