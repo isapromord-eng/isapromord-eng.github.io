@@ -467,3 +467,14 @@
     - Sincronización de estados activos/inactivos en las 4 pestañas: Directorio de Clientes, Cotizador & Propuestas, Telemetría de Referidos y Suite Contable CFO.
   - **Preservación Total de Lógica de Negocio:**
     - Se mantuvieron al 100% las funciones JavaScript operativas (PIN 3690, alta y edición de clientes, cotizador compacto, libros contables, telemetría y exportación CSV).
+
+## [2026-10-02] - Resolución de Bloqueo en GitHub Pages: Purga de Entornos Fantasma y Activación Exitosa de Obsidian Cyber Luxe
+- **Causa Raíz Diagnosticada:**
+  - El despliegue de GitHub Pages se encontraba bloqueado en los servidores de GitHub con el error: `HttpError: Deployment request failed due to in progress deployment. Please cancel 0d601eff... first or wait for it to complete`.
+  - El entorno `github-pages` en ambos repositorios (`isapromord.com` y `isapromord.github.io`) retenía en caché locks de concurrencia no liberados por los runners.
+- **Acción Correctiva de Ingeniería:**
+  - Se eliminaron y purgaron los entornos `github-pages` en ambas APIs de GitHub (`gh api -X DELETE repos/.../environments/github-pages`), forzando una reconstrucción atómica limpia.
+  - Se disparó la compilación `37085549876`, la cual concluyó con éxito (`build in 5s`, `deploy in 9s`, código de salida 0).
+- **Verificación en Producción:**
+  - Verificado vía `curl` con HTTP 200 y `Last-Modified: Sat, 03 Oct 2026 01:18:09 GMT`.
+  - El Dashboard en `https://isapromord.github.io/dashboard/` y `https://isapromord.github.io/dashboard.html` está 100% activo en vivo con la estética completa **Obsidian Cyber Luxe** (fondo `#0a0e17`, tarjetas `#121824`, acentos `#00d2ff`, tipografías *Plus Jakarta Sans* y *JetBrains Mono*).
