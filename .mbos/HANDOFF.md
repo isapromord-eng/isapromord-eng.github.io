@@ -15,13 +15,17 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
+- **Nuevo Copywriting del Hero (Estrategia B2B de Crecimiento & Liderazgo):**
+  - **H1:** *"Multiplica tus clientes y lidera la primera posición en tu zona."*
+  - **Subtítulo:** *"Impulsamos tu negocio con posicionamiento SEO local estratégico, páginas web de alto rendimiento, aplicaciones y sistemas CRM a la medida."*
+  - Metadatos Open Graph y Twitter sincronizados.
 - **Logotipo Auténtico 100% Fiel:**
   - Emblema 3D nítido, letras `promo` en blanco puro anti-aliased y acrónimos `ISA` / `RD` en naranja oficial sobre fondo transparente (`assets/logo_stitch.png` y `assets/logo.png`).
 - **Limpieza de Tags & Badges Redundantes:**
-  - Se eliminaron todos los chips decorativos superfluos (chip de país en Hero, métricas 0.4s/Maps/NCF, tag de comparativa, tags de los 4 pilares, tag de testimonios, tag caso insignia, tag modular y tags de cotización y video-auditoría).
+  - Eliminados todos los chips decorativos superfluos del Hero, Pilares, Testimonios, Cotizador y Auditoría.
 - **Desacople de Oferta DGII / NCF:**
-  - Se removieron todas las menciones a Comprobante Fiscal NCF / DGII del sitio público, transformando la garantía en una de rendimiento tecnológico y satisfacción.
+  - Garantía de Satisfacción y Rendimiento Técnico establecida; menciones fiscales públicas retiradas.
 - **Ocultación de Enlaces de Rastreo (Crawlers) en Footer:**
-  - Enlaces públicos `<a href="sitemap.xml">` y `<a href="robots.txt">` removidos del footer; archivos físicos preservados intactos en el servidor para motores de búsqueda.
+  - `sitemap.xml` y `robots.txt` retirados del menú visual del footer; conservados en disco para Googlebot.
 - **Branch Principal:** `main` (sincronizado con remotos `origin` y `pages`).
 - **Hosting Activo:** GitHub Pages CDN Anycast Global con SSL automático.

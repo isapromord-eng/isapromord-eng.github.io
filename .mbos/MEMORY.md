@@ -558,3 +558,13 @@
 ### 4. Ocultación de Enlaces de Rastreo (Crawlers) en Footer Público
 - Se eliminaron los hipervínculos visuales `<a href="sitemap.xml">` y `<a href="robots.txt">` del footer público para no exponer enlaces técnicos al visitante.
 - Los archivos físicos `sitemap.xml` y `robots.txt` permanecen activos e intactos en la raíz del servidor para consumo directo de Googlebot, Bingbot y demás motores de búsqueda.
+
+
+## [2026-10-02] - Refinamiento Profesional de Propuesta de Valor (Hero Headline & Subtitle)
+
+### 1. Evolución del Copywriting Central
+- **Problema previo:** El titular anterior ("Multiplica tus llamadas locales y domina el #1 en Google Maps en RD. Desarrollamos webs en 0.4s...") se centraba excesivamente en métricas técnicas ("0.4s", "llamadas") limitando la percepción de la empresa.
+- **Nuevo Posicionamiento B2B de Alto Nivel:**
+  - **H1:** *"Multiplica tus clientes y lidera la primera posición en tu zona."* (con acento en gradiente cyan-esmeralda en `primera posición`).
+  - **Subtítulo:** *"Impulsamos tu negocio con posicionamiento SEO local estratégico, páginas web de alto rendimiento, aplicaciones y sistemas CRM a la medida."*
+- **Alineación Omnicanal:** Sincronizado en `og:title`, `og:description`, `twitter:title` y `twitter:description` para consistencia total en redes sociales y buscadores.
