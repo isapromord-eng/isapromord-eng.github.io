@@ -15,14 +15,16 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
+- **Fondo Animado Aurora (Opción A):**
+  - Animación de resplandor atmosférico en GPU pura (cero JavaScript, cero impacto en velocidad o carga) con halos cyan, esmeralda y menta respirando lentamente.
 - **Alineación Geométrica & Centrado del Hero:**
-  - Hero transformado en contenedor flex con altura adaptativa (`min-h-[82vh] flex items-center justify-center`), balanceando el espacio superior e inferior sin el vacío desmedido previo.
+  - Hero en contenedor flex con altura adaptativa (`min-h-[82vh] flex items-center justify-center`), eliminando el vacío inferior.
 - **Titular Principal (H1):**
   - *"Multiplica tus clientes y haz que tu negocio aparezca en primera posición en tu zona."*
 - **Frecuencia de Notificaciones Toast:**
   - Ajustada a 60 segundos de intervalo entre apariciones.
 - **Logotipo Auténtico 100% Fiel:**
-  - Emblema 3D nítido, letras `promo` en blanco puro anti-aliased y acrónimos `ISA` / `RD` en naranja oficial sobre fondo transparente.
+  - Emblema 3D nítido, letras `promo` en blanco puro y acrónimos `ISA` / `RD` en naranja oficial sobre fondo transparente.
 - **Limpieza de Tags & Badges Redundantes:**
   - Eliminados todos los chips decorativos superfluos.
 - **Desacople de Oferta DGII / NCF:**

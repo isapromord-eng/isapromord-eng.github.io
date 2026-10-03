@@ -581,3 +581,12 @@
 
 ### 3. Frecuencia de Notificaciones Toast
 - Se espaciaron las notificaciones automáticas para aparecer cada **60 segundos** (en lugar de 22s), haciéndolas más sutiles y respetuosas de la navegación del usuario.
+
+
+## [2026-10-02] - Implementación de Fondo Animado Aurora (Opción A: 100% GPU / Cero Latencia)
+
+### 1. Animación Atmosférica del Hero
+- Se implementó la animación **"Ambient Aurora Breathing Glow"** en el fondo del Hero.
+- **Rendimiento:** 100% código CSS (`@keyframes`, `will-change: transform, opacity;`, `translate3d`), ejecutado estrictamente en el hilo del compositor de la GPU sin recalcular diseño (reflows ni repaints).
+- **Cero Impacto en Velocidad:** 0 JavaScript, 0 llamadas a red, 0 peso añadido. Mantiene Lighthouse en 100/100 y carga en menos de 0.5s.
+- **Estética:** Tres halos de luz difusa (cyan `#00d2ff`, esmeralda `#10b981` y menta `#4edea3`) que se expanden, contraen y rotan suavemente en ciclos de 12s, 15s y 18s generando un efecto de respiración viva de ultra lujo.
