@@ -804,6 +804,17 @@
 - **Rendimiento:** Desplazamiento lineal a 32s, 100% acelerado por hardware GPU (0% CPU), pausa interactiva al cursor.
 
 
+## [2026-10-03] - Selección Oficial Definitiva: Opción 2 (Marcas Tipográficas de Lujo)
+
+### 1. Decisión del Usuario
+- Tras evaluar comparativamente las 3 opciones de diseño, el usuario confirmó: *"me quedo con opcion 2"*.
+
+### 2. Estado Activo en Producción
+- **Marcas Tipográficas Corporativas (Wordmarks):** Se restableció y fijó la Opción 2 con logotipos tipográficos individuales para cada una de las 9 empresas oficiales (`PASIÓN PECUARIA RD`, `TORRE LA ESPERILLA`, `synk.rd`, `TRENDYRD`, `granja tracker`, `nextCRM.rd`, `miCondoRD`, `ISATRANSLOGIC`, `HIGHLAND BRIDGE CO.`).
+- **Acabado Visual:** Plata satinado al 55% de opacidad base, iluminación al 100% en blanco nítido al hover, micro-iconos distintivos y espaciado de 60px (`gap: 3.75rem`) a 42s continuos.
+
+
+
 
 
 

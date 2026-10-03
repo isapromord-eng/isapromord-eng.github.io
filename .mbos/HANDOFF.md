@@ -15,11 +15,11 @@
 ---
 
 ## 1. RESUMEN EJECUTIVO & ÚLTIMOS CAMBIOS
-- **Despliegue de Ticker Tape Continuo tipo Terminal Financiera (Opción 3):**
-  - Cinta compacta y técnica (`py-5`, fondo oscuro profundo `#070b12` con bordes finos `#222f46`).
-  - Encabezado con micro-LED pulsante y texto `RED DE INFRAESTRUCTURA DIGITAL // CLIENTES EN PRODUCCIÓN`.
-  - Cada cliente identificado como nodo activo con LED luminoso, tipografía monospace técnica en mayúsculas (`tracking-[0.18em]`) y separadores de terminal `//`.
-  - Desplazamiento fluido a 32s (100% acelerado por GPU, 0% CPU overhead, pausa al cursor).
+- **Selección Oficial Definitiva: Marcas Tipográficas Corporativas (Opción 2 - Estilo Stripe / Apple):**
+  - Cero cajas, fondos ni apariencia de botones.
+  - Cada una de las 9 empresas cuenta con su propia identidad tipográfica personalizada (serif de lujo para bienes raíces, tech grotesque para SaaS, bio-tech monospace, editorial boutique para lifestyle, industrial para logística).
+  - Tono plata platino satinado al 55% de opacidad base, floreciendo a 100% blanco nítido con color de marca al hover.
+  - Espaciado amplio de 60px (`gap: 3.75rem`) con cadencia continua a 42s (100% acelerado por GPU, 0% CPU, pausa interactiva).
 - **Cartera Oficial de Clientes Reales en Ticker Marquee & Testimonios:**
   - Los 9 clientes reales oficiales:
     1. `Pasión Pecuaria RD`
